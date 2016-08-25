@@ -1,0 +1,250 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="site.master.cs" Inherits="PL.site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="libraries/assets/ico/apple-touch-icon-144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="libraries/assets/ico/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="libraries/assets/ico/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="libraries/ico/apple-touch-icon-57-precomposed.png" />
+    <link rel="shortcut icon" href="libraries/assets/ico/favicon.png" />
+
+    <link href="libraries/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <link href="libraries/assets/css/style.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+
+    <script src='<%= Page.ResolveUrl("~/libraries/assets/bootstrap/js/bootstrap.min.js") %>'></script>
+    <!-- Just for debugging purposes. -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- include pace script for automatic web page progress bar  -->
+    <script>
+        paceOptions = {
+            elements: true
+        };
+    </script>
+    <script src='<%= Page.ResolveUrl("~/libraries/assets/js/pace.min.js") %>'></script>
+
+    <style>
+        .themeControll {
+            background: #2d3e50;
+            height: auto;
+            width: 170px;
+            position: fixed;
+            left: 0;
+            padding: 20px 0;
+            top: 100px;
+            z-index: 999999;
+            -webkit-transform: translateX(0);
+            -moz-transform: translateX(0);
+            -o-transform: translateX(0);
+            -ms-transform: translateX(0);
+            transform: translateX(0);
+            opacity: 1;
+            -ms-filter: none;
+            filter: none;
+            -webkit-transition: opacity .5s linear, -webkit-transform .7s cubic-bezier(.56, .48, 0, .99);
+            -moz-transition: opacity .5s linear, -moz-transform .7s cubic-bezier(.56, .48, 0, .99);
+            -o-transition: opacity .5s linear, -o-transform .7s cubic-bezier(.56, .48, 0, .99);
+            -ms-transition: opacity .5s linear, -ms-transform .7s cubic-bezier(.56, .48, 0, .99);
+            transition: opacity .5s linear, transform .7s cubic-bezier(.56, .48, 0, .99);
+        }
+
+            .themeControll.active {
+                display: block;
+                -webkit-transform: translateX(-170px);
+                -moz-transform: translateX(-170px);
+                -o-transform: translateX(-170px);
+                -ms-transform: translateX(-170px);
+                transform: translateX(-170px);
+                -webkit-transition: opacity .5s linear, -webkit-transform .7s cubic-bezier(.56, .48, 0, .99);
+                -moz-transition: opacity .5s linear, -moz-transform .7s cubic-bezier(.56, .48, 0, .99);
+                -o-transition: opacity .5s linear, -o-transform .7s cubic-bezier(.56, .48, 0, .99);
+                -ms-transition: opacity .5s linear, -ms-transform .7s cubic-bezier(.56, .48, 0, .99);
+                transition: opacity .5s linear, transform .7s cubic-bezier(.56, .48, 0, .99);
+            }
+
+            .themeControll a {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 0;
+                clear: both;
+                color: #fff;
+                display: block;
+                height: auto;
+                line-height: 16px;
+                margin-bottom: 5px;
+                padding-bottom: 8px;
+                text-transform: capitalize;
+                width: auto;
+                font-family: Roboto Condensed, Helvetica Neue, Helvetica, sans-serif;
+            }
+
+        .tbtn {
+            background: #2D3E50;
+            color: #FFFFFF !important;
+            font-size: 30px;
+            height: auto;
+            padding: 10px;
+            position: absolute;
+            right: -40px;
+            top: 0;
+            width: 40px;
+            cursor: pointer;
+        }
+
+        .linkinner {
+            display: block;
+            height: 400px;
+        }
+
+        .linkScroll .scroller-bar {
+            width: 17px;
+        }
+
+        .linkScroll .scroller-bar, .linkScroll .scroller-track {
+            background: #1d2e40 !important;
+            border-color: #1d2e40 !important;
+        }
+
+        @media (max-width: 780px) {
+            .themeControll {
+                display: none;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <form runat="server" id="form1">
+        <div id="wrapper">
+
+            <div class="header">
+                <nav class="navbar navbar-site navbar-default" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span><span
+                                    class="icon-bar"></span><span class="icon-bar"></span>
+                            </button>
+
+                            <asp:HyperLink ID="hypAna" CssClass="navbar-brand logo logo-title" runat="server" NavigateUrl="~/default.aspx"><span class="logo-icon"><i class="icon icon-docs ln-shadow-logo shape-0"></i></span>
+                                    BOOT<span>CLASSIFIED </span></asp:HyperLink>
+                        </div>
+                        <div class="navbar-collapse collapse">
+
+                            <ul class="nav navbar-nav navbar-right" runat="server" id="userPanel" visible="false">
+                                <li>
+
+                                    <asp:HyperLink ID="HyperLink8" NavigateUrl="#" runat="server">
+                                        <i class="fa fa-plus-circle"></i>
+
+                                        <span class="label label-danger t" runat="server" id="span3"></span>
+
+                                    </asp:HyperLink>
+
+
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink6" NavigateUrl="~/profil/profil.aspx?control=bildirimler" runat="server">
+                                        <i class="fa fa-bell"></i>
+                                        <span class="label label-danger t" runat="server" id="span1">0</span>
+
+                                    </asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink7" NavigateUrl="~/profil/profil.aspx?control=gelen-kutusu" runat="server">
+                                        <i class="fa fa-envelope"></i>
+                                        <span class="label label-danger t" runat="server" id="span2">0</span>
+
+                                    </asp:HyperLink>
+                                </li>
+
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span>
+                                        <asp:Label Text="text" runat="server" ID="lblUserName" /></span> <i class="icon-user fa"></i><i
+                                            class=" icon-down-open-big fa"></i></a>
+                                    <ul class="dropdown-menu user-menu">
+                                        <li>
+                                            <asp:HyperLink ID="HyperLink2" NavigateUrl="~/profil/profil.aspx?control=anasayfa" runat="server"><i class="icon-home"></i>Benim Sayfam</asp:HyperLink>
+                                        </li>
+                                        <li>
+                                            <asp:HyperLink ID="HyperLink3" NavigateUrl="~/profil/profil.aspx?control=ilan" runat="server"><i class="icon-th-thumb"></i> İlanlar </asp:HyperLink></li>
+                                        <li>
+                                            <asp:HyperLink ID="HyperLink5" NavigateUrl="~/profil/profil.aspx?control=favori-ilan" runat="server"><i class="icon-heart"></i>Favoriler </asp:HyperLink>
+                                        </li>
+                                        <li>
+                                            <asp:HyperLink ID="HyperLink4" NavigateUrl="~/profil/profil.aspx?control=arsiv" runat="server"><i class="icon-folder-close"></i>Arşivim
+                                            </asp:HyperLink></li>
+                                        <li>
+                                            <asp:LinkButton ID="LinkButton1" runat="server" OnClick="Cikis_Click"><i class="glyphicon glyphicon-off"></i>Çıkış</asp:LinkButton></li>
+                                    </ul>
+                                </li>
+                                <li class="postadd">
+                                    <asp:HyperLink ID="HyperLink1" CssClass="btn btn-block  btn-border btn-post btn-danger" Style="font-size: 14px;" runat="server" NavigateUrl="~/yeni-ilan.aspx"><span class="ion ion-plus-round" style="font-size: 16px; padding-right: 5px;"></span> Ücretsiz İlan Ver</asp:HyperLink>
+                                </li>
+                            </ul>
+
+                            <ul class="nav navbar-nav navbar-right" runat="server" id="visitorPanel">
+                                <li>
+                                    <asp:HyperLink ID="hypGiris" runat="server" NavigateUrl="~/giris-yap.aspx"><i class="fa fa-sign-in"></i> Giriş Yap</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="hypUyeOl" runat="server" NavigateUrl="~/uye-ol.aspx"><i class="fa fa-cube"></i> Üye ol</asp:HyperLink></li>
+                                <li class="postadd">
+                                    <asp:HyperLink ID="hypIlanVer" CssClass="btn btn-block  btn-border btn-post btn-danger" Style="font-size: 14px;" runat="server" NavigateUrl="~/yeni-ilan.aspx"><span class="ion ion-plus-round" style="font-size: 16px; padding-right: 5px;"></span> Ücretsiz İlan Ver</asp:HyperLink>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </div>
+            <!-- /.header -->
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <!-- .footer -->
+            <div class="footer" id="footer">
+                <div class="container">
+                    <ul class=" pull-left navbar-link footer-nav">
+                        <li><a href="index.html">Home </a><a href="about-us.html">About us </a><a href="#">Terms and
+                    Conditions </a><a href="#">Privacy Policy </a><a href="contact.html">Contact us </a><a
+                        href="faq.html">FAQ </a>
+                    </ul>
+                    <ul class=" pull-right navbar-link footer-nav">
+                        <li>&copy; 2015 BootClassified</li>
+                    </ul>
+                </div>
+
+            </div>
+            <!-- /.footer -->
+        </div>
+        <!-- /.wrapper -->
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/js/jquery.matchHeight-min.js") %>'></script>
+        <!-- include jquery list shorting plugin plugin  -->
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/js/hideMaxListItem.js") %>'></script>
+        <!-- include jquery.fs plugin for custom scroller and selecter  -->
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/plugins/jquery.fs.scroller/jquery.fs.scroller.js") %>'></script>
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/plugins/jquery.fs.selecter/jquery.fs.selecter.js") %>'></script>
+        <!-- include custom script for site  -->
+        <script src='<%= Page.ResolveUrl("~/libraries/assets/js/script.js") %>'></script>
+    </form>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57b81916bbb41903"></script>
+    <%--burada paylaşım var--%>
+</body>
+
+</html>
