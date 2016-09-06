@@ -37,17 +37,17 @@ namespace PL.management.anaYonetim.magazaYonetimi
             }
             if (Request.QueryString["proc"] == "1")
             {
-                magazaRepeater.DataSource = magazab.list(1, false, false, true);
+                magazaRepeater.DataSource = magazab.list(1, false, false, true); //aktif
                 proc = "1";
             }
             if (Request.QueryString["proc"] == "2")
             {
-                magazaRepeater.DataSource = magazab.list(1, false, true, false);
+                magazaRepeater.DataSource = magazab.list(1, false, true, false); //pasif
                 proc = "2";
             }
             if (Request.QueryString["proc"] == "3")
             {
-                magazaRepeater.DataSource = magazab.list(1, false, false, false);
+                magazaRepeater.DataSource = magazab.list(1, false, false, false); //onay bekleyen
                 proc = "3";
             }
             magazaRepeater.DataBind();

@@ -5,7 +5,7 @@
             <div class="col-md-5 col-xs-4 col-xxs-12">
                 <h3 class="no-padding text-center-480 useradmin"><a href="">
                     <img class="userImg"
-                        src="upload/profil/"
+                        src='../upload/profil/<%= sellerProfil %>'
                         alt="user">
                     <asp:Label ID="lblUsername" runat="server"></asp:Label>
                 </a></h3>
@@ -20,7 +20,7 @@
                         </div>
                         <div class="mcol-right">
                             <!-- Number of visitors -->
-                            <p><a href="#">7000</a> <em>Ziyaretçi</em></p>
+                            <p><a href="#">0</a> <em>Ziyaretçi</em></p>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -33,7 +33,7 @@
                         </div>
                         <div class="mcol-right">
                             <!-- Number of visitors -->
-                            <p><a href="#">12</a><em>İlan</em></p>
+                            <p><a href="#">0</a><em>İlan</em></p>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="mcol-right">
                             <!-- Number of visitors -->
-                            <p><a href="#">18</a> <em>Favori </em></p>
+                            <p><a href="#">0</a> <em>Favori </em></p>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -110,9 +110,10 @@
                 <div class="col-sm-2 no-padding photobox">
                     <div class="add-image">
                         <span class="photo-count" ><i
-                            class="fa fa-hashtag" runat="server" id="txtid"></i> </span><a href="ads-details.html">
+                            class="fa fa-hashtag"> </i>
+                            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label> </span><a href="ads-details.html">
                                 <img
-                                    class="thumbnail no-margin" src="images/item/tp/Image00015.jpg"
+                                    class="thumbnail no-margin" src='../upload/ilan/<%= classifiedPic %>'
                                     alt="img"></a>
                     </div>
                 </div>
@@ -133,12 +134,12 @@
                 </div>
                 <!--/.add-desc-box-->
                 <div class="col-sm-5 text-right  price-box">
-                    <h2 class="item-price"><%# Eval("fiyat") %> </h2>
+                    <h2 class="item-price"> <asp:Label ID="lblFiyatTur" runat="server"></asp:Label><asp:Label ID="lblFiyat" runat="server"></asp:Label></h2>
                     <asp:HyperLink ID="HyperLink1" runat="server" CssClass="btn btn-danger  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/profil/profil.aspx?control=ilan&proc={0}&classified={1}", 2 ,Eval("ilanId"))%>'><i
                                                 class="fa fa-times"></i><span>Yayından Kaldır</span></asp:HyperLink>
                     <asp:HyperLink ID="HyperLink2" runat="server" CssClass="btn btn-primary  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/profil/profil.aspx?control=ilan&proc={0}&classified={1}", 3 ,Eval("ilanId"))%>'><i
                                                 class="fa fa-certificate"></i><span>Doping</span></asp:HyperLink>
-                    <asp:HyperLink ID="HyperLink3" runat="server" CssClass="btn btn-warning  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/profil/profil.aspx?control=ilan&proc={0}&classified={1}", 3 ,Eval("ilanId"))%>'><i
+                    <asp:HyperLink ID="HyperLink3" runat="server" CssClass="btn btn-warning  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/ilan-duzenle.aspx?page=duzenle&ilan={0}",Eval("ilanId"))%>'><i
                                                 class="fa fa-pencil"></i><span>Düzenle</span></asp:HyperLink>
                 </div>
                 <!--/.add-desc-box-->

@@ -13,7 +13,6 @@ namespace PL.sysLogin
         kullaniciBll kullanicib = new kullaniciBll();
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void chcBeniHatirla_CheckedChanged(object sender, EventArgs e)
@@ -33,7 +32,7 @@ namespace PL.sysLogin
 
         protected void Giris_Click(object sender, EventArgs e)
         {
-            if (kullanicib.loginOn(txtMail.Value, txtSifre.Value))
+            if (kullanicib.loginOn(txtMail.Value,  DAL.toolkit.SHA1Hash_Encryption(txtSifre.Value)))
             {
                 Response.Redirect("~/management/default.aspx");
             }

@@ -140,8 +140,8 @@
                                     class="icon-bar"></span><span class="icon-bar"></span>
                             </button>
 
-                            <asp:HyperLink ID="hypAna" CssClass="navbar-brand logo logo-title" runat="server" NavigateUrl="~/default.aspx"><span class="logo-icon"><i class="icon icon-docs ln-shadow-logo shape-0"></i></span>
-                                    BOOT<span>CLASSIFIED </span></asp:HyperLink>
+                            <asp:HyperLink ID="hypAna" CssClass="navbar-brand logo logo-title" style="text-transform:lowercase;" runat="server" NavigateUrl="~/default.aspx"><span class="logo-icon"><i class="icon icon-docs ln-shadow-logo shape-0"></i></span>
+                                    kral<span>ilan.com </span></asp:HyperLink>
                         </div>
                         <div class="navbar-collapse collapse">
 
@@ -160,14 +160,14 @@
                                 <li>
                                     <asp:HyperLink ID="HyperLink6" NavigateUrl="~/profil/profil.aspx?control=bildirimler" runat="server">
                                         <i class="fa fa-bell"></i>
-                                        <span class="label label-danger t" runat="server" id="span1">0</span>
+                                        <span class="label label-danger t" runat="server" id="span1"></span>
 
                                     </asp:HyperLink>
                                 </li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink7" NavigateUrl="~/profil/profil.aspx?control=gelen-kutusu" runat="server">
                                         <i class="fa fa-envelope"></i>
-                                        <span class="label label-danger t" runat="server" id="span2">0</span>
+                                        <span class="label label-danger t" runat="server" id="span2"></span>
 
                                     </asp:HyperLink>
                                 </li>
@@ -193,7 +193,7 @@
                                     </ul>
                                 </li>
                                 <li class="postadd">
-                                    <asp:HyperLink ID="HyperLink1" CssClass="btn btn-block  btn-border btn-post btn-danger" Style="font-size: 14px;" runat="server" NavigateUrl="~/yeni-ilan.aspx"><span class="ion ion-plus-round" style="font-size: 16px; padding-right: 5px;"></span> Ücretsiz İlan Ver</asp:HyperLink>
+                                    <asp:HyperLink ID="HyperLink1" CssClass="btn btn-block  btn-border btn-post btn-danger" Style="font-size: 14px;" runat="server" NavigateUrl="~/kategori-secimi.aspx"><span class="ion ion-plus-round" style="font-size: 16px; padding-right: 5px;"></span> Ücretsiz İlan Ver</asp:HyperLink>
                                 </li>
                             </ul>
 
@@ -203,7 +203,10 @@
                                 <li>
                                     <asp:HyperLink ID="hypUyeOl" runat="server" NavigateUrl="~/uye-ol.aspx"><i class="fa fa-cube"></i> Üye ol</asp:HyperLink></li>
                                 <li class="postadd">
-                                    <asp:HyperLink ID="hypIlanVer" CssClass="btn btn-block  btn-border btn-post btn-danger" Style="font-size: 14px;" runat="server" NavigateUrl="~/yeni-ilan.aspx"><span class="ion ion-plus-round" style="font-size: 16px; padding-right: 5px;"></span> Ücretsiz İlan Ver</asp:HyperLink>
+                                    <asp:HyperLink ID="hypIlanVer" CssClass="btn btn-block  btn-border btn-post btn-danger" Style="font-size: 14px;" runat="server" NavigateUrl="~/kategori-secimi.aspx"><span class="ion ion-plus-round" style="font-size: 16px; padding-right: 5px;"></span> Ücretsiz İlan Ver</asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="btn_liste" CssClass="btn btn-liste btn-success" Style="font-size: 14px; color:#fff; margin-left:15px;" runat="server" Visible="false"><span class="fa fa-list-ul" style="font-size: 16px; padding-right: 5px;"></span>Liste</asp:HyperLink>
                                 </li>
                             </ul>
                         </div>
@@ -220,12 +223,11 @@
             <div class="footer" id="footer">
                 <div class="container">
                     <ul class=" pull-left navbar-link footer-nav">
-                        <li><a href="index.html">Home </a><a href="about-us.html">About us </a><a href="#">Terms and
-                    Conditions </a><a href="#">Privacy Policy </a><a href="contact.html">Contact us </a><a
-                        href="faq.html">FAQ </a>
+                        <li><a href="#">Anasyfa </a><a href="about-us.html">Hakkımızda </a><a href="#">Şartlar ve Koşullar </a><a href="#">Gizlilik Politikası </a><a href="contact.html">İletişim </a><a
+                        href="faq.html">SSS </a>
                     </ul>
                     <ul class=" pull-right navbar-link footer-nav">
-                        <li>&copy; 2015 BootClassified</li>
+                        <li>&copy; 2015 kralilan.com</li>
                     </ul>
                 </div>
 

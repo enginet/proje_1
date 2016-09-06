@@ -6,27 +6,26 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
 using DAL;
+using System.IO;
+using System.Drawing;
+using Newtonsoft.Json.Linq;
 
 namespace PL.management.anaYonetim.ilanYonetimi
 {
     public partial class ilan_duzenle : System.Web.UI.UserControl
     {
-
-
         ilBll ilb = new ilBll();
         ilceBll ilceb = new ilceBll();
         mahalleBll mahalleb = new mahalleBll();
-
         magazaBll mgzBll = new magazaBll();
         magazaTurBll mgzTurBll = new magazaTurBll();
-
         ilanResimBll ir = new ilanResimBll();
-
         ilanBll ilnBll = new ilanBll();
-
         secilebilirIlanOzellikBll soBll = new secilebilirIlanOzellikBll();
         girilebilirIlanOzellikBll goBll = new girilebilirIlanOzellikBll();
         secilebilirOzellikDegerBll sodBll = new secilebilirOzellikDegerBll();
+        magazaBll magazab = new magazaBll();
+
 
         public int  ilanId,
                     kategoriId,
@@ -47,28 +46,30 @@ namespace PL.management.anaYonetim.ilanYonetimi
             DAL.ilan iln = ilnBll.search(2, ilanId);
 
             kategoriId  = iln.kategoriId;
-            turId       = (int)iln.ilanTurId;
+            turId       = Convert.ToInt32(iln.ilanTurId);
             ilId        = iln.ilId;
             ilceId      = iln.ilceId;
             mahalleId   = iln.mahalleId;
 
-            drpKimden.SelectedValue = "1";
+            //drpKimden.SelectedValue = "1";
 
             txtBaslik.Text = iln.baslik;
             txtCKeditorAdi.Text = iln.aciklama;
             txtFiyat.Text = iln.fiyat.ToString();
 
-
-
             if(iln.magazaId!=null)
             {
                 magazaId = iln.magazaId.ToString();
 
-                DAL: magaza mgz = mgzBll.search(Convert.ToInt32(magazaId));
+                //DAL: magaza mgz = mgzBll.search(Convert.ToInt32(magazaId));
 
-                DAL.magazaTur mgzTr = mgzTurBll.search(Convert.ToInt32(mgz.magazaTurId));
+                //DAL.magazaTur mgzTr = mgzTurBll.search(Convert.ToInt32(mgz.magazaTurId));
 
-                drpKimden.SelectedValue = mgzTr.turId.ToString();
+                //drpKimden.SelectedValue = mgzTr.turId.ToString();
+            }
+            else
+            {
+                magazaId = null;
             }
 
 
@@ -846,11 +847,26 @@ namespace PL.management.anaYonetim.ilanYonetimi
                 drpMahalle.DataBind();
 
                 drpMahalle.SelectedValue = mahalleId.ToString();
+
+                drpKimden.DataSource = magazab.list(2);
+                drpKimden.DataTextField = "magazaAdi";
+                drpKimden.DataValueField = "magazaId";
+                drpKimden.DataBind();
+
+                ListItem lst = new ListItem();
+                lst.Value = "NULL";
+                lst.Text = "Sahibinden";
+                drpKimden.Items.Insert(0, lst);
+
+                drpKimden.SelectedValue = magazaId;
+
             }
         }
 
         protected void drpKimden_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+
             if (drpKimden.SelectedValue != "1" && drpKimden.SelectedValue != "2" && drpKimden.SelectedValue != "10" && drpKimden.SelectedValue != "")
             {
                 PlaceHolder1.Visible = true;
@@ -897,7 +913,7 @@ namespace PL.management.anaYonetim.ilanYonetimi
                     ilanId,
                     txtFiyat.Text,
                     1, // fiyat türünün TL olduğunu gönderdik
-                    magazaId,
+                    drpKimden.SelectedValue,
                     drpIl.SelectedValue,
                     drpIlce.SelectedValue,
                     drpMahalle.SelectedValue,
@@ -918,11 +934,22 @@ namespace PL.management.anaYonetim.ilanYonetimi
                         {
                             if (item3 is DropDownList)
                             {
-                                soBll.update(ilanId,((DropDownList)item3).Attributes["name"], ((DropDownList)item3).SelectedValue);
+                                soBll.update(ilanId, ((DropDownList)item3).Attributes["name"], ((DropDownList)item3).SelectedValue);
                             }
                             else if (item3 is TextBox)
                             {
-                                goBll.update(ilanId, ((TextBox)item3).Attributes["name"], ((TextBox)item3).Text);
+                                if (((TextBox)item3).Attributes["name"] == "71")
+                                {
+                                    JObject obj = JObject.Parse(((TextBox)item3).Text);
+
+                                    string kaydet = "{\"type\":\"MultiPolygon\",\"coordinates\":[" + obj["features"][0]["geometry"]["coordinates"].ToString().Replace("\r", "").Replace("\n", "").Replace(" ", "") + "]}";
+
+                                    goBll.update(ilanId, ((TextBox)item3).Attributes["name"], kaydet);
+                                }
+                                else
+                                {
+                                    goBll.update(ilanId, ((TextBox)item3).Attributes["name"], ((TextBox)item3).Text);
+                                }
                             }
                             else if (item3 is CheckBox) // Eğer checkbox tek ise
                             {
@@ -934,8 +961,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
                                 }
                                 else
                                 {
-                                    secilebilirOzellikDeger sd = sodBll.search(Convert.ToInt32(gonder[0]));
-                                    soBll.update(ilanId, sd.ozellikId, gonder[0]);
+                                    secilebilirOzellikDeger sd = sodBll.search(Convert.ToInt32(gonder[1]));
+                                    soBll.update(ilanId, sd.ozellikId, gonder[1]);
                                 }
                             }
                             else // eğer control group checkbox ise
@@ -949,7 +976,7 @@ namespace PL.management.anaYonetim.ilanYonetimi
                                             if (((CheckBox)item5).Checked)
                                             {
                                                 int ozellikId = Convert.ToInt32(((CheckBox)item5).Attributes["value"]);
-                                                if(soBll.checkBoxKontrol(ilanId,ozellikId)) // eğer bu özellik veritabanına kayıtlı değil ise
+                                                if (soBll.checkBoxKontrol(ilanId, ozellikId)) // eğer bu özellik veritabanına kayıtlı değil ise
                                                 {
                                                     soBll.insert(ilanId, ((CheckBox)item5).Attributes["value"]);
                                                 }
@@ -963,6 +990,58 @@ namespace PL.management.anaYonetim.ilanYonetimi
                                 }
                             }
                         }
+                    }
+                }
+            }
+
+
+            HttpFileCollection updateFiles = Request.Files;
+            string str_image = "";
+            Bitmap resim;
+            if (FileUpload1.HasFile)
+            {
+                IEnumerable<ilanResim> resimList = ir.list(1, ilanId);
+
+                foreach (var item in resimList)
+                {
+                    string yol = Server.MapPath("~/upload/ilan/" + item.resim);
+                    System.IO.File.Delete(yol);
+                }
+
+                ir.delete(ilanId);
+
+                for (int i = 0; i < updateFiles.Count; i++)
+                {
+
+                    bool secili = false;
+                    if (i == 0)
+                    {
+                        secili = true;
+                    }
+
+                    HttpPostedFile file = updateFiles[i];
+
+                    resim = DAL.toolkit.pictureWatermark(file, "~/upload/ilan/", "netteilanver.com", ilanId.ToString());
+
+
+                    string fileName = file.FileName;
+                    string fileExtension = file.ContentType;
+
+                    if (!string.IsNullOrEmpty(fileName))
+                    {
+                        fileExtension = Path.GetExtension(fileName);
+                        str_image = ilanId.ToString() + "_" + (i + 1).ToString() + fileExtension;
+                        string pathToSave_100 = HttpContext.Current.Server.MapPath("~/upload/ilan/") + str_image;
+                        if (file.ContentType == "image/jpeg" || file.ContentType == "image/pjpeg")
+                            resim.Save(pathToSave_100, System.Drawing.Imaging.ImageFormat.Jpeg);
+                        else if (file.ContentType == "image/gif")
+                            resim.Save(pathToSave_100, System.Drawing.Imaging.ImageFormat.Gif);
+                        else if (file.ContentType == "image/png" || file.ContentType == "image/x-png")
+                            resim.Save(pathToSave_100, System.Drawing.Imaging.ImageFormat.Png);
+
+
+
+                        ir.insert(ilanId, str_image, secili);
                     }
                 }
             }

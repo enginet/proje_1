@@ -14,17 +14,21 @@ namespace PL
         kategoriBll ktg = new kategoriBll();
         kategoriTurBll ktgT = new kategoriTurBll();
 
+        ilanBll ilnBll = new ilanBll();
+
+        magazaKullaniciBll mkul = new magazaKullaniciBll();
+        magazaKategoriBll mkat = new magazaKategoriBll();
+        magazaBll mgzB = new magazaBll();
+
+        public string mesaj = "";
+
         protected override void OnInit(EventArgs e)
         {
 
             ListBox1.SelectedIndexChanged += Lst_SelectedIndexChanged;
-
             ListBox2.SelectedIndexChanged += Lst_SelectedIndexChanged;
-
             ListBox3.SelectedIndexChanged += Lst_SelectedIndexChanged;
-
             ListBox4.SelectedIndexChanged += Lst_SelectedIndexChanged;
-
             ListBox5.SelectedIndexChanged += Lst_SelectedIndexChanged;
 
             cat_2.Visible = false;
@@ -37,12 +41,19 @@ namespace PL
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if(Session["unique-site-user"]!=null)
             {
-                ListBox1.DataSource = ktg.list(Convert.ToInt32(0));
-                ListBox1.DataTextField = "kategoriAdi";
-                ListBox1.DataValueField = "kategoriId";
-                ListBox1.DataBind();
+                if (!IsPostBack)
+                {
+                    ListBox1.DataSource = ktg.list(Convert.ToInt32(0));
+                    ListBox1.DataTextField = "kategoriAdi";
+                    ListBox1.DataValueField = "kategoriId";
+                    ListBox1.DataBind();
+                }
+            }
+            else
+            {
+                Response.Redirect("~/giris-yap.aspx");
             }
         }
 
@@ -207,7 +218,7 @@ namespace PL
                 }
                 else if (ListBox1.SelectedValue != "1" || (ListBox2.SelectedValue != "4" && ListBox2.SelectedValue != "5")) // emlak kategorisi değiise veya (arsa ve bina değilse)
                 {
-                    ListBox1.Items.Add(ListBox2.SelectedValue);
+                    //ListBox1.Items.Add(ListBox2.SelectedValue);
                     if (sonuc.Any())
                     {
                         cat_4.Visible = true;
@@ -284,18 +295,123 @@ namespace PL
 
         protected void devam_Click1(object sender, EventArgs e)
         {
-            if (ListBox2.SelectedValue == "14" || ListBox2.SelectedValue == "18")
+
+            // kullanıcının mağazasının olup olmadığı kontrol edilmesi gerekir
+            DAL.magazaKullanici magazaKul = mkul.search(2, ((kullanici)Session["unique-site-user"]).kullaniciId);
+
+            Session["cat"] = null;
+            Session["tur"] = null;
+            Session["mgz"] = null;
+
+
+            if (magazaKul != null) // eğer mağazası var ise
             {
-                Response.Redirect("~/ilan-form.aspx?cat=" + ViewState["id"]);
-            }
-            else if (ListBox2.SelectedValue == "12")
-            {
-                Response.Redirect("~/ilan-form.aspx?cat=" + ViewState["id"] + "&tur=" + ViewState["ilanTur"]);
+                DAL.magaza mgz = mgzB.search(magazaKul.magazaId);
+
+                if (mgz.pasifMi == false && mgz.silindiMi == false)
+                {
+                    DAL.magazaKategori mgzKat = mkat.search(2, mgz.magazaKategoriId);
+
+                    if (mgzKat.kategoriId.ToString() != ListBox1.SelectedValue) // seçilen ilan kategorisi mağaza kategorisine eşit değilse
+                    {
+                        if (ilnBll.ilanSayisi(((kullanici)Session["unique-site-user"]).kullaniciId) < 2) // ilan sayısı 2 veya daha büyük değilse
+                        {
+                            if (ListBox2.SelectedValue == "14" || ListBox2.SelectedValue == "18")
+                            {
+                                Session["cat"] = ViewState["id"];
+                                Response.Redirect("~/ilan-form.aspx");
+                            }
+                            else if (ListBox2.SelectedValue == "12")
+                            {
+                                Session["cat"] = ViewState["id"];
+                                Session["tur"] = ViewState["ilanTur"];
+                                Response.Redirect("~/ilan-form.aspx");
+                            }
+                            else
+                            {
+                                Session["cat"] = ViewState["id"];
+                                Session["tur"] = ViewState["ilanTur"];
+                                Response.Redirect("~/ilan-form.aspx");
+                            }
+                        }
+                        else
+                        {
+                            if (ViewState["ilanTur"] != null)
+                            {
+                                Session["tur"] = ViewState["ilanTur"];
+                            }
+                            Session["cat"] = ViewState["id"];
+                            mesaj = "Vermek istediğiniz kategori mağazanızın kategorisi dışında ve yayında 2 adet ilanınız olduğu için ücretsiz ilan veremezsiniz !";
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "temp", "<script language='javascript'>uyariVer();</script>", false);
+                        }
+                    }
+                    else
+                    {
+                        if (ListBox2.SelectedValue == "14" || ListBox2.SelectedValue == "18")
+                        {
+                            Session["cat"] = ViewState["id"];
+                            Session["mgz"] = mgz.magazaId;
+                            Response.Redirect("~/ilan-form.aspx");
+                        }
+                        else if (ListBox2.SelectedValue == "12")
+                        {
+                            Session["cat"] = ViewState["id"];
+                            Session["mgz"] = mgz.magazaId;
+                            Session["tur"] = ViewState["ilanTur"];
+                            Response.Redirect("~/ilan-form.aspx");
+                        }
+                        else
+                        {
+                            Session["cat"] = ViewState["id"];
+                            Session["mgz"] = mgz.magazaId;
+                            Session["tur"] = ViewState["ilanTur"];
+                            Response.Redirect("~/ilan-form.aspx");
+                        }
+                    }
+                }
             }
             else
             {
-                Response.Redirect("~/ilan-form.aspx?cat=" + ViewState["id"] + "&tur=" + ViewState["ilanTur"]);
+                kullanici kll = (kullanici)Session["unique-site-user"];
+                if (ilnBll.ilanSayisi(kll.kullaniciId) < 2) // ilan sayısı 2 veya daha büyük değilse
+                {
+                    if (ListBox2.SelectedValue == "14" || ListBox2.SelectedValue == "18")
+                    {
+                        Session["cat"] = ViewState["id"];
+                        Response.Redirect("~/ilan-form.aspx");
+                    }
+                    else if (ListBox2.SelectedValue == "12")
+                    {
+                        Session["cat"] = ViewState["id"];
+                        Session["tur"] = ViewState["ilanTur"];
+                        Response.Redirect("~/ilan-form.aspx");
+                    }
+                    else
+                    {
+                        Session["cat"] = ViewState["id"];
+                        Session["tur"] = ViewState["ilanTur"];
+                        Response.Redirect("~/ilan-form.aspx");
+                    }
+                }
+                else
+                {
+                    if (ViewState["ilanTur"] != null)
+                    {
+                        Session["tur"] = ViewState["ilanTur"];
+                    }
+                    Session["cat"] = ViewState["id"];
+                    mesaj = "En fazla 2 (iki) adet ücretsiz ilan verebilirsiniz";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "temp", "<script language='javascript'>uyariVer();</script>", false);
+                }
             }
+
+
+        }
+
+        protected void devamEt_Click(object sender, EventArgs e)
+        {
+            Session["ilanUcretliMi"] = true;
+            Response.Redirect("~/ilan-form.aspx");
         }
     }
 }

@@ -52,6 +52,44 @@ namespace BLL
             return idc.kategoris.Where(q => q.ustKategoriId == id).FirstOrDefault();
         }
 
+        public int count(params object[] _income)
+        {
+            if (Convert.ToInt32(_income[0]) == 1)
+            {//en üst kategori count 
+                var query = from i in idc.ilans.Where(i => i.silindiMi == false & i.onay==1 & i.pasifMi == false & search(Convert.ToInt32(search(Convert.ToInt32(i.kategoriId)).ustKategoriId))==_income[1])
+                            select new
+                            {
+                                i.kategoriId
+                            };
+
+                return query.Count();
+
+            }
+
+            else if (Convert.ToInt32(_income[0]) == 2)
+            {//bir alt kategori count 
+                var query = from i in idc.ilans.Where(i => i.silindiMi == false & i.pasifMi == false & ustKategoriSearch(i.kategori.kategoriId).kategoriId == Convert.ToInt32(_income[1]))
+                            select new
+                            {
+                                i.kategoriId
+                            };
+
+                return query.Count();
+
+            }
+
+            else
+            { 
+                var query = from i in idc.ilans.Where(i => i.silindiMi == false & i.pasifMi == false & i.kategori.kategoriId == Convert.ToInt32(_income[1]))
+                            select new
+                            {
+                                i.kategoriId
+                            };
+
+                return query.Count();
+            }
+        }
+
         public IQueryable qlist(params object[] _income)
         {
             if (Convert.ToInt32(_income[0]) == 1)

@@ -52,7 +52,7 @@
                                                     data-toggle="tooltip"
                                                     data-placement="right"
                                                     title="Business Ads">B </span><span
-                                                        class="date"><i class=" icon-clock"></i><%# Eval("sonGirisTarihi" , "{0:d-MMMM-yyyy}" ) %> </span>- <span
+                                                        class="date"><i class=" icon-clock"></i><%# Eval("sonGirisTarihi" , "{0:dd MMMM yyyy}" ) %> </span>- <span
                                                             class="category"><%# Eval("email") %> </span>- <span
                                                                 class="item-location"><i class="fa fa-map-marker"></i><%# Eval("ilAdi") %> </span></span>
                                             </div>

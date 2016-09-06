@@ -1417,15 +1417,15 @@
 	];
 	$.fn.datepicker.Constructor = Datepicker;
 	var dates = $.fn.datepicker.dates = {
-		en: {
-			days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-			daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-			daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
-			months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-			monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-			today: "Today",
-			clear: "Clear"
-		}
+	    en: {
+	        days: ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi", "Pazar"],
+	        daysShort: ["Paz", "Pazt", "Sal", "Çarş", "Perş", "Cuma", "Cumart", "Pzr"],
+	        daysMin: ["Pzr", "Pzrt", "Sl", "Çrş", "Prş", "Cm", "Cmrts", "Pzr"],
+	        months: ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"],
+	        monthsShort: ["Ock", "Şbt", "Mrt", "Nsn", "Mys", "Hzrn", "Tmmz", "Agsts", "Eyll", "Ekm", "Ksm", "Arlk"],
+	        today: "Bugün",
+	        clear: "Temizle"
+	    }
 	};
 
 	var DPGlobal = {

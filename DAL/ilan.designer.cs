@@ -117,9 +117,6 @@ namespace DAL
     partial void Insertodeme(odeme instance);
     partial void Updateodeme(odeme instance);
     partial void Deleteodeme(odeme instance);
-    partial void InsertodemeIslem(odemeIslem instance);
-    partial void UpdateodemeIslem(odemeIslem instance);
-    partial void DeleteodemeIslem(odemeIslem instance);
     partial void Insertozellik(ozellik instance);
     partial void Updateozellik(ozellik instance);
     partial void Deleteozellik(ozellik instance);
@@ -405,14 +402,6 @@ namespace DAL
 			get
 			{
 				return this.GetTable<odeme>();
-			}
-		}
-		
-		public System.Data.Linq.Table<odemeIslem> odemeIslems
-		{
-			get
-			{
-				return this.GetTable<odemeIslem>();
 			}
 		}
 		
@@ -1526,7 +1515,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_deger", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_deger", DbType="NText", UpdateCheck=UpdateCheck.Never)]
 		public string deger
 		{
 			get
@@ -1815,6 +1804,8 @@ namespace DAL
 		
 		private bool _fiyatiDustu;
 		
+		private System.Nullable<bool> _satildiMi;
+		
 		private EntitySet<girilenIlanOzellik> _girilenIlanOzelliks;
 		
 		private EntitySet<ilanFavori> _ilanFavoris;
@@ -1885,6 +1876,8 @@ namespace DAL
     partial void OnsilindiMiChanged();
     partial void OnfiyatiDustuChanging(bool value);
     partial void OnfiyatiDustuChanged();
+    partial void OnsatildiMiChanging(System.Nullable<bool> value);
+    partial void OnsatildiMiChanged();
     #endregion
 		
 		public ilan()
@@ -2325,6 +2318,26 @@ namespace DAL
 					this._fiyatiDustu = value;
 					this.SendPropertyChanged("fiyatiDustu");
 					this.OnfiyatiDustuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_satildiMi", DbType="Bit")]
+		public System.Nullable<bool> satildiMi
+		{
+			get
+			{
+				return this._satildiMi;
+			}
+			set
+			{
+				if ((this._satildiMi != value))
+				{
+					this.OnsatildiMiChanging(value);
+					this.SendPropertyChanging();
+					this._satildiMi = value;
+					this.SendPropertyChanged("satildiMi");
+					this.OnsatildiMiChanged();
 				}
 			}
 		}
@@ -3691,6 +3704,10 @@ namespace DAL
 		
 		private string _ilAdi;
 		
+		private string _enlem;
+		
+		private string _boylam;
+		
 		private EntitySet<ilan> _ilans;
 		
 		private EntitySet<ilceler> _ilcelers;
@@ -3711,6 +3728,10 @@ namespace DAL
     partial void OnilIdChanged();
     partial void OnilAdiChanging(string value);
     partial void OnilAdiChanged();
+    partial void OnenlemChanging(string value);
+    partial void OnenlemChanged();
+    partial void OnboylamChanging(string value);
+    partial void OnboylamChanged();
     #endregion
 		
 		public iller()
@@ -3760,6 +3781,46 @@ namespace DAL
 					this._ilAdi = value;
 					this.SendPropertyChanged("ilAdi");
 					this.OnilAdiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_enlem", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string enlem
+		{
+			get
+			{
+				return this._enlem;
+			}
+			set
+			{
+				if ((this._enlem != value))
+				{
+					this.OnenlemChanging(value);
+					this.SendPropertyChanging();
+					this._enlem = value;
+					this.SendPropertyChanged("enlem");
+					this.OnenlemChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_boylam", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string boylam
+		{
+			get
+			{
+				return this._boylam;
+			}
+			set
+			{
+				if ((this._boylam != value))
+				{
+					this.OnboylamChanging(value);
+					this.SendPropertyChanging();
+					this._boylam = value;
+					this.SendPropertyChanged("boylam");
+					this.OnboylamChanged();
 				}
 			}
 		}
@@ -4672,7 +4733,7 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kullaniciId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_kullaniciId", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int kullaniciId
 		{
 			get
@@ -8093,8 +8154,6 @@ namespace DAL
 		
 		private EntityRef<kullanici> _kullanici;
 		
-		private EntityRef<odemeIslem> _odemeIslem;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -8120,7 +8179,6 @@ namespace DAL
 		public odeme()
 		{
 			this._kullanici = default(EntityRef<kullanici>);
-			this._odemeIslem = default(EntityRef<odemeIslem>);
 			OnCreated();
 		}
 		
@@ -8219,10 +8277,6 @@ namespace DAL
 			{
 				if ((this._islemId != value))
 				{
-					if (this._odemeIslem.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnislemIdChanging(value);
 					this.SendPropertyChanging();
 					this._islemId = value;
@@ -8326,40 +8380,6 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="odemeIslem_odeme", Storage="_odemeIslem", ThisKey="islemId", OtherKey="odemeIslemId", IsForeignKey=true)]
-		public odemeIslem odemeIslem
-		{
-			get
-			{
-				return this._odemeIslem.Entity;
-			}
-			set
-			{
-				odemeIslem previousValue = this._odemeIslem.Entity;
-				if (((previousValue != value) 
-							|| (this._odemeIslem.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._odemeIslem.Entity = null;
-						previousValue.odemes.Remove(this);
-					}
-					this._odemeIslem.Entity = value;
-					if ((value != null))
-					{
-						value.odemes.Add(this);
-						this._islemId = value.odemeIslemId;
-					}
-					else
-					{
-						this._islemId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("odemeIslem");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -8378,120 +8398,6 @@ namespace DAL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.odemeIslem")]
-	public partial class odemeIslem : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _odemeIslemId;
-		
-		private System.Nullable<int> _islemAdi;
-		
-		private EntitySet<odeme> _odemes;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnodemeIslemIdChanging(int value);
-    partial void OnodemeIslemIdChanged();
-    partial void OnislemAdiChanging(System.Nullable<int> value);
-    partial void OnislemAdiChanged();
-    #endregion
-		
-		public odemeIslem()
-		{
-			this._odemes = new EntitySet<odeme>(new Action<odeme>(this.attach_odemes), new Action<odeme>(this.detach_odemes));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_odemeIslemId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int odemeIslemId
-		{
-			get
-			{
-				return this._odemeIslemId;
-			}
-			set
-			{
-				if ((this._odemeIslemId != value))
-				{
-					this.OnodemeIslemIdChanging(value);
-					this.SendPropertyChanging();
-					this._odemeIslemId = value;
-					this.SendPropertyChanged("odemeIslemId");
-					this.OnodemeIslemIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_islemAdi", DbType="Int")]
-		public System.Nullable<int> islemAdi
-		{
-			get
-			{
-				return this._islemAdi;
-			}
-			set
-			{
-				if ((this._islemAdi != value))
-				{
-					this.OnislemAdiChanging(value);
-					this.SendPropertyChanging();
-					this._islemAdi = value;
-					this.SendPropertyChanged("islemAdi");
-					this.OnislemAdiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="odemeIslem_odeme", Storage="_odemes", ThisKey="odemeIslemId", OtherKey="islemId")]
-		public EntitySet<odeme> odemes
-		{
-			get
-			{
-				return this._odemes;
-			}
-			set
-			{
-				this._odemes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_odemes(odeme entity)
-		{
-			this.SendPropertyChanging();
-			entity.odemeIslem = this;
-		}
-		
-		private void detach_odemes(odeme entity)
-		{
-			this.SendPropertyChanging();
-			entity.odemeIslem = null;
 		}
 	}
 	

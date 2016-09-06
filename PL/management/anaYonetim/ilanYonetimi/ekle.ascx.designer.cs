@@ -40,51 +40,6 @@ namespace PL.management.anaYonetim.ilanYonetimi {
         protected global::System.Web.UI.WebControls.DropDownList drpKimden;
         
         /// <summary>
-        /// txtAd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAd;
-        
-        /// <summary>
-        /// txtSoyad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSoyad;
-        
-        /// <summary>
-        /// txtCepTlf control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCepTlf;
-        
-        /// <summary>
-        /// numaraYayinlansin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox numaraYayinlansin;
-        
-        /// <summary>
-        /// txtIsTlf control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIsTlf;
-        
-        /// <summary>
         /// txtBaslik control.
         /// </summary>
         /// <remarks>

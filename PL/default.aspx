@@ -1,4 +1,4 @@
-﻿<%@ Page Title="netteilanver" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="PL._default" %>
+﻿<%@ Page Title="kralilan" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="PL._default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -7,7 +7,14 @@
 
     <link href="libraries/assets/css/owl.carousel.css" rel="stylesheet" />
     <link href="libraries/assets/css/owl.theme.css" rel="stylesheet" />
-
+    <style>
+        .btn.btn-success.btn-search.btn-block {
+            height: 48px;
+            padding: 0px;
+            line-height: 48px;
+            font-size: 18px;
+        }
+    </style>
     <div class="intro" style="background-image: url('../libraries/images/bg3.jpg');">
         <div class="dtable hw100">
             <div class="dtable-cell hw100">
@@ -19,24 +26,20 @@
                     </p>
 
                     <div class="row search-row animated fadeInUp text-center">
-                      <div class="col-lg-4 col-sm-4 search-col relative locationicon">
+                        <div class="col-lg-4 col-sm-4 search-col relative locationicon">
                             <i class="icon-location-2 icon-append"></i>
-                            <input type="text" name="country" disabled id="autocomplete-ajax"
+                            <input type="text" name="country" disabled="disabled" id="autocomplete-ajax"
                                 class="form-control locinput input-rel  searchtag-input has-icon"
-                                placeholder="Tüm şehirlerde" value="">
+                                placeholder="Tüm şehirlerde" value="" />
                         </div>
                         <div class="col-lg-4 col-sm-4 search-col relative">
                             <i class="icon-docs icon-append"></i>
-                            <input type="text" name="ads" class="form-control has-icon " runat="server" id="txtAra"
-                                placeholder="Kelime veya ilan no ile ara..." value="">
+                            <input type="text" name="ads" disabled="disabled" class="form-control has-icon " runat="server" id="txtAra"
+                                placeholder="Kelime veya ilan no ile ara..." value="" />
                         </div>
                         <div class="col-lg-4 col-sm-4 search-col">
                             <asp:LinkButton ID="AraBtn" runat="server" CssClass="btn btn-success btn-search btn-block" OnClick="Ara_Click"> <i
                                     class="icon-search"></i><strong>Ara</strong></asp:LinkButton>
-
-<%--                            <button class="btn btn-success btn-search btn-block" runat="server" onclick="Ara_Click">
-                                <i
-                                    class="icon-search"></i><strong>Ara</strong></button>--%>
                         </div>
                     </div>
 
@@ -62,7 +65,7 @@
                         <ItemTemplate>
                             <div class="col-lg-2 col-md-3 col-sm-3 col-xs-4 f-category">
                                 <asp:HyperLink ID="hypBaslik" runat="server" NavigateUrl='<%# String.Format("~/ilan-detay.aspx?{0}&ilan={1}", DAL.toolkit.UrlDonustur(Eval("baslik")),Eval("ilanId")) %>'>
-                                    <img src='upload/ilan/<%# Eval("resim") %>' class="img-responsive" alt="img" />
+                                    <img src='upload/ilan/<%# classiPic(Eval("ilanId")) %>' class="img-responsive" alt="img" />
                                     <h6><%# Eval("baslik") %> </h6>
                                 </asp:HyperLink>
                             </div>
@@ -79,11 +82,13 @@
                             <div class="col-md-4 col-sm-4 ">
                                 <div class="cat-list">
                                     <h3 class="cat-title"><a href="#"><i class="icon-home ln-shadow"></i>
-                                        Emlak <span class="count">228,705</span></a> <span data-target=".cat-id-4"
+                                        Emlak <span class="count">
+                                            <asp:Label ID="lblCountUst" runat="server"></asp:Label>
+                                        </span></a><span data-target=".cat-id-1"
                                             data-toggle="collapse"
                                             class="btn-cat-collapsed collapsed"><span
                                                 class=" icon-down-open-big"></span></span></h3>
-                                    <ul class="cat-collapse collapse in cat-id-2">
+                                    <ul class="cat-collapse collapse in cat-id-1">
                                         <asp:Repeater ID="kategoriRepeater" runat="server">
                                             <ItemTemplate>
                                                 <li>
@@ -91,7 +96,6 @@
                                                         <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl='<%# catKind(Eval("kategoriId"))==true?Eval("kategoriId","~/kategoriler.aspx?kategoriId={0}")
                                                                  :String.Format("~/ilan-liste.aspx?kategoriId={0}",Eval("kategoriId") )
                                                                               %>'> <%# Eval("kategoriAdi") %></asp:HyperLink>
-                                                        <%--                                                        <asp:HyperLink ID="hypTur" NavigateUrl='<%# GetRouteUrl("kategori", new { kategoriAd = DAL.toolkit.UrlDonustur(Eval("kategoriAdi")), kategoriId = Eval("kategoriId")  }) %>' runat="server"><%# Eval("kategoriAdi") %></asp:HyperLink>--%>
                                                     </li>
                                             </ItemTemplate>
                                         </asp:Repeater>
@@ -103,11 +107,11 @@
                                     <h3 class="cat-title"><a href="#"><i
                                         class="fa fa-star ln-shadow"></i>DOPİNGLİ İLANLAR <span
                                             class="count">45,526</span></a>
-                                        <span data-target=".cat-id-5" data-toggle="collapse"
+                                        <span data-target=".cat-id-2" data-toggle="collapse"
                                             class="btn-cat-collapsed collapsed"><span
                                                 class=" icon-down-open-big"></span></span>
                                     </h3>
-                                    <ul class="cat-collapse collapse in cat-id-4">
+                                    <ul class="cat-collapse collapse in cat-id-2">
 
                                         <li>
                                             <asp:HyperLink ID="HyperLink1" runat="server">Acil Acil</asp:HyperLink></li>
@@ -129,10 +133,9 @@
                                             class="btn-cat-collapsed collapsed"><span
                                                 class=" icon-down-open-big"></span></span>
                                     </h3>
-                                    <ul class="cat-collapse collapse in cat-id-4">
+                                    <ul class="cat-collapse collapse in cat-id-3">
                                         <li>
                                             <asp:HyperLink ID="HyperLink5" runat="server">İlan Deneyimini Bizimle Paylaş</asp:HyperLink></li>
-
                                     </ul>
                                 </div>
 
@@ -141,8 +144,7 @@
                     </div>
                     <div class="inner-box has-aff relative">
                         <a class="dummy-aff-img" href="#">
-                            <img src="libraries/images/aff2.jpg" class="img-responsive"
-                                alt=" aff">
+                            <asp:Image ID="dkdrtgnRklm" runat="server" Style="width: 100%; height: 90px;" />
                         </a>
 
                     </div>
@@ -176,7 +178,7 @@
                                             <div class="item">
                                                 <asp:HyperLink ID="hypAcil" runat="server" NavigateUrl='<%# String.Format("~/ilan-detay.aspx?{0}&ilan={1}", DAL.toolkit.UrlDonustur(Eval("baslik")),Eval("ilanId")) %>'>
                                                     <span class="item-carousel-thumb">
-                                                        <img class="img-responsive" src='upload/ilan/<%# Eval("resim") %>' alt="img">
+                                                        <img class="img-responsive" src='upload/ilan/<%# classiPic(Eval("ilanId")) %>' alt="img">
                                                     </span>
                                                     <span class="item-name"><%# Eval("baslik") %>  </span>
                                                     <span class="price"><%# Eval("fiyat") %> <%# fiyat_Tur(Eval("fiyatTurId")) %> </span>
@@ -219,7 +221,7 @@
                                                 <asp:HyperLink ID="hypSaat" runat="server" NavigateUrl='<%# krediKontrol(Eval("magazaId"))==true?
                                                         String.Format("~/ilan-detay.aspx?{0}&ilan={1}", DAL.toolkit.UrlDonustur(Eval("baslik")),Eval("ilanId")):"~/giris-yap.aspx"%>'>
                                                     <span class="item-carousel-thumb">
-                                                        <img class="img-responsive" src='upload/ilan/<%# Eval("resim") %>' alt="img">
+                                                        <img class="img-responsive" src='upload/ilan/<%# classiPic(Eval("ilanId")) %>' alt="img">
                                                     </span>
                                                     <span class="item-name"><%# Eval("baslik") %>  </span>
                                                     <span class="price"><%# Eval("fiyat") %> <%# fiyat_Tur(Eval("fiyatTurId")) %> </span>
@@ -235,15 +237,10 @@
 
                     <div class="col-lg-12 content-box ">
                         <div class="row row-featured">
-
                             <div style="clear: both"></div>
-
                             <div class=" relative  content  clearfix">
-
-
                                 <div class="">
                                     <div class="tab-lite">
-
                                         <!-- Nav tabs -->
                                         <ul class="nav nav-tabs " role="tablist">
                                             <li role="presentation" class="active"><a href="index.html" aria-controls="tab1"
@@ -260,11 +257,8 @@
                                         <!-- Tab panes -->
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane active" id="tab1">
-
                                                 <div class="col-lg-12 tab-inner">
-
                                                     <div class="row">
-
                                                         <ul class="cat-list cat-list-border col-sm-3  col-xs-6 col-xxs-12">
                                                             <li><a href="#">Satılık daire </a></li>
                                                             <li><a href="#">Sahibinden villa </a></li>
@@ -274,15 +268,9 @@
                                                             <li><a href="#">temiz daire </a></li>
                                                             <li><a href="#">her yere yakın daire</a></li>
                                                             <li><a href="#">Satılık işyeri </a></li>
-
                                                         </ul>
-
-
                                                     </div>
-
                                                 </div>
-
-
                                             </div>
                                             <div role="tabpanel" class="tab-pane" id="tab2">
 
@@ -368,8 +356,7 @@
                         <div class="inner-box no-padding">
                             <div class="inner-box-content">
                                 <a href="#">
-                                    <img class="img-responsive"
-                                        src="../libraries/images/site/app.jpg" alt="tv"></a>
+                                    <asp:Image ID="kutu1Rklm" runat="server" Style="width: 100%; height: 230px;" />
                             </div>
                         </div>
                         <div class="inner-box">
@@ -377,24 +364,21 @@
 
                             <div class="inner-box-content">
                                 <ul class="cat-list arrow">
-                                    <li><a href="sub-category-sub-location.html">Apparel (1,386) </a></li>
-                                    <li><a href="sub-category-sub-location.html">Art (1,163) </a></li>
-                                    <li><a href="sub-category-sub-location.html">Business Opportunities (4,974) </a>
-                                    </li>
-                                    <li><a href="sub-category-sub-location.html">Community and Events (1,258) </a></li>
-                                    <li><a href="sub-category-sub-location.html">Electronics and Appliances
-                                        (1,578) </a></li>
-                                    <li><a href="sub-category-sub-location.html">Jobs and Employment (3,609) </a></li>
-                                    <li><a href="sub-category-sub-location.html">Motorcycles (968) </a></li>
-                                    <li><a href="sub-category-sub-location.html">Pets (1,188) </a></li>
-                                    <li><a href="sub-category-sub-location.html">Services (7,583) </a></li>
-                                    <li><a href="sub-category-sub-location.html">Vehicles (1,129) </a></li>
+                                    <li><a href="#">Daire  </a></li>
+                                    <li><a href="#">Residence </a></li>
+                                    <li><a href="#">Müstakil Ev </a></li>
+                                    <li><a href="#">Villa</a></li>
+                                    <li><a href="#">Çiftlik Evi </a></li>
+                                    <li><a href="#">Yalı</a></li>
+                                    <li><a href="#">Yalı Dairesi </a></li>
+                                    <li><a href="#">Yazlık </a></li>
+
                                 </ul>
                             </div>
                         </div>
 
                         <div class="inner-box no-padding">
-                            <img class="img-responsive" src="../libraries/images/add2.jpg" alt="">
+                            <asp:Image ID="kutu2Rklm" runat="server" Style="width: 100%; height: 230px;" />
                         </div>
                     </aside>
                 </div>
@@ -473,9 +457,7 @@
                         </div>
                         <!--/.iconbox-wrap-->
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
@@ -483,14 +465,12 @@
 
     <div class="page-bottom-info">
         <div class="page-bottom-info-inner">
-
             <div class="page-bottom-info-content text-center">
                 <h1>If you have any questions, comments or concerns, please call the Classified Advertising department
                     at (000) 555-5555</h1>
                 <a class="btn  btn-lg btn-primary-dark" href="tel:+9050732781 00">
                     <i class="icon-phone"></i><span class="hide-xs color50">7/24 Müşteri Hizmetleri:</span>(507) 327-8100 </a>
             </div>
-
         </div>
     </div>
     <script type="text/javascript" src='<%= Page.ResolveUrl("~/libraries/assets/plugins/autocomplete/jquery.mockjax.js") %>'></script>

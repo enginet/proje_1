@@ -42,11 +42,11 @@ namespace PL.management.anaYonetim.magazaYonetimi
             //string fileExt = segments[segments.Length - 1];
             DateTime magazaSure = default(DateTime);
 
-            if (magazaKtgb.search(Request.QueryString["pac"]).paketSureId == 1)
+            if (magazaKtgb.search(2,Request.QueryString["pac"]).paketSureId == 1)
             {
                 magazaSure = DateTime.Now.AddMonths(6);
             }
-            if (magazaKtgb.search(Request.QueryString["pac"]).paketSureId == 2)
+            if (magazaKtgb.search(2,Request.QueryString["pac"]).paketSureId == 2)
             {
                 magazaSure = DateTime.Now.AddMonths(12);
             }
@@ -91,7 +91,8 @@ namespace PL.management.anaYonetim.magazaYonetimi
 
                 }
             }
-            magazab.update(2, 3, Request.QueryString["pac"], drpTur.SelectedValue, txtMagazaAd.Text, Request.QueryString["edit"] + "." + fileExt, magazaSure, txtAciklama.Text);
+            magazab.update(2, Request.QueryString["edit"], Request.QueryString["pac"], drpTur.SelectedValue, txtMagazaAd.Text, Request.QueryString["edit"] + "." + fileExt, magazaSure, txtAciklama.Text);
+            Response.Redirect("~/management/anaYonetim/magazaYonetimi/magaza.aspx?page=tamamlandi");
 
         }
     }

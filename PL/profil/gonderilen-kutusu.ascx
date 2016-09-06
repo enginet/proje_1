@@ -67,13 +67,13 @@
 
                         </div>
                         <!--/.adds-wrapper-->
-                        <div class="tab-box  save-search-bar text-center">
+<%--                        <div class="tab-box  save-search-bar text-center">
                             <a href=""><i class=" icon-plus"></i>
                                 Follow User </a>
-                        </div>
+                        </div>--%>
                     </div>
                     <div class="pagination-bar text-center">
-                        <ul class="pagination">
+<%--                        <ul class="pagination">
                             <li class="active"><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
                             <li><a href="#">3</a></li>
@@ -81,7 +81,7 @@
                             <li><a href="#">5</a></li>
                             <li><a href="#">...</a></li>
                             <li><a class="pagination-btn" href="#">Sonraki &raquo;</a></li>
-                        </ul>
+                        </ul>--%>
                     </div>
                     <!--/.pagination-bar -->
 

@@ -30,22 +30,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="acilIlanBll.cs" />
     <Compile Include="araBll.cs" />
     <Compile Include="bildirimBll.cs" />
     <Compile Include="dopingBll.cs" />
     <Compile Include="dopingKategoriBll.cs" />
+    <Compile Include="filtreBll.cs" />
     <Compile Include="girilebilirIlanOzellikBll.cs" />
     <Compile Include="guvenlikKodlariBll.cs" />
     <Compile Include="ilanBll.cs" />
@@ -66,6 +72,7 @@
     <Compile Include="magazaTurBll.cs" />
     <Compile Include="mahalleBll.cs" />
     <Compile Include="mesajBll.cs" />
+    <Compile Include="odemeBll.cs" />
     <Compile Include="ozellikBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reklamBll.cs" />
@@ -82,6 +89,9 @@
       <Project>{1263822a-e357-4f74-8234-d71262c31eac}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

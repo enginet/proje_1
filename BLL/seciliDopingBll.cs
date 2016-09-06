@@ -37,67 +37,71 @@ namespace BLL
                 var query = from s in idc.seciliDopings.Where(s => s.pasifMi == false & s.onay == true & s.ilan.onay == 1 & s.ilan.pasifMi == false & s.ilan.silindiMi == false)
                             join k in idc.dopingKategoris.Where(k => k.doping.dopingId == 12)
                             on s.dopingKategoriId equals k.dopingKategoriId
-                            join r in idc.ilanResims.Where(r => r.seciliMi == true)
-                            on s.ilan.ilanId equals r.ilanId
+                            //join r in idc.ilanResims.Where(r => r.seciliMi == true)
+                            //on s.ilan.ilanId equals r.ilanId
                             select new
                             {
                                 s.ilan.ilanId,
                                 s.ilan.baslik,
-                                r.resim
+                                s.baslangicTarihi,
+                                //r.resim
                             };
-                return query;
+                return query.OrderByDescending(q=>q.baslangicTarihi).Take(1000);
             }
             else if (Convert.ToInt32(_income[0]) == 2)
             {   //Acil Acil Dopingi
                 var query = from s in idc.seciliDopings.Where(s => s.pasifMi == false & s.onay == true & s.ilan.onay == 1 & s.ilan.pasifMi == false & s.ilan.silindiMi == false)
                             join k in idc.dopingKategoris.Where(k => k.doping.dopingId == 13)
                             on s.dopingKategoriId equals k.dopingKategoriId
-                            join r in idc.ilanResims.Where(r => r.seciliMi == true)
-                            on s.ilan.ilanId equals r.ilanId
+                            //join r in idc.ilanResims.Where(r => r.seciliMi == true)
+                            //on s.ilan.ilanId equals r.ilanId
                             select new
                             {
                                 s.ilan.ilanId,
                                 s.ilan.baslik,
-                                r.resim,
+                                //r.resim,
                                 s.ilan.fiyat,
-                                s.ilan.fiyatTurId
+                                s.ilan.fiyatTurId,
+                                s.baslangicTarihi
                             };
-                return query;
+                return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
             }
             else if (Convert.ToInt32(_income[0]) == 3)
             {   //Kategori Dopingi
                 var query = from s in idc.seciliDopings.Where(s => s.pasifMi == false & s.onay == true & s.ilan.onay == 1 & s.ilan.pasifMi == false & s.ilan.silindiMi == false & s.ilan.kategori.kategoriId == Convert.ToInt32(_income[1]))
                             join k in idc.dopingKategoris.Where(k => k.doping.dopingId == 15)
                             on s.dopingKategoriId equals k.dopingKategoriId
-                            join r in idc.ilanResims.Where(r => r.seciliMi == true)
-                            on s.ilan.ilanId equals r.ilanId
+                            //join r in idc.ilanResims.Where(r => r.seciliMi == true)
+                            //on s.ilan.ilanId equals r.ilanId
                             select new
                             {
                                 s.ilan.ilanId,
                                 s.ilan.baslik,
-                                r.resim
+                                s.baslangicTarihi
+                                //r.resim
                             };
-                return query;
+                return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
             }
 
             else if (Convert.ToInt32(_income[0]) == 4)
             {
                 var query = from i in idc.ilans.Where(i => i.onay == 1 & i.pasifMi == false & i.silindiMi == false & i.baslangicTarihi >= DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0, 0)))
-                            join r in idc.ilanResims.Where(r => r.seciliMi == true)
-                            on i.ilanId equals r.ilanId
+                            //join r in idc.ilanResims.Where(r => r.seciliMi == true)
+                            //on i.ilanId equals r.ilanId
                             select new
                             {
                                 i.baslik,
-                                r.resim,
+                                //r.resim,
                                 i.fiyat,
                                 i.ilanId,
                                 i.fiyatTurId,
-                                i.magazaId
+                                i.magazaId,
+                                i.baslangicTarihi
                                 
 
                             };
 
-                return query;
+                return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
             }
             else
             {

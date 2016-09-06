@@ -40,6 +40,15 @@ namespace PL {
         protected global::System.Web.UI.WebControls.Repeater anaVitrinRepeater;
         
         /// <summary>
+        /// lblCountUst control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCountUst;
+        
+        /// <summary>
         /// kategoriRepeater control.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace PL {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink5;
         
         /// <summary>
+        /// dkdrtgnRklm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image dkdrtgnRklm;
+        
+        /// <summary>
         /// acilRepeater control.
         /// </summary>
         /// <remarks>
@@ -110,5 +128,23 @@ namespace PL {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater sonSaatRepeater;
+        
+        /// <summary>
+        /// kutu1Rklm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image kutu1Rklm;
+        
+        /// <summary>
+        /// kutu2Rklm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image kutu2Rklm;
     }
 }

@@ -229,6 +229,15 @@ namespace PL.Management {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink8;
         
         /// <summary>
+        /// HyperLink29 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink29;
+        
+        /// <summary>
         /// adsMenu control.
         /// </summary>
         /// <remarks>
@@ -364,13 +373,31 @@ namespace PL.Management {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl storeMenu;
         
         /// <summary>
-        /// HyperLink29 control.
+        /// HyperLink11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink29;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink11;
+        
+        /// <summary>
+        /// HyperLink12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink12;
+        
+        /// <summary>
+        /// HyperLink13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink13;
         
         /// <summary>
         /// HyperLink30 control.

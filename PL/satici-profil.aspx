@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="satıcı-profil" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="satici-profil.aspx.cs" Inherits="PL.satici_profil" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -17,16 +16,18 @@
                                         <img src="../libraries/images/user.jpg" class="img-responsive thumbnail" alt="img">
                                     </a>
                                 </div>
-                                <h3 class="no-margin no-padding link-color ">Richard Aki</h3>
+                                <h3 class="no-margin no-padding link-color ">
+                                    <asp:Label ID="lblSellerName" runat="server" Text="Label"></asp:Label></h3>
                                 <div class="user-ads-action">
-                                    <a class="btn btn-sm   btn-default " data-toggle="modal"
-                                        href="#contactAdvertiser"><i class=" icon-mail-2"></i>Mesaj Gönder </a>
-                                    <a class="btn btn-sm  btn-success "><i class=" icon-plus"></i>Takip Et </a>
+                                    <asp:LinkButton Text="text" ID="LinkButton1" CssClass="btn btn-sm  btn-success" runat="server"><i class=" icon-plus"></i> Takip Et</asp:LinkButton>
+                                    <asp:LinkButton Text="text" ID="LinkButton2" CssClass="btn btn-sm  btn-danger" runat="server"><i class="fa fa-minus"></i> Takibi Bırak</asp:LinkButton>
+
+                                    <%--                                    <a class="btn btn-sm  btn-success "><i class=" icon-plus"></i>Takip Et </a>--%>
                                 </div>
 
                                 <div class="seller-social-list">
 
-                                    <ul class="share-this-post">
+                                    <%--                                    <ul class="share-this-post">
                                         <li><a class="google-plus"><i class="fa fa-google-plus"></i></a>
                                         </li>
                                         <li><a class="facebook"><i class="fa fa-facebook"></i></a>
@@ -36,7 +37,7 @@
                                         <li><a class="pinterest"><i class="fa fa-pinterest"></i></a>
                                         </li>
 
-                                    </ul>
+                                    </ul>--%>
                                 </div>
                             </div>
                         </div>
@@ -48,22 +49,15 @@
 
                                 <dl class="dl-horizontal">
 
-                                    <dt>Adres:</dt>
-                                    <dd class="contact-sensitive">2142 Columbia Boulevard
-                                        <br>
-                                        Baltimore, MD 21212
-                                    </dd>
-                                    <dt>Telefon:</dt>
-                                    <dd class="contact-sensitive">555-555-1230000</dd>
-
-                                    <dt>Cep Telefonu:</dt>
-                                    <dd class="contact-sensitive">+01 0234 6784</dd>
+                                    <asp:Repeater ID="telefonRepeater" runat="server">
+                                        <ItemTemplate>
+                                            <dt><%# telefonTurDondur(Eval("telefonTur")) %></dt>
+                                            <dd class="contact-sensitive"><%# Eval("telefon") %></dd>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
 
                                 </dl>
-
-
                             </div>
-
                         </div>
                     </div>
 
@@ -79,7 +73,7 @@
                                     <!-- Nav tabs -->
                                     <ul class="nav nav-tabs add-tabs" role="tablist">
                                         <li class="active"><a href="#allAds" role="tab" data-toggle="tab">Kullanıcının Tüm İlanları
-                                            <span class="badge">20</span></a></li>
+                                            <span class="badge">0</span></a></li>
 
                                     </ul>
 
@@ -97,10 +91,7 @@
                                     <div class="pull-left col-xs-6">
                                         <div class="breadcrumb-list">
                                             <a href="#" class="current">
-                                                <span>Tüm İlanlar</span></a> in New York <a href="#selectRegion"
-                                                    id="dropdownMenu1"
-                                                    data-toggle="modal"><span
-                                                        class="caret"></span></a>
+                                                <span>Tüm İlanlar</span></a>
                                         </div>
                                     </div>
                                     <div class="pull-right col-xs-6 text-right listing-view-action">
@@ -115,268 +106,59 @@
 
 
                                 <div class="adds-wrapper">
-                                    <div class="item-list">
-
-
-                                        <div class="col-sm-2 no-padding photobox">
-                                            <div class="add-image">
-                                                <span class="photo-count"><i
-                                                    class="fa fa-camera"></i>2 </span><a href="ads-details.html">
-                                                        <img
-                                                            class="thumbnail no-margin" src="images/item/tp/Image00015.jpg"
-                                                            alt="img"></a>
-                                            </div>
-                                        </div>
-                                        <!--/.photobox-->
-                                        <div class="col-sm-7 add-desc-box">
-                                            <div class="add-details">
-                                                <h5 class="add-title"><a href="ads-details.html">Brand New Samsung Phones </a></h5>
-                                                <span class="info-row"><span class="add-type business-ads tooltipHere"
-                                                    data-toggle="tooltip"
-                                                    data-placement="right"
-                                                    title="Business Ads">B </span><span
-                                                        class="date"><i class=" icon-clock"></i>Today 1:21 pm </span>- <span
-                                                            class="category">Electronics </span>- <span
-                                                                class="item-location"><i class="fa fa-map-marker"></i>New York </span></span>
-                                            </div>
-                                        </div>
-                                        <!--/.add-desc-box-->
-                                        <div class="col-sm-3 text-right  price-box">
-                                            <h2 class="item-price">$ 320 </h2>
-                                            <a class="btn btn-danger  btn-sm make-favorite"><i
-                                                class="fa fa-certificate"></i><span>Top Ads</span> </a><a
-                                                    class="btn btn-default  btn-sm make-favorite"><i
-                                                        class="fa fa-heart"></i><span>Save</span> </a>
-                                        </div>
-                                        <!--/.add-desc-box-->
+                                    <div class="adds-wrapper">
+                                        <asp:Repeater ID="ilanRepeater" runat="server">
+                                            <ItemTemplate>
+                                                <div class="item-list">
+                                                    <div class="cornerRibbons featuredAds" runat="server" visible='<%# doping_Tur(Eval("ilanId"),14)==true?true:false %>'>
+                                                        <a href="#">Fiyatı Düştü</a>
+                                                    </div>
+                                                    <div class="cornerRibbons urgentAds" runat="server" visible='<%# doping_Tur(Eval("ilanId"),13)==true?true:false %>'>
+                                                        <a href="#">Acil Acil</a>
+                                                    </div>
+                                                    <div class="col-sm-2 no-padding photobox">
+                                                        <div class="add-image">
+                                                            <span class="photo-count"><i
+                                                                class="fa fa-hashtag"></i><%# Eval("ilanId") %> </span><a href="ads-details.html">
+                                                                    <img
+                                                                        class="thumbnail no-margin" src='upload/ilan/<%# Eval("resim") %>'
+                                                                        alt="img"></a>
+                                                        </div>
+                                                    </div>
+                                                    <!--/.photobox-->
+                                                    <div class="col-sm-7 add-desc-box">
+                                                        <div class="add-details">
+                                                            <h5 class="add-title"><a href="ads-details.html"><%# Eval("baslik") %> </a></h5>
+                                                            <span class="info-row"><span class="add-type business-ads tooltipHere"
+                                                                data-toggle="tooltip"
+                                                                data-placement="right"
+                                                                title="Business Ads">B </span><span
+                                                                    class="date"><i class=" icon-clock"></i><%# Eval("baslangicTarihi") %> </span>- <span
+                                                                        class="category"><%# Eval("kategoriAdi") %> </span>- <span
+                                                                            class="item-location"><i class="fa fa-map-marker"></i>&nbsp;<%# Eval("ilAdi") %> </span>
+                                                                <span
+                                                                    class="item-location"><i class="fa fa-eye"></i>&nbsp;<%# Eval("ziyaretci") %> </span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <!--/.add-desc-box-->
+                                                    <div class="col-sm-3 text-right  price-box">
+                                                        <h2 class="item-price"><%# DAL.toolkit.fiyat_Tur(Eval("fiyatTurId")) %> <%# Eval("fiyat") %> </h2>
+                                                    </div>
+                                                    <!--/.add-desc-box-->
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
                                     </div>
-                                    <!--/.item-list-->
-
-                                    <div class="item-list">
-                                        <div class="cornerRibbons featuredAds">
-                                            <a href="#">Featured Ads</a>
-                                        </div>
-
-                                        <div class="col-sm-2 no-padding photobox">
-                                            <div class="add-image">
-                                                <span class="photo-count"><i
-                                                    class="fa fa-camera"></i>2 </span><a href="ads-details.html">
-                                                        <img
-                                                            class="thumbnail no-margin" src="images/item/tp/Image00008.jpg"
-                                                            alt="img"></a>
-                                            </div>
-                                        </div>
-                                        <!--/.photobox-->
-                                        <div class="col-sm-7 add-desc-box">
-                                            <div class="add-details">
-                                                <h5 class="add-title"><a href="ads-details.html">Sony Xperia dual sim 100% brand new </a></h5>
-                                                <span class="info-row"><span class="add-type business-ads tooltipHere"
-                                                    data-toggle="tooltip"
-                                                    data-placement="right"
-                                                    title="Business Ads">B </span><span
-                                                        class="date"><i class=" icon-clock"></i>Today 1:21 pm </span>- <span
-                                                            class="category">Electronics </span>- <span
-                                                                class="item-location"><i class="fa fa-map-marker"></i>New York </span></span>
-                                            </div>
-                                        </div>
-                                        <!--/.add-desc-box-->
-                                        <div class="col-sm-3 text-right  price-box">
-                                            <h2 class="item-price">$ 250 </h2>
-                                            <a class="btn btn-danger  btn-sm make-favorite"><i
-                                                class="fa fa-certificate"></i><span>Featured Ads</span> </a><a
-                                                    class="btn btn-default  btn-sm make-favorite"><i
-                                                        class="fa fa-heart"></i><span>Save</span> </a>
-                                        </div>
-                                        <!--/.add-desc-box-->
-                                    </div>
-
-                                    <div class="item-list">
-                                        <div class="cornerRibbons urgentAds">
-                                            <a href="#">Urgent</a>
-                                        </div>
-                                        <div class="col-sm-2 no-padding photobox">
-                                            <div class="add-image">
-                                                <span class="photo-count"><i
-                                                    class="fa fa-camera"></i>2 </span><a href="ads-details.html">
-                                                        <img
-                                                            class="thumbnail no-margin"
-                                                            src="images/item/FreeGreatPicture.com-46404-google-drops-nexus-4-by-100-offers-15-day-price-protection-refund.jpg"
-                                                            alt="img"></a>
-                                            </div>
-                                        </div>
-                                        <!--/.photobox-->
-                                        <div class="col-sm-7 add-desc-box">
-                                            <div class="add-details">
-                                                <h5 class="add-title"><a href="ads-details.html">Google drops Nexus
-                                                    4 </a></h5>
-                                                <span class="info-row"><span class="add-type business-ads tooltipHere"
-                                                    data-toggle="tooltip"
-                                                    data-placement="right"
-                                                    title="Business Ads">B </span><span
-                                                        class="date"><i class=" icon-clock"></i>Today 1:21 pm </span>- <span
-                                                            class="category">Electronics </span>- <span
-                                                                class="item-location"><i class="fa fa-map-marker"></i>New York </span></span>
-                                            </div>
-                                        </div>
-                                        <!--/.add-desc-box-->
-                                        <div class="col-sm-3 text-right  price-box">
-                                            <h2 class="item-price">$ 150 </h2>
-                                            <a class="btn btn-danger  btn-sm make-favorite"><i
-                                                class="fa fa-certificate"></i><span>Urgent</span> </a>
-                                            <a class="btn btn-default  btn-sm make-favorite"><i
-                                                class="fa fa-heart"></i><span>Save</span> </a>
-                                        </div>
-                                        <!--/.add-desc-box-->
-                                    </div>
-                                    <!--/.item-list-->
-
-                                    <!--/.item-list-->
-                                    <div class="item-list">
-
-                                        <div class="col-sm-2 no-padding photobox">
-                                            <div class="add-image">
-                                                <span class="photo-count"><i
-                                                    class="fa fa-camera"></i>2 </span><a href="ads-details.html">
-                                                        <img
-                                                            class="thumbnail no-margin" src="images/item/tp/Image00014.jpg"
-                                                            alt="img"></a>
-                                            </div>
-                                        </div>
-                                        <!--/.photobox-->
-                                        <div class="col-sm-7 add-desc-box">
-                                            <div class="add-details">
-                                                <h5 class="add-title"><a href="ads-details.html">Samsung Galaxy S Dous
-                                                    (Brand New/ Intact Box) With 1year Warranty </a></h5>
-                                                <span class="info-row"><span class="add-type business-ads tooltipHere"
-                                                    data-toggle="tooltip"
-                                                    data-placement="right"
-                                                    title="Business Ads">B </span><span
-                                                        class="date"><i class=" icon-clock"></i>Today 1:21 pm </span>- <span
-                                                            class="category">Electronics </span>- <span
-                                                                class="item-location"><i class="fa fa-map-marker"></i>New York </span></span>
-                                            </div>
-                                        </div>
-                                        <!--/.add-desc-box-->
-                                        <div class="col-sm-3 text-right  price-box">
-                                            <h2 class="item-price">$ 230</h2>
-                                            <a class="btn btn-default  btn-sm make-favorite"><i
-                                                class="fa fa-heart"></i><span>Save</span> </a>
-                                        </div>
-                                        <!--/.add-desc-box-->
-                                    </div>
-                                    <!--/.item-list-->
-                                    <div class="item-list">
-                                        <div class="col-sm-2 no-padding photobox">
-                                            <div class="add-image">
-                                                <span class="photo-count"><i
-                                                    class="fa fa-camera"></i>2 </span><a href="ads-details.html">
-                                                        <img
-                                                            class="thumbnail no-margin" src="images/item/tp/Image00003.jpg"
-                                                            alt="img"></a>
-                                            </div>
-                                        </div>
-                                        <!--/.photobox-->
-                                        <div class="col-sm-7 add-desc-box">
-                                            <div class="add-details">
-                                                <h5 class="add-title"><a href="ads-details.html">MSI GE70 Apache
-                                                    Pro-061 17.3" Core i5-4200H/8GB DDR3/NV GTX860M Gaming Laptop </a>
-                                                </h5>
-                                                <span class="info-row"><span class="add-type business-ads tooltipHere"
-                                                    data-toggle="tooltip"
-                                                    data-placement="right"
-                                                    title="Business Ads">B </span><span
-                                                        class="date"><i class=" icon-clock"></i>Today 1:21 pm </span>- <span
-                                                            class="category">Electronics </span>- <span
-                                                                class="item-location"><i class="fa fa-map-marker"></i>New York </span></span>
-                                            </div>
-                                        </div>
-                                        <!--/.add-desc-box-->
-                                        <div class="col-sm-3 text-right  price-box">
-                                            <h2 class="item-price">$ 400 </h2>
-                                            <a class="btn btn-default  btn-sm make-favorite"><i
-                                                class="fa fa-heart"></i><span>Save</span> </a>
-                                        </div>
-                                        <!--/.add-desc-box-->
-                                    </div>
-                                    <!--/.item-list-->
-                                    <div class="item-list">
-                                        <div class="col-sm-2 no-padding photobox">
-                                            <div class="add-image">
-                                                <span class="photo-count"><i
-                                                    class="fa fa-camera"></i>2 </span><a href="ads-details.html">
-                                                        <img
-                                                            class="thumbnail no-margin" src="images/item/tp/Image00022.jpg"
-                                                            alt="img"></a>
-                                            </div>
-                                        </div>
-                                        <!--/.photobox-->
-                                        <div class="col-sm-7 add-desc-box">
-                                            <div class="add-details">
-                                                <h5 class="add-title"><a href="ads-details.html">Apple iPod touch 16 GB
-                                                    3rd Generation </a></h5>
-                                                <span class="info-row"><span class="add-type business-ads tooltipHere"
-                                                    data-toggle="tooltip"
-                                                    data-placement="right"
-                                                    title="Business Ads">B </span><span
-                                                        class="date"><i class=" icon-clock"></i>Today 1:21 pm </span>- <span
-                                                            class="category">Electronics </span>- <span
-                                                                class="item-location"><i class="fa fa-map-marker"></i>New York </span></span>
-                                            </div>
-                                        </div>
-                                        <!--/.add-desc-box-->
-                                        <div class="col-sm-3 text-right  price-box">
-                                            <h2 class="item-price">$ 150 </h2>
-                                            <a class="btn btn-default  btn-sm make-favorite"><i
-                                                class="fa fa-heart"></i><span>Save</span> </a>
-                                        </div>
-                                        <!--/.add-desc-box-->
-                                    </div>
-                                    <!--/.item-list-->
-                                    <div class="item-list">
-                                        <div class="col-sm-2 no-padding photobox">
-                                            <div class="add-image">
-                                                <span class="photo-count"><i
-                                                    class="fa fa-camera"></i>2 </span><a href="ads-details.html">
-                                                        <img
-                                                            class="thumbnail no-margin"
-                                                            src="images/item/FreeGreatPicture.com-46405-google-drops-price-of-nexus-4-smartphone.jpg"
-                                                            alt="img"></a>
-                                            </div>
-                                        </div>
-                                        <!--/.photobox-->
-                                        <div class="col-sm-7 add-desc-box">
-                                            <div class="add-details">
-                                                <h5 class="add-title"><a href="ads-details.html">Google drops Nexus 4
-                                                    by $100, offers 15 day price protection refund </a></h5>
-                                                <span class="info-row"><span class="add-type business-ads tooltipHere"
-                                                    data-toggle="tooltip"
-                                                    data-placement="right"
-                                                    title="Business Ads">B </span><span
-                                                        class="date"><i class=" icon-clock"></i>Today 1:21 pm </span>- <span
-                                                            class="category">Electronics </span>- <span
-                                                                class="item-location"><i class="fa fa-map-marker"></i>New York </span></span>
-                                            </div>
-                                        </div>
-                                        <!--/.add-desc-box-->
-                                        <div class="col-sm-3 text-right  price-box">
-                                            <h2 class="item-price">$ 150 </h2>
-                                            <a class="btn btn-default  btn-sm make-favorite"><i
-                                                class="fa fa-heart"></i><span>Save</span> </a>
-                                        </div>
-                                        <!--/.add-desc-box-->
-                                    </div>
-                                    <!--/.item-list-->
-
-
                                 </div>
                                 <!--/.adds-wrapper-->
 
-                                <div class="tab-box  save-search-bar text-center">
+<%--                                <div class="tab-box  save-search-bar text-center">
                                     <a href=""><i class=" icon-plus"></i>
                                         Follow User </a>
-                                </div>
+                                </div>--%>
                             </div>
-                            <div class="pagination-bar text-center">
+<%--                            <div class="pagination-bar text-center">
                                 <ul class="pagination">
                                     <li class="active"><a href="#">1</a></li>
                                     <li><a href="#">2</a></li>
@@ -386,12 +168,12 @@
                                     <li><a href="#">...</a></li>
                                     <li><a class="pagination-btn" href="#">Sonraki &raquo;</a></li>
                                 </ul>
-                            </div>
+                            </div>--%>
                             <!--/.pagination-bar -->
 
                             <div class="post-promo text-center">
                                 <h2>Bir şeyler satmak mı istiyorsun ? </h2>
-                                <a href="post-ads.html" class="btn btn-lg btn-border btn-post btn-danger">Ücretsiz ilan ver</a>
+                                <a href="#" class="btn btn-lg btn-border btn-post btn-danger">Ücretsiz ilan ver</a>
                             </div>
                             <!--/.post-promo-->
 
@@ -402,21 +184,18 @@
                             <aside>
                                 <div class="panel sidebar-panel panel-contact-seller">
                                     <div class="panel-heading">
-                                        Takip Ediyor <span class="badge">3</span>
+                                        Takip Ediyor <span class="badge">0</span>
                                     </div>
                                     <div class="panel-content user-info">
                                         <div class="panel-body text-center">
                                             <ul class="list-unstyled list-user-list">
-
+                                                <asp:Repeater ID="takipEdilenRepeater" runat="server">
+                                                    <ItemTemplate>
                                                 <li><a>
-                                                    <img alt="img" src="images/users/13.jpg"
+                                                    <img alt="img" src='upload/profil/<%# Eval("profilResim") %>'
                                                         class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/9.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/7.jpg"
-                                                        class="img-circle   "></a></li>
+                                                                                                    </ItemTemplate>
+                                                </asp:Repeater>
                                             </ul>
 
 
@@ -425,92 +204,25 @@
                                 </div>
                                 <div class="panel sidebar-panel panel-contact-seller">
                                     <div class="panel-heading">
-                                        Takipçileri <span class="badge">81</span>
+                                        Takipçileri <span class="badge">0</span>
                                     </div>
                                     <div class="panel-content user-info">
                                         <div class="panel-body text-center">
                                             <ul class="list-unstyled list-user-list long-list-user">
-
+                                                <asp:Repeater ID="takipciRepeater" runat="server">
+                                                    <ItemTemplate>
                                                 <li><a>
-                                                    <img alt="img" src="images/users/1.jpg"
+                                                    <img alt="img" src='upload/profil/<%# Eval("profilResim") %>'
                                                         class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/2.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/3.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/4.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/5.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/6.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/7.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/8.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/9.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/10.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/11.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/12.jpg"
-                                                        class="img-circle   "></a></li>
-
-                                                <li><a>
-                                                    <img alt="img" src="images/users/13.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/14.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/15.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/16.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/5.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/6.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/7.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/8.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/9.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/10.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/11.jpg"
-                                                        class="img-circle   "></a></li>
-                                                <li><a>
-                                                    <img alt="img" src="images/users/12.jpg"
-                                                        class="img-circle   "></a></li>
+                                                        </ItemTemplate>
+                                                </asp:Repeater>
                                             </ul>
 
 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="panel sidebar-panel">
+                                <%--                                <div class="panel sidebar-panel">
                                     <div class="panel-heading">Safety Tips for Buyers</div>
                                     <div class="panel-content">
                                         <div class="panel-body text-left">
@@ -525,7 +237,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--%>
                                 <!--/.categories-list-->
                             </aside>
                         </div>
@@ -590,147 +302,8 @@
     </div>
 
     <!-- /.modal -->
-
-
     <!-- Modal Change City -->
-
-    <div class="modal fade" id="selectRegion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">&times;</span><span
-                            class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="exampleModalLabel"><i class=" icon-map"></i>Select your region </h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-sm-12">
-
-                            <p>
-                                Popular cities in <strong>New York</strong>
-                            </p>
-
-                            <div style="clear: both"></div>
-                            <div class="col-sm-6 no-padding">
-                                <select class="form-control selecter  " id="region-state" name="region-state">
-                                    <option value="">All States/Provinces</option>
-                                    <option value="Alabama">Alabama</option>
-                                    <option value="Alaska">Alaska</option>
-                                    <option value="Arizona">Arizona</option>
-                                    <option value="Arkansas">Arkansas</option>
-                                    <option value="California">California</option>
-                                    <option value="Colorado">Colorado</option>
-                                    <option value="Connecticut">Connecticut</option>
-                                    <option value="Delaware">Delaware</option>
-                                    <option value="District of Columbia">District of Columbia</option>
-                                    <option value="Florida">Florida</option>
-                                    <option value="Georgia">Georgia</option>
-                                    <option value="Hawaii">Hawaii</option>
-                                    <option value="Idaho">Idaho</option>
-                                    <option value="Illinois">Illinois</option>
-                                    <option value="Indiana">Indiana</option>
-                                    <option value="Iowa">Iowa</option>
-                                    <option value="Kansas">Kansas</option>
-                                    <option value="Kentucky">Kentucky</option>
-                                    <option value="Louisiana">Louisiana</option>
-                                    <option value="Maine">Maine</option>
-                                    <option value="Maryland">Maryland</option>
-                                    <option value="Massachusetts">Massachusetts</option>
-                                    <option value="Michigan">Michigan</option>
-                                    <option value="Minnesota">Minnesota</option>
-                                    <option value="Mississippi">Mississippi</option>
-                                    <option value="Missouri">Missouri</option>
-                                    <option value="Montana">Montana</option>
-                                    <option value="Nebraska">Nebraska</option>
-                                    <option value="Nevada">Nevada</option>
-                                    <option value="New Hampshire">New Hampshire</option>
-                                    <option value="New Jersey">New Jersey</option>
-                                    <option value="New Mexico">New Mexico</option>
-                                    <option selected value="New York">New York</option>
-                                    <option value="North Carolina">North Carolina</option>
-                                    <option value="North Dakota">North Dakota</option>
-                                    <option value="Ohio">Ohio</option>
-                                    <option value="Oklahoma">Oklahoma</option>
-                                    <option value="Oregon">Oregon</option>
-                                    <option value="Pennsylvania">Pennsylvania</option>
-                                    <option value="Rhode Island">Rhode Island</option>
-                                    <option value="South Carolina">South Carolina</option>
-                                    <option value="South Dakota">South Dakota</option>
-                                    <option value="Tennessee">Tennessee</option>
-                                    <option value="Texas">Texas</option>
-                                    <option value="Utah">Utah</option>
-                                    <option value="Vermont">Vermont</option>
-                                    <option value="Virgin Islands">Virgin Islands</option>
-                                    <option value="Virginia">Virginia</option>
-                                    <option value="Washington">Washington</option>
-                                    <option value="West Virginia">West Virginia</option>
-                                    <option value="Wisconsin">Wisconsin</option>
-                                    <option value="Wyoming">Wyoming</option>
-                                </select>
-                            </div>
-                            <div style="clear: both"></div>
-
-                            <hr class="hr-thin">
-                        </div>
-                        <div class="col-md-4">
-                            <ul class="list-link list-unstyled">
-                                <li><a href="#" title="">All Cities</a></li>
-                                <li><a href="#" title="Albany">Albany</a></li>
-                                <li><a href="#" title="Altamont">Altamont</a></li>
-                                <li><a href="#" title="Amagansett">Amagansett</a></li>
-                                <li><a href="#" title="Amawalk">Amawalk</a></li>
-                                <li><a href="#" title="Bellport">Bellport</a></li>
-                                <li><a href="#" title="Centereach">Centereach</a></li>
-                                <li><a href="#" title="Chappaqua">Chappaqua</a></li>
-                                <li><a href="#" title="East Elmhurst">East Elmhurst</a></li>
-                                <li><a href="#" title="East Greenbush">East Greenbush</a></li>
-                                <li><a href="#" title="East Meadow">East Meadow</a></li>
-
-                            </ul>
-                        </div>
-                        <div class="col-md-4">
-                            <ul class="list-link list-unstyled">
-                                <li><a href="#" title="Elmont">Elmont</a></li>
-                                <li><a href="#" title="Elmsford">Elmsford</a></li>
-                                <li><a href="#" title="Farmingville">Farmingville</a></li>
-                                <li><a href="#" title="Floral Park">Floral Park</a></li>
-                                <li><a href="#" title="Flushing">Flushing</a></li>
-                                <li><a href="#" title="Fonda">Fonda</a></li>
-                                <li><a href="#" title="Freeport">Freeport</a></li>
-                                <li><a href="#" title="Fresh Meadows">Fresh Meadows</a></li>
-                                <li><a href="#" title="Fultonville">Fultonville</a></li>
-                                <li><a href="#" title="Gansevoort">Gansevoort</a></li>
-                                <li><a href="#" title="Garden City">Garden City</a></li>
-
-
-                            </ul>
-                        </div>
-                        <div class="col-md-4">
-                            <ul class="list-link list-unstyled">
-                                <li><a href="#" title="Oceanside">Oceanside</a></li>
-                                <li><a href="#" title="Orangeburg">Orangeburg</a></li>
-                                <li><a href="#" title="Orient">Orient</a></li>
-                                <li><a href="#" title="Ozone Park">Ozone Park</a></li>
-                                <li><a href="#" title="Palatine Bridge">Palatine Bridge</a></li>
-                                <li><a href="#" title="Patterson">Patterson</a></li>
-                                <li><a href="#" title="Pearl River">Pearl River</a></li>
-                                <li><a href="#" title="Peekskill">Peekskill</a></li>
-                                <li><a href="#" title="Pelham">Pelham</a></li>
-                                <li><a href="#" title="Penn Yan">Penn Yan</a></li>
-                                <li><a href="#" title="Peru">Peru</a></li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
     <script src="libraries/assets/js/owl.carousel.min.js"></script>
-
     <!-- include form-validation plugin || add this script where you need validation   -->
     <script src="libraries/assets/js/form-validation.js"></script>
 </asp:Content>

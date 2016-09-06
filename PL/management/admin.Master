@@ -39,9 +39,9 @@
                 <!-- Logo -->
                 <asp:HyperLink ID="HyperLink31" CssClass="logo" runat="server" NavigateUrl="~/management/default.aspx">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini"><b>A</b>niv</span>
+                    <span class="logo-mini"><b>A</b>kral</span>
                     <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b>Admin</b>&nbsp;netteilanver</span>
+                    <span class="logo-lg"><b>Admin</b>&nbsp;kralilan.com</span>
                 </asp:HyperLink>
                 <!-- Header Navbar: style can be found in header.less -->
                 <!-- Header Navbar: style can be found in header.less -->
@@ -192,13 +192,13 @@
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="../../../management/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                    <img src="../../../management/dist/img/user.jpg" class="user-image" alt="User Image">
                                     <span class="hidden-xs" runat="server" id="userMain"></span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-                                        <img src="../../../management/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                        <img src="../../../management/dist/img/user.jpg" class="img-circle" alt="User Image">
                                         <p runat="server" id="userJobSub">
                                             <small runat="server" id="loginDate"></small>
                                         </p>
@@ -233,7 +233,7 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="../../../management/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="../../../management/dist/img/user.jpg" class="img-circle" alt="User Image"/>
                         </div>
                         <div class="pull-left info">
                             <p runat="server" id="userNavi"></p>
@@ -262,17 +262,20 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li>
-                                    <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/management/anaYonetim/ilanYonetimi/ilan.aspx?page=listele"><i class="fa fa-circle-o"></i> İlan Listele</asp:HyperLink></li>
+                                    <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/management/anaYonetim/ilanYonetimi/ilan.aspx?page=listele&tip=2"><i class="fa fa-circle-o"></i> İlan Listele</asp:HyperLink></li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/management/anaYonetim/ilanYonetimi/ilan.aspx?page=ilan-kategori"><i class="fa fa-circle-o"></i> İlan Ekle</asp:HyperLink></li>
                                 <li>
-                                    <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/management/anaYonetim/ilanYonetimi/ilan.aspx?page=onaybekleyenilan"><i class="fa fa-circle-o"></i> Onay Bekleyen İlanlar</asp:HyperLink></li>
+                                    <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/management/anaYonetim/ilanYonetimi/ilan.aspx?page=listele&tip=1"><i class="fa fa-circle-o"></i> Onay Bekleyen İlanlar</asp:HyperLink></li>
                                 <li>
-                                    <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/management/anaYonetim/ilanYonetimi/ilan.aspx?page=dopingilan"><i class="fa fa-circle-o"></i> Dopingli İlanlar</asp:HyperLink></li>
+                                    <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/management/anaYonetim/ilanYonetimi/ilan.aspx?page=listele&tip=6"><i class="fa fa-circle-o"></i> Dopingli İlanlar</asp:HyperLink></li>
                                 <li>
-                                    <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/management/anaYonetim/ilanYonetimi/ilan.aspx?page=fiyatdusenilan"><i class="fa fa-circle-o"></i> Fiyatı Düşen İlanlar</asp:HyperLink></li>
+                                    <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/management/anaYonetim/ilanYonetimi/ilan.aspx?page=listele&tip=5"><i class="fa fa-circle-o"></i> Fiyatı Düşen İlanlar</asp:HyperLink></li>
                                 <li>
-                                    <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/management/anaYonetim/ilanYonetimi/ilan.aspx?page=sikayetilan"><i class="fa fa-circle-o"></i> Şikayet Edilen İlanlar</asp:HyperLink></li>
+                                    <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/management/anaYonetim/ilanYonetimi/ilan.aspx?page=listele&tip=4"><i class="fa fa-circle-o"></i> Şikayet Edilen İlanlar</asp:HyperLink></li>
+                                                            <li>
+                                    <asp:HyperLink ID="HyperLink29" runat="server" NavigateUrl="~/management/anaYonetim/ilanYonetimi/ilan.aspx?page=listele&tip=3"><i class="fa fa-circle-o"></i> Pasif İlanlar</asp:HyperLink></li>
+                           
                             </ul>
                         </li>
                         <li class="treeview" runat="server" id="adsMenu">
@@ -314,8 +317,6 @@
                                     <asp:HyperLink ID="HyperLink33" NavigateUrl="~/management/anaYonetim/kategoriYonetimi/kategoriler.aspx?page=listele" runat="server"><i class="fa fa-circle-o"></i>Kategoriler</asp:HyperLink></li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink34" NavigateUrl="~/management/anaYonetim/kategoriYonetimi/kategoriler.aspx?page=ekle" runat="server"><i class="fa fa-circle-o"></i>Kategori Ekle</asp:HyperLink></li>
-                                <%--                                <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i>Kategoriler</a></li>
-                                <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i>Kategori Ekle</a></li>--%>
                             </ul>
                         </li>
                         <li class="treeview" runat="server" id="userMenu">
@@ -373,8 +374,12 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
+  <li>
+                                    <asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="~/management/anaYonetim/magazaYonetimi/magaza.aspx?page=listele&proc=3"><i class="fa fa-circle-o"></i> Onay Bekleyen Mağazalar</asp:HyperLink></li>
                                 <li>
-                                    <asp:HyperLink ID="HyperLink29" runat="server" NavigateUrl="~/management/anaYonetim/magazaYonetimi/magaza.aspx?page=listele"><i class="fa fa-circle-o"></i> Mağazalar</asp:HyperLink></li>
+                                    <asp:HyperLink ID="HyperLink12" runat="server" NavigateUrl="~/management/anaYonetim/magazaYonetimi/magaza.aspx?page=listele&proc=1"><i class="fa fa-circle-o"></i> Aktif Mağazalar</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="~/management/anaYonetim/magazaYonetimi/magaza.aspx?page=listele&proc=2"><i class="fa fa-circle-o"></i> Pasif Mağazalar</asp:HyperLink></li>
                                 <li>
                                     <asp:HyperLink ID="HyperLink30" runat="server" NavigateUrl="~/management/anaYonetim/magazaYonetimi/magaza.aspx?page=ekle"><i class="fa fa-circle-o"></i> Mağaza Ekle</asp:HyperLink></li>
                             </ul>

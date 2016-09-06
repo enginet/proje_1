@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dal_Helper.cs" />
+    <Compile Include="fotograf.cs" />
     <Compile Include="ilan.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

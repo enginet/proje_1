@@ -49,13 +49,13 @@ namespace PL.profil {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl enSonİlan;
         
         /// <summary>
-        /// txtid control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtid;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// hypBaslik control.
@@ -92,6 +92,24 @@ namespace PL.profil {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtIl;
+        
+        /// <summary>
+        /// lblFiyatTur control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFiyatTur;
+        
+        /// <summary>
+        /// lblFiyat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFiyat;
         
         /// <summary>
         /// HyperLink1 control.

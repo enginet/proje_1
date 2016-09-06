@@ -251,29 +251,28 @@
                                     <asp:Label ID="lblMagazaAdi" runat="server"></asp:Label></h1>
                                 <br />
                                 <br />
-                                <br />
                                 <asp:LinkButton ID="LinkButton1" CssClass="btn btn-labeled btn-danger" runat="server" OnClick="LinkButton1_Click"><span class="btn-label"><i class="fa fa-plus"></i></span> Takip Et</asp:LinkButton>
                                 <asp:LinkButton ID="LinkButton2" CssClass="btn btn-labeled btn-danger" runat="server" OnClick="LinkButton2_Click"><span class="btn-label"><i class="fa fa-minus"></i></span> Takip Bırak</asp:LinkButton>
                             </div>
                         </div>
                         <div class="col-md-6 no-pad">
                             <div class="user-image">
-                                <img src="upload/magaza/100001016_2.jpg" class="img-responsive thumbnail" alt="img" />
+                                <img src='upload/magaza/<%= storeLogo %>' class="img-responsive thumbnail" alt="img" />
                             </div>
                         </div>
                     </div>
                     <div class="row overview">
                         <div class="col-md-4 user-pad text-center">
                             <h3>Takipçileri</h3>
-                            <h4>2,784</h4>
+                            <h4>0</h4>
                         </div>
                         <div class="col-md-4 user-pad text-center">
                             <h3>İlan Sayısı</h3>
-                            <h4>456</h4>
+                            <h4>0</h4>
                         </div>
                         <div class="col-md-4 user-pad text-center">
                             <h3>Danışman Sayısı</h3>
-                            <h4>4,901</h4>
+                            <h4>0</h4>
                         </div>
                     </div>
                 </div>
@@ -303,7 +302,7 @@
                                 <asp:Repeater ID="telefonRepeater" runat="server">
                                     <ItemTemplate>
                                         <button type="button" class="btn btn-lg btn-labeled btn-success" href="#" style="margin-bottom: 15px;" runat="server">
-                                            <span class="btn-label"><i class="fa fa-phone"></i><%# Eval("telefonTur") %></span><%# Eval("telefon") %>
+                                            <span class="btn-label"><i class="fa fa-phone"></i><%# telefonTurDondur(Eval("telefonTur")) %></span><%# Eval("telefon") %>
                                         </button>
                                     </ItemTemplate>
                                 </asp:Repeater>
@@ -418,7 +417,7 @@
                                                         <span class="photo-count"><i
                                                             class="fa fa-hashtag"></i><%# Eval("ilanId") %> </span><a href="ads-details.html">
                                                                 <img
-                                                                    class="thumbnail no-margin" src="libraries/images/item/tp/Image00008.jpg"
+                                                                    class="thumbnail no-margin" src='upload/ilan/<%# Eval("resim") %>'
                                                                     alt="img"></a>
                                                     </div>
                                                 </div>
@@ -429,7 +428,7 @@
                                                         <span class="info-row"><span class="add-type business-ads tooltipHere"
                                                             data-toggle="tooltip"
                                                             data-placement="right"
-                                                            title="Business Ads">B </span><span
+                                                            title="Güvenli İlan">S </span><span
                                                                 class="date"><i class=" icon-clock"></i><%# Eval("baslangicTarihi") %> </span>- <span
                                                                     class="category"><%# Eval("kategoriAdi") %> </span>- <span
                                                                         class="item-location"><i class="fa fa-map-marker"></i>&nbsp;<%# Eval("ilAdi") %> </span>

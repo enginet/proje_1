@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
+using DAL;
 
 namespace PL.profil
 {
@@ -13,11 +14,18 @@ namespace PL.profil
         bildirimBll bildirimb = new bildirimBll();
         protected void Page_Load(object sender, EventArgs e)
         {
-            bildirimRepeater.DataSource = bildirimb.list(5, 1);
-            bildirimRepeater.DataBind();
-            if (Request.QueryString["not"] != null)
+            if (Session["unique-site-user"] != null)
             {
-                bildirimb.update(1, Request.QueryString["not"]);
+                if (!Page.IsPostBack)
+                {
+                    kullanici _authority = (kullanici)Session["unique-site-user"];
+                    bildirimRepeater.DataSource = bildirimb.list(_authority.kullaniciId, 1);
+                    bildirimRepeater.DataBind();
+                    if (Request.QueryString["not"] != null)
+                    {
+                        bildirimb.update(1, Request.QueryString["not"]);
+                    }
+                }
             }
         }
     }

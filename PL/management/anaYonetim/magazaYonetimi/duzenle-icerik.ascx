@@ -5,6 +5,8 @@
 <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
 <link rel="stylesheet" href="../../plugins/datepicker/datepicker3.css">
 <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+<link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/plugins/iCheck/square/blue.css") %>'>
+
 <style>
     .pricing-table .plan {
         margin-left: 0px;
@@ -161,24 +163,24 @@
                         <div class="col-xs-12">
                             <ul class="nav nav-pills nav-justified thumbnail setup-panel">
                                 <li class="disabled"><a href="#step-1">
-                                    <h4 class="list-group-item-heading"><i class="fa fa-shopping-cart fa-2x"></i></h4>
+                                    <h4 class="list-group-item-heading"><i class="fa fa-archive fa-2x"></i></h4>
                                     <p class="list-group-item-text">Mağaza Seçimi</p>
                                 </a></li>
                                 <li class="disabled"><a href="#step-2">
-                                    <h4 class="list-group-item-heading"><i class="fa fa-reorder fa-2x"></i></h4>
+                                    <h4 class="list-group-item-heading"><i class="fa fa-ticket fa-2x"></i></h4>
                                     <p class="list-group-item-text">Mağaza Tipi</p>
                                 </a></li>
                                 <li class="active"><a href="#step-3">
-                                    <h4 class="list-group-item-heading"><i class="fa fa-tags fa-2x"></i></h4>
+                                    <h4 class="list-group-item-heading"><i class="fa fa-object-group fa-2x"></i></h4>
                                     <p class="list-group-item-text">İçerik</p>
                                 </a></li>
                                 <li class="disabled"><a href="#step-4">
-                                    <h4 class="list-group-item-heading"><i class="fa fa-money fa-2x"></i></h4>
+                                    <h4 class="list-group-item-heading"><i class="fa fa-credit-card fa-2x"></i></h4>
                                     <p class="list-group-item-text">Ödeme</p>
                                 </a></li>
                                 <li class="disabled"><a href="#step-5">
                                     <h4 class="list-group-item-heading"><i class="fa fa-check fa-2x"></i></h4>
-                                    <p class="list-group-item-text">Tebrikler</p>
+                                    <p class="list-group-item-text">Tamamlandı</p>
                                 </a></li>
                             </ul>
                         </div>
@@ -377,5 +379,16 @@
         //Money Euro
         $("[data-mask]").inputmask();
 
+    });
+</script>
+<script src='<%= Page.ResolveUrl("~/management/plugins/iCheck/icheck.min.js") %>'></script>
+
+<script>
+    $(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });
     });
 </script>

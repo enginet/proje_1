@@ -16,34 +16,58 @@ namespace PL
         telefonBll tlf = new telefonBll();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["yeniKullanici"] == null)
-            {
-                Response.Redirect("~/uye-ol.aspx");
-            }
+            //if (Session["yeniKullanici"] == null || Session["mobile-act"] == null)
+            //{
+            //    Response.Redirect("~/uye-ol.aspx");
+            //}
         }
 
         protected void dogrula_Click(object sender, EventArgs e)
         {
-            string[] array = Session["yeniKullanici"] as string[];
-            if (array[4] == txtOnayKodu.Text)
+            if (Session["yeniKullanici"] != null)
             {
-                //SHA256 mySHA256 = SHA256Managed.Create();
-                //byte[] hasvalue;
-                //hasvalue = mySHA256.ComputeHash(array[1]);
-                kll.insert(array[0], array[3], array[2], 4);
-                kullanici kllnc = kll.receiveList().Last();
-                tlf.insert(kllnc.kullaniciId, array[1]);
+                string[] array = Session["yeniKullanici"] as string[];
+                if (array[4] == txtOnayKodu.Text)
+                {
 
-                // session işlemleri başlatılacak
+                    kll.insert(array[0], array[3], array[2], 4);
+                    kullanici kllnc = kll.receiveList().Last();
+                    tlf.insert(kllnc.kullaniciId, array[1]);
+                    Response.Redirect("~/giris-yap.aspx");
+                }
+                else
+                {
+                    Panel pnl = new Panel();
+                    pnl.Attributes["class"] = "alert alert-danger";
+                    Label lbl = new Label();
+                    lbl.Text = "Onay kodu yanlış, Lütfen kontrol ediniz";
+                    pnl.Controls.Add(lbl);
+                    onay.Controls.Add(pnl);
+                }
             }
-            else
+
+            if (Session["unique-site-user"] != null)
             {
-                Panel pnl = new Panel();
-                pnl.Attributes["class"] = "alert alert-danger";
-                Label lbl = new Label();
-                lbl.Text = "Onay kodu yanlış, Lütfen kontrol ediniz";
-                pnl.Controls.Add(lbl);
-                onay.Controls.Add(pnl);
+                if (Session["mobile-act"] != null)
+                {
+
+                    kullanici _authority = (kullanici)Session["unique-site-user"];
+
+                    string[] array = Session["mobile-act"] as string[];
+                    if (array[1] == txtOnayKodu.Text)
+
+                        tlf.update(_authority.kullaniciId, array[0], 1);
+                    Response.Redirect("~/profil/profil.aspx?control=cep-telefonu");
+                }
+                else
+                {
+                    Panel pnl = new Panel();
+                    pnl.Attributes["class"] = "alert alert-danger";
+                    Label lbl = new Label();
+                    lbl.Text = "Onay kodu yanlış, Lütfen kontrol ediniz";
+                    pnl.Controls.Add(lbl);
+                    onay.Controls.Add(pnl);
+                }
             }
         }
     }

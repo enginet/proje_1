@@ -13,13 +13,13 @@ namespace PL.profil {
     public partial class onaylanmamis {
         
         /// <summary>
-        /// onayBekleyenRepeater control.
+        /// onaylanmamislar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater onayBekleyenRepeater;
+        protected global::System.Web.UI.WebControls.Repeater onaylanmamislar;
         
         /// <summary>
         /// hypIlanVer control.

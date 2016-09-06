@@ -53,7 +53,7 @@
       <Column Name="girilenIlanOzellikId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ilanId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ozellikId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="deger" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="deger" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="ilan_girilenIlanOzellik" Member="ilan" ThisKey="ilanId" OtherKey="ilanId" Type="ilan" IsForeignKey="true" />
       <Association Name="ozellik_girilenIlanOzellik" Member="ozellik" ThisKey="ozellikId" OtherKey="ozellikId" Type="ozellik" IsForeignKey="true" />
     </Type>
@@ -88,6 +88,7 @@
       <Column Name="pasifMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="silindiMi" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="fiyatiDustu" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="satildiMi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="ilan_girilenIlanOzellik" Member="girilenIlanOzelliks" ThisKey="ilanId" OtherKey="ilanId" Type="girilenIlanOzellik" />
       <Association Name="ilan_ilanFavori" Member="ilanFavoris" ThisKey="ilanId" OtherKey="ilanId" Type="ilanFavori" />
       <Association Name="ilan_ilanResim" Member="ilanResims" ThisKey="ilanId" OtherKey="ilanId" Type="ilanResim" />
@@ -154,6 +155,8 @@
     <Type Name="iller">
       <Column Name="ilId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ilAdi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="enlem" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="boylam" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="iller_ilan" Member="ilans" ThisKey="ilId" OtherKey="ilId" Type="ilan" />
       <Association Name="iller_ilceler" Member="ilcelers" ThisKey="ilId" OtherKey="ilId" Type="ilceler" />
       <Association Name="iller_kullanici" Member="kullanicis" ThisKey="ilId" OtherKey="ilId" Type="kullanici" />
@@ -193,7 +196,7 @@
   </Table>
   <Table Name="dbo.kullanici" Member="kullanicis">
     <Type Name="kullanici">
-      <Column Name="kullaniciId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="kullaniciId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="kullaniciAdSoyad" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
       <Column Name="sifre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
@@ -359,14 +362,6 @@
       <Column Name="basariliMi" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="kartNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Association Name="kullanici_odeme" Member="kullanici" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
-      <Association Name="odemeIslem_odeme" Member="odemeIslem" ThisKey="islemId" OtherKey="odemeIslemId" Type="odemeIslem" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.odemeIslem" Member="odemeIslems">
-    <Type Name="odemeIslem">
-      <Column Name="odemeIslemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="islemAdi" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="odemeIslem_odeme" Member="odemes" ThisKey="odemeIslemId" OtherKey="islemId" Type="odeme" />
     </Type>
   </Table>
   <Table Name="dbo.ozellik" Member="ozelliks">

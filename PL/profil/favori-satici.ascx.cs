@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
+using DAL;
 
 namespace PL.profil
 {
@@ -14,14 +15,21 @@ namespace PL.profil
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            favoriSaticiRepeater.DataSource = kllTkpb.list(1, 5);
-            favoriSaticiRepeater.DataBind();
-            if (Request.QueryString["like"] != null)
+            if (Session["unique-site-user"] != null)
             {
-                kllTkpb.delete(Request.QueryString["like"], 5);
+                if (!Page.IsPostBack)
+                {
+                    kullanici _authority = (kullanici)Session["unique-site-user"];
+                    favoriSaticiRepeater.DataSource = kllTkpb.list(1, _authority.kullaniciId);
+                    favoriSaticiRepeater.DataBind();
+                    if (Request.QueryString["like"] != null)
+                    {
+                        kllTkpb.delete(Request.QueryString["like"], _authority.kullaniciId);
+                    }
+                    favoriSaticiRepeater.DataSource = kllTkpb.list(1, _authority.kullaniciId);
+                    favoriSaticiRepeater.DataBind();
+                }
             }
-            favoriSaticiRepeater.DataSource = kllTkpb.list(1, 5);
-            favoriSaticiRepeater.DataBind();
         }
     }
 }

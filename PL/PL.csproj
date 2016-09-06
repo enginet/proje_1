@@ -76,6 +76,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -106,17 +110,22 @@
     <Content Include="giris-yap.aspx" />
     <Content Include="Global.asax" />
     <Content Include="hakkimizda.aspx" />
+    <Content Include="harita\harita.aspx" />
     <Content Include="icra-liste.aspx" />
     <Content Include="ilan-bulunamadi.aspx" />
     <Content Include="ilan-detay.aspx" />
+    <Content Include="ilan-doping.aspx" />
+    <Content Include="ilan-duzenle.aspx" />
     <Content Include="ilan-form.aspx" />
     <Content Include="ilan-liste.aspx" />
+    <Content Include="ilan-tamam.aspx" />
     <Content Include="iletisim.aspx" />
     <Content Include="insaat-firmasi-liste.aspx" />
     <Content Include="izale-liste.aspx" />
     <Content Include="kamu-kurumlari-liste.aspx" />
     <Content Include="kategori-secimi.aspx" />
     <Content Include="kategoriler.aspx" />
+    <Content Include="kredi-al.aspx" />
     <Content Include="magaza-fiyatları.aspx" />
     <Content Include="magaza-profil.aspx" />
     <Content Include="management\anaYonetim\bolgeYonetimi\bolge.aspx" />
@@ -129,8 +138,8 @@
     <Content Include="management\anaYonetim\bolgeYonetimi\mahalleduzenle.ascx" />
     <Content Include="management\anaYonetim\bolgeYonetimi\mahalleekle.ascx" />
     <Content Include="management\anaYonetim\bolgeYonetimi\mahallelistele.ascx" />
-    <Content Include="management\anaYonetim\ilanYonetimi\ekle.ascx" />
     <Content Include="management\anaYonetim\ilanYonetimi\duzenle.ascx" />
+    <Content Include="management\anaYonetim\ilanYonetimi\ekle.ascx" />
     <Content Include="management\anaYonetim\ilanYonetimi\ilan-kategori.ascx" />
     <Content Include="management\anaYonetim\ilanYonetimi\ilan.aspx" />
     <Content Include="management\anaYonetim\ilanYonetimi\listele.ascx" />
@@ -184,6 +193,8 @@
     <Content Include="management\genelAyarlar\sanalposduzenle.ascx" />
     <Content Include="management\profil.aspx" />
     <Content Include="milli-hazine-liste.aspx" />
+    <Content Include="odeme-tablo.ascx" />
+    <Content Include="odeme.aspx" />
     <Content Include="odemeler.aspx" />
     <Content Include="management\anaYonetim\projeYonetimi\ekle.ascx" />
     <Content Include="management\anaYonetim\projeYonetimi\listele.ascx" />
@@ -194,6 +205,7 @@
     <Content Include="management\anaYonetim\reklamYonetimi\reklam.aspx" />
     <Content Include="management\default.aspx" />
     <Content Include="ozellestirme-idaresi-liste.aspx" />
+    <Content Include="ozellikler\acik-kapali-metre-arama.ascx" />
     <Content Include="ozellikler\acik-kapali-metre.ascx" />
     <Content Include="ozellikler\ada-parsel.ascx" />
     <Content Include="ozellikler\aidat.ascx" />
@@ -203,15 +215,20 @@
     <Content Include="ozellikler\balkon-sayisi.ascx" />
     <Content Include="ozellikler\balkon.ascx" />
     <Content Include="ozellikler\banyo-ozellik.ascx" />
+    <Content Include="ozellikler\banyo-sayisi-arama.ascx" />
     <Content Include="ozellikler\banyo-sayisi-text.ascx" />
     <Content Include="ozellikler\banyo-sayisi.ascx" />
     <Content Include="ozellikler\bina-adedi.ascx" />
+    <Content Include="ozellikler\bina-arazi-metre-arama.ascx" />
     <Content Include="ozellikler\bina-arazi-metre.ascx" />
     <Content Include="ozellikler\bina-ozellik.ascx" />
     <Content Include="ozellikler\bina-tipi.ascx" />
+    <Content Include="ozellikler\bina-yasi-arama.ascx" />
     <Content Include="ozellikler\bina-yasi-text.ascx" />
     <Content Include="ozellikler\bina-yasi.ascx" />
+    <Content Include="ozellikler\bolum-oda-sayisi-arama.ascx" />
     <Content Include="ozellikler\bolum-oda-sayisi.ascx" />
+    <Content Include="ozellikler\bulundugu-kat-arama.ascx" />
     <Content Include="ozellikler\bulundugu-kat-text.ascx" />
     <Content Include="ozellikler\bulundugu-kat.ascx" />
     <Content Include="ozellikler\bungalow-ozellik.ascx" />
@@ -233,6 +250,7 @@
     <Content Include="ozellikler\engelliuygun.ascx" />
     <Content Include="ozellikler\esyali.ascx" />
     <Content Include="ozellikler\genel-ozellik.ascx" />
+    <Content Include="ozellikler\giris-yuksek-arama.ascx" />
     <Content Include="ozellikler\giris-yuksek.ascx" />
     <Content Include="ozellikler\giyim-detay-bilgisi.ascx" />
     <Content Include="ozellikler\ic-dekorasyon.ascx" />
@@ -240,7 +258,9 @@
     <Content Include="ozellikler\isinma-yakit.ascx" />
     <Content Include="ozellikler\isitma-tipi.ascx" />
     <Content Include="ozellikler\isitma.ascx" />
+    <Content Include="ozellikler\kapasite-arama.ascx" />
     <Content Include="ozellikler\kapasite.ascx" />
+    <Content Include="ozellikler\kat-sayisi-arama.ascx" />
     <Content Include="ozellikler\kat-sayisi-text.ascx" />
     <Content Include="ozellikler\kat-sayisi.ascx" />
     <Content Include="ozellikler\kimden-ozellik.ascx" />
@@ -255,18 +275,23 @@
     <Content Include="ozellikler\kullanim-amaci.ascx" />
     <Content Include="ozellikler\kullanim-durumu.ascx" />
     <Content Include="ozellikler\manzara.ascx" />
+    <Content Include="ozellikler\masa-sayisi-arama.ascx" />
     <Content Include="ozellikler\masa-sayisi.ascx" />
+    <Content Include="ozellikler\metre-kare-arama.ascx" />
     <Content Include="ozellikler\metre-kare.ascx" />
     <Content Include="ozellikler\muhit.ascx" />
     <Content Include="ozellikler\mutfak-ozellik.ascx" />
     <Content Include="ozellikler\oda-ozellik.ascx" />
+    <Content Include="ozellikler\oda-sayisi-arama.ascx" />
     <Content Include="ozellikler\oda-sayisi-text.ascx" />
     <Content Include="ozellikler\oda-sayisi.ascx" />
     <Content Include="ozellikler\oda-tipleri.ascx" />
+    <Content Include="ozellikler\oda-yatak-kat-sayisi-arama.ascx" />
     <Content Include="ozellikler\oda-yatak-kat-sayisi.ascx" />
     <Content Include="ozellikler\ortak-kullanim.ascx" />
     <Content Include="ozellikler\plaza-detay-bilgisi.ascx" />
     <Content Include="ozellikler\restoran-detay-bilgisi.ascx" />
+    <Content Include="ozellikler\salon-sayisi-arama.ascx" />
     <Content Include="ozellikler\salon-sayisi-text.ascx" />
     <Content Include="ozellikler\salon-sayisi.ascx" />
     <Content Include="ozellikler\site-icerisinde.ascx" />
@@ -322,6 +347,9 @@
     <Content Include="sysLogin\syslock.aspx" />
     <Content Include="sysLogin\syslogin.aspx" />
     <Content Include="management\admin.Master" />
+    <Content Include="upload\ilan\not-found-image.jpg" />
+    <Content Include="upload\system_resim\not-found-image.jpg" />
+    <Content Include="yeni-sifre.aspx" />
     <Content Include="site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -333,10 +361,11 @@
   <ItemGroup>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="upload\magaza\sitelogo-4888d6f06795110d9983be3cdc8d92e92143c2f3.png" />
     <Content Include="uye-ol.aspx" />
     <Content Include="vitrin-listele.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="404.aspx.cs">
@@ -412,6 +441,13 @@
     <Compile Include="hakkimizda.aspx.designer.cs">
       <DependentUpon>hakkimizda.aspx</DependentUpon>
     </Compile>
+    <Compile Include="harita\harita.aspx.cs">
+      <DependentUpon>harita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="harita\harita.aspx.designer.cs">
+      <DependentUpon>harita.aspx</DependentUpon>
+    </Compile>
     <Compile Include="icra-liste.aspx.cs">
       <DependentUpon>icra-liste.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -433,6 +469,20 @@
     <Compile Include="ilan-detay.aspx.designer.cs">
       <DependentUpon>ilan-detay.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ilan-doping.aspx.cs">
+      <DependentUpon>ilan-doping.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ilan-doping.aspx.designer.cs">
+      <DependentUpon>ilan-doping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ilan-duzenle.aspx.cs">
+      <DependentUpon>ilan-duzenle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ilan-duzenle.aspx.designer.cs">
+      <DependentUpon>ilan-duzenle.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ilan-form.aspx.cs">
       <DependentUpon>ilan-form.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -446,6 +496,13 @@
     </Compile>
     <Compile Include="ilan-liste.aspx.designer.cs">
       <DependentUpon>ilan-liste.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ilan-tamam.aspx.cs">
+      <DependentUpon>ilan-tamam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ilan-tamam.aspx.designer.cs">
+      <DependentUpon>ilan-tamam.aspx</DependentUpon>
     </Compile>
     <Compile Include="iletisim.aspx.cs">
       <DependentUpon>iletisim.aspx</DependentUpon>
@@ -488,6 +545,13 @@
     </Compile>
     <Compile Include="kategoriler.aspx.designer.cs">
       <DependentUpon>kategoriler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="kredi-al.aspx.cs">
+      <DependentUpon>kredi-al.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="kredi-al.aspx.designer.cs">
+      <DependentUpon>kredi-al.aspx</DependentUpon>
     </Compile>
     <Compile Include="magaza-fiyatları.aspx.cs">
       <DependentUpon>magaza-fiyatları.aspx</DependentUpon>
@@ -580,19 +644,19 @@
     <Compile Include="management\anaYonetim\bolgeYonetimi\mahallelistele.ascx.designer.cs">
       <DependentUpon>mahallelistele.ascx</DependentUpon>
     </Compile>
-    <Compile Include="management\anaYonetim\ilanYonetimi\ekle.ascx.cs">
-      <DependentUpon>ekle.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="management\anaYonetim\ilanYonetimi\ekle.ascx.designer.cs">
-      <DependentUpon>ekle.ascx</DependentUpon>
-    </Compile>
     <Compile Include="management\anaYonetim\ilanYonetimi\duzenle.ascx.cs">
       <DependentUpon>duzenle.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="management\anaYonetim\ilanYonetimi\duzenle.ascx.designer.cs">
       <DependentUpon>duzenle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\ilanYonetimi\ekle.ascx.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\ilanYonetimi\ekle.ascx.designer.cs">
+      <DependentUpon>ekle.ascx</DependentUpon>
     </Compile>
     <Compile Include="management\anaYonetim\ilanYonetimi\ilan-kategori.ascx.cs">
       <DependentUpon>ilan-kategori.ascx</DependentUpon>
@@ -965,6 +1029,20 @@
     <Compile Include="milli-hazine-liste.aspx.designer.cs">
       <DependentUpon>milli-hazine-liste.aspx</DependentUpon>
     </Compile>
+    <Compile Include="odeme-tablo.ascx.cs">
+      <DependentUpon>odeme-tablo.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="odeme-tablo.ascx.designer.cs">
+      <DependentUpon>odeme-tablo.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="odeme.aspx.cs">
+      <DependentUpon>odeme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="odeme.aspx.designer.cs">
+      <DependentUpon>odeme.aspx</DependentUpon>
+    </Compile>
     <Compile Include="odemeler.aspx.cs">
       <DependentUpon>odemeler.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1035,6 +1113,13 @@
     <Compile Include="ozellestirme-idaresi-liste.aspx.designer.cs">
       <DependentUpon>ozellestirme-idaresi-liste.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ozellikler\acik-kapali-metre-arama.ascx.cs">
+      <DependentUpon>acik-kapali-metre-arama.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ozellikler\acik-kapali-metre-arama.ascx.designer.cs">
+      <DependentUpon>acik-kapali-metre-arama.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ozellikler\acik-kapali-metre.ascx.cs">
       <DependentUpon>acik-kapali-metre.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1098,6 +1183,13 @@
     <Compile Include="ozellikler\banyo-ozellik.ascx.designer.cs">
       <DependentUpon>banyo-ozellik.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ozellikler\banyo-sayisi-arama.ascx.cs">
+      <DependentUpon>banyo-sayisi-arama.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ozellikler\banyo-sayisi-arama.ascx.designer.cs">
+      <DependentUpon>banyo-sayisi-arama.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ozellikler\banyo-sayisi-text.ascx.cs">
       <DependentUpon>banyo-sayisi-text.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1118,6 +1210,13 @@
     </Compile>
     <Compile Include="ozellikler\bina-adedi.ascx.designer.cs">
       <DependentUpon>bina-adedi.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ozellikler\bina-arazi-metre-arama.ascx.cs">
+      <DependentUpon>bina-arazi-metre-arama.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ozellikler\bina-arazi-metre-arama.ascx.designer.cs">
+      <DependentUpon>bina-arazi-metre-arama.ascx</DependentUpon>
     </Compile>
     <Compile Include="ozellikler\bina-arazi-metre.ascx.cs">
       <DependentUpon>bina-arazi-metre.ascx</DependentUpon>
@@ -1140,6 +1239,13 @@
     <Compile Include="ozellikler\bina-tipi.ascx.designer.cs">
       <DependentUpon>bina-tipi.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ozellikler\bina-yasi-arama.ascx.cs">
+      <DependentUpon>bina-yasi-arama.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ozellikler\bina-yasi-arama.ascx.designer.cs">
+      <DependentUpon>bina-yasi-arama.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ozellikler\bina-yasi-text.ascx.cs">
       <DependentUpon>bina-yasi-text.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1154,12 +1260,26 @@
     <Compile Include="ozellikler\bina-yasi.ascx.designer.cs">
       <DependentUpon>bina-yasi.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ozellikler\bolum-oda-sayisi-arama.ascx.cs">
+      <DependentUpon>bolum-oda-sayisi-arama.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ozellikler\bolum-oda-sayisi-arama.ascx.designer.cs">
+      <DependentUpon>bolum-oda-sayisi-arama.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ozellikler\bolum-oda-sayisi.ascx.cs">
       <DependentUpon>bolum-oda-sayisi.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ozellikler\bolum-oda-sayisi.ascx.designer.cs">
       <DependentUpon>bolum-oda-sayisi.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ozellikler\bulundugu-kat-arama.ascx.cs">
+      <DependentUpon>bulundugu-kat-arama.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ozellikler\bulundugu-kat-arama.ascx.designer.cs">
+      <DependentUpon>bulundugu-kat-arama.ascx</DependentUpon>
     </Compile>
     <Compile Include="ozellikler\bulundugu-kat-text.ascx.cs">
       <DependentUpon>bulundugu-kat-text.ascx</DependentUpon>
@@ -1308,6 +1428,13 @@
     <Compile Include="ozellikler\genel-ozellik.ascx.designer.cs">
       <DependentUpon>genel-ozellik.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ozellikler\giris-yuksek-arama.ascx.cs">
+      <DependentUpon>giris-yuksek-arama.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ozellikler\giris-yuksek-arama.ascx.designer.cs">
+      <DependentUpon>giris-yuksek-arama.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ozellikler\giris-yuksek.ascx.cs">
       <DependentUpon>giris-yuksek.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1357,12 +1484,26 @@
     <Compile Include="ozellikler\isitma.ascx.designer.cs">
       <DependentUpon>isitma.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ozellikler\kapasite-arama.ascx.cs">
+      <DependentUpon>kapasite-arama.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ozellikler\kapasite-arama.ascx.designer.cs">
+      <DependentUpon>kapasite-arama.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ozellikler\kapasite.ascx.cs">
       <DependentUpon>kapasite.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ozellikler\kapasite.ascx.designer.cs">
       <DependentUpon>kapasite.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ozellikler\kat-sayisi-arama.ascx.cs">
+      <DependentUpon>kat-sayisi-arama.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ozellikler\kat-sayisi-arama.ascx.designer.cs">
+      <DependentUpon>kat-sayisi-arama.ascx</DependentUpon>
     </Compile>
     <Compile Include="ozellikler\kat-sayisi-text.ascx.cs">
       <DependentUpon>kat-sayisi-text.ascx</DependentUpon>
@@ -1462,12 +1603,26 @@
     <Compile Include="ozellikler\manzara.ascx.designer.cs">
       <DependentUpon>manzara.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ozellikler\masa-sayisi-arama.ascx.cs">
+      <DependentUpon>masa-sayisi-arama.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ozellikler\masa-sayisi-arama.ascx.designer.cs">
+      <DependentUpon>masa-sayisi-arama.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ozellikler\masa-sayisi.ascx.cs">
       <DependentUpon>masa-sayisi.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ozellikler\masa-sayisi.ascx.designer.cs">
       <DependentUpon>masa-sayisi.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ozellikler\metre-kare-arama.ascx.cs">
+      <DependentUpon>metre-kare-arama.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ozellikler\metre-kare-arama.ascx.designer.cs">
+      <DependentUpon>metre-kare-arama.ascx</DependentUpon>
     </Compile>
     <Compile Include="ozellikler\metre-kare.ascx.cs">
       <DependentUpon>metre-kare.ascx</DependentUpon>
@@ -1497,6 +1652,13 @@
     <Compile Include="ozellikler\oda-ozellik.ascx.designer.cs">
       <DependentUpon>oda-ozellik.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ozellikler\oda-sayisi-arama.ascx.cs">
+      <DependentUpon>oda-sayisi-arama.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ozellikler\oda-sayisi-arama.ascx.designer.cs">
+      <DependentUpon>oda-sayisi-arama.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ozellikler\oda-sayisi-text.ascx.cs">
       <DependentUpon>oda-sayisi-text.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1517,6 +1679,13 @@
     </Compile>
     <Compile Include="ozellikler\oda-tipleri.ascx.designer.cs">
       <DependentUpon>oda-tipleri.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ozellikler\oda-yatak-kat-sayisi-arama.ascx.cs">
+      <DependentUpon>oda-yatak-kat-sayisi-arama.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ozellikler\oda-yatak-kat-sayisi-arama.ascx.designer.cs">
+      <DependentUpon>oda-yatak-kat-sayisi-arama.ascx</DependentUpon>
     </Compile>
     <Compile Include="ozellikler\oda-yatak-kat-sayisi.ascx.cs">
       <DependentUpon>oda-yatak-kat-sayisi.ascx</DependentUpon>
@@ -1545,6 +1714,13 @@
     </Compile>
     <Compile Include="ozellikler\restoran-detay-bilgisi.ascx.designer.cs">
       <DependentUpon>restoran-detay-bilgisi.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ozellikler\salon-sayisi-arama.ascx.cs">
+      <DependentUpon>salon-sayisi-arama.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ozellikler\salon-sayisi-arama.ascx.designer.cs">
+      <DependentUpon>salon-sayisi-arama.ascx</DependentUpon>
     </Compile>
     <Compile Include="ozellikler\salon-sayisi-text.ascx.cs">
       <DependentUpon>salon-sayisi-text.ascx</DependentUpon>
@@ -1918,6 +2094,13 @@
     <Compile Include="vitrin-listele.aspx.designer.cs">
       <DependentUpon>vitrin-listele.aspx</DependentUpon>
     </Compile>
+    <Compile Include="yeni-sifre.aspx.cs">
+      <DependentUpon>yeni-sifre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="yeni-sifre.aspx.designer.cs">
+      <DependentUpon>yeni-sifre.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
@@ -1940,7 +2123,7 @@
     <Folder Include="management\build\" />
     <Folder Include="management\dist\" />
     <Folder Include="management\plugins\" />
-    <Folder Include="upload\ilan\" />
+    <Folder Include="upload\magaza\" />
     <Folder Include="upload\profil\" />
     <Folder Include="upload\reklam\" />
   </ItemGroup>

@@ -32,21 +32,43 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public IQueryable list()
+        public IQueryable list(params object[] _income)
         {
-            var query = from dk in idc.dopingKategoris
-                        join k in idc.kategoris
-                        on dk.kategoriId equals k.kategoriId
-                        join d in idc.dopings
-                        on dk.dopingId equals d.dopingId
-                        select new
-                        {
-                            k.kategoriAdi,
-                            d.dopingAdi,
-                            dk.dopingSureId,
-                            dk.fiyat
+            if (Convert.ToInt32(_income[0] ) == 1)
+            {
+                var query = from dk in idc.dopingKategoris
+                            join k in idc.kategoris
+                            on dk.kategoriId equals k.kategoriId
+                            join d in idc.dopings
+                            on dk.dopingId equals d.dopingId
+                            select new
+                            {
+                                k.kategoriAdi,
+                                d.dopingAdi,
+                                dk.dopingSureId,
+                                dk.fiyat
 
-                        };
+                            };
+
+                return query;
+            }
+            else
+            {
+                var query = from dk in idc.dopingKategoris.Where(d => d.kategoriId == Convert.ToInt32(_income[1]) & d.dopingId == Convert.ToInt32(_income[2]))
+                            select new
+                            {
+                                deneme = String.Format("{0} Hafta ( {1} TL)", dk.dopingSureId, dk.fiyat),
+                                dk.dopingKategoriId
+                            };
+
+                return query;
+            }
+        }
+
+        public dopingKategori search(int id)
+        {
+
+            var query = idc.dopingKategoris.Where(q => q.dopingKategoriId == id).First();
 
             return query;
         }

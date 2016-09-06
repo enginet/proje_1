@@ -13,6 +13,24 @@ namespace PL {
     public partial class sifremi_unuttum {
         
         /// <summary>
+        /// txtMail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtMail;
+        
+        /// <summary>
+        /// Gonder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Gonder;
+        
+        /// <summary>
         /// hypAna control.
         /// </summary>
         /// <remarks>

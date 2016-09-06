@@ -17,9 +17,16 @@ namespace PL.profil
         string info, detail;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["unique-site-user"] != null)
+            {
+                kullanici _authority = (kullanici)Session["unique-site-user"];
+                txtMail.Value = _authority.email;
+            }
+            else
+            {
+                Response.Redirect("~/giris-yap.aspx");
+            }
         }
-
         protected void Degistir_Click(object sender, EventArgs e)
         {
 

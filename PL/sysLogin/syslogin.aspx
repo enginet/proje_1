@@ -28,10 +28,9 @@
 </head>
 <body class="hold-transition login-page">
     <form runat="server" id="form1">
-
         <div class="login-box">
             <div class="login-logo">
-                <a href="#"><b>Admin</b>&nbsp;netteilanver.com</a>
+                <a href="#"><b>Admin</b>&nbsp;kralilan.com</a>
             </div>
             <!-- /.login-logo -->
             <div class="login-box-body">
@@ -62,7 +61,8 @@
                         <!-- /.col -->
                     </div>
                 </div>
-                <a href="#">Şifremi unuttum</a><br>
+                <asp:HyperLink ID="HyperLink1" NavigateUrl="~/sifremi-unuttum.aspx" runat="server">Şifremi unuttum</asp:HyperLink>
+                <br>
             </div>
             <!-- /.login-box-body -->
         </div>

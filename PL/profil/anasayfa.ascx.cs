@@ -13,6 +13,8 @@ namespace PL.profil
     {
 
         ilanBll ilanb = new ilanBll();
+        public string sellerProfil = "";
+        public string classifiedPic = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["unique-site-user"] != null)
@@ -21,13 +23,17 @@ namespace PL.profil
                 if (ilanb.search(1, _authority.kullaniciId) != null)
                 {
                     DAL.ilan _ilan = ilanb.search(1, _authority.kullaniciId);
-                    txtid.InnerHtml = _ilan.ilanId.ToString();
+                    Label1.Text = _ilan.ilanId.ToString();
                     hypBaslik.Text = _ilan.baslik;
                     txttarih.InnerHtml = _ilan.bitisTarihi.ToString();
                     txtkategori.InnerHtml = _ilan.kategori.kategoriAdi;
                     txtIl.InnerHtml = _ilan.iller.ilAdi;
-                    lblUsername.Text = _authority.kullaniciAdSoyad;
+                    lblFiyat.Text = _ilan.fiyat.ToString();
+                    lblFiyatTur.Text = DAL.toolkit.fiyat_Tur(_ilan.fiyatTurId);
 
+                    lblUsername.Text = _authority.kullaniciAdSoyad;
+                    sellerProfil = _authority.profilResim;
+                    classifiedPic = _ilan.ilanResims.Where(i => i.seciliMi == true).FirstOrDefault().resim;
                     enSonİlan.Visible = true;
                 }
                 else

@@ -23,7 +23,7 @@ namespace PL.management.anaYonetim.kullaniciYonetimi
 
         protected void Kaydet_Click(object sender, EventArgs e)
         {
-            kll.insert(txtAd.Text + " " + txtSoyad.Text, txtSifre.Text, txtEmail.Text, Convert.ToInt32(drpYetki.SelectedValue));
+            kll.insert(txtAd.Text + " " + txtSoyad.Text, DAL.toolkit.SHA1Hash_Encryption(txtSifre.Text), txtEmail.Text, Convert.ToInt32(drpYetki.SelectedValue));
 
             kullanici kllnc = kll.receiveList().LastOrDefault(); // son kayıt çekiliyor
             tlf.insert(kllnc.kullaniciId, txtGsm1.Text);

@@ -11,7 +11,6 @@ namespace BLL
     {
         ilanDataContext idc = new ilanDataContext();
         ilan iln = new ilan();
-        kategoriBll kategorib = new kategoriBll();
         public void delete(int _id)
         {
             throw new NotImplementedException();
@@ -27,15 +26,21 @@ namespace BLL
             iln.fiyat = Convert.ToDouble(_income[2]);
             iln.fiyatTurId = Convert.ToInt32(_income[3]);
             iln.kullaniciId = Convert.ToInt32(_income[4]);
-            iln.ilId = Convert.ToInt32(_income[5]);
-            iln.ilceId = Convert.ToInt32(_income[6]);
-            iln.mahalleId = Convert.ToInt32(_income[7]);
-            iln.baslik = (string)_income[8];
-            iln.aciklama = (string)_income[9];
+
+            if (_income[5].ToString() != "")
+            {
+                iln.magazaId = Convert.ToInt32(_income[5]);
+            }
+
+            iln.ilId = Convert.ToInt32(_income[6]);
+            iln.ilceId = Convert.ToInt32(_income[7]);
+            iln.mahalleId = Convert.ToInt32(_income[8]);
+            iln.baslik = (string)_income[9];
+            iln.aciklama = (string)_income[10];
             iln.baslangicTarihi = DateTime.Now;
             iln.bitisTarihi = (DateTime.Now.AddYears(1));
-            iln.onay = Convert.ToInt32(_income[10]);
-            iln.numaraYayinlansinMi = Convert.ToBoolean(_income[11]);
+            iln.onay = Convert.ToInt32(_income[11]);
+            //iln.numaraYayinlansinMi = Convert.ToBoolean(_income[12]);
             iln.pasifMi = false;
             iln.silindiMi = false;
 
@@ -49,7 +54,26 @@ namespace BLL
 
             if (Convert.ToInt32(_income[0]) == 1)
             {
-                // tüm ilan bilgileri güncellenecek
+                var _value = idc.ilans.Where(q => q.ilanId == Convert.ToInt32(_income[1])).FirstOrDefault();
+
+                if (_value != null)
+                {
+                    _value.fiyat = Convert.ToDouble(_income[2]);
+                    _value.fiyatTurId = Convert.ToInt32(_income[3]);
+                    if (_income[4].ToString() != "NULL")
+                    {
+                        _value.magazaId = Convert.ToInt32(_income[4]);
+                    }
+                    _value.ilId = Convert.ToInt32(_income[5]);
+                    _value.ilceId = Convert.ToInt32(_income[6]);
+                    _value.mahalleId = Convert.ToInt32(_income[7]);
+                    _value.baslik = (string)_income[8];
+                    _value.aciklama = (string)_income[9];
+                    _value.onay = Convert.ToInt32(_income[10]);
+                    _value.numaraYayinlansinMi = Convert.ToBoolean(_income[11]);
+                    idc.SubmitChanges();
+
+                }
             }
             else if (Convert.ToInt32(_income[0]) == 2)
             {
@@ -103,7 +127,6 @@ namespace BLL
                 }
             }
         }
-
         public IQueryable list_admin(params object[] _income)
         {
             // 1.parametre sorgu türünü belirler
@@ -132,7 +155,7 @@ namespace BLL
                                 i.baslik
                             };
 
-                return query;
+                return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
             }
             else if (Convert.ToInt16(_income[0]) == 2)
             {
@@ -152,7 +175,7 @@ namespace BLL
 
                             };
 
-                return query;
+                return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
             }
             else if (Convert.ToInt16(_income[0]) == 3)
             {
@@ -172,7 +195,7 @@ namespace BLL
 
                             };
 
-                return query;
+                return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
             }
 
             else if (Convert.ToInt16(_income[0]) == 4)
@@ -194,10 +217,8 @@ namespace BLL
 
                             };
 
-                return query;
+                return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
             }
-
-
             else if (Convert.ToInt16(_income[0]) == 5)
             {
 
@@ -216,7 +237,7 @@ namespace BLL
 
                             };
 
-                return query;
+                return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
             }
 
             else if (Convert.ToInt16(_income[0]) == 6)
@@ -239,7 +260,7 @@ namespace BLL
 
                             };
 
-                return query;
+                return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
             }
 
             else if (Convert.ToInt16(_income[0]) == 7)
@@ -261,7 +282,7 @@ namespace BLL
 
                             };
 
-                return query;
+                return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
             }
             else if (Convert.ToInt16(_income[0]) == 8)
             {
@@ -286,13 +307,13 @@ namespace BLL
                                     r.resim,
                                     //g.deger,
                                     i.fiyatTurId,
-                                    i.magaza.magazaId
+                                    i.magazaId
 
 
 
                                 };
 
-                    return query;
+                    return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
                 }
                 else if (_income[1].ToString() == "2")
                 {
@@ -316,11 +337,11 @@ namespace BLL
                                     r.resim,
                                     //g.deger,
                                     i.fiyatTurId,
-                                    i.magaza.magazaId
+                                    i.magazaId
 
                                 };
 
-                    return query;
+                    return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
                 }
 
                 else if (_income[1].ToString() == "3")
@@ -344,12 +365,10 @@ namespace BLL
                                     r.resim,
                                     //g.deger,
                                     i.fiyatTurId,
-                                    i.magaza.magazaId
-
-
+                                    i.magazaId
                                 };
 
-                    return query;
+                    return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
                 }
 
                 else
@@ -373,15 +392,14 @@ namespace BLL
                                     r.resim,
                                     //g.deger,
                                     i.fiyatTurId,
-                                    i.magaza.magazaId
+                                    i.magazaId
 
 
                                 };
 
-                    return query;
+                    return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
                 }
             }
-
             else if (Convert.ToInt16(_income[0]) == 9)
             {
                 if (_income[1].ToString() == "1")
@@ -405,13 +423,13 @@ namespace BLL
                                     r.resim,
                                     //g.deger,
                                     i.fiyatTurId,
-                                    i.magaza.magazaId
+                                    i.magazaId
 
 
 
                                 };
 
-                    return query;
+                    return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
                 }
                 else if (_income[1].ToString() == "2")
                 {   //kimden
@@ -434,12 +452,10 @@ namespace BLL
                                     r.resim,
                                     //g.deger,
                                     i.fiyatTurId,
-                                    i.magaza.magazaId
-
-
+                                    i.magazaId
                                 };
 
-                    return query;
+                    return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
 
                 }
                 else
@@ -462,12 +478,12 @@ namespace BLL
                                     i.ilanTurId,
                                     r.resim,
                                     i.fiyatTurId,
-                                    i.magaza.magazaId
+                                    i.magazaId
 
 
                                 };
 
-                    return query;
+                    return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
 
                 }
 
@@ -486,7 +502,7 @@ namespace BLL
 
                             };
 
-                return query;
+                return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
 
             }
 
@@ -508,12 +524,12 @@ namespace BLL
 
                             };
 
-                return query;
+                return query.OrderByDescending(q => q.baslangicTarihi).Take(1000);
 
             }
-
-
         }
+
+
 
         public IQueryable list(params object[] _income)
         {
@@ -590,9 +606,13 @@ namespace BLL
                             {
                                 i.ilanId,
                                 i.baslik,
-                                i.bitisTarihi,
+                                i.baslangicTarihi,
                                 i.ziyaretci,
-                                r.resim
+                                i.iller.ilAdi,
+                                i.fiyat,
+                                i.kategori.kategoriAdi,
+                                r.resim,
+                                i.fiyatTurId
                             };
 
                 return query;
@@ -632,17 +652,70 @@ namespace BLL
                 return idc.ilans.Where(i => i.ilanId == Convert.ToInt32(_income[1]) & i.silindiMi == false & i.pasifMi == false & i.onay == 1).ToList().FirstOrDefault();
 
             }
-
             else
             {
-                return idc.ilans.Where(i => i.ilanId == Convert.ToInt32(_income[1]) & i.silindiMi == false & i.pasifMi == false & i.onay == 1).ToList().FirstOrDefault();
-
+                return idc.ilans.Where(i => i.ilanId == Convert.ToInt32(_income[1]) & i.silindiMi == false).ToList().FirstOrDefault();
             }
         }
 
         public IEnumerable<ilan> list()
         {
             return idc.ilans.ToList();
+        }
+
+        public int ilanSayisi(int id)
+        {
+            return idc.ilans.Where(q => q.kullaniciId == id & q.pasifMi == false & q.silindiMi == false & (q.onay == 1 || q.onay == 2)).ToList().Count;
+        }
+
+
+        public int countIlanListe(params object[] _income)
+        {
+
+            if (Convert.ToInt32(_income[0])==1) // Tüm ilanların sayısı
+            {
+                return idc.ilans.Where(q => q.silindiMi == false && q.pasifMi == false && q.onay == 1 && q.kategoriId == Convert.ToInt32(_income[1]) && q.ilanTurId == Convert.ToInt32(_income[2])).ToList().Count;
+            }
+            if (Convert.ToInt32(_income[0]) ==2) // sahibinden ilanların sayısı
+            {
+                return idc.ilans.Where(q => q.magazaId==null && q.silindiMi == false && q.pasifMi == false && q.onay == 1 && q.kategoriId == Convert.ToInt32(_income[1]) && q.ilanTurId == Convert.ToInt32(_income[2])).ToList().Count;
+            }
+            if (Convert.ToInt32(_income[0]) == 3) // emlakçıdan ilanların sayısı
+            {
+                return idc.ilans.Where(q => q.magaza.magazaTur.turId == 7 && q.silindiMi == false && q.pasifMi == false && q.onay == 1 && q.kategoriId == Convert.ToInt32(_income[1]) && q.ilanTurId == Convert.ToInt32(_income[2])).ToList().Count;
+            }
+            if (Convert.ToInt32(_income[0]) == 4) // bankadan ilanların sayısı
+            {
+                return idc.ilans.Where(q => q.magaza.magazaTur.turId == 5 && q.silindiMi == false && q.pasifMi == false && q.onay == 1 && q.kategoriId == Convert.ToInt32(_income[1]) && q.ilanTurId == Convert.ToInt32(_income[2])).ToList().Count;
+            }
+            if (Convert.ToInt32(_income[0]) == 5) // beldiyeden ilanların sayısı
+            {
+                return idc.ilans.Where(q => q.magaza.magazaTur.turId == 1 && q.silindiMi == false && q.pasifMi == false && q.onay == 1 && q.kategoriId == Convert.ToInt32(_income[1]) && q.ilanTurId == Convert.ToInt32(_income[2])).ToList().Count;
+            }
+            if (Convert.ToInt32(_income[0]) == 6) // İcradan ilanların sayısı
+            {
+                return idc.ilans.Where(q => q.magaza.magazaTur.turId == 2 && q.silindiMi == false && q.pasifMi == false && q.onay == 1 && q.kategoriId == Convert.ToInt32(_income[1]) && q.ilanTurId == Convert.ToInt32(_income[2])).ToList().Count;
+            }
+            if (Convert.ToInt32(_income[0]) == 7) // izaleyi şuyu ilanların sayısı
+            {
+                return idc.ilans.Where(q => q.magaza.magazaTur.turId == 3 && q.silindiMi == false && q.pasifMi == false && q.onay == 1 && q.kategoriId == Convert.ToInt32(_income[1]) && q.ilanTurId == Convert.ToInt32(_income[2])).ToList().Count;
+            }
+            if (Convert.ToInt32(_income[0]) == 8) // milli hazineden ilanların sayısı
+            {
+                return idc.ilans.Where(q => q.magaza.magazaTur.turId == 4 && q.silindiMi == false && q.pasifMi == false && q.onay == 1 && q.kategoriId == Convert.ToInt32(_income[1]) && q.ilanTurId == Convert.ToInt32(_income[2])).ToList().Count;
+            }
+            if (Convert.ToInt32(_income[0]) == 9) // özelleştrime ilanların sayısı
+            {
+                return idc.ilans.Where(q => q.magaza.magazaTur.turId == 9 && q.silindiMi == false && q.pasifMi == false && q.onay == 1 && q.kategoriId == Convert.ToInt32(_income[1]) && q.ilanTurId == Convert.ToInt32(_income[2])).ToList().Count;
+            }
+            if (Convert.ToInt32(_income[0]) == 10) // kamu kurumlarından ilanların sayısı
+            {
+                return idc.ilans.Where(q => q.magaza.magazaTur.turId == 6 && q.silindiMi == false && q.pasifMi == false && q.onay == 1 && q.kategoriId == Convert.ToInt32(_income[1]) && q.ilanTurId == Convert.ToInt32(_income[2])).ToList().Count;
+            }
+            else // inşaat firmasından ilanların sayısı
+            {
+                return idc.ilans.Where(q => q.magaza.magazaTur.turId == 8 && q.silindiMi == false && q.pasifMi == false && q.onay == 1 && q.kategoriId == Convert.ToInt32(_income[1]) && q.ilanTurId == Convert.ToInt32(_income[2])).ToList().Count;
+            }
         }
     }
 }

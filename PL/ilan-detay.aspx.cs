@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
 using DAL;
+using Newtonsoft.Json.Linq;
 
 namespace PL
 {
@@ -23,11 +24,51 @@ namespace PL
         kullaniciBll kullanicib = new kullaniciBll();
         mesajBll mesajb = new mesajBll();
 
-        public string magazaId, kullaniciId, postResim;
+
+        public string magazaId, kullaniciId, postResim, sellerProfil = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            verilenReklamBll vrb = new verilenReklamBll();
+
+            verilenReklam rklm = vrb.search(2, 11);
+
+            if (rklm != null)
+            {
+                kutu1Rklm.ImageUrl = ("~/upload/reklam/" + rklm.reklamResim);
+            }
+            else
+            {
+                kutu1Rklm.ImageUrl = ("~/upload/reklam/kutu.jpg");
+            }
+
             ilan _ilan = ilanb.search(2, Convert.ToInt32(Request.QueryString["ilan"]));
+
+            var koordinat = girilenb.search(Convert.ToInt32(Request.QueryString["ilan"]), 71);
+
+            string gonder = "";
+            if (_ilan.magazaId != null)
+            {
+                gonder += "{'kimden':'" + _ilan.magaza.magazaTur.turId + "','magazaId':'" + _ilan.magazaId + "'";
+            }
+            else
+            {
+                gonder += "{'kimden':-1,'magazaId':-1";
+            }
+
+            if (koordinat != null)
+            {
+                gonder += ",'koordinat':" + koordinat.deger + "}";
+            }
+            else
+            {
+                gonder += ",'koordinat':-1}";
+            }
+            JObject dizi = JObject.Parse(gonder);
+            JArray objDizi = new JArray();
+            objDizi.Add(dizi);
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "initMap", "initMap(" + objDizi+ ");", true);
 
             if (_ilan.kategori.kategoriId.ToString() == "8" || _ilan.kategori.kategoriId.ToString() == "10" || _ilan.kategori.kategoriId.ToString() == "11" || _ilan.kategori.kategoriId.ToString() == "16" || _ilan.kategori.kategoriId.ToString() == "18")
             {
@@ -258,41 +299,10 @@ namespace PL
             {
                 PlaceHolder12.Controls.Add(Page.LoadControl("~/ozellikler/kuafor-detay-bilgisi.ascx"));
             }
-            if (_ilan.magaza.magazaTur.turId == 6)
-            {
-                if (Session["unique-site-user"] != null)
-                {
-                    kullanici _authority = (kullanici)Session["unique-site-user"];
-                    kullanicib.update(3, _authority.kullaniciId, _authority.kredi - 1);
-                }
-            }
+
+
             if (!Page.IsPostBack)
             {
-
-                foreach (Control item in box_footer.Controls)
-                {
-                    if (item is PlaceHolder)
-                    {
-                        foreach (Control item2 in item.Controls)
-                        {
-                            foreach (Control item3 in item2.Controls)
-                            {
-                                foreach (Control item4 in item3.Controls)
-                                {
-                                    foreach (Control item5 in item4.Controls)
-                                    {
-                                        if (item5 is CheckBox)
-                                        {
-                                            ((CheckBox)item5).Enabled = false;
-
-                                        }
-
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
 
                 txtid.InnerHtml = _ilan.ilanId.ToString();
                 hypBaslik.Text = _ilan.baslik;
@@ -300,7 +310,7 @@ namespace PL
                 txtkategori.InnerHtml = _ilan.kategori.kategoriAdi;
                 txtIl.InnerHtml = _ilan.iller.ilAdi;
                 lblPostFiyat.Text = _ilan.fiyat.ToString();
-                postResim = _ilan.ilanResims.Where(r => r.seciliMi == true).FirstOrDefault().resim.ToString();
+
                 lblPostfiyaTur.Text = DAL.toolkit.fiyat_Tur(_ilan.fiyatTurId);
 
                 //ilan _ilan = ilanb.search(2, Convert.ToInt32(Request.QueryString["ilan"]));
@@ -308,17 +318,30 @@ namespace PL
                 lblTarih.Text = _ilan.baslangicTarihi.ToString();
                 lblCat.Text = _ilan.kategori.kategoriAdi;
                 lblIl.Text = _ilan.iller.ilAdi + "/" + _ilan.ilceler.ilceAdi + "/" + _ilan.mahalleler.mahalleAdi;
-                lblFiyat.Text = fiyat_Tur(_ilan.fiyatTurId) + " " + _ilan.fiyat.ToString();
                 lblIlanTarih.Text = _ilan.baslangicTarihi.ToString();
                 lblNo.Text = _ilan.ilanId.ToString();
                 lblTip.Text = DAL.toolkit.donustur(_ilan.ilanTurId) + " " + _ilan.kategori.kategoriAdi;
                 lblAciklama.InnerHtml = _ilan.aciklama;
 
-                sliderRepeater.DataSource = ilanResimb.list(1, Request.QueryString["ilan"]);
-                sliderRepeater.DataBind();
+                if (ilanResimb.search(Request.QueryString["ilan"]) != null)
+                {
+                    postResim = _ilan.ilanResims.FirstOrDefault().resim.ToString();
+                    sliderRepeater.DataSource = ilanResimb.list(1, Request.QueryString["ilan"]);
+                    sliderRepeater.DataBind();
+                    pagerRepeater.DataSource = ilanResimb.list(1, Request.QueryString["ilan"]);
+                    pagerRepeater.DataBind();
+                    foundImage.Visible = true;
+                    lblFiyat.Text = fiyat_Tur(_ilan.fiyatTurId) + " " + _ilan.fiyat.ToString();
 
-                pagerRepeater.DataSource = ilanResimb.list(1, Request.QueryString["ilan"]);
-                pagerRepeater.DataBind();
+
+                }
+                else
+                {
+                    notImage.Visible = true;
+                    notlblFiyat.Text = fiyat_Tur(_ilan.fiyatTurId) + " " + _ilan.fiyat.ToString();
+
+
+                }
 
                 secilebilirRepeater.DataSource = secilebilirb.list(1, _ilan.ilanId);
                 secilebilirRepeater.DataBind();
@@ -329,16 +352,27 @@ namespace PL
                 if (_ilan.magazaId == null)
                 {
                     lblkimden.Text = "Sahibinden";
+                    lblkimdenTop.Text = "Sahibinden";
+
                     lblSatici.Text = _ilan.kullanici.kullaniciAdSoyad;
+                    sellerProfil = _ilan.kullanici.profilResim;
                     if (_ilan.numaraYayinlansinMi == true)
                     {
                         telefonRepater.DataSource = telefonb.list(2, _ilan.kullaniciId);
                         telefonRepater.DataBind();
                     }
 
-                    if (kullaniciTakipb.search(_ilan.kullaniciId, 3) != null)
+                    if (Session["unique-site-user"] != null)
                     {
-                        LinkButton1.Visible = false;
+                        kullanici _authority = (kullanici)Session["unique-site-user"];
+                        if (kullaniciTakipb.search(_ilan.kullaniciId, _authority.kullaniciId) != null)
+                        {
+                            LinkButton1.Visible = false;
+                        }
+                        else
+                        {
+                            LinkButton2.Visible = false;
+                        }
                     }
                     else
                     {
@@ -346,21 +380,41 @@ namespace PL
                     }
 
                     kullaniciId = _ilan.kullaniciId.ToString();
-                    HyperLink1.Visible = false;
 
                 }
                 else
                 {
+                    if (_ilan.magaza.magazaTur.turId == 6 || _ilan.magaza.magazaTur.turId == 1 || _ilan.magaza.magazaTur.turId == 2 || _ilan.magaza.magazaTur.turId == 3 || _ilan.magaza.magazaTur.turId == 4 || _ilan.magaza.magazaTur.turId == 5 || _ilan.magaza.magazaTur.turId == 9)
+                    {
+                        if (Session["unique-site-user"] != null)
+                        {
+                            kullanici _authority = (kullanici)Session["unique-site-user"];
+                            kullanicib.update(3, _authority.kullaniciId, _authority.kredi - 1);
+                        }
+                    }
+
                     magazaId = _ilan.magazaId.ToString();
                     lblSatici.Text = _ilan.magaza.magazaAdi;
-                    if (magazaTakipb.search(3, _ilan.magazaId) != null)
+                    sellerProfil = _ilan.magaza.magazaLogo;
+
+                    if (Session["unique-site-user"] != null)
                     {
-                        LinkButton1.Visible = false;
+                        kullanici _authority = (kullanici)Session["unique-site-user"];
+                        if (magazaTakipb.search(_authority.kullaniciId, _ilan.magazaId) != null)
+                        {
+                            LinkButton1.Visible = false;
+                        }
+                        else
+                        {
+                            LinkButton2.Visible = false;
+                        }
                     }
                     else
                     {
                         LinkButton2.Visible = false;
                     }
+
+
 
                     if (_ilan.numaraYayinlansinMi == true)
                     {
@@ -369,48 +423,73 @@ namespace PL
                         telefonRepater.DataBind();
                     }
 
-                    if (_ilan.magaza.magazaTur.turId == 2)
+                    if (_ilan.magaza.magazaTur.turId == 7)
                     {
-                        lblkimden.Text = "Emlak Ofisi";
+                        lblkimden.Text = "Emlak Ofisinden";
+                        lblkimdenTop.Text = "Emlak Ofisinden";
+
                     }
 
-                    if (_ilan.magaza.magazaTur.turId == 3)
+                    if (_ilan.magaza.magazaTur.turId == 1)
                     {
-                        lblkimden.Text = "Belediye";
-                    }
-                    if (_ilan.magaza.magazaTur.turId == 4)
-                    {
-                        lblkimden.Text = "Banka";
+                        lblkimden.Text = "Belediyeden";
+                        lblkimdenTop.Text = "Belediyeden";
+
                     }
                     if (_ilan.magaza.magazaTur.turId == 5)
                     {
-                        lblkimden.Text = "İzale-i Şuyu";
+                        lblkimden.Text = "Bankadan";
+                        lblkimdenTop.Text = "Bankadan";
+
                     }
-                    if (_ilan.magaza.magazaTur.turId == 6)
+                    if (_ilan.magaza.magazaTur.turId == 3)
                     {
-                        lblkimden.Text = "İcra";
+                        lblkimden.Text = "İzale-i Şuyundan";
+                        lblkimdenTop.Text = "İzale-i Şuyundan";
+
                     }
-                    if (_ilan.magaza.magazaTur.turId == 7)
+                    if (_ilan.magaza.magazaTur.turId == 2)
+                    {
+                        lblkimden.Text = "İcradan";
+                        lblkimdenTop.Text = "İcradan";
+
+                    }
+                    if (_ilan.magaza.magazaTur.turId == 4)
                     {
                         lblkimden.Text = "Milli Hazine";
+                        lblkimdenTop.Text = "Milli Hazine";
+
                     }
                     if (_ilan.magaza.magazaTur.turId == 9)
                     {
                         lblkimden.Text = "Özelleştirme İdaresi";
+                        lblkimdenTop.Text = "Özelleştirme İdaresi";
+
                     }
-                    if (_ilan.magaza.magazaTur.turId == 10)
+                    if (_ilan.magaza.magazaTur.turId == 8)
                     {
                         lblkimden.Text = "İnşaat Firması";
+                        lblkimdenTop.Text = "İnşaat Firması";
+
                     }
-                    if (_ilan.magaza.magazaTur.turId == 11)
+                    if (_ilan.magaza.magazaTur.turId == 6)
                     {
-                        lblkimden.Text = "Kamu Kurumu";
+                        lblkimden.Text = "Kamu Kurumularından";
+                        lblkimdenTop.Text = "Kamu Kurumularından";
+
                     }
                 }
-
-                if (favorib.search(Request.QueryString["ilan"], 3) != null)
+                if (Session["unique-site-user"] != null)
                 {
-                    favoriLink.Visible = false;
+                    kullanici _authority = (kullanici)Session["unique-site-user"];
+                    if (favorib.search(Request.QueryString["ilan"], _authority.kullaniciId) != null)
+                    {
+                        favoriLink.Visible = false;
+                    }
+                    else
+                    {
+                        favoriCikar.Visible = false;
+                    }
                 }
                 else
                 {
@@ -439,64 +518,156 @@ namespace PL
 
         protected void favoriLink_Click(object sender, EventArgs e)
         {
-
-            if (favorib.search(Request.QueryString["ilan"], 3) == null)
+            if (Session["unique-site-user"] != null)
             {
-                favorib.insert(Request.QueryString["ilan"], 3);
+                kullanici _authority = (kullanici)Session["unique-site-user"];
+
+                if (favorib.search(Request.QueryString["ilan"], _authority.kullaniciId) == null)
+                {
+                    favorib.insert(Request.QueryString["ilan"], _authority.kullaniciId);
+                }
+                favoriLink.Visible = false;
+                favoriCikar.Visible = true;
             }
-            favoriLink.Visible = false;
-            favoriCikar.Visible = true;
+            else
+            {
+                Response.Redirect("~/giris-yap.aspx");
+            }
         }
 
         protected void favoriCikar_Click(object sender, EventArgs e)
         {
-            if (favorib.search(Request.QueryString["ilan"], 3) != null)
+            if (Session["unique-site-user"] != null)
             {
-                favorib.delete(Request.QueryString["ilan"], 3);
-            }
+                kullanici _authority = (kullanici)Session["unique-site-user"];
 
-            favoriLink.Visible = true;
-            favoriCikar.Visible = false;
+                if (favorib.search(Request.QueryString["ilan"], _authority.kullaniciId) != null)
+                {
+                    favorib.delete(Request.QueryString["ilan"], _authority.kullaniciId);
+                }
+
+                favoriLink.Visible = true;
+                favoriCikar.Visible = false;
+            }
+            else
+            {
+                Response.Redirect("~/giris-yap.aspx");
+            }
         }
 
         protected void Gonder_Click(object sender, EventArgs e)
-        {            
+        {
             ilan _ilan = ilanb.search(2, Convert.ToInt32(Request.QueryString["ilan"]));
             kullanici _authority = (kullanici)Session["unique-site-user"];
 
             mesajb.insert(_ilan.kullaniciId, _authority.kullaniciId, _ilan.ilanId, txtMesaj.InnerText);
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
+        protected void LinkButton3_Click(object sender, EventArgs e)
         {
             ilan _ilan = ilanb.search(2, Convert.ToInt32(Request.QueryString["ilan"]));
 
             if (_ilan.magazaId == null)
             {
-                kullaniciTakipb.insert(_ilan.kullaniciId, 3);
+                Response.Redirect("~/satici-profil.aspx?seller=" + _ilan.kullaniciId);
+
             }
             else
             {
-                magazaTakipb.insert(3, _ilan.magazaId);
+                Response.Redirect("~/magaza-profil.aspx?store=" + _ilan.magazaId);
+
             }
-            LinkButton1.Visible = false;
-            LinkButton2.Visible = true;
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            if (Session["unique-site-user"] != null)
+            {
+                kullanici _authority = (kullanici)Session["unique-site-user"];
+
+                ilan _ilan = ilanb.search(2, Convert.ToInt32(Request.QueryString["ilan"]));
+
+                if (_ilan.magazaId == null)
+                {
+                    kullaniciTakipb.insert(_ilan.kullaniciId, _authority.kullaniciId);
+                }
+                else
+                {
+                    magazaTakipb.insert(_authority.kullaniciId, _ilan.magazaId);
+                }
+                LinkButton1.Visible = false;
+                LinkButton2.Visible = true;
+            }
+            else
+            {
+                Response.Redirect("~/giris-yap.aspx");
+
+            }
         }
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
-            ilan _ilan = ilanb.search(2, Convert.ToInt32(Request.QueryString["ilan"]));
-
-            if (_ilan.magazaId == null)
+            if (Session["unique-site-user"] != null)
             {
-                kullaniciTakipb.delete(_ilan.kullaniciId, 3);
+                kullanici _authority = (kullanici)Session["unique-site-user"];
+                ilan _ilan = ilanb.search(2, Convert.ToInt32(Request.QueryString["ilan"]));
+
+                if (_ilan.magazaId == null)
+                {
+                    kullaniciTakipb.delete(_ilan.kullaniciId, _authority.kullaniciId);
+                }
+                else
+                {
+                    magazaTakipb.delete(_ilan.magazaId, _authority.kullaniciId);
+                }
+
+                LinkButton1.Visible = true;
+                LinkButton2.Visible = false;
             }
             else
             {
-                magazaTakipb.delete(_ilan.magazaId, 3);
-            }
+                Response.Redirect("~/giris-yap.aspx");
 
-            LinkButton1.Visible = true;
-            LinkButton2.Visible = false;
+            }
         }
+
+        public string telefonTurDondur(object _income)
+        {
+            if (Convert.ToInt32(_income) == 1)
+            {
+                return "Cep";
+            }
+            else if (Convert.ToInt32(_income) == 2)
+            {
+                return "Cep 2";
+            }
+            else if (Convert.ToInt32(_income) == 3)
+            {
+                return "İş";
+            }
+            else if (Convert.ToInt32(_income) == 4)
+            {
+                return "İş 2";
+            }
+            else
+            {
+                return "Cep";
+            }
+        }
+
+        //public string degerDondur(object _income)
+        //{
+        //    if(Convert.ToBoolean(_income)==true)
+        //    {
+        //        return "Evet";
+        //    }
+        //    else if (Convert.ToBoolean(_income) == false)
+        //    {
+        //        return "Hayır";
+        //    }
+        //    else
+        //    {
+        //        return _income.ToString();
+        //    }
+        //}
     }
 }

@@ -19,24 +19,28 @@ namespace PL.profil
 
         protected void Guncelle_Sifre_Click(object sender, EventArgs e)
         {
-            kullanici _kullanici = kll.search(5);
-            if (txtEskiSifre.Value == _kullanici.sifre)
+            if (Session["unique-site-user"] != null)
             {
-              
-                kll.update(
-                        4,                              
-                        5,    
-                        txtYeniSifre.Value
-                    );
-                try
-                {
-                    DAL.toolkit.HTML_Mail_Sender("clubwomanizer588@gmail.com", "~/email-temp/single-column/build.html", "şifre değişikliği");
+                kullanici _authority = (kullanici)Session["unique-site-user"];
+                kullanici _kullanici = kll.search(_authority.kullaniciId);
 
-                }
-                catch (Exception)
+                if (txtEskiSifre.Value == _kullanici.sifre)
                 {
 
-                    throw;
+                    kll.update(
+                            4,
+                            _authority.kullaniciId,
+                            txtYeniSifre.Value
+                        );
+                    try
+                    {
+                        DAL.toolkit.HTML_Mail_Sender(_authority.email, "~/email-temp/single-column/build.html", "şifre değişikliği");
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
                 }
             }
         }

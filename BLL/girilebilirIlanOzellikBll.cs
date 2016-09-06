@@ -20,7 +20,7 @@ namespace BLL
             girilenIlanOzellik go = new girilenIlanOzellik();
             go.ilanId       = Convert.ToInt32(_income[0]);
             go.ozellikId    = Convert.ToInt32(_income[1]);
-            go.deger        = (string)_income[2];
+            go.deger        = _income[2].ToString();
 
             idc.girilenIlanOzelliks.InsertOnSubmit(go);
             idc.SubmitChanges();
@@ -28,12 +28,37 @@ namespace BLL
 
         public void update(params object[] _income)
         {
-            throw new NotImplementedException();
+            var _value = idc.girilenIlanOzelliks.Where(q => q.ilanId == Convert.ToInt32(_income[0]) & q.ozellikId == Convert.ToInt32(_income[1])).FirstOrDefault();
+
+            if(_value!=null)
+            {
+                if(_income[2].ToString()=="")
+                {
+                    idc.girilenIlanOzelliks.DeleteOnSubmit(_value);
+                }
+                else
+                {
+                    _value.deger = _income[2].ToString();
+                }
+
+                idc.SubmitChanges();
+            }
+            else
+            {
+                girilenIlanOzellik go = new girilenIlanOzellik();
+                go.ilanId = Convert.ToInt32(_income[0]);
+                go.ozellikId = Convert.ToInt32(_income[1]);
+                go.deger = _income[2].ToString();
+
+                idc.girilenIlanOzelliks.InsertOnSubmit(go);
+                idc.SubmitChanges();
+            }
         }
 
-        public girilenIlanOzellik search(params object[] _income)
+        public girilenIlanOzellik search(int ilanId,int ozellikId)
         {
-            return idc.girilenIlanOzelliks.Where(g => g.ilanId == Convert.ToInt32(_income[0]) & g.ozellikId == Convert.ToInt32(_income[1])).FirstOrDefault();
+            var value= idc.girilenIlanOzelliks.Where(q => q.ilanId == ilanId & q.ozellikId == ozellikId).FirstOrDefault();
+            return value;
         }
 
         public IQueryable list(params object[] _income)

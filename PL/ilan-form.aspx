@@ -3,47 +3,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+
     <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/plugins/select2/select2.min.css") %>'>
-    <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/plugins/dropzone/dropzone.css") %>' />
+    <%--    <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/plugins/dropzone/dropzone.css") %>' />--%>
     <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/plugins/iCheck/square/blue.css") %>' />
     <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/dist/css/AdminLTE.min.css") %>' />
     <style>
+        
         #uploadImage {
             float: none;
         }
-
-        .dropzone {
-            cursor: pointer;
-            background-color: #f8f8f8;
-            height: 100%;
-            border-style: dashed;
-            height: auto;
-        }
-
-            .dropzone.dz-drag-hover {
-                border-style: dashed;
-                background-color: #f4f4f4;
-            }
-
-                .dropzone.dz-drag-hover span {
-                    color: #959595 !important;
-                }
-
-        .dz-default span {
-            text-align: center;
-            display: block;
-            vertical-align: center;
-            font-family: 'Tahoma';
-            font-size: 24px;
-            color: #959595;
-        }
-
-        .dz-image {
-            border-radius: 0 !important;
-        }
-    </style>
-    <style>
         body {
             padding-top: 20px;
         }
@@ -216,7 +185,7 @@
         }
 
         .wizard .nav-tabs > li {
-            width: 25%;
+            width: 20%;
         }
 
         .wizard li:after {
@@ -297,6 +266,78 @@
         .box-header h3 {
             padding-bottom: 0 !important;
         }
+
+
+        .dSec {
+            border: 3px solid #007e44;
+            width: 150px;
+            height: 150px;
+            background-color: #008d4c;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 210px;
+            text-align: center;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+            .dSec:hover {
+                background-color: #007e44;
+                color: #fff;
+            }
+
+            .dSec span {
+                display: block;
+                position: absolute;
+                left: 66px;
+                top: 30px;
+            }
+
+        .resimler {
+            height: 180px;
+            margin-bottom: 20px;
+        }
+
+            .resimler a {
+                height: 100%;
+            }
+
+            .resimler img {
+                height: 100%;
+            }
+
+            .resimler span {
+                display: block;
+                cursor: pointer;
+                color: #fff;
+                text-align: center;
+                line-height: 30px;
+                position: absolute;
+                bottom: 10px;
+                padding: 0 15px;
+            }
+
+            .resimler .resimSil {
+                background-color: #ba0d0d;
+                right: 16px;
+                bottom: 50px;
+            }
+
+                .resimler .resimSil:hover {
+                    background-color: #a30f0f;
+                }
+
+            .resimler .vitrin {
+                background-color: #1666aa;
+                right: 16px;
+            }
+
+                .resimler .vitrin:hover {
+                    background-color: #1886aa;
+                }
     </style>
     <div class="main-container">
         <div class="container">
@@ -329,6 +370,13 @@
                                         </span>
                                     </a>
                                 </li>
+                                <li role="presentation" class="disabled">
+                                    <a href="#step3" data-toggle="tab" aria-controls="step4" role="tab" title="Ödeme">
+                                        <span class="round-tab">
+                                            <i class="fa fa-credit-card"></i>
+                                        </span>
+                                    </a>
+                                </li>
 
                                 <li role="presentation" class="disabled">
                                     <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Tamamlandı">
@@ -357,91 +405,20 @@
                                                                         <div>
                                                                             <div class="col-md-12">
                                                                                 <div class="form-group">
-                                                                                    <label for="txtAd">Ad</label>
-                                                                                    <asp:TextBox ID="txtAd" CssClass="form-control" runat="server"></asp:TextBox>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                    <label for="txtSoyad">Soyad</label>
-                                                                                    <asp:TextBox ID="txtSoyad" CssClass="form-control" runat="server"></asp:TextBox>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                    <label>Cep Telefonu</label>
-                                                                                    <div class="input-group">
-                                                                                        <div class="input-group-addon">
-                                                                                            <i class="fa fa-phone"></i>
-                                                                                        </div>
-                                                                                        <asp:TextBox ID="txtCepTlf" CssClass="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask runat="server"></asp:TextBox>
-                                                                                    </div>
-                                                                                    <!-- /.input group -->
-                                                                                </div>
-                                                                                <div class="form-group">
                                                                                     <div class="checkbox icheck">
                                                                                         <asp:CheckBox ID="numaraYayinlansin" type="checkbox" Text="Numara Yayınlansın" runat="server" />
                                                                                     </div>
                                                                                 </div>
-                                                                                <!-- /.form group -->
-                                                                                <div class="form-group">
-                                                                                    <label>Ev Telefonu</label>
-                                                                                    <div class="input-group">
-                                                                                        <div class="input-group-addon">
-                                                                                            <i class="fa fa-phone"></i>
-                                                                                        </div>
-                                                                                        <asp:TextBox ID="txtEvTlf" CssClass="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask runat="server"></asp:TextBox>
-                                                                                    </div>
-                                                                                    <!-- /.input group -->
-                                                                                </div>
-                                                                                <!-- /.form group -->
-                                                                                <div class="form-group">
-                                                                                    <label>İş Telefonu</label>
-                                                                                    <div class="input-group">
-                                                                                        <div class="input-group-addon">
-                                                                                            <i class="fa fa-phone"></i>
-                                                                                        </div>
-                                                                                        <asp:TextBox ID="txtIsTlf" CssClass="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask runat="server"></asp:TextBox>
-                                                                                    </div>
-                                                                                    <!-- /.input group -->
-                                                                                </div>
-                                                                                <!-- /.form group -->
                                                                             </div>
                                                                         </div>
-                                                                        <!-- terms -->
-
                                                                     </fieldset>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- /.page-content -->
-                                                <div class="col-md-3 reg-sidebar">
-                                                    <div class="reg-sidebar-inner text-center">
-                                                        <div class="promo-text-box">
-                                                            <i class=" icon-picture fa fa-4x icon-color-1"></i>
-                                                            <h3><strong>İlanlarını Ücretsiz Yayınla</strong></h3>
-                                                            <p>
-                                                                Post your free online classified ads with us. Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit.
-                                                            </p>
-                                                        </div>
-                                                        <div class="panel sidebar-panel">
-                                                            <div class="panel-heading uppercase">
-                                                                <small><strong>How to sell quickly?</strong></small>
-                                                            </div>
-                                                            <div class="panel-content">
-                                                                <div class="panel-body text-left">
-                                                                    <ul class="list-check">
-                                                                        <li>Use a brief title and description of the item</li>
-                                                                        <li>Make sure you post in the correct category</li>
-                                                                        <li>Add nice photos to your ad</li>
-                                                                        <li>Put a reasonable price</li>
-                                                                        <li>Check the item before publish</li>
 
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <div class="clearfix"></div>
 
                                                 <div class="col-md-9 page-content">
                                                     <div class="inner-box category-content">
@@ -508,95 +485,150 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                                <div class="col-md-3 reg-sidebar">
+                                                    <div class="reg-sidebar-inner text-center">
+                                                        <div class="promo-text-box">
+                                                            <i class=" icon-picture fa fa-4x icon-color-1"></i>
+                                                            <h3><strong>İlanlarını Ücretsiz Yayınla</strong></h3>
+                                                            <p>
+                                                                Post your free online classified ads with us. Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit.
+                                                            </p>
+                                                        </div>
+                                                        <div class="panel sidebar-panel">
+                                                            <div class="panel-heading uppercase">
+                                                                <small><strong>How to sell quickly?</strong></small>
+                                                            </div>
+                                                            <div class="panel-content">
+                                                                <div class="panel-body text-left">
+                                                                    <ul class="list-check">
+                                                                        <li>Use a brief title and description of the item</li>
+                                                                        <li>Make sure you post in the correct category</li>
+                                                                        <li>Add nice photos to your ad</li>
+                                                                        <li>Put a reasonable price</li>
+                                                                        <li>Check the item before publish</li>
 
-                                            <div class="col-md-9 page-content">
-                                                <div class="inner-box category-content">
-                                                    <h2 class="title-2 uppercase"><strong><i class="icon-address"></i>ADRES BİLGİLERİ</strong></h2>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <div class="form-horizontal">
-                                                                <fieldset>
-                                                                    <div class="col-md-4">
-                                                                        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                                                                        <asp:UpdatePanel runat="server">
-                                                                            <ContentTemplate>
-                                                                                <div class="form-group">
-                                                                                    <label>İl</label>
-                                                                                    <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpIl" runat="server" AutoPostBack="True" OnSelectedIndexChanged="drpIl_SelectedIndexChanged"></asp:DropDownList>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                    <label>İlçe</label>
-                                                                                    <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpIlce" runat="server" AutoPostBack="true" OnSelectedIndexChanged="drpIlce_SelectedIndexChanged"></asp:DropDownList>
-                                                                                </div>
-                                                                                <div class="form-group">
-                                                                                    <label>Mahalle</label>
-                                                                                    <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpMahalle" runat="server"></asp:DropDownList>
-                                                                                </div>
-                                                                            </ContentTemplate>
-                                                                        </asp:UpdatePanel>
-
-                                                                    </div>
-                                                                    <div class="col-md-2">
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <div class="form-group">
-                                                                            <%--<div class="intro-inner">--%>
-                                                                            <div class="contact-intro">
-                                                                                <div class="w100 map">
-                                                                                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26081603.294420466!2d-95.677068!3d37.06250000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1423809000824"
-                                                                                        width="100%" height="350" frameborder="0" style="border: 0"></iframe>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div>
-                                                                    </div>
-                                                                    <!-- terms -->
-                                                                </fieldset>
+                                                                    </ul>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-9 page-content">
-                                                <div class="inner-box category-content">
-                                                    <h2 class="title-2 uppercase"><strong><i class="icon-picture"></i>FOTOĞRAF</strong></h2>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            <div class="form-horizontal">
-                                                                <fieldset>
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group">
-                                                                            <div id='uploadImage'>
-                                                                                <div action="at.php" class="dropzone" id="my-dropzone"></div>
-                                                                            </div>
+
+                                                <div class="col-md-9 page-content">
+                                                    <div class="inner-box category-content">
+                                                        <h2 class="title-2 uppercase"><strong><i class="icon-address"></i>ADRES BİLGİLERİ</strong></h2>
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <div class="form-horizontal">
+                                                                    <fieldset>
+                                                                        <div class="col-md-4">
+                                                                            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                                                                            <asp:UpdatePanel runat="server">
+                                                                                <ContentTemplate>
+                                                                                    <div class="form-group">
+                                                                                        <label>İl</label>
+                                                                                        <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpIl" runat="server" AutoPostBack="True" OnSelectedIndexChanged="drpIl_SelectedIndexChanged"></asp:DropDownList>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label>İlçe</label>
+                                                                                        <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpIlce" runat="server" AutoPostBack="true" OnSelectedIndexChanged="drpIlce_SelectedIndexChanged"></asp:DropDownList>
+                                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label>Mahalle</label>
+                                                                                        <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpMahalle" runat="server"></asp:DropDownList>
+                                                                                    </div>
+                                                                                </ContentTemplate>
+                                                                            </asp:UpdatePanel>
+
                                                                         </div>
-                                                                </fieldset>
+                                                                        <%--<div class="col-md-6">
+                                                                            <div class="form-group">
+                                                                                <div class="contact-intro">
+                                                                                    <div class="w100 map">
+                                                                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26081603.294420466!2d-95.677068!3d37.06250000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1423809000824"
+                                                                                            width="100%" height="350" frameborder="0" style="border: 0"></iframe>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>--%>
+                                                                        <!-- terms -->
+                                                                    </fieldset>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!--/.reg-sidebar-->
-
-                                            <div class="col-xs-1 col-xs-offset-11">
-                                                <asp:Button ID="devam" runat="server" CssClass="btn btn-success" Text="Devam Et" OnClick="devam_Click1" Style="float: right; margin-top: 15px;" />
+                                                <div class="col-md-9 page-content">
+                                                    <div class="inner-box category-content">
+                                                        <h2 class="title-2 uppercase"><strong><i class="icon-picture"></i>FOTOĞRAF</strong></h2>
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <div class="form-group">
+                                                                    <div id='uploadImage'>
+                                                                        <asp:FileUpload ID="FileUpload1" CssClass="fUp" runat="server" AllowMultiple="true" onChange="preview(this)" maxRequestLength="2048" />
+                                                                        <a class="dSec" onclick="triggerFileUpload()"><span class="fa fa-camera" style="font-size: 45px;"></span>Resim Seç</a>
+                                                                        <div class="clearfix"></div>
+                                                                    </div>
+                                                                    <div id="previews">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-1 col-xs-offset-11" style="padding:0;">
+                                                        <asp:Button ID="devam" runat="server" CssClass="btn btn-success" Text="Devam Et" OnClick="devam_Click1" Style="float: right; margin-top: 15px;" />
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <!-- /.row -->
                                     </div>
-                                    <!-- /.container -->
                                 </div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                     </div>
+                </section>
             </div>
-            </section>
         </div>
     </div>
-    </div>
+
+    <script type='text/javascript'>
+
+        $(document).ready(function () {
+            document.getElementById("ContentPlaceHolder1_FileUpload1").style.display = "none";
+        });
+        function triggerFileUpload() {
+            document.getElementById("ContentPlaceHolder1_FileUpload1").click();
+        }
+
+        var files;
+        function preview(input) {
+            if (input.files && input.files[0]) {
+                $(".resimler").remove();
+                var filelist = input.files || [];
+
+                if (filelist.length <= 10) {
+                    for (var i = 0; i < filelist.length; i++) {
+                        var filedr = new FileReader();
+                        filedr.onload = function (e) {
+                            var element = "<div class='col-xs-6 col-sm-3 resimler'>" +
+                                              "<a class='thumbnail'><img class='deneme' src='" + e.target.result + "'/></a>" +
+                                              "<div class='clearfix'></div>" +
+                                          "</div>";
+                            $("#previews").append(element);
+                        }
+                        filedr.readAsDataURL(input.files[i]);
+                    }
+                    files = document.getElementById("ContentPlaceHolder1_ctl00_FileUpload1").files;
+                }
+                else {
+                    alert("Maksimum 10 resim seçebilirsiniz");
+                }
+
+            }
+        }
+    </script>
     <script>
         $(document).ready(function () {
             //Initialize tooltips
@@ -648,8 +680,8 @@
         };
 
     </script>
-    <script src="management/plugins/dropzone/dropzone.js"></script>
-    <script language='javascript' type='text/javascript'>
+    <%--    <script src="management/plugins/dropzone/dropzone.js"></script>--%>
+    <script type='text/javascript'>
 
         Dropzone.options.myDropzone = {
 
@@ -684,7 +716,10 @@
             });
         });
 
-        $(".select2").select2();
+        Sys.WebForms.PageRequestManager.getInstance().add_pageLoaded(function (evt, args) {
+            //Initialize Select2 Elements
+            $(".select2").select2();
+        });
     </script>
 
     <script src="management/dist/js/app.min.js"></script>

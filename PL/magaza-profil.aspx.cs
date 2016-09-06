@@ -17,6 +17,7 @@ namespace PL
         magazaTakipciBll magazaTakipb = new magazaTakipciBll();
         seciliDopingBll seciliDopingb = new seciliDopingBll();
         int magazaId;
+        public string storeLogo = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,6 +28,7 @@ namespace PL
             DAL.magaza _magaza = magazab.search(magazaId);
             lblMagazaAdi.Text = _magaza.magazaAdi;
             lblAciklama.Text = _magaza.aciklama;
+            storeLogo = _magaza.magazaLogo;
 
             telefonRepeater.DataSource = magazaTlfb.list(1, _magaza.magazaId);
             telefonRepeater.DataBind();
@@ -78,6 +80,30 @@ namespace PL
             magazaTakipb.delete(magazaId, 3);
             LinkButton2.Visible = false;
 
+        }
+
+        public string telefonTurDondur(object _income)
+        {
+            if (Convert.ToInt32(_income) == 1)
+            {
+                return "Cep";
+            }
+            else if (Convert.ToInt32(_income) == 2)
+            {
+                return "Cep 2";
+            }
+            else if (Convert.ToInt32(_income) == 3)
+            {
+                return "İş";
+            }
+            else if (Convert.ToInt32(_income) == 4)
+            {
+                return "İş 2";
+            }
+            else
+            {
+                return "Cep";
+            }
         }
     }
 }

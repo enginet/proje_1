@@ -13,6 +13,15 @@ namespace PL.profil {
     public partial class cep_telefonu {
         
         /// <summary>
+        /// uyelikField control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl uyelikField;
+        
+        /// <summary>
         /// txtGsm1 control.
         /// </summary>
         /// <remarks>
@@ -20,5 +29,14 @@ namespace PL.profil {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtGsm1;
+        
+        /// <summary>
+        /// Degistir control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Degistir;
     }
 }

@@ -23,7 +23,7 @@
                                                 <li>
                                                     <li>
                                                         <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl='<%# catKind(Eval("kategoriId"))==true?Eval("kategoriId","~/kategoriler.aspx?kategoriId={0}")
-                                                                 :String.Format("~/ilan-liste.aspx?kategoriId={0}",Eval("kategoriId") )
+                                                                 :String.Format("~/ilan-liste.aspx?kategoriId={0}",Eval("kategoriId"))
                                                                               %>'> <%# Eval("kategoriAdi") %></asp:HyperLink>
                                                         <%--                                                        <asp:HyperLink ID="hypTur" NavigateUrl='<%# GetRouteUrl("kategori", new { kategoriAd = DAL.toolkit.UrlDonustur(Eval("kategoriAdi")), kategoriId = Eval("kategoriId")  }) %>' runat="server"><%# Eval("kategoriAdi") %></asp:HyperLink>--%>
                                                     </li>

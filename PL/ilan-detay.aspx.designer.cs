@@ -22,6 +22,15 @@ namespace PL {
         protected global::System.Web.UI.WebControls.Label lblBaslik;
         
         /// <summary>
+        /// lblkimdenTop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblkimdenTop;
+        
+        /// <summary>
         /// lblTarih control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,33 @@ namespace PL {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIl;
+        
+        /// <summary>
+        /// notImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl notImage;
+        
+        /// <summary>
+        /// notlblFiyat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label notlblFiyat;
+        
+        /// <summary>
+        /// foundImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl foundImage;
         
         /// <summary>
         /// lblFiyat control.
@@ -157,13 +193,13 @@ namespace PL {
         protected global::System.Web.UI.WebControls.Label lblSatici;
         
         /// <summary>
-        /// HyperLink1 control.
+        /// LinkButton3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton3;
         
         /// <summary>
         /// LinkButton1 control.
@@ -191,6 +227,15 @@ namespace PL {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater telefonRepater;
+        
+        /// <summary>
+        /// kutu1Rklm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image kutu1Rklm;
         
         /// <summary>
         /// box_footer control.

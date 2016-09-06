@@ -66,7 +66,39 @@ namespace BLL
 
         public void update(params object[] _income)
         {
-            throw new NotImplementedException();
+            // 1. indis ilan numarası
+            // 2. indis seçilebilir ozelliğin idsi
+            // 3. indis o ozelliğin yeni değer idsi
+
+            // bu update metodu dropdownlist ve tekli checkbox kontrolleri için geçerlidir. Group checkbox için güncelleme işlemleri ekleme ve silmeden ibarettir.
+
+            var _value = idc.secilebilirIlanOzelliks.Where(q => q.ilanId == Convert.ToInt32(_income[0]) & q.secilebilirOzellikDeger.ozellikId == Convert.ToInt32(_income[1])).FirstOrDefault();
+
+            if (_value != null)
+            {
+                if (_income[2].ToString() != "")
+                {
+                    _value.ozellikDegerId = Convert.ToInt32(_income[2]);
+                }
+                else // seçilmiş değer boş ise (dropdownlistlerden "Seçiniz" seçilmiş ise) o özelliği sil
+                {
+                    idc.secilebilirIlanOzelliks.DeleteOnSubmit(_value);
+                }
+                idc.SubmitChanges();
+            }
+            else // eğer o özellik yok ise veritabanına ekleme işlemi yapılır (Sadece dropdownlist için)
+            {
+                if (_income[2].ToString() != "")
+                {
+                    secilebilirIlanOzellik so = new secilebilirIlanOzellik();
+
+                    so.ilanId = Convert.ToInt32(_income[0]);
+                    so.ozellikDegerId = Convert.ToInt32(_income[2]);
+
+                    idc.secilebilirIlanOzelliks.InsertOnSubmit(so);
+                    idc.SubmitChanges();
+                }
+            }
         }
 
         public IQueryable list(params object[] _income)

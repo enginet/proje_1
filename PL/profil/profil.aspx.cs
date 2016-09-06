@@ -16,7 +16,6 @@ namespace PL
             if (Session["unique-site-user"] != null)
             {
                 kullanici _authority = (kullanici)Session["unique-site-user"];
-                lblUsername.Text = _authority.kullaniciAdSoyad;
 
                 if (Request.QueryString["control"] == "anasayfa")
                 {
@@ -169,6 +168,10 @@ namespace PL
                     PlaceHolder1.Controls.Add(Page.LoadControl("~/profil/magaza-kullanicilar.ascx"));
 
                 }
+            }
+            else
+            {
+                Response.Redirect("~/giris-yap.aspx");
             }
         }
     }

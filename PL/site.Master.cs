@@ -26,12 +26,22 @@ namespace PL
                     HttpRequest _request = base.Request;
 
 
-                    if (_authority.rol == 4 | _authority.rol == 3 | _authority.rol == 2 | _authority.rol == 1)
+                    if (_authority.rol == 4 || _authority.rol == 3 || _authority.rol == 2 || _authority.rol == 1)
                     {
                         visitorPanel.Visible = false;
                         userPanel.Visible = true;
                         lblUserName.Text = _authority.kullaniciAdSoyad.ToString();
-                        span3.InnerText = _authority.kredi.ToString();
+                        span3.InnerText = kullanicib.search(_authority.kullaniciId).kredi.ToString();
+                    }
+
+                    if (mesajb.count(1, _authority.kullaniciId) != 0)
+                    {
+                        span2.InnerText = mesajb.count(1, _authority.kullaniciId).ToString();
+                    }
+
+                    if (bildirimb.count(_authority.kullaniciId, 3) != 0)
+                    {
+                        span1.InnerText = bildirimb.count(5, 3).ToString();
                     }
 
 

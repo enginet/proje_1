@@ -21,17 +21,17 @@ namespace PL
         {
             if (!IsPostBack)
             {
-                drpIl.DataSource = ilb.list();
-                drpIl.DataTextField = "ilAdi";
-                drpIl.DataValueField = "ilId";
-                drpIl.DataBind();
+                //drpIl.DataSource = ilb.list();
+                //drpIl.DataTextField = "ilAdi";
+                //drpIl.DataValueField = "ilId";
+                //drpIl.DataBind();
 
-                ListItem lst = new ListItem();
-                lst.Value = null;
-                lst.Text = "İl Seçiniz";
-                lst.Selected = true;
+                //ListItem lst = new ListItem();
+                //lst.Value = null;
+                //lst.Text = "İl Seçiniz";
+                //lst.Selected = true;
 
-                drpIl.Items.Insert(0, lst);
+                //drpIl.Items.Insert(0, lst);
 
                 drpKategori.DataSource = kategorib.list(Convert.ToInt32(Request.QueryString["kategoriId"]));
                 drpKategori.DataTextField = "kategoriAdi";
@@ -45,8 +45,8 @@ namespace PL
 
                 drpKategori.Items.Insert(0, lst_1);
 
-                drpTur.DataSource = ktgTurb.list(1, Request.QueryString["kategoriId"]);
-                drpTur.DataTextField = "turId";
+                drpTur.DataSource = ktgTurb.list(3, Request.QueryString["kategoriId"]);
+                drpTur.DataTextField = "turAdi";
                 drpTur.DataValueField = "turId";
                 drpTur.DataBind();
 
@@ -75,35 +75,35 @@ namespace PL
 
         }
 
-        protected void drpIl_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            drpIlce.DataSource = ilceb.list(Convert.ToInt32(drpIl.SelectedValue));
-            drpIlce.DataTextField = "ilceAdi";
-            drpIlce.DataValueField = "ilceId";
-            drpIlce.DataBind();
+        //protected void drpIl_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    drpIlce.DataSource = ilceb.list(Convert.ToInt32(drpIl.SelectedValue));
+        //    drpIlce.DataTextField = "ilceAdi";
+        //    drpIlce.DataValueField = "ilceId";
+        //    drpIlce.DataBind();
 
-            ListItem lst = new ListItem();
-            lst.Value = null;
-            lst.Text = "İlçe Seçiniz";
-            lst.Selected = true;
+        //    ListItem lst = new ListItem();
+        //    lst.Value = null;
+        //    lst.Text = "İlçe Seçiniz";
+        //    lst.Selected = true;
 
-            drpIlce.Items.Insert(0, lst);
-        }
+        //    drpIlce.Items.Insert(0, lst);
+        //}
 
-        protected void drpIlce_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            drpMahalle.DataSource = mahalleb.list(Convert.ToInt32(drpIlce.SelectedValue));
-            drpMahalle.DataTextField = "mahalleAdi";
-            drpMahalle.DataValueField = "mahalleId";
-            drpMahalle.DataBind();
+        //protected void drpIlce_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    drpMahalle.DataSource = mahalleb.list(Convert.ToInt32(drpIlce.SelectedValue));
+        //    drpMahalle.DataTextField = "mahalleAdi";
+        //    drpMahalle.DataValueField = "mahalleId";
+        //    drpMahalle.DataBind();
 
-            ListItem lst = new ListItem();
-            lst.Value = null;
-            lst.Text = "Mahalle Seçiniz";
-            lst.Selected = true;
+        //    ListItem lst = new ListItem();
+        //    lst.Value = null;
+        //    lst.Text = "Mahalle Seçiniz";
+        //    lst.Selected = true;
 
-            drpMahalle.Items.Insert(0, lst);
-        }
+        //    drpMahalle.Items.Insert(0, lst);
+        //}
 
         public bool subCat(object _income)
         {
@@ -149,6 +149,16 @@ namespace PL
                 return "KONUT#fa fa-home";
 
             }
+        }
+
+        protected void lnkAra_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(String.Format("~/ilan-liste.aspx?kategoriId={0}&tur={1}&cat={2}", Request.QueryString["kategoriId"], drpTur.SelectedValue, drpKategori.SelectedValue));
+        }
+
+        protected void lnkHaritaAra_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(String.Format("~/harita/harita.aspx?tur={0}&cat={1}", drpTur.SelectedValue, drpKategori.SelectedValue));
         }
     }
 }

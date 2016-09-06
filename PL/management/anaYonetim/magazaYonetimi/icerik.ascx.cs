@@ -37,18 +37,18 @@ namespace PL.management.anaYonetim.magazaYonetimi
             string fileExt = segments[segments.Length - 1];
             DateTime magazaSure = default(DateTime);
 
-            if (magazaKtgb.search(Request.QueryString["pac"]).paketSureId == 1)
+            if (magazaKtgb.search(2,Request.QueryString["pac"]).paketSureId == 1)
             {
                 magazaSure = DateTime.Now.AddMonths(6);
             }
-            if (magazaKtgb.search(Request.QueryString["pac"]).paketSureId == 2)
+            if (magazaKtgb.search(2,Request.QueryString["pac"]).paketSureId == 2)
             {
                 magazaSure = DateTime.Now.AddMonths(12);
             }
 
             //magazab.update(2, Request.QueryString["sto"], Request.QueryString["pac"], drpTur.SelectedValue, txtMagazaAd.Text, Request.QueryString["sto"] + "." + fileExt, magazaSure,txtAciklama.Text);
 
-            magazab.update(2, 3, Request.QueryString["pac"], drpTur.SelectedValue, txtMagazaAd.Text, Request.QueryString["sto"] + "." + fileExt, magazaSure, txtAciklama.Text);
+            magazab.update(2, Request.QueryString["sto"], Request.QueryString["pac"], drpTur.SelectedValue, txtMagazaAd.Text, Request.QueryString["sto"] + "." + fileExt, magazaSure, txtAciklama.Text);
 
             HttpFileCollection updateFiles = Request.Files;
             string str_image = "";

@@ -51,7 +51,7 @@ namespace BLL
                     _value.magazaLogo = _income[5].ToString();
                     _value.bitisTarihi = Convert.ToDateTime(_income[6]);
                     _value.aciklama = _income[7].ToString();
-                    _value.onay = true;
+                    _value.onay = false;
                     idc.SubmitChanges();
 
                 }
@@ -92,7 +92,7 @@ namespace BLL
 
                 return query;
             }
-            else
+             else if  (Convert.ToInt32(_income[0]) == 2)
             {
                 var query = from m in idc.magazas.Where(m => m.silindiMi == false & m.pasifMi == false & m.onay == true)
                             select new
@@ -105,7 +105,17 @@ namespace BLL
 
                 return query;
             }
+            else
+            {
+                var query = from m in idc.magazas.Where(m => m.silindiMi == false & m.pasifMi == false & m.onay == true & m.magazaKategoriId==null & m.vergiDaireId==null & m.vergiNo==null)
+                            select new
+                            {
+                                m.magazaId,
+                                m.magazaAdi,
+                            };
 
+                return query;
+            }
 
         }
 

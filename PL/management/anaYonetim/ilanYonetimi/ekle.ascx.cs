@@ -8,6 +8,7 @@ using BLL;
 using DAL;
 using System.IO;
 using System.Drawing;
+using Newtonsoft.Json.Linq;
 
 namespace PL.management.anaYonetim.ilanYonetimi
 {
@@ -21,6 +22,7 @@ namespace PL.management.anaYonetim.ilanYonetimi
         secilebilirIlanOzellikBll soBll = new secilebilirIlanOzellikBll();
         girilebilirIlanOzellikBll goBll = new girilebilirIlanOzellikBll();
         kullaniciBll kullanicib = new kullaniciBll();
+        magazaBll magazab = new magazaBll();
 
         protected override void OnInit(EventArgs e)
         {
@@ -782,20 +784,34 @@ namespace PL.management.anaYonetim.ilanYonetimi
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["unique-user"] != null)
             {
-                drpIl.DataSource = ilb.list();
-                drpIl.DataTextField = "ilAdi";
-                drpIl.DataValueField = "ilId";
-                drpIl.DataBind();
+                kullanici _authority = (kullanici)Session["unique-user"];
+                if (!IsPostBack)
+                {
+                    drpIl.DataSource = ilb.list();
+                    drpIl.DataTextField = "ilAdi";
+                    drpIl.DataValueField = "ilId";
+                    drpIl.DataBind();
 
-                ListItem lst = new ListItem();
-                lst.Value = "";
-                lst.Text = "Seçiniz";
-                drpIl.Items.Insert(0, lst);
+                    ListItem lst = new ListItem();
+                    lst.Value = "";
+                    lst.Text = "Seçiniz";
+                    drpIl.Items.Insert(0, lst);
 
-                onlineRepeater.DataSource = kullanicib.list(4);
-                onlineRepeater.DataBind();
+                    onlineRepeater.DataSource = kullanicib.list(4);
+                    onlineRepeater.DataBind();
+
+                    drpKimden.DataSource = magazab.list(3);
+                    drpKimden.DataTextField = "magazaAdi";
+                    drpKimden.DataValueField = "magazaId";
+                    drpKimden.DataBind();
+
+                    ListItem lst_1 = new ListItem();
+                    lst_1.Value = "";
+                    lst_1.Text = "Seçiniz";
+                    drpKimden.Items.Insert(0, lst_1);
+                }
             }
         }
 
@@ -825,10 +841,14 @@ namespace PL.management.anaYonetim.ilanYonetimi
             lst.Value = "";
             lst.Text = "Seçiniz";
             drpIlce.Items.Insert(0, lst);
+
+
         }
 
         protected void Kaydet_Click(object sender, EventArgs e)
         {
+            kullanici _authority = (kullanici)Session["unique-user"];
+
             if (drpKimden.SelectedValue != "")
             {
 
@@ -840,14 +860,15 @@ namespace PL.management.anaYonetim.ilanYonetimi
                         Request.QueryString["cat"], // ilan kategorisi
                         txtFiyat.Text, // fiyat
                         1, // fiyat türü (TL)
-                        2, // buraya oturum açan kullanıcının id değeri gelecek 
+                        _authority.kullaniciId, // buraya oturum açan kullanıcının id değeri gelecek 
+                        drpKimden.SelectedValue, // mağazanın id değeri gelecek
                         drpIl.SelectedValue,
                         drpIlce.SelectedValue,
                         drpMahalle.SelectedValue,
                         txtBaslik.Text,
                         txtCKeditorAdi.Text,
-                        1, // onay durumu
-                        numaraYayinlansin.Checked // numara yayınlansın mı
+                        1 // onay durumu
+                        //numaraYayinlansin.Checked // numara yayınlansın mı
                     );
 
                 DAL.ilan iln = ilnBll.list().Last(); // ilan resmi ve detayları için eklenen son ilanın id değerini almamız gerek
@@ -872,7 +893,18 @@ namespace PL.management.anaYonetim.ilanYonetimi
                                 {
                                     if (((TextBox)item3).Text != "")
                                     {
-                                        goBll.insert(iln.ilanId, ((TextBox)item3).Attributes["name"], ((TextBox)item3).Text);
+                                        if(((TextBox)item3).Attributes["name"]=="71")
+                                        {
+                                            JObject obj = JObject.Parse(((TextBox)item3).Text);
+
+                                            string kaydet = "{\"type\":\"MultiPolygon\",\"coordinates\":[" + obj["features"][0]["geometry"]["coordinates"].ToString().Replace("\r", "").Replace("\n", "").Replace(" ","") + "]}";
+                                            
+                                            goBll.insert(iln.ilanId, ((TextBox)item3).Attributes["name"], kaydet);
+                                        }
+                                        else
+                                        {
+                                            goBll.insert(iln.ilanId, ((TextBox)item3).Attributes["name"], ((TextBox)item3).Text);
+                                        }
                                     }
                                 }
                                 else if(item3 is CheckBox) // Eğer checkbox tek ise
@@ -924,28 +956,27 @@ namespace PL.management.anaYonetim.ilanYonetimi
 
                         HttpPostedFile file = updateFiles[i];
 
-                        resim= DAL.toolkit.pictureWatermark(file, "~/upload/ilan/", "netteilanver.com", iln.ilanId.ToString());
-                        
-
                         string fileName = file.FileName;
-                        string fileExtension = file.ContentType;
+                        string fileExtension = Path.GetExtension(fileName);
+                        str_image = iln.ilanId.ToString() + "_" + (i + 1).ToString() + fileExtension;
 
-                        if (!string.IsNullOrEmpty(fileName))
-                        {
-                            fileExtension = Path.GetExtension(fileName);
-                            str_image = iln.ilanId.ToString() + "_" + (i + 1).ToString() + fileExtension;
-                            string pathToSave_100 = HttpContext.Current.Server.MapPath("~/upload/ilan/") + str_image;
-                            if (file.ContentType == "image/jpeg" || file.ContentType == "image/pjpeg")
-                                resim.Save(pathToSave_100, System.Drawing.Imaging.ImageFormat.Jpeg);
-                            else if (file.ContentType == "image/gif")
-                                resim.Save(pathToSave_100, System.Drawing.Imaging.ImageFormat.Gif);
-                            else if (file.ContentType == "image/png" || file.ContentType == "image/x-png")
-                                resim.Save(pathToSave_100, System.Drawing.Imaging.ImageFormat.Png);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "initMap", "alert(" + str_image + ");", true);
+                        ir.insert(iln.ilanId, str_image, secili);
 
-                            ir.insert(iln.ilanId, str_image, secili);
-                        }
+                        DAL.fotograf.yukle(file, 480, str_image, iln.ilanId.ToString(), 1);
                     }
                 }
+                else
+                {
+                    string path = Server.MapPath("~/upload/system_resim/not-found-image.jpg");
+                    System.Drawing.Image img = System.Drawing.Image.FromFile(path);
+
+                    path = Server.MapPath("~/upload/ilan/");
+                    str_image = iln.ilanId + "_1.jpg";
+                    img.Save(path+str_image);
+                    ir.insert(iln.ilanId, str_image, true);
+                }
+
             }
             else
             {

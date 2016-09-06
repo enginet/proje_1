@@ -15,25 +15,31 @@ namespace PL.profil
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            onayBekleyenRepeater.DataSource = ilanb.list(2, 5, false, false, false);
-            onayBekleyenRepeater.DataBind();
-
-            if (Request.QueryString["classified"] != null)
+            if (Session["unique-site-user"] != null)
             {
-                if (Request.QueryString["proc"] == "2")
+                kullanici _authority = (kullanici)Session["unique-site-user"];
                 {
-                    ilanb.update(2, Request.QueryString["classified"]);
+                    onaylanmamislar.DataSource = ilanb.list(2, _authority.kullaniciId, 3, false, false);
+                    onaylanmamislar.DataBind();
+
+                    if (Request.QueryString["classified"] != null)
+                    {
+                        if (Request.QueryString["proc"] == "2")
+                        {
+                            ilanb.update(2, Request.QueryString["classified"]);
+                        }
+                        if (Request.QueryString["proc"] == "3")
+                        {
+                            ilanb.update(3, Request.QueryString["classified"]); //düzenlenecek
+                        }
+                        //if (Request.QueryString["proc"] == "4")
+                        //{
+                        //    ilanb.update(3, Request.QueryString["classified"]);
+                        //}
+                        onaylanmamislar.DataSource = ilanb.list(2, _authority.kullaniciId, 3, false, false);
+                        onaylanmamislar.DataBind();
+                    }
                 }
-                if (Request.QueryString["proc"] == "3")
-                {
-                    ilanb.update(3, Request.QueryString["classified"]); //düzenlenecek
-                }
-                //if (Request.QueryString["proc"] == "4")
-                //{
-                //    ilanb.update(3, Request.QueryString["classified"]);
-                //}
-                onayBekleyenRepeater.DataSource = ilanb.list(2, 5, false, false, false);
-                onayBekleyenRepeater.DataBind();
             }
         }
     }

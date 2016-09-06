@@ -13,6 +13,33 @@ namespace PL.ozellikler {
     public partial class arsa_ozellik {
         
         /// <summary>
+        /// pafta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pafta;
+        
+        /// <summary>
+        /// txtPaftaNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPaftaNo;
+        
+        /// <summary>
+        /// metrekarefiyat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl metrekarefiyat;
+        
+        /// <summary>
         /// txtMetreFiyat control.
         /// </summary>
         /// <remarks>
@@ -47,23 +74,5 @@ namespace PL.ozellikler {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpKatKar;
-        
-        /// <summary>
-        /// pafta control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pafta;
-        
-        /// <summary>
-        /// txtPaftaNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPaftaNo;
     }
 }

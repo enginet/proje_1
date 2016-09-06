@@ -64,7 +64,7 @@ namespace BLL
                 return query;
 
             }
-            else
+            else if (Convert.ToInt32(_income[0]) == 2)
             {
                 var query = from k in idc.kullanicis
                             join t in idc.magazaTakips
@@ -81,6 +81,26 @@ namespace BLL
                             };
                 return query;
 
+            }
+            else if (Convert.ToInt32(_income[0]) == 3)
+            {
+                var query = from t in idc.kullaniciTakips.Where(t=>t.kullaniciId==Convert.ToInt32(_income[1]) & t.kullanici.silindiMi==false)
+                            select new
+                            {
+                                t.kullanici.kullaniciId,
+                                t.kullanici.profilResim
+                            };
+                return query;
+            }
+            else
+            {
+                var query = from t in idc.kullaniciTakips.Where(t => t.takipciId == Convert.ToInt32(_income[1]) & t.kullanici.silindiMi == false)
+                            select new
+                            {
+                                t.kullanici.kullaniciId,
+                                t.kullanici.profilResim
+                            };
+                return query;
             }
         }
     }

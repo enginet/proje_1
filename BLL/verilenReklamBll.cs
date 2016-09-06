@@ -90,9 +90,29 @@ namespace BLL
             return idc.verilenReklams.Where(q=>q.pasifMi==pasif && q.onay==onay).ToList();
         }
 
-        public verilenReklam search(int _income)
+        public verilenReklam search(params object[] _income)
         {
-            return idc.verilenReklams.Where(q => q.verilenReklamId == _income).FirstOrDefault();
+            if (Convert.ToInt32(_income[0]) == 1)
+            {
+                return idc.verilenReklams.Where(q => q.verilenReklamId == Convert.ToInt32(_income[1])).FirstOrDefault();
+            }
+            else
+            {
+                return idc.verilenReklams.Where(q => q.reklamId == Convert.ToInt32(_income[1])).FirstOrDefault();
+            }
+        }
+
+
+        public IEnumerable<verilenReklam> listHarita(params object[] _income)
+        {
+            if(_income[1].ToString()!="")
+            {
+                return idc.verilenReklams.Where(q => q.reklam.reklamTurId == Convert.ToInt32(_income[0]) && q.pasifMi == false && q.onay == true && q.ilId == Convert.ToInt32(_income[1])).ToList();
+            }
+            else
+            {
+                return idc.verilenReklams.Where(q => q.reklam.reklamTurId == Convert.ToInt32(_income[0]) && q.pasifMi == false && q.onay == true).ToList();
+            }
         }
 
         public IQueryable list(params object[] _income)
@@ -120,7 +140,6 @@ namespace BLL
 
                 return query;
             }
-
             else 
             {
                 var query = 
@@ -143,6 +162,5 @@ namespace BLL
                 return query;
             }
         }
-        
     }
 }

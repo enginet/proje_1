@@ -195,74 +195,13 @@
                                 <label>Kimden Seçiniz</label>
                                 <div class="clearfix"></div>
                                 <asp:DropDownList ID="drpKimden" runat="server" CssClass="select2" Style="width: 100%;" AutoPostBack="True" OnSelectedIndexChanged="drpKimden_SelectedIndexChanged">
-                                    <asp:ListItem Value="" Selected="True">Seçiniz</asp:ListItem>
-                                    <asp:ListItem Value="3">Belediyeden</asp:ListItem>
-                                    <asp:ListItem Value="4">Bankadan</asp:ListItem>
-                                    <asp:ListItem Value="5">İzale-i Şuyudan</asp:ListItem>
-                                    <asp:ListItem Value="6">İcradan</asp:ListItem>
-                                    <asp:ListItem Value="7">Milli Hazineden (Satışı Devam Eden)</asp:ListItem>
-                                    <asp:ListItem Value="8">Milli Hazineden (Satılamayan)</asp:ListItem>
-                                    <asp:ListItem Value="9">Özelleştirme İdaresinden</asp:ListItem>
-                                    <asp:ListItem Value="11">Diğer Kamu Kurumlarından</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- general form elements -->
-                <div class="box box-success">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">İletişim Bilgileri</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
-                    <div role="form">
-                        <div class="box-body">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="txtAd">Ad</label>
-                                    <asp:TextBox ID="txtAd" CssClass="form-control" runat="server"></asp:TextBox>
-                                </div>
-                                <div class="form-group">
-                                    <label for="txtSoyad">Soyad</label>
-                                    <asp:TextBox ID="txtSoyad" CssClass="form-control" runat="server"></asp:TextBox>
-                                </div>
-                                <div class="form-group">
-                                    <label>GSM</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-phone"></i>
-                                        </div>
-                                        <asp:TextBox ID="txtCepTlf" CssClass="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask runat="server"></asp:TextBox>
-                                    </div>
-                                    <!-- /.input group -->
-                                </div>
-                                <div class="form-group">
-                                    <div class="checkbox icheck">
-                                        <asp:CheckBox ID="numaraYayinlansin" type="checkbox" Text="Numara Yayınlansın" runat="server" />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>İş Telefonu</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-phone"></i>
-                                        </div>
-                                        <asp:TextBox ID="txtIsTlf" CssClass="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask runat="server"></asp:TextBox>
-                                    </div>
-                                    <!-- /.input group -->
-                                </div>
-                                <!-- /.form group -->
-                            </div>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                </div>
-                <!-- /.box -->
             </div>
             <!--/.col (left) -->
-            <!-- right column -->
-            <!--/.col (right) -->
         </div>
         <!-- /.row -->
     </section>

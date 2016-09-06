@@ -121,6 +121,7 @@
                                 <div class="form-group">
                                     <label>Eğitim Durumu</label>
                                     <asp:DropDownList ID="drpEgitim" class="form-control select2" runat="server">
+                                        <asp:ListItem Value="1">Seçiniz</asp:ListItem>
                                         <asp:ListItem Value="1">Üniversite</asp:ListItem>
                                         <asp:ListItem Value="2">Yüksek Okul</asp:ListItem>
                                         <asp:ListItem Value="3">Lise</asp:ListItem>

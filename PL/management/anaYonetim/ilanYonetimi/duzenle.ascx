@@ -143,18 +143,7 @@
                             <label>Kimden Seçiniz</label>
                             <div class="clearfix"></div>
                             <asp:DropDownList ID="drpKimden" runat="server" CssClass="select2" Style="width: 100%;" AutoPostBack="True" OnSelectedIndexChanged="drpKimden_SelectedIndexChanged">
-                                <asp:ListItem Value="" Selected="True">Seçiniz</asp:ListItem>
-                                <asp:ListItem Value="1">Sahibinden</asp:ListItem>
-                                <asp:ListItem Value="2">Emlakçıdan</asp:ListItem>
-                                <asp:ListItem Value="3">Belediyeden</asp:ListItem>
-                                <asp:ListItem Value="4">Bankadan</asp:ListItem>
-                                <asp:ListItem Value="5">İzale-i Şuyudan</asp:ListItem>
-                                <asp:ListItem Value="6">İcradan</asp:ListItem>
-                                <asp:ListItem Value="7">Milli Hazineden (Satışı Devam Eden)</asp:ListItem>
-                                <asp:ListItem Value="8">Milli Hazineden (Satılamayan)</asp:ListItem>
-                                <asp:ListItem Value="9">Özelleştirme İdaresinden</asp:ListItem>
-                                <asp:ListItem Value="10">İnşaat Firmasından</asp:ListItem>
-                                <asp:ListItem Value="11">Diğer Kamu Kurumlarından</asp:ListItem>
+
                             </asp:DropDownList>
                         </div>
                     </div>

@@ -204,8 +204,10 @@ namespace PL.management.anaYonetim.magazaYonetimi
                     magazaTlfb.delete(_telefon.magazaTelefonId);
                 }
 
-                Response.Redirect("~/management/anaYonetim/magazaYonetimi/magaza.aspx?page=duzenle-kategori-secimi&edit=" + Request.QueryString["magazaId"]);
+                DAL.magaza _magaza = magazab.search(Convert.ToInt32(Request.QueryString["magazaId"]));
 
+
+                Response.Redirect("~/management/anaYonetim/magazaYonetimi/magaza.aspx?page=duzenle-icerik&edit=" + Request.QueryString["magazaId"] + "&cat=1&pac=" + _magaza.magazaKategoriId);
             }
             catch (Exception)
             {

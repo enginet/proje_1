@@ -14,10 +14,10 @@
                 <div class="col-sm-5 login-box">
                     <div class="panel panel-default">
                         <div class="panel-intro text-center">
-                            <h2 class="logo-title">
+                            <h2 class="logo-title" style="text-transform:lowercase;">
                                 <!-- Original Logo will be placed here  -->
                                 <span class="logo-icon"><i
-                                    class="icon icon-docs ln-shadow-logo shape-0"></i></span>BOOT<span>CLASSIFIED </span>
+                                    class="icon icon-docs ln-shadow-logo shape-0"></i></span>kral<span>ilan.com </span>
                             </h2>
                         </div>
                         <div class="panel-body">

@@ -19,7 +19,7 @@ namespace PL.sysLogin
 
         protected void Giris_Click(object sender, EventArgs e)
         {
-            if (kullanicib.loginOn(txtMail.InnerText, txtSifre.Value))
+            if (kullanicib.loginOn(txtMail.InnerText,  DAL.toolkit.SHA1Hash_Encryption(txtSifre.Value)))
             {
                 Response.Redirect("~/management/default.aspx");
             }

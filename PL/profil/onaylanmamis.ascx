@@ -28,7 +28,7 @@
                         </div>
                         <!--/.listing-filter-->
                         <div class="adds-wrapper">
-                            <asp:Repeater ID="onayBekleyenRepeater" runat="server">
+                            <asp:Repeater ID="onaylanmamislar" runat="server">
                                 <ItemTemplate>
                                     <div class="item-list">
                                         <div class="col-sm-2 no-padding photobox">
@@ -63,8 +63,6 @@
                                                 class="fa fa-times"></i><span> İlanı Sil</span></asp:HyperLink>
                                             <asp:HyperLink ID="HyperLink2" runat="server" CssClass="btn btn-warning  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/profil/profil.aspx?control=onay-bekleyen&proc={0}&classified={1}", 4 ,Eval("ilanId"))%>'><i
                                                 class="fa fa-pencil"></i><span> Düzenle</span></asp:HyperLink>
-                                             <asp:HyperLink ID="HyperLink3" runat="server" CssClass="btn btn-primary  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/profil/profil.aspx?control=onay-bekleyen&proc={0}&classified={1}", 3 ,Eval("ilanId"))%>'><i
-                                                class="fa fa-folder"></i><span> Arşive Al</span></asp:HyperLink>
                                         </div>
                                         <!--/.add-desc-box-->
                                     </div>

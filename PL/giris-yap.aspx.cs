@@ -21,7 +21,7 @@ namespace PL
 
         protected void Giris_Click(object sender, EventArgs e)
         {
-            if (kullanicib.userLoginOn(txtMail.Value, txtSifre.Value))
+            if (kullanicib.userLoginOn(txtMail.Value, DAL.toolkit.SHA1Hash_Encryption(txtSifre.Value)))
             {
                 Response.Redirect("~/default.aspx");
             }

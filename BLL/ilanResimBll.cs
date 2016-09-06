@@ -9,11 +9,14 @@ namespace BLL
 {
     public class ilanResimBll : sablon
     {
+        ilanDataContext idc = new ilanDataContext();
+
         public void delete(int _id)
         {
-            throw new NotImplementedException();
+            idc.ilanResims.Where(x => x.ilanId == _id).ToList().ForEach(idc.ilanResims.DeleteOnSubmit);
+            idc.SubmitChanges();
         }
-        ilanDataContext idc = new ilanDataContext();
+
         public void insert(params object[] _income)
         {
             // 1.parametre ilan id değerini tutar
@@ -31,6 +34,12 @@ namespace BLL
 
         }
 
+        public ilanResim search(object _income)
+        {
+            //Convert.ToInt32(r.resim.ToString().Split('_')[1].Split('.')[0]) == 1
+            return idc.ilanResims.Where(r => r.ilanId == Convert.ToInt32(_income) ).FirstOrDefault();
+        }
+
         public void update(params object[] _income)
         {
             throw new NotImplementedException();
@@ -38,7 +47,7 @@ namespace BLL
 
         public IEnumerable<ilanResim> list(params object[] _income)
         {
-            if(Convert.ToInt32(_income[0])==1)
+            if (Convert.ToInt32(_income[0]) == 1)
             {
                 return idc.ilanResims.Where(r => r.ilanId == Convert.ToInt32(_income[1]));
             }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
+using DAL;
 
 namespace PL.profil
 {
@@ -13,16 +14,24 @@ namespace PL.profil
         ilanFavoriBll favorib = new ilanFavoriBll();
         protected void Page_Load(object sender, EventArgs e)
         {
-            favoriIlanRepeater.DataSource = favorib.list(1, 5);
-            favoriIlanRepeater.DataBind();
-
-            if (Request.QueryString["like"] != null)
+            if (Session["unique-site-user"] != null)
             {
-                favorib.delete(Request.QueryString["like"], 5);
-            }
+                kullanici _authority = (kullanici)Session["unique-site-user"];
 
-            favoriIlanRepeater.DataSource = favorib.list(1, 5);
-            favoriIlanRepeater.DataBind();
+                if (!Page.IsPostBack)
+                {
+                    favoriIlanRepeater.DataSource = favorib.list(1, _authority.kullaniciId);
+                    favoriIlanRepeater.DataBind();
+
+                    if (Request.QueryString["like"] != null)
+                    {
+                        favorib.delete(Request.QueryString["like"], _authority.kullaniciId);
+                    }
+
+                    favoriIlanRepeater.DataSource = favorib.list(1, _authority.kullaniciId);
+                    favoriIlanRepeater.DataBind();
+                }
+            }
         }
     }
 }

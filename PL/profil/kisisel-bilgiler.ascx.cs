@@ -17,42 +17,47 @@ namespace PL.profil
         ilBll ilb = new ilBll();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            if (Session["unique-site-user"] != null)
             {
-                kullanici _kullanici = kll.search(5);
+                kullanici _authority = (kullanici)Session["unique-site-user"];
 
-                drpIl.DataSource = ilb.list();
-                drpIl.DataTextField = "ilAdi";
-                drpIl.DataValueField = "ilId";
-                drpIl.DataBind();
+                if (!Page.IsPostBack)
+                {
+                    kullanici _kullanici = kll.search(_authority.kullaniciId);
 
-                drpIl.SelectedValue = _kullanici.ilId.ToString();
+                    drpIl.DataSource = ilb.list();
+                    drpIl.DataTextField = "ilAdi";
+                    drpIl.DataValueField = "ilId";
+                    drpIl.DataBind();
 
-                drpIlce.DataSource = ilceb.list(Convert.ToInt32(drpIl.SelectedValue));
-                drpIlce.DataTextField = "ilceAdi";
-                drpIlce.DataValueField = "ilceId";
-                drpIlce.DataBind();
+                    drpIl.SelectedValue = _kullanici.ilId.ToString();
 
-                drpIlce.SelectedValue = _kullanici.ilceId.ToString();
+                    drpIlce.DataSource = ilceb.list(Convert.ToInt32(drpIl.SelectedValue));
+                    drpIlce.DataTextField = "ilceAdi";
+                    drpIlce.DataValueField = "ilceId";
+                    drpIlce.DataBind();
 
-                drpMahalle.DataSource = mahalleb.list(Convert.ToInt32(drpIlce.SelectedValue));
-                drpMahalle.DataTextField = "mahalleAdi";
-                drpMahalle.DataValueField = "mahalleId";
-                drpMahalle.DataBind();
+                    drpIlce.SelectedValue = _kullanici.ilceId.ToString();
 
-                drpMahalle.SelectedValue = _kullanici.mahalleId.ToString();
+                    drpMahalle.DataSource = mahalleb.list(Convert.ToInt32(drpIlce.SelectedValue));
+                    drpMahalle.DataTextField = "mahalleAdi";
+                    drpMahalle.DataValueField = "mahalleId";
+                    drpMahalle.DataBind();
+
+                    drpMahalle.SelectedValue = _kullanici.mahalleId.ToString();
 
 
-                string[] adSoyad = DAL.toolkit.isimDondur(_kullanici.kullaniciAdSoyad);
+                    string[] adSoyad = DAL.toolkit.isimDondur(_kullanici.kullaniciAdSoyad);
 
-                txtAd.Value = adSoyad[0].ToString();
-                txtSoyad.Value = adSoyad[1].ToString();
-                txtKimlikNo.Value = _kullanici.tckimlikNo;
-                txtTarih.Value = _kullanici.dogumTarihi.ToString();
+                    txtAd.Value = adSoyad[0].ToString();
+                    txtSoyad.Value = adSoyad[1].ToString();
+                    txtKimlikNo.Value = _kullanici.tckimlikNo;
+                    txtTarih.Value = _kullanici.dogumTarihi.ToString();
 
-                drpEgitim.SelectedValue = _kullanici.egitimDurumuId.ToString();
-                drpIl.SelectedValue = _kullanici.ilId.ToString();
-                rdCinsiyet.SelectedValue = _kullanici.cinsiyetId.ToString();
+                    drpEgitim.SelectedValue = _kullanici.egitimDurumuId.ToString();
+                    drpIl.SelectedValue = _kullanici.ilId.ToString();
+                    rdCinsiyet.SelectedValue = _kullanici.cinsiyetId.ToString();
+                }
             }
         }
 
@@ -76,17 +81,21 @@ namespace PL.profil
 
         protected void Guncelle_Click(object sender, EventArgs e)
         {
+            kullanici _authority = (kullanici)Session["unique-site-user"];
+
             //ad + soyad,şifre,email,il,ilçe,mahalle,krediSayısı,kimlikNo,egitimDurumu,Cinsiyet,rol(yetki)
             kll.update(
                     1,                              // Tüm bilgilerin güncellenmesi için kontrol değeri gönderiyoruz
-                    5,    // Hangi kullanıcının bilgilerinin güncellenmesi gerektiği bilgisini tutuyoruz
+                    _authority.kullaniciId,    // Hangi kullanıcının bilgilerinin güncellenmesi gerektiği bilgisini tutuyoruz
                     txtAd.Value + " " + txtSoyad.Value,
                     drpIl.SelectedValue,
                     drpIlce.SelectedValue,
                     drpMahalle.SelectedValue,
                     txtKimlikNo.Value,
                     drpEgitim.SelectedValue,
-                    rdCinsiyet.SelectedValue
+                    rdCinsiyet.SelectedValue,
+                    txtTarih.Value,
+                    4                  
                 );
         }
     }

@@ -14,8 +14,7 @@
                         <div class="inner-box">
                             <div class="user-panel-sidebar">
                                 <div class="collapse-box">
-                                    <h5 class="collapse-title no-border">
-                                        <asp:Label ID="lblUsername" runat="server"></asp:Label><a href="#My"
+                                    <h5 class="collapse-title no-border">üyelik bilgilerim</asp:Label><a href="#My"
                                         data-toggle="collapse"
                                         class="pull-right"><i
                                             class="fa fa-angle-down"></i></a></h5>
@@ -23,13 +22,13 @@
                                     <div class="panel-collapse collapse in" id="My">
                                         <ul class="acc-list">
                                             <li>
-                                                <asp:HyperLink ID="hypTur" NavigateUrl='~/profil/profil.aspx?control=anasayfa' runat="server"><i class="icon-home"></i>BENİM SAYFAM <span
-                                                class="badge">42</span></asp:HyperLink>
-
-                                                <%--                                                <asp:hyperlink id="hlUrunler" navigateurl="<%$ RouteUrl:RouteName=bilgilerim%>" runat="server"><i class="icon-home"></i>BENİM SAYFAM <span
-                                                class="badge">42</span></asp:hyperlink>--%>
-                                                <%--                                                <asp:HyperLink ID="hypBenim" runat="server" NavigateUrl="~/profil/profil.aspx?control=anasayfa"><i class="icon-home"></i>BENİM SAYFAM <span
-                                                class="badge">42</span></asp:HyperLink>--%></li>
+                                                <asp:HyperLink ID="hypTur" NavigateUrl='~/profil/profil.aspx?control=anasayfa' runat="server"><i class="icon-home"></i>benim sayfam </asp:HyperLink>
+                                                <asp:HyperLink ID="HyperLink2" NavigateUrl='~/profil/profil.aspx?control=kisisel-bilgiler' runat="server"><i class="icon-home"></i>kişisel bilgiler </asp:HyperLink>
+                                                <asp:HyperLink ID="HyperLink3" NavigateUrl='~/profil/profil.aspx?control=eposta' runat="server"><i class="icon-home"></i>E-Posta </asp:HyperLink>
+                                                <asp:HyperLink ID="HyperLink4" NavigateUrl='~/profil/profil.aspx?control=cep-telefonu' runat="server"><i class="icon-home"></i>Cep Telefonu </asp:HyperLink>
+                                                <asp:HyperLink ID="HyperLink5" NavigateUrl='~/profil/profil.aspx?control=hesap-dondur' runat="server"><i class="icon-home"></i>Hesap Dondur </asp:HyperLink>
+                                                <asp:HyperLink ID="HyperLink6" NavigateUrl='~/profil/profil.aspx?control=bildirimler' runat="server"><i class="icon-home"></i>bilgilendirmeler </asp:HyperLink>
+                                                <asp:HyperLink ID="HyperLink7" NavigateUrl='~/profil/profil.aspx?control=bildirimler' runat="server"><i class="icon-home"></i>hesap hareketlerim </asp:HyperLink></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -42,17 +41,13 @@
                                     <div class="panel-collapse collapse in" id="MyAds">
                                         <ul class="acc-list">
                                             <li>
-                                                <asp:HyperLink ID="hypYayin" runat="server" NavigateUrl="~/profil/profil.aspx?control=ilan"><i class="icon-docs"></i>YAYINDA <span
-                                                class="badge">42</span></asp:HyperLink></li>
+                                                <asp:HyperLink ID="hypYayin" runat="server" NavigateUrl="~/profil/profil.aspx?control=ilan"><i class="icon-docs"></i>YAYINDA </asp:HyperLink></li>
                                             <li>
-                                                <asp:HyperLink ID="hypArsiv" runat="server" NavigateUrl="~/profil/profil.aspx?control=arsiv"><i class="icon-folder-close"></i>ARŞİVLENMİŞ <span
-                                                class="badge">42</span></asp:HyperLink></li>
+                                                <asp:HyperLink ID="hypArsiv" runat="server" NavigateUrl="~/profil/profil.aspx?control=arsiv"><i class="icon-folder-close"></i>ARŞİVLENMİŞ </asp:HyperLink></li>
                                             <li>
-                                                <asp:HyperLink ID="htpOnay" runat="server" NavigateUrl="~/profil/profil.aspx?control=onay-bekleyen"><i class="icon-hourglass"></i>ONAY BEKLEYEN <span
-                                                class="badge">42</span></asp:HyperLink></li>
-                                                                                        <li>
-                                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/profil/profil.aspx?control=onay-bekleyen"><i class="fa fa-times"></i>ONAYLANMAMIŞ <span
-                                                class="badge">42</span></asp:HyperLink></li>
+                                                <asp:HyperLink ID="htpOnay" runat="server" NavigateUrl="~/profil/profil.aspx?control=onay-bekleyen"><i class="icon-hourglass"></i>ONAY BEKLEYEN </asp:HyperLink></li>
+                                            <li>
+                                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/profil/profil.aspx?control=onaylanmamis"><i class="fa fa-times"></i>ONAYLANMAMIŞ </asp:HyperLink></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -65,11 +60,12 @@
                                     <div class="panel-collapse collapse in" id="MyFavori">
                                         <ul class="acc-list">
                                             <li>
-                                                <asp:HyperLink ID="hypFavoriIlan" runat="server" NavigateUrl="~/profil/profil.aspx?control=favori-ilan"><i class="icon-heart"></i>FAVORİ İLANLAR <span
-                                                class="badge">42</span></asp:HyperLink></li>
+                                                <asp:HyperLink ID="hypFavoriIlan" runat="server" NavigateUrl="~/profil/profil.aspx?control=favori-ilan"><i class="icon-heart"></i>favori ilanlar </asp:HyperLink></li>
                                             <li>
-                                                <asp:HyperLink ID="htpFavoriSatici" runat="server" NavigateUrl="~/profil/profil.aspx?control=favori-satici"><i class="icon-heart"></i>FAVORİ SATICILAR <span
-                                                class="badge">42</span></asp:HyperLink></li>
+                                                <asp:HyperLink ID="htpFavoriSatici" runat="server" NavigateUrl="~/profil/profil.aspx?control=favori-satici"><i class="icon-heart"></i>takip ettiğim satıcılar </asp:HyperLink></li>
+                                            <li>
+                                                <asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/profil/profil.aspx?control=favori-magaza"><i class="icon-heart"></i>takip ettiğim satıcılar </asp:HyperLink></li>
+                                        
                                         </ul>
                                     </div>
                                 </div>
@@ -82,11 +78,9 @@
                                     <div class="panel-collapse collapse in" id="MyMesaj">
                                         <ul class="acc-list">
                                             <li>
-                                                <asp:HyperLink ID="hypGelen" runat="server" NavigateUrl="~/profil/profil.aspx?control=gelen-kutusu"><i class="icon-post"></i>GELEN KUTUSU <span
-                                                class="badge">42</span></asp:HyperLink></li>
+                                                <asp:HyperLink ID="hypGelen" runat="server" NavigateUrl="~/profil/profil.aspx?control=gelen-kutusu"><i class="icon-post"></i>GELEN KUTUSU </asp:HyperLink></li>
                                             <li>
-                                                <asp:HyperLink ID="hypGönderilen" runat="server" NavigateUrl="~/profil/profil.aspx?control=gönderilen-kutusu"><i class="icon-post"></i>GÖNDERİLEN KUTUSU <span
-                                                class="badge">42</span></asp:HyperLink></li>
+                                                <asp:HyperLink ID="hypGönderilen" runat="server" NavigateUrl="~/profil/profil.aspx?control=gönderilen-kutusu"><i class="icon-post"></i>GÖNDERİLEN KUTUSU </asp:HyperLink></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -102,11 +96,10 @@
                                             <li>
                                                 <asp:HyperLink ID="hypMagazaBilgi" runat="server" NavigateUrl="~/profil/profil.aspx"><i class="icon-info"></i>MAĞAZA BİLGİLERİM </asp:HyperLink></li>
                                             <li>
-                                                <asp:HyperLink ID="hypKullanici" runat="server" NavigateUrl="~/profil/profil.aspx?control=kullanicilar"><i class="icon-user"></i>KULLANICILARI <span
-                                                class="badge">42</span></asp:HyperLink></li>
-                                            <li>
+                                                <asp:HyperLink ID="hypKullanici" runat="server" NavigateUrl="~/profil/profil.aspx?control=kullanicilar"><i class="icon-user"></i>KULLANICILARI </asp:HyperLink></li>
+<%--                                            <li>
                                                 <asp:HyperLink ID="hypDoping" runat="server" NavigateUrl="~/profil/profil.aspx?control=kullanicilar"><i class="icon-star"></i>DOPİNGLERİ <span
-                                                class="badge">42</span></asp:HyperLink></li>
+                                                class="badge">42</span></asp:HyperLink></li>--%>
                                             <li>
                                                 <asp:HyperLink ID="hypGit" runat="server" NavigateUrl="~/profil/profil.aspx?control=kullanicilar"><i class="icon-link"></i>MAĞAZAMA GİT </asp:HyperLink></li>
 

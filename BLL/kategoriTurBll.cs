@@ -44,32 +44,45 @@ namespace BLL
             if (Convert.ToInt32(_income[0]) == 1)
             {
                 query = from kt in idc.kategoriTurs
-                            join k in idc.kategoris
-                            on kt.kategoriId equals k.kategoriId
-                            where kt.kategoriId == Convert.ToInt32(_income[1])
-                            select new
-                            {
-                                kt.turId
-                            };
+                        join k in idc.kategoris
+                        on kt.kategoriId equals k.kategoriId
+                        where kt.kategoriId == Convert.ToInt32(_income[1])
+                        select new
+                        {
+                            kt.turId
+                        };
+                return query;
+            }
+            else if (Convert.ToInt32(_income[0]) == 2)
+            {
+                query = from kt in idc.kategoriTurs
+                        join k in idc.kategoris
+                        on kt.kategoriId equals k.kategoriId
+                        where k.ustKategoriId == Convert.ToInt32(_income[1]) &&
+                        kt.turId == Convert.ToInt32(_income[2])
+                        select new
+                        {
+                            k.kategoriAdi,
+                            k.kategoriId,
+
+                        };
                 return query;
             }
             else
             {
-                 query = from kt in idc.kategoriTurs
-                            join k in idc.kategoris
-                            on kt.kategoriId equals k.kategoriId
-                            where k.ustKategoriId == Convert.ToInt32(_income[1]) &&
-                            kt.turId==Convert.ToInt32(_income[2])
-                            select new
-                            {
-                                k.kategoriAdi,
-                                k.kategoriId,
-                               
-                            };
+                query = from kt in idc.kategoriTurs
+                        join k in idc.kategoris
+                        on kt.kategoriId equals k.kategoriId
+                        where kt.kategoriId == Convert.ToInt32(_income[1])
+                        select new
+                        {
+                            turAdi = DAL.toolkit.donustur(kt.turId),
+                            kt.turId
+                        };
                 return query;
+
             }
 
-      
 
         }
     }

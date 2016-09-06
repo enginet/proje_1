@@ -300,13 +300,24 @@ namespace DAL
 
         public static string SHA512_Encryption(string _income)
         {
-            SHA512Managed sifre = new SHA512Managed();
+            SHA256Managed sifre = new SHA256Managed();
             byte[] arrPass = byte_Converter(_income);
             byte[] aryHash = sifre.ComputeHash(arrPass);
             return BitConverter.ToString(aryHash);
         }
+
+
+        public static string SHA1Hash_Encryption(string input)
+        {
+            SHA1 sha1Hasher = SHA1.Create();
+            byte[] data = sha1Hasher.ComputeHash(Encoding.Default.GetBytes(input));
+            StringBuilder sBuilder = new StringBuilder();
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+            return sBuilder.ToString();
+        }
     }
-
-
 }
 

@@ -11,28 +11,29 @@
                 <div class="col-sm-5 login-box">
                     <div class="panel panel-default">
                         <div class="panel-intro text-center">
-                            <h2 class="logo-title">
+                            <h2 class="logo-title" style="text-transform:lowercase">
                                 <!-- Original Logo will be placed here  -->
                                 <span class="logo-icon"><i
-                                    class="icon icon-search-1 ln-shadow-logo shape-0"></i></span>BOOT<span>CLASSIFIED </span>
+                                    class="icon icon-search-1 ln-shadow-logo shape-0"></i></span>kral<span>ilan.com </span>
                             </h2>
                         </div>
                         <div class="panel-body">
-                            <form role="form">
+                            <div role="form">
                                 <div class="form-group">
                                     <label for="sender-email" class="control-label">E-Posta Adresiniz</label>
                                     <div class="input-icon">
                                         <i class="icon-user fa"></i>
-                                        <input id="sender-email" type="text" placeholder="Email"
-                                            class="form-control email">
+                                        <input id="txtMail" type="text" runat="server" placeholder="Email"
+                                            class="form-control email" />
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                    <asp:Button ID="Gonder" CssClass="btn btn-primary btn-lg btn-block" runat="server" Text="Devam" OnClick="Gonder_Click"/>
+                                 <%--   <button type="submit" class="btn btn-primary btn-lg btn-block">
                                         Yeni Şifre Oluştur
-                                    </button>
+                                    </button>--%>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                         <div class="panel-footer">
                             <p class="text-center ">

@@ -31,6 +31,15 @@ namespace PL {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl icon;
         
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
         /// drpKategori control.
         /// </summary>
         /// <remarks>
@@ -49,31 +58,22 @@ namespace PL {
         protected global::System.Web.UI.WebControls.DropDownList drpTur;
         
         /// <summary>
-        /// drpIl control.
+        /// lnkHaritaAra control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpIl;
+        protected global::System.Web.UI.WebControls.LinkButton lnkHaritaAra;
         
         /// <summary>
-        /// drpIlce control.
+        /// lnkAra control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpIlce;
-        
-        /// <summary>
-        /// drpMahalle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpMahalle;
+        protected global::System.Web.UI.WebControls.LinkButton lnkAra;
         
         /// <summary>
         /// kategoriVitrinRepeater control.

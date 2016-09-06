@@ -14,17 +14,147 @@
     <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/dist/css/AdminLTE.min.css") %>' />
     <link href="libraries/assets/css/owl.carousel.css" rel="stylesheet" />
     <link href="libraries/assets/css/owl.theme.css" rel="stylesheet" />
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFMOi-Vi2hXZROzNxUjmg9keIYxvsyuxM&callback=initMap" async defer></script>
+    <script type="text/javascript">
+
+        var index = 0;
+
+        function initMap(ilan) {
+            var map;
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 6,
+                center: { lat: 39, lng: 36 },
+                mapTypeId: google.maps.MapTypeId.ROAD
+            });
+
+
+            //var layer = new google.maps.FusionTablesLayer({
+            //    query: {
+            //        select: '',
+            //        from: '420419',
+            //        where: 'name_0=\'Turkey\''
+            //    },
+            //    styles: [{
+            //        polygonOptions: {
+            //            fillColor: "#00FF00",
+            //            fillOpacity: 0.1,
+            //            strokeColor: "#000000",
+            //            strokeWeight: 0.5
+            //        }
+            //    }]
+            //});
+
+            //layer.setMap(map);
+
+            for (var i = 0; i < ilan.length; i++) {
+
+                if (ilan[i]["koordinat"] != "-1") {
+                    var koordinatlar = [];
+
+                    var renk = "";
+
+                    if (ilan[i]["magazaId"] != "-1") {
+                        //emlakçıdan
+                        if (ilan[i]["kimden"] == 2) {
+                            renk = '#2a0cae';
+                        }
+
+                        //belediyeden
+                        if (ilan[i]["kimden"] == 3) {
+                            renk = '#6a12bc';
+                        }
+
+                        //bankadan
+                        if (ilan[i]["kimden"] == 4) {
+                            renk = '#fffc00';
+                        }
+
+                        //izaley-i şuyudan
+                        if (ilan[i]["kimden"] == 5) {
+                            renk = '#a0fcff';
+                        }
+
+                        //icradan
+                        if (ilan[i]["kimden"] == 6) {
+                            renk = '#ffb400';
+                        }
+
+                        //milli hazineden (sayışı devam eden)
+                        if (ilan[i]["kimden"] == 7) {
+                            renk = '#9d9d9d';
+                        }
+
+                        //milli hazineden (satılamayan)
+                        if (ilan[i]["kimden"] == 8) {
+                            renk = '#86ed00';
+                        }
+
+                        //özelleştirme idaresinden
+                        if (ilan[i]["kimden"] == 9) {
+                            renk = '#8b8b8b';
+                        }
+
+                        //inşaat firmasından
+                        if (ilan[i]["kimden"] == 10) {
+                            renk = '#fa5fd7';
+                        }
+
+                        //diğer kamu kurumlarından
+                        if (ilan[i]["kimden"] == 11) {
+                            renk = '#e3fffe';
+                        }
+                    }
+                    else {
+                        renk = '#ff0000';
+                    }
+
+                    for (var j = 0; j < ilan[i]["koordinat"]["coordinates"][0][0].length; j++) {
+                        koordinatlar.push({ lat: ilan[i]["koordinat"]["coordinates"][0][0][j][1], lng: ilan[i]["koordinat"]["coordinates"][0][0][j][0]});
+                    }
+
+                    var sekil = "sekil" + index;
+                    sekil = new google.maps.Polygon({
+                        paths: koordinatlar,
+                        strokeColor: renk,
+                        strokeOpacity: 0.8,
+                        strokeWeight: 3,
+                        fillColor: renk,
+                        fillOpacity: 0.35
+                    });
+                    sekil.setMap(map);
+
+                    var markerPosition = { lat: koordinatlar[0]["lat"], lng: koordinatlar[0]["lng"] }
+                    var marker = new google.maps.Marker({
+                        position: markerPosition,
+                        map: map,
+                        title: "konum"
+                    });
+
+                    index++;
+                    map.setZoom(17);
+                    map.setCenter({ lat: koordinatlar[0]["lat"], lng: koordinatlar[0]["lng"] });
+                }
+                else {
+                    $("#konum").css("display", "none");
+                    $("#ilan_detay").addClass("active");
+                    $(".tab-pane").removeClass("active")
+                    $("#tab2").addClass("active")
+                }
+            }
+        }
+    </script>
     <div class="main-container">
         <div class="container">
             <ol class="breadcrumb pull-left">
-                <li><a href="#"><i class="icon-home fa"></i></a></li>
+<%--                <li><a href="#"><i class="icon-home fa"></i></a></li>
                 <li><a href="category.html">All Ads</a></li>
                 <li><a href="sub-category-sub-location.html">Electronics</a></li>
-                <li class="active">Mobile Phones</li>
+                <li class="active">Mobile Phones</li>--%>
             </ol>
             <div class="pull-right backtolist">
-                <a href="sub-category-sub-location.html"><i
-                    class="fa fa-angle-double-left"></i>Arama sonuçlarına geri dön</a>
+<%--                <a href="sub-category-sub-location.html"><i
+                    class="fa fa-angle-double-left"></i>Arama sonuçlarına geri dön</a>--%>
             </div>
         </div>
         <div class="container">
@@ -33,7 +163,8 @@
                     <div class="inner inner-box ads-details-wrapper">
                         <h2>
                             <asp:Label ID="lblBaslik" runat="server"></asp:Label>
-                            <small class="label label-default adlistingtype">Company ad</small>
+                            <small class="label label-default adlistingtype">
+                                <asp:Label ID="lblkimdenTop" runat="server"></asp:Label></small>
                         </h2>
                         <span class="info-row"><span class="date"><i class=" icon-clock"></i>
                             <asp:Label ID="lblTarih" runat="server"></asp:Label></span>- <span
@@ -44,7 +175,24 @@
                                 <asp:Label ID="lblIl" runat="server"></asp:Label>
                             </span></span>
 
-                        <div class="ads-image">
+                        <div class="ads-image" runat="server" id="notImage" visible="false">
+                            <h1 class="pricetag">
+                                <asp:Label ID="notlblFiyat" runat="server"></asp:Label></h1>
+                            <ul class="bxslider">
+
+                                <li>
+                                    <img src='upload/ilan/not-found-image.jpg' alt="img" /></li>
+                            </ul>
+                            <div id="bx-pager">
+
+                                <a class="thumb-item-link" data-slide-index="0" href="">
+                                    <img
+                                        src='upload/ilan/not-found-image.jpg' alt="img" /></a>
+                            </div>
+                        </div>
+
+
+                        <div class="ads-image" runat="server" id="foundImage" visible="false">
                             <h1 class="pricetag">
                                 <asp:Label ID="lblFiyat" runat="server"></asp:Label></h1>
                             <ul class="bxslider">
@@ -101,7 +249,6 @@
                                         <ul class="list-border">
                                             <li>
                                                 <asp:LinkButton ID="favoriLink" runat="server" OnClick="favoriLink_Click"><i class="fa fa-heart"></i>Favorilerime Ekle</asp:LinkButton>
-
                                                 <asp:LinkButton ID="favoriCikar" runat="server" OnClick="favoriCikar_Click"><i class="fa fa-heart"></i>Favorilerime Eklendi</asp:LinkButton></li>
                                             <li><a href="#"><i class="fa fa-facebook"></i>Facebook ile Paylaş </a></li>
                                             <li><a href="#"><i class="fa fa-twitter"></i>Twitter ile Paylaş </a></li>
@@ -110,12 +257,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="content-footer text-left">
+                            <%--                            <div class="content-footer text-left">
                                 <a class="btn  btn-default" data-toggle="modal"
                                     href="#contactAdvertiser"><i
                                         class=" icon-mail-2"></i>Send a message </a><a class="btn  btn-info"><i
                                             class=" icon-phone-1"></i>01680 531 352 </a>
-                            </div>
+                            </div>--%>
                         </div>
                     </div>
                     <!--/.ads-details-wrapper-->
@@ -133,7 +280,7 @@
                                             <div class="add-image">
                                                 <a href="ads-details.html">
                                                     <img
-                                                        class="thumbnail no-margin" src='upload/ilan/100001006_0.jpg'
+                                                        class="thumbnail no-margin" src='upload/magaza/<%= sellerProfil %>'
                                                         alt="img" /></a>
                                             </div>
                                         </div>
@@ -147,10 +294,12 @@
                                         <p><strong></strong></p>
                                     </div>
                                     <div class="user-ads-action">
-                                        <asp:HyperLink ID="HyperLink1" CssClass="btn btn-danger btn-block" NavigateUrl='<%# Eval(magazaId,"~/magaza-profil.aspx?store={0}") %>' runat="server"><i class=" icon-docs"></i> Tüm İlanları</asp:HyperLink>
-                                        <%--                                        <asp:HyperLink ID="HyperLink2" CssClass="btn btn-danger btn-block" NavigateUrl='<%# Eval(kullaniciId,"~/magaza-profil.aspx?store={0}") %>' runat="server"><i class=" icon-docs"></i> Tüm İlanları</asp:HyperLink>--%>
+                                        <asp:LinkButton ID="LinkButton3" CssClass="btn btn-success btn-block" runat="server" OnClick="LinkButton3_Click"><i class=" icon-docs"></i> Tüm İlanları</asp:LinkButton>
 
-                                        <%--                                        <asp:HyperLink ID="HyperLink2" CssClass="btn btn-success btn-block" runat="server"><i class=" icon-plus"></i> Takip Et</asp:HyperLink>
+                                        <%--                                        <asp:HyperLink ID="HyperLink1" CssClass="btn btn-danger btn-block" NavigateUrl='<%# Eval(magazaId,"~/magaza-profil.aspx?store={0}") %>' runat="server"><i class=" icon-docs"></i> Tüm İlanları</asp:HyperLink>--%>
+                                        <%--<asp:HyperLink ID="HyperLink2" CssClass="btn btn-danger btn-block" NavigateUrl='<%# Eval(kullaniciId,"~/magaza-profil.aspx?store={0}") %>' runat="server"><i class=" icon-docs"></i> Tüm İlanları</asp:HyperLink>--%>
+
+                                        <%-- <asp:HyperLink ID="HyperLink2" CssClass="btn btn-success btn-block" runat="server"><i class=" icon-plus"></i> Takip Et</asp:HyperLink>
                                          <asp:HyperLink ID="HyperLink3" CssClass="btn btn-danger btn-block" runat="server"><i class=" icon-minus"></i> Takibi Bırak</asp:HyperLink>--%>
 
                                         <asp:LinkButton ID="LinkButton1" CssClass="btn btn-success btn-block" runat="server" OnClick="LinkButton1_Click"><i class=" icon-plus"></i> Takip Et</asp:LinkButton>
@@ -163,7 +312,7 @@
                                             <ItemTemplate>
                                                 <a
                                                     class="btn btn-info btn-block"><i class="icon-phone-1"></i>
-                                                    <%# Eval("telefonTur") %>  <%# Eval("telefon") %>
+                                                    <%# telefonTurDondur(Eval("telefonTur")) %>  <%# Eval("telefon") %>
                                                 </a>
                                             </ItemTemplate>
                                         </asp:Repeater>
@@ -187,6 +336,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="inner-box no-padding">
+                            <div class="inner-box-content">
+                                <a href="#">
+                                    <asp:Image ID="kutu1Rklm" runat="server" Style="width: 100%; height: 230px;" />
+                            </div>
+                        </div>
                         <!--/.categories-list-->
                     </aside>
                 </div>
@@ -202,27 +357,18 @@
 
                                     <!-- Nav tabs -->
                                     <ul class="nav nav-tabs " role="tablist">
-                                        <li role="presentation" class="active"><a href="#tab1" aria-controls="tab1"
-                                            role="tab" data-toggle="tab"><i
-                                                class="icon-location-2"></i>Konumu</a></li>
-                                        <li role="presentation"><a href="#tab2" aria-controls="tab2" role="tab"
-                                            data-toggle="tab"><i class="icon-search"></i>İlan Detayları</a>
-                                        </li>
+                                        <li role="presentation" id="konum" class="active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab"><i class="icon-location-2"></i>Konumu</a></li>
+                                        <li role="presentation" id="ilan_detay"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab"><i class="icon-search"></i>İlan Detayları</a></li>
                                     </ul>
                                     <!-- Tab panes -->
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane active" id="tab1">
-
                                             <div class="col-lg-12 tab-inner">
-
                                                 <div class="intro-inner">
                                                     <div class="contact-intro">
-                                                        <div class="w100 map">
-                                                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d26081603.294420466!2d-95.677068!3d37.06250000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1423809000824"
-                                                                width="100%" height="350" frameborder="0" style="border: 0"></iframe>
+                                                        <div id="map" style="width: 100%; height: 350px;">
                                                         </div>
                                                     </div>
-                                                    <!--/.contact-intro || map end-->
                                                 </div>
                                             </div>
                                         </div>
@@ -275,7 +421,7 @@
                                         </div>
                                         <div role="tabpanel" class="tab-pane" id="tab3">
                                             <div class="col-lg-12 tab-inner">
-                                               <div class="row">
+                                                <div class="row">
                                                 </div>
                                             </div>
                                         </div>
@@ -465,10 +611,13 @@
             });
             $(".box.box-primary.box-solid.collapsed-box").removeClass("collapsed-box");
             $(".box-tools.pull-right").css("display", "none");
+
+            $(".icheckbox_square-blue").addClass("disabled");
+
+            $(".icheckbox_square-blue input").attr("disabled", "disabled");
         });
 
-    </script>
-    <script>
+        $("#konum a:first-child").css("display", "none");
     </script>
     <script src="management/dist/js/app.min.js"></script>
 </asp:Content>

@@ -8,44 +8,36 @@
     <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/plugins/iCheck/square/blue.css") %>' />
     <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/dist/css/AdminLTE.min.css") %>' />
     <style>
-        #uploadImage {
-            float: none;
+        .modal .modal-header {
+            border-bottom: none;
+            position: relative;
         }
 
-        .dropzone {
-            cursor: pointer;
-            background-color: #f8f8f8;
-            height: 100%;
-            border-style: dashed;
-            height: auto;
-        }
-
-            .dropzone.dz-drag-hover {
-                border-style: dashed;
-                background-color: #f4f4f4;
+            .modal .modal-header .btn {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin-top: 0;
+                border-top-left-radius: 0;
+                border-bottom-right-radius: 0;
             }
 
-                .dropzone.dz-drag-hover span {
-                    color: #959595 !important;
-                }
-
-        .dz-default span {
-            text-align: center;
-            display: block;
-            vertical-align: center;
-            font-family: 'Tahoma';
-            font-size: 24px;
-            color: #959595;
+        .modal .modal-footer {
+            border-top: none;
+            padding: 0;
         }
 
-        .dz-image {
-            border-radius: 0 !important;
-        }
+            .modal .modal-footer .btn-group > .btn:first-child {
+                border-bottom-left-radius: 0;
+            }
+
+            .modal .modal-footer .btn-group > .btn:last-child {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            }
     </style>
+
     <style>
-        body {
-            padding-top: 20px;
-        }
 
         .pricing-table .plan {
             border-radius: 5px;
@@ -215,7 +207,7 @@
         }
 
         .wizard .nav-tabs > li {
-            width: 25%;
+            width: 20%;
         }
 
         .wizard li:after {
@@ -320,6 +312,13 @@
                                         </span>
                                     </a>
                                 </li>
+                                <li role="presentation" class="disabled">
+                                    <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Ödeme">
+                                        <span class="round-tab">
+                                            <i class="fa fa-credit-card"></i>
+                                        </span>
+                                    </a>
+                                </li>
 
                                 <li role="presentation" class="disabled">
                                     <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Tamamlandı">
@@ -383,7 +382,7 @@
                                     <!-- Main content -->
                                     <section class="content">
                                         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                                        <asp:UpdatePanel runat="server">
+                                        <asp:UpdatePanel runat="server" ID="panel">
                                             <ContentTemplate>
                                                 <asp:Panel ID="cats" runat="server" CssClass="kategoriler pre-scrollable">
                                                     <asp:Panel ID="cat_1" runat="server" CssClass="categories">
@@ -406,9 +405,34 @@
                                                 <div class="col-xs-1 col-xs-offset-11">
                                                     <asp:Button ID="devam" runat="server" CssClass="btn btn-success" Text="Devam Et" OnClick="devam_Click1" Style="float: right; margin-top: 15px;" />
                                                 </div>
+                                                <div id="myModal" class="modal fade in">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+
+                                                            <div class="modal-header">
+                                                                <a class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
+                                                                <h4 class="modal-title">Uyarı</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <h4>Ücretsiz İlan Sayısı</h4>
+                                                                <p><%= mesaj %></p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <div class="btn-group">
+                                                                    <button class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="margin-right:5px"></span>İptal</button>
+                                                                    <asp:Button ID="devamEt" runat="server" Text="Onayla ve Devam Et" CssClass="btn btn-primary" OnClick="devamEt_Click"/>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <!-- /.modal-content -->
+                                                    </div>
+                                                    <!-- /.modal-dalog -->
+                                                </div>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
                                     </section>
+                                    <a class="clickMe" data-toggle="modal" data-target="#myModal" hidden="hidden"></a>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -418,8 +442,13 @@
             </div>
         </div>
     </div>
+    <!-- /.modal -->
     <script>
+        function uyariVer() {
+            $(".clickMe").click();
+        }
         $(document).ready(function () {
+
             //Initialize tooltips
             $('.nav-tabs > li a[title]').tooltip();
 

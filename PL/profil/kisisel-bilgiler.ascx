@@ -104,15 +104,23 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">Eğitim Durumu</label>
                                 <div class="col-sm-9">
-                                    <asp:DropDownList CssClass="form-control" Style="width: 100%;" ID="drpEgitim" runat="server"></asp:DropDownList>
+                                    <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpEgitim" runat="server">
+                                    <asp:ListItem></asp:ListItem>
+                                        <asp:ListItem Value="0">Seçiniz</asp:ListItem>
+                                        <asp:ListItem Value="1">Üniversite</asp:ListItem>
+                                        <asp:ListItem Value="2">Yüksekokul</asp:ListItem>
+                                        <asp:ListItem Value="3">Lise</asp:ListItem>
+                                        <asp:ListItem Value="4">Ortaokul</asp:ListItem>
+                                        <asp:ListItem Value="5">İlkokul</asp:ListItem>
+                                    </asp:DropDownList>
                                 </div>
                             </div>
-                            <div class="form-group">
+<%--                            <div class="form-group">
                                 <label class="col-sm-3 control-label">Meslek</label>
                                 <div class="col-sm-9">
                                     <asp:DropDownList CssClass="form-control" Style="width: 100%;" ID="drpMeslek" runat="server"></asp:DropDownList>
                                 </div>
-                            </div>
+                            </div>--%>
 
                             <div class="form-group hide">
                                 <!-- remove it if dont need this part -->
@@ -138,7 +146,7 @@
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default">
+            <%--<div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title"><a href="#collapseB3" data-toggle="collapse">Fotoğrafım</a>
                     </h4>
@@ -171,7 +179,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>--%>
         </div>
         <!--/.row-box End-->
 

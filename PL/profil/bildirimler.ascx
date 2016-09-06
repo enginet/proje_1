@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="bildirimler.ascx.cs" Inherits="PL.profil.bildirimler" %>
 <div class="col-sm-9 page-content">
     <div class="inner-box">
-        <h2 class="title-2"><i class="icon-docs"></i>BİLDİRİMLER </h2>
+        <h2 class="title-2"><i class="icon-docs"></i>Bilgilendirmeler </h2>
         <div class="section-block">
             <div class="row">
                 <div class="page-content ">
@@ -23,7 +23,7 @@
                             <div class="pull-left col-xs-6">
                                 <div class="breadcrumb-list">
                                     <a href="#" class="current">
-                                        <span>Tüm Bildirimler</span></a>
+                                        <span>Tüm Bilgilendirmeler</span></a>
                                 </div>
                             </div>
 
@@ -44,7 +44,7 @@
                                                     data-toggle="tooltip"
                                                     data-placement="right"
                                                     title="Business Ads">B </span><span
-                                                        class="date"><i class=" icon-clock"></i><%# Eval("tarih" ,"{0:d-MMMM-yyyy}") %> </span></span>
+                                                        class="date"><i class=" icon-clock"></i><%# Eval("tarih" ,"{0:dd MMMM yyyy}") %> </span></span>
                                             </div>
                                         </div>
                                         <!--/.add-desc-box-->
@@ -61,12 +61,12 @@
                         </div>
                         <!--/.adds-wrapper-->
 
-                        <div class="tab-box  save-search-bar text-center">
+<%--                        <div class="tab-box  save-search-bar text-center">
                             <a href=""><i class=" icon-plus"></i>
-                                Follow User </a>
-                        </div>
+                                Bilgilendirmeniz Bulunmamaktadır. </a>
+                        </div>--%>
                     </div>
-                    <div class="pagination-bar text-center">
+<%--                    <div class="pagination-bar text-center">
                         <ul class="pagination">
                             <li class="active"><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
@@ -76,7 +76,7 @@
                             <li><a href="#">...</a></li>
                             <li><a class="pagination-btn" href="#">Sonraki &raquo;</a></li>
                         </ul>
-                    </div>
+                    </div>--%>
                     <!--/.pagination-bar -->
 
                     <div class="post-promo text-center">

@@ -39,7 +39,7 @@
                                                 <span class="photo-count"><i
                                                     class="fa fa-hashtag"></i><%# Eval("ilanId") %> </span><a href="ads-details.html">
                                                         <img
-                                                            class="thumbnail no-margin" src="images/item/tp/Image00015.jpg"
+                                                            class="thumbnail no-margin" src="../upload/ilan/<%#Eval("resim") %>"
                                                             alt="img"></a>
                                             </div>
                                         </div>
@@ -51,7 +51,7 @@
                                                     data-toggle="tooltip"
                                                     data-placement="right"
                                                     title="Business Ads">B </span><span
-                                                        class="date"><i class=" icon-clock"></i><%# Eval("baslangicTarihi","{0:d-MMMM-yyyy}") %> </span>- <span
+                                                        class="date"><i class=" icon-clock"></i><%# Eval("baslangicTarihi","{0:dd.MMMM.yyyy}") %> </span>- <span
                                                             class="category"><%# Eval("kategoriAdi") %> </span>- <span
                                                                 class="item-location"><i class="fa fa-map-marker"></i><%# Eval("ilAdi") %> </span>
                                                     <span
@@ -61,12 +61,12 @@
                                         </div>
                                         <!--/.add-desc-box-->
                                         <div class="col-sm-5 text-right  price-box">
-                                            <h2 class="item-price"><%# Eval("fiyat") %> </h2>
+                                            <h2 class="item-price"> <%# Eval("fiyat") %> </h2>
                                             <asp:HyperLink ID="HyperLink1" runat="server" CssClass="btn btn-danger  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/profil/profil.aspx?control=ilan&proc={0}&classified={1}", 2 ,Eval("ilanId"))%>'><i
                                                 class="fa fa-times"></i><span>Yayından Kaldır</span></asp:HyperLink>
                                             <asp:HyperLink ID="HyperLink2" runat="server" CssClass="btn btn-primary  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/profil/profil.aspx?control=ilan&proc={0}&classified={1}", 3 ,Eval("ilanId"))%>'><i
                                                 class="fa fa-certificate"></i><span>Doping</span></asp:HyperLink>
-                                            <asp:HyperLink ID="HyperLink3" runat="server" CssClass="btn btn-warning  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/profil/profil.aspx?control=ilan&proc={0}&classified={1}", 3 ,Eval("ilanId"))%>'><i
+                                            <asp:HyperLink ID="HyperLink3" runat="server" CssClass="btn btn-warning  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/ilan-duzenle.aspx?ilan={0}",Eval("ilanId"))%>'><i
                                                 class="fa fa-pencil"></i><span>Düzenle</span></asp:HyperLink>
                                         </div>
                                         <!--/.add-desc-box-->
@@ -76,14 +76,14 @@
                         </div>
                         <!--/.adds-wrapper-->
 
-                        <div class="tab-box  save-search-bar text-center">
+<%--                        <div class="tab-box  save-search-bar text-center">
                             <a href=""><i class=" icon-plus"></i>
                                 Yayında İlanınız Bulunmamaktadır.  </a>
-                        </div>
+                        </div>--%>
                     </div>
 
 
-                    <div class="pagination-bar text-center">
+<%--                    <div class="pagination-bar text-center">
                         <ul class="pagination">
                             <li class="active"><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
@@ -93,7 +93,7 @@
                             <li><a href="#">...</a></li>
                             <li><a class="pagination-btn" href="#">Sonraki &raquo;</a></li>
                         </ul>
-                    </div>
+                    </div>--%>
                     <!--/.pagination-bar -->
 
                     <div class="post-promo text-center">

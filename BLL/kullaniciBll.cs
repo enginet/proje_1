@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using System.Web;
+using System.Data.Linq;
+using System.Data.Entity;
 
 
 namespace BLL
@@ -21,13 +23,13 @@ namespace BLL
 
         public void insert(params object[] _income)
         {
-            kullanicid.kullaniciAdSoyad = (string)_income[0];
-            kullanicid.sifre = (string)_income[1];
-            kullanicid.email = (string)_income[2];
+            kullanicid.kullaniciAdSoyad = _income[0].ToString();
+            kullanicid.sifre = _income[1].ToString();
+            kullanicid.email = _income[2].ToString();
             kullanicid.rol = Convert.ToInt32(_income[3]);
             kullanicid.silindiMi = false;
             idc.kullanicis.InsertOnSubmit(kullanicid);
-            idc.SubmitChanges();
+            idc.SubmitChanges();       
         }
 
         public void update(params object[] _income)
@@ -44,18 +46,19 @@ namespace BLL
                 if (Convert.ToInt32(_income[0]) == 1)
                 {
                     // ad+soyad,şifre,email,il,ilçe,mahalle,krediSayısı,kimlikNo,egitimDurumu,Cinsiyet,rol(yetki)
-                    _value.kullaniciAdSoyad = (string)_income[2];
+                    _value.kullaniciAdSoyad = _income[2].ToString();
                     //_value.sifre = (string)_income[3];
                     //_value.email = (string)_income[4];
-                    _value.ilId = (int)_income[3];
-                    _value.ilceId = (int)_income[4];
-                    _value.mahalleId = (int)_income[5];
+                    _value.ilId = Convert.ToInt32(_income[3]);
+                    _value.ilceId = Convert.ToInt32(_income[4]);
+                    _value.mahalleId = Convert.ToInt32(_income[5]);
                     //_value.kredi = (int)_income[8];
-                    _value.tckimlikNo = (string)_income[6];
-                    _value.egitimDurumuId = (int)_income[7];
-                    _value.meslekId = (int)_income[8];
-                    _value.cinsiyetId = (bool)_income[9];
-                    _value.rol = (int)_income[10];
+                    _value.tckimlikNo = _income[6].ToString();
+                    _value.egitimDurumuId = Convert.ToInt32(_income[7]);
+                    //_value.meslekId = Convert.ToInt32(_income[8]);
+                    _value.cinsiyetId = Convert.ToBoolean(_income[8]);
+                    _value.dogumTarihi = Convert.ToDateTime(_income[9]);
+                    _value.rol = Convert.ToInt32(_income[10]);
 
                     idc.SubmitChanges();
                 }
@@ -71,7 +74,7 @@ namespace BLL
                 }
                 else if (Convert.ToInt32(_income[0]) == 4)
                 {
-                    _value.sifre = (string)_income[2];
+                    _value.sifre = _income[2].ToString();
                     idc.SubmitChanges();
                 }
                 else if (Convert.ToInt32(_income[0]) == 5)
@@ -92,6 +95,16 @@ namespace BLL
                     _value.online = DateTime.Now.AddMinutes(-10);
                     idc.SubmitChanges();
                 }
+                else if (Convert.ToInt32(_income[0]) == 8)
+                {
+                    _value.profilResim = _income[2].ToString();
+                    idc.SubmitChanges();
+                }
+                else
+                {
+                    _value.sifre = _income[2].ToString();
+                    idc.SubmitChanges();
+                }
             }
 
         }
@@ -100,6 +113,7 @@ namespace BLL
         {
             if (Convert.ToInt32(_income[0]) == 1)
             {
+                
                 var query = from k in idc.kullanicis.Where(k => k.silindiMi == false)
                             select new
                             {
@@ -109,6 +123,7 @@ namespace BLL
                                 k.sonGirisTarihi
 
                             };
+
                 return query;
             }
             else if (Convert.ToInt32(_income[0]) == 2)
@@ -127,6 +142,10 @@ namespace BLL
             }
             else if (Convert.ToInt32(_income[0]) == 3)
             {
+                //DataLoadOptions loadOption = new DataLoadOptions();
+                //loadOption.LoadWith<kullanici>(c => c.ilans);
+                //idc.LoadOptions = loadOption;
+
                 var query = from k in idc.kullanicis.Where(k => k.silindiMi == false & k.rol==Convert.ToInt32(_income[1]))
                             select new
                             {

@@ -14,6 +14,7 @@ namespace PL
     {
 
         kullaniciBll kll = new kullaniciBll();
+        guvenlikKodlariBll guvenlib = new guvenlikKodlariBll();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -27,8 +28,9 @@ namespace PL
                 if (kll.kullanici_varmi(txtEmail.Text, DAL.toolkit.Number_Remover(txtTlf.Text)))
                 {
                     string onay_Kod = DAL.toolkit.guvenlik_kodu();
-                    string[] dizi = { txtAd.Text + " " + txtSoyad.Text, DAL.toolkit.Number_Remover(txtTlf.Text), txtEmail.Text, txtSifre.Text, onay_Kod };
+                    string[] dizi = { txtAd.Text + " " + txtSoyad.Text, DAL.toolkit.Number_Remover(txtTlf.Text), txtEmail.Text, DAL.toolkit.SHA1Hash_Encryption(txtSifre.Text), onay_Kod };
                     Session["yeniKullanici"] = dizi;
+                    guvenlib.insert(DAL.toolkit.Number_Remover(txtTlf.Text), onay_Kod);
 
                     List<string> numara = new List<string>();
                     numara.Add(DAL.toolkit.Number_Remover(txtTlf.Text));
