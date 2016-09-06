@@ -35,11 +35,8 @@ namespace PL
                 sonSaatRepeater.DataSource = seciliDpngb.list(4);
                 sonSaatRepeater.DataBind();
 
-<<<<<<< HEAD
-                //lblCountUst.Text = kategorib.count(1, 1).ToString();
-=======
+
                 lblCountUst.Text = "78000";
->>>>>>> origin/master
                 //popIlRepeater.DataSource = ilb.qlist(1);
                 //popIlRepeater.DataBind();
 
