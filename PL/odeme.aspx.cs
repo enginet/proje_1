@@ -30,7 +30,8 @@ namespace PL
                     }
                     else
                     {
-                        PlaceHolder1.Controls.Add(Page.LoadControl("~/odeme-tablo.ascx"));
+                        odemeRepeater.DataSource = objDizi.ToList();
+                        odemeRepeater.DataBind();
                     }
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "temp", "<script language='javascript'>hesapla();</script>", false);
                 }
@@ -64,7 +65,23 @@ namespace PL
 
         protected void odemeRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            
+            if (e.CommandName == "Sil" && e.CommandArgument.ToString() != "")
+            {
+                odemeBll odmB = new odemeBll();
+                odmB.delete(Convert.ToInt32(e.CommandArgument));
+                JArray objDizi2 = ((JArray)Session["dp"]);
+
+                for (int i = 0; i < objDizi2.Count; i++)
+                {
+                    if (objDizi2[i]["odemeId"].ToString() == e.CommandArgument.ToString())
+                    {
+                        objDizi2[i].Remove();
+                        break;
+                    }
+                }
+                Session["dp"] = objDizi2;
+                Response.Redirect(Request.RawUrl);
+            }
         }
     }
 }
