@@ -671,7 +671,6 @@ namespace BLL
 
         public int countIlanListe(params object[] _income)
         {
-
             if (Convert.ToInt32(_income[0])==1) // Tüm ilanların sayısı
             {
                 return idc.ilans.Where(q => q.silindiMi == false && q.pasifMi == false && q.onay == 1 && q.kategoriId == Convert.ToInt32(_income[1]) && q.ilanTurId == Convert.ToInt32(_income[2])).ToList().Count;
