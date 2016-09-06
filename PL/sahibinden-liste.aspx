@@ -4,16 +4,16 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/plugins/select2/select2.min.css") %>' />
+    <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/plugins/select2/select2.min.css") %>' />
     <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/plugins/iCheck/square/blue.css") %>' />
     <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/dist/css/AdminLTE.min.css") %>' />
-        <style>
+
+    <style>
         .row {
             margin-right: 0px;
             margin-left: 0px;
         }
     </style>
-    
     <style>
         .table td {
             vertical-align: middle !important;
@@ -53,6 +53,8 @@
                 content: "\f0dd";
             }
     </style>
+    <!-- /.search-row -->
+
     <div class="main-container">
         <div class="container">
             <div class="row">
@@ -206,7 +208,7 @@
                     <%--Buraya reklam eklendi--%>
                     <div class="inner-box has-aff relative">
                         <a class="dummy-aff-img" href="#">
-                            <asp:Image ID="dkdrtgnRklm" runat="server" style="width:100%; height:90px;"/>
+                            <asp:Image ID="dkdrtgnRklm" runat="server" Style="width: 100%; height: 90px;" />
                         </a>
                     </div>
 
@@ -214,33 +216,33 @@
                         <div class="tab-box ">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs add-tabs" role="tablist">
-                                <li><a href='<%= Page.ResolveUrl("~/ilan-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">Tüm İlanlar <span class="badge" runat="server" id="tum_ilanlar"></span></a>
+                                <li><a href='<%= Page.ResolveUrl("~/ilan-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">Tüm İlanlar <span class="badge" runat="server" id="tum_ilanlar"></span></a>
                                 </li>
-                                <li class="active"><a href='<%= Page.ResolveUrl("~/sahibinden-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">Sahibinden
+                                <li class="active"><a href='<%= Page.ResolveUrl("~/sahibinden-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">Sahibinden
                                     <span class="badge" runat="server" id="sahibinden"></span></a></li>
-                                <li><a href='<%= Page.ResolveUrl("~/emlak-ofis-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">Emlak Ofisi
+                                <li><a href='<%= Page.ResolveUrl("~/emlak-ofis-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">Emlak Ofisi
                                     <span class="badge" runat="server" id="emlakcidan"></span></a></li>
 
-                                <li><a href='<%= Page.ResolveUrl("~/insaat-firmasi-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">İnşaat Firması
+                                <li><a href='<%= Page.ResolveUrl("~/insaat-firmasi-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">İnşaat Firması
                                     <span class="badge" runat="server" id="insaat_firmasindan"></span></a></li>
                                 <li role="presentation" class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Diğer Mağazalar<span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href='<%= Page.ResolveUrl("~/bankadan-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">Banka
+                                        <li><a href='<%= Page.ResolveUrl("~/bankadan-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">Banka
                                     <span class="badge" runat="server" id="bankadan"></span></a></li>
 
-                                        <li><a href='<%= Page.ResolveUrl("~/izale-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">İzale-i Şuyu
+                                        <li><a href='<%= Page.ResolveUrl("~/izale-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">İzale-i Şuyu
                                     <span class="badge" runat="server" id="izaleyi_suyu"></span></a></li>
-                                        <li><a href='<%= Page.ResolveUrl("~/belediye-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">Belediye
+                                        <li><a href='<%= Page.ResolveUrl("~/belediye-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">Belediye
                                     <span class="badge" runat="server" id="belediyeden"></span></a></li>
-                                        <li><a href='<%= Page.ResolveUrl("~/icra-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">İcra
+                                        <li><a href='<%= Page.ResolveUrl("~/icra-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">İcra
                                     <span class="badge" runat="server" id="icradan"></span></a></li>
-                                        <li><a href='<%= Page.ResolveUrl("~/milli-hazine-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">Milli Hazine
+                                        <li><a href='<%= Page.ResolveUrl("~/milli-hazine-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">Milli Hazine
                                     <span class="badge" runat="server" id="milli_hazineden"></span></a></li>
-                                        <li><a href='<%= Page.ResolveUrl("~/ozellestirme-idaresi-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">Özelleştirme İdaresi
+                                        <li><a href='<%= Page.ResolveUrl("~/ozellestirme-idaresi-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">Özelleştirme İdaresi
                                     <span class="badge" runat="server" id="ozellestirme_dairesinden"></span></a></li>
-                                        <li><a href='<%= Page.ResolveUrl("~/kamu-kurumlari-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">Kamu Kurumları
+                                        <li><a href='<%= Page.ResolveUrl("~/kamu-kurumlari-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">Kamu Kurumları
                                     <span class="badge" runat="server" id="kamu_kurumlarindan"></span></a></li>
                                     </ul>
                                 </li>
@@ -292,7 +294,7 @@
                                         <tr>
                                             <th class="col-md-2"></th>
                                             <th class="col-md-3">İlan Başlığı</th>
-<%--                                            <th class="col-md-1">m<sup>2</sup></th>--%>
+                                            <%--                                            <th class="col-md-1">m<sup>2</sup></th>--%>
                                             <th class="col-md-1">Fiyat</th>
                                             <th class="col-md-2">İlan Tarihi</th>
                                             <th class="col-md-1">İl/İlçe</th>
@@ -317,9 +319,9 @@
                                                                         <td>
                                                                             <h5 class="add-title"><strong> <%# Eval("baslik") %></strong></h5>
                                                                         </td>
-                                                                        <td>
-                                                                            <%--<h5 class="add-title"> <%# degerDondur(Eval("ilanId"),78) %></h5>--%>
-                                                                        </td>
+                                                                        <%--<td>
+                                                                            <h5 class="add-title"> <%# degerDondur(Eval("ilanId"),78) %></h5>
+                                                                        </td>--%>
                                                                         <td>
                                                                             <h5 class="item-price"><%# fiyat_Tur(Eval("fiyatTurId")) %> <%# Eval("fiyat") %> </h5>
                                                                         </td>
@@ -358,9 +360,23 @@
             </div>
         </div>
     </div>
+    <!-- include carousel slider plugin  -->
     <script src="management/plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="management/plugins/datatables/dataTables.bootstrap.min.js"></script>
     <script>
+        $(function () {
+
+            $('#example1').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+            });
+
+
+        });
         function uyariVer() {
             $(".clickMe").click();
         }
@@ -378,19 +394,6 @@
 
         Sys.WebForms.PageRequestManager.getInstance().add_pageLoaded(function (evt, args) {
             $(".select2").select2();
-        });
-
-
-        $(function () {
-
-            $('#example1').DataTable({
-                "paging": true,
-                "lengthChange": true,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false
-            });
         });
     </script>
 
