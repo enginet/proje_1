@@ -28,7 +28,8 @@
                         <span class="info-box-icon bg-aqua"><i class="ion ion-ios-paper"></i></span>
                         <div class="info-box-content">
                             <span class="info-box-text">İlan Sayısı</span>
-                            <span class="info-box-number">90<small>%</small></span>
+                            <span class="info-box-number">
+                                <asp:Label ID="classifiedCount" runat="server" /></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -40,7 +41,8 @@
                         <span class="info-box-icon bg-red"><i class="ion ion-ios-people"></i></span>
                         <div class="info-box-content">
                             <span class="info-box-text">Kullanıcı Sayısı</span>
-                            <span class="info-box-number">41,410</span>
+                            <span class="info-box-number">
+                                <asp:Label ID="userCount" runat="server" /></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -56,7 +58,8 @@
                         <span class="info-box-icon bg-green"><i class="ion ion-ios-cart"></i></span>
                         <div class="info-box-content">
                             <span class="info-box-text">Mağaza Sayısı</span>
-                            <span class="info-box-number">760</span>
+                            <span class="info-box-number">
+                                <asp:Label ID="storeCount" runat="server" /></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -65,10 +68,11 @@
                 <!-- /.col -->
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box">
-                        <span class="info-box-icon bg-yellow"><i class="ion ion-cube"></i></span>
+                        <span class="info-box-icon bg-yellow"><i class="ion ion-ionic"></i></span>
                         <div class="info-box-content">
-                            <span class="info-box-text">Proje Sayısı</span>
-                            <span class="info-box-number">2,000</span>
+                            <span class="info-box-text">Ziyaretçi Sayısı</span>
+                            <span class="info-box-number">
+                                <asp:Label ID="visitorCount" runat="server" /></span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -260,52 +264,22 @@
                                 <!-- /.box-header -->
                                 <div class="box-body no-padding">
                                     <ul class="users-list clearfix">
-                                        <li>
-                                            <img src="dist/img/user1-128x128.jpg" alt="User Image">
-                                            <a class="users-list-name" href="#">Alexander Pierce</a>
-                                            <span class="users-list-date">Today</span>
-                                        </li>
-                                        <li>
-                                            <img src="dist/img/user8-128x128.jpg" alt="User Image">
-                                            <a class="users-list-name" href="#">Norman</a>
-                                            <span class="users-list-date">Yesterday</span>
-                                        </li>
-                                        <li>
-                                            <img src="dist/img/user7-128x128.jpg" alt="User Image">
-                                            <a class="users-list-name" href="#">Jane</a>
-                                            <span class="users-list-date">12 Jan</span>
-                                        </li>
-                                        <li>
-                                            <img src="dist/img/user6-128x128.jpg" alt="User Image">
-                                            <a class="users-list-name" href="#">John</a>
-                                            <span class="users-list-date">12 Jan</span>
-                                        </li>
-                                        <li>
-                                            <img src="dist/img/user2-160x160.jpg" alt="User Image">
-                                            <a class="users-list-name" href="#">Alexander</a>
-                                            <span class="users-list-date">13 Jan</span>
-                                        </li>
-                                        <li>
-                                            <img src="dist/img/user5-128x128.jpg" alt="User Image">
-                                            <a class="users-list-name" href="#">Sarah</a>
-                                            <span class="users-list-date">14 Jan</span>
-                                        </li>
-                                        <li>
-                                            <img src="dist/img/user4-128x128.jpg" alt="User Image">
-                                            <a class="users-list-name" href="#">Nora</a>
-                                            <span class="users-list-date">15 Jan</span>
-                                        </li>
-                                        <li>
-                                            <img src="dist/img/user3-128x128.jpg" alt="User Image">
-                                            <a class="users-list-name" href="#">Nadia</a>
-                                            <span class="users-list-date">15 Jan</span>
-                                        </li>
+                                        <asp:Repeater ID="kullaniciRepeater" runat="server">
+                                            <ItemTemplate>
+                                                <li>
+                                                    <img onerror="this.src='../upload/profil/user.jpg'" src='../upload/profil/<%# Eval("profilResim") %>' alt="user picture" />
+                                                    <asp:HyperLink runat="server" NavigateUrl='<%# Eval("kullaniciId", "~/satici-profil.aspx?seller={0}") %>' CssClass="users-list-name"><%# Eval("kullaniciAdSoyad") %></asp:HyperLink>
+                                                    <span class="users-list-date"><%# Eval("sonGirisTarihi","{0:dd MMMM yyyy}") %></span>
+                                                </li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
                                     </ul>
                                     <!-- /.users-list -->
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer text-center">
-                                    <a href="javascript::" class="uppercase">View All Users</a>
+                                    <asp:HyperLink NavigateUrl="~/management/anaYonetim/kullaniciYonetimi/kullanici.aspx?page=listele&tip=uye" runat="server">
+                                    Tüm Üyeleri Görüntüle</asp:HyperLink>
                                 </div>
                                 <!-- /.box-footer -->
                             </div>
@@ -314,98 +288,6 @@
                         <!-- /.col -->
                     </div>
                     <!-- /.row -->
-
-                    <!-- TABLE: LATEST ORDERS -->
-                    <div class="box box-info">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Latest Orders</h3>
-                            <div class="box-tools pull-right">
-                                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                                <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                            </div>
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <div class="table-responsive">
-                                <table class="table no-margin">
-                                    <thead>
-                                        <tr>
-                                            <th>Order ID</th>
-                                            <th>Item</th>
-                                            <th>Status</th>
-                                            <th>Popularity</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                            <td>Call of Duty IV</td>
-                                            <td><span class="label label-success">Shipped</span></td>
-                                            <td>
-                                                <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                            <td>Samsung Smart TV</td>
-                                            <td><span class="label label-warning">Pending</span></td>
-                                            <td>
-                                                <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                            <td>iPhone 6 Plus</td>
-                                            <td><span class="label label-danger">Delivered</span></td>
-                                            <td>
-                                                <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                            <td>Samsung Smart TV</td>
-                                            <td><span class="label label-info">Processing</span></td>
-                                            <td>
-                                                <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                            <td>Samsung Smart TV</td>
-                                            <td><span class="label label-warning">Pending</span></td>
-                                            <td>
-                                                <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                            <td>iPhone 6 Plus</td>
-                                            <td><span class="label label-danger">Delivered</span></td>
-                                            <td>
-                                                <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                            <td>Call of Duty IV</td>
-                                            <td><span class="label label-success">Shipped</span></td>
-                                            <td>
-                                                <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.box-body -->
-                        <div class="box-footer clearfix">
-                            <a href="javascript::;" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
-                            <a href="javascript::;" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
-                        </div>
-                        <!-- /.box-footer -->
-                    </div>
-                    <!-- /.box -->
                 </div>
                 <!-- /.col -->
                 <div class="col-md-4">

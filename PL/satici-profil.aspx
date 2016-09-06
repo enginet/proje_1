@@ -13,7 +13,7 @@
                             <div class="seller-info seller-profile">
                                 <div class="seller-profile-img">
                                     <a>
-                                        <img src="../libraries/images/user.jpg" class="img-responsive thumbnail" alt="img">
+                                        <img onerror="this.src='../upload/profil/user.jpg'" src="../libraries/images/" class="img-responsive thumbnail" alt="user image"/>
                                     </a>
                                 </div>
                                 <h3 class="no-margin no-padding link-color ">
@@ -21,23 +21,10 @@
                                 <div class="user-ads-action">
                                     <asp:LinkButton Text="text" ID="LinkButton1" CssClass="btn btn-sm  btn-success" runat="server"><i class=" icon-plus"></i> Takip Et</asp:LinkButton>
                                     <asp:LinkButton Text="text" ID="LinkButton2" CssClass="btn btn-sm  btn-danger" runat="server"><i class="fa fa-minus"></i> Takibi Bırak</asp:LinkButton>
-
-                                    <%--                                    <a class="btn btn-sm  btn-success "><i class=" icon-plus"></i>Takip Et </a>--%>
                                 </div>
 
                                 <div class="seller-social-list">
 
-                                    <%--                                    <ul class="share-this-post">
-                                        <li><a class="google-plus"><i class="fa fa-google-plus"></i></a>
-                                        </li>
-                                        <li><a class="facebook"><i class="fa fa-facebook"></i></a>
-                                        </li>
-                                        <li><a><i class="fa fa-twitter"></i></a>
-                                        </li>
-                                        <li><a class="pinterest"><i class="fa fa-pinterest"></i></a>
-                                        </li>
-
-                                    </ul>--%>
                                 </div>
                             </div>
                         </div>

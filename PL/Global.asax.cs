@@ -13,6 +13,8 @@ namespace PL
         protected void Application_Start(object sender, EventArgs e)
         {
             RegisterRoutes(System.Web.Routing.RouteTable.Routes);
+            Application.Add("totalvisitor", 0);
+            Application["onlinevisitor"] = 0;
         }
 
         public void RegisterRoutes(System.Web.Routing.RouteCollection routes)
@@ -25,7 +27,8 @@ namespace PL
 
         protected void Session_Start(object sender, EventArgs e)
         {
-
+            Application["totalvisitor"] = ((int)Application["totalvisitor"]) + 1;
+            Application["onlinevisitor"] = ((int)Application["onlinevisitor"]) + 1;
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
@@ -45,14 +48,12 @@ namespace PL
 
         protected void Session_End(object sender, EventArgs e)
         {
-
+            Application["onlinevisitor"] = ((int)Application["onlinevisitor"]) - 1;
         }
 
         protected void Application_End(object sender, EventArgs e)
         {
 
         }
-
-
     }
 }

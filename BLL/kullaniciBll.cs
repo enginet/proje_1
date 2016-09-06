@@ -127,7 +127,7 @@ namespace BLL
                 return query;
             }
             else if (Convert.ToInt32(_income[0]) == 2)
-            {
+            {  //son eklenen 8 kullanici
                 var query = from k in idc.kullanicis.Where(k => k.silindiMi == false)
                             select new
                             {
@@ -137,14 +137,11 @@ namespace BLL
                                 k.sonGirisTarihi
 
                             };
-                return query;
+                return query.OrderByDescending(k=>k.kullaniciId).Take(8);
 
             }
             else if (Convert.ToInt32(_income[0]) == 3)
             {
-                //DataLoadOptions loadOption = new DataLoadOptions();
-                //loadOption.LoadWith<kullanici>(c => c.ilans);
-                //idc.LoadOptions = loadOption;
 
                 var query = from k in idc.kullanicis.Where(k => k.silindiMi == false & k.rol==Convert.ToInt32(_income[1]))
                             select new
@@ -169,13 +166,6 @@ namespace BLL
                 return query;
             }
        }
-
-
-        //public IEnumerable<kullanici> list(int _income)
-        //{
-        //    // Role göre kullanıcı listeleme
-        //    return idc.kullanicis.Where(q => q.rol == _income && q.silindiMi == false);
-        //}
 
         public IEnumerable<kullanici> receiveList()
         {
