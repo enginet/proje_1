@@ -215,33 +215,33 @@
                         <div class="tab-box ">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs add-tabs" role="tablist">
-                                <li><a href='<%= Page.ResolveUrl("~/ilan-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">Tüm İlanlar <span class="badge" runat="server" id="tum_ilanlar"></span></a>
+                                <li><a href='<%= Page.ResolveUrl("~/ilan-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">Tüm İlanlar <span class="badge" runat="server" id="tum_ilanlar"></span></a>
                                 </li>
-                                <li><a href='<%= Page.ResolveUrl("~/sahibinden-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">Sahibinden
+                                <li><a href='<%= Page.ResolveUrl("~/sahibinden-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">Sahibinden
                                     <span class="badge" runat="server" id="sahibinden"></span></a></li>
-                                <li class="active"><a href='<%= Page.ResolveUrl("~/emlak-ofis-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">Emlak Ofisi
+                                <li class="active"><a href='<%= Page.ResolveUrl("~/emlak-ofis-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">Emlak Ofisi
                                     <span class="badge" runat="server" id="emlakcidan"></span></a></li>
 
-                                <li><a href='<%= Page.ResolveUrl("~/insaat-firmasi-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">İnşaat Firması
+                                <li><a href='<%= Page.ResolveUrl("~/insaat-firmasi-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">İnşaat Firması
                                     <span class="badge" runat="server" id="insaat_firmasindan"></span></a></li>
                                 <li role="presentation" class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Diğer Mağazalar<span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href='<%= Page.ResolveUrl("~/bankadan-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">Banka
+                                        <li><a href='<%= Page.ResolveUrl("~/bankadan-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">Banka
                                     <span class="badge" runat="server" id="bankadan"></span></a></li>
 
-                                        <li><a href='<%= Page.ResolveUrl("~/izale-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">İzale-i Şuyu
+                                        <li><a href='<%= Page.ResolveUrl("~/izale-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">İzale-i Şuyu
                                     <span class="badge" runat="server" id="izaleyi_suyu"></span></a></li>
-                                        <li><a href='<%= Page.ResolveUrl("~/belediye-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">Belediye
+                                        <li><a href='<%= Page.ResolveUrl("~/belediye-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">Belediye
                                     <span class="badge" runat="server" id="belediyeden"></span></a></li>
-                                        <li><a href='<%= Page.ResolveUrl("~/icra-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">İcra
+                                        <li><a href='<%= Page.ResolveUrl("~/icra-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">İcra
                                     <span class="badge" runat="server" id="icradan"></span></a></li>
-                                        <li><a href='<%= Page.ResolveUrl("~/milli-hazine-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">Milli Hazine
+                                        <li><a href='<%= Page.ResolveUrl("~/milli-hazine-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">Milli Hazine
                                     <span class="badge" runat="server" id="milli_hazineden"></span></a></li>
-                                        <li><a href='<%= Page.ResolveUrl("~/ozellestirme-idaresi-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">Özelleştirme İdaresi
+                                        <li><a href='<%= Page.ResolveUrl("~/ozellestirme-idaresi-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">Özelleştirme İdaresi
                                     <span class="badge" runat="server" id="ozellestirme_dairesinden"></span></a></li>
-                                        <li><a href='<%= Page.ResolveUrl("~/kamu-kurumlari-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]) %>' role="tab">Kamu Kurumları
+                                        <li><a href='<%= Page.ResolveUrl("~/kamu-kurumlari-liste.aspx?kategoriId=" + Request.QueryString["kategoriId"]+"&tur=" + Request.QueryString["tur"]+"&cat="+Request.QueryString["cat"]) %>' role="tab">Kamu Kurumları
                                     <span class="badge" runat="server" id="kamu_kurumlarindan"></span></a></li>
                                     </ul>
                                 </li>
