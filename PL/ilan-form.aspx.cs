@@ -46,7 +46,7 @@ namespace PL
                 {
                     if (Session["cat"].ToString() == "8" || Session["cat"].ToString() == "10" || Session["cat"].ToString() == "11" || Session["cat"].ToString() == "16" || Session["cat"].ToString() == "18")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi.ascx"));
@@ -80,7 +80,7 @@ namespace PL
                     // 9 residence
                     if (Session["cat"].ToString() == "9")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
@@ -117,7 +117,7 @@ namespace PL
                     // 12 çiftlik evi
                     if (Session["cat"].ToString() == "12")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/bina-arazi-metre.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
@@ -153,7 +153,7 @@ namespace PL
                     // 13 köşk & konak
                     if (Session["cat"].ToString() == "13")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/bina-arazi-metre.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
@@ -190,7 +190,7 @@ namespace PL
                     // 14 yalı
                     if (Session["cat"].ToString() == "14")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/bina-arazi-metre.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
@@ -226,7 +226,7 @@ namespace PL
                     // 15 yalı dairesi
                     if (Session["cat"].ToString() == "15")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
@@ -263,7 +263,7 @@ namespace PL
                     // 17 prefabrik ev
                     if (Session["cat"].ToString() == "17")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
@@ -307,7 +307,7 @@ namespace PL
                     // 5 bina
                     if (Session["cat"].ToString() == "5")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/daire-sayisi.ascx"));
@@ -342,7 +342,7 @@ namespace PL
                     // 35 otel / 42 tatil köyü
                     if (Session["cat"].ToString() == "35" || Session["cat"].ToString() == "40")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/acik-kapali-metre.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/yildiz-sayisi.ascx"));
@@ -374,7 +374,7 @@ namespace PL
                     // 36 apart otel
                     if (Session["cat"].ToString() == "36")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/acik-kapali-metre.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/apart-sayisi.ascx"));
@@ -408,7 +408,7 @@ namespace PL
                     // 37 butik otel / 38 pansiyon / 41 motel
                     if (Session["cat"].ToString() == "37" || Session["cat"].ToString() == "38" || Session["cat"].ToString() == "41")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/acik-kapali-metre.ascx"));
                         PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/oda-yatak-kat-sayisi.ascx"));
@@ -440,7 +440,7 @@ namespace PL
                     // 39 kamp yeri
                     if (Session["cat"].ToString() == "39")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
 
@@ -466,7 +466,7 @@ namespace PL
                     // 42 plaj
                     if (Session["cat"].ToString() == "42")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/kapasite.ascx"));
@@ -475,7 +475,7 @@ namespace PL
                     // 21 atölye
                     if (Session["cat"].ToString() == "21")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/durum.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/kredi-takas.ascx"));
@@ -489,7 +489,7 @@ namespace PL
                     // 20 büfe
                     if (Session["cat"].ToString() == "20")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/yapi-tipi.ascx"));
@@ -508,7 +508,7 @@ namespace PL
                     // 29 büro & ofis
                     if (Session["cat"].ToString() == "29")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi.ascx"));
@@ -530,7 +530,7 @@ namespace PL
                     // 22 depo & antrepo
                     if (Session["cat"].ToString() == "22")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/giris-yuksek.ascx"));
@@ -556,7 +556,7 @@ namespace PL
                     // 23 dükkan & mağaza
                     if (Session["cat"].ToString() == "23")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
@@ -583,7 +583,7 @@ namespace PL
                     // 24 fabrika
                     if (Session["cat"].ToString() == "24")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/acik-kapali-metre.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
@@ -613,7 +613,7 @@ namespace PL
                     // 25 İşhanı Katı
                     if (Session["cat"].ToString() == "25")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
@@ -644,7 +644,7 @@ namespace PL
                     // 26 Komple Bina
                     if (Session["cat"].ToString() == "26")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bina-tipi.ascx"));
@@ -674,7 +674,7 @@ namespace PL
                     // 27 Plaza Katı
                     if (Session["cat"].ToString() == "27")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
@@ -704,7 +704,7 @@ namespace PL
                     // 28 İmalathane
                     if (Session["cat"].ToString() == "28")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
@@ -723,7 +723,7 @@ namespace PL
                     // 30 market
                     if (Session["cat"].ToString() == "30")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder7.Controls.Add(Page.LoadControl("~/ozellikler/isitma.ascx"));
@@ -737,7 +737,7 @@ namespace PL
                     // 31 Restoran lokanta
                     if (Session["cat"].ToString() == "31")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bina-yasi.ascx"));
@@ -758,7 +758,7 @@ namespace PL
                     // 32 Kuaför Güzellik Merkezi
                     if (Session["cat"].ToString() == "32")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi.ascx"));
@@ -779,7 +779,7 @@ namespace PL
                     // 33 Tekel Bayi
                     if (Session["cat"].ToString() == "33")
                     {
-                        PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                         PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                         PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/isitma.ascx"));

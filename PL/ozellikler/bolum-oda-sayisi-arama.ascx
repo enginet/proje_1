@@ -3,8 +3,8 @@
 <label for="txtAcikMetreKare">Bölüm / Oda Sayısı </label>
 <div class="clearfix"></div>
 <div class="form-group col-xs-6" style="padding-left: 0;">
-    <asp:TextBox ID="txtBolumOdaSayiMin" CssClass="form-control" runat="server" name="25_1" placeholder="min sayı"></asp:TextBox>
+    <asp:TextBox ID="txtBolumOdaSayiMin" CssClass="form-control double " runat="server" name="25_1" placeholder="min sayı"></asp:TextBox>
 </div>
 <div class="form-group col-xs-6" style="padding-right: 0;">
-    <asp:TextBox ID="txtBolumOdaSayiMax" CssClass="form-control" runat="server" name="25_2" placeholder="max sayı"></asp:TextBox>
+    <asp:TextBox ID="txtBolumOdaSayiMax" CssClass="form-control double " runat="server" name="25_2" placeholder="max sayı"></asp:TextBox>
 </div>

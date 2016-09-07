@@ -54,7 +54,7 @@ namespace DAL
 
                 Graphics graf = Graphics.FromImage(islenmisFotograf);
                 //ilan numarası yazdırma işlemi yapılıyor.
-                graf.DrawString(ilnNo, new Font("Century Gothic", 10), SystemBrushes.WindowText, new Point(5, 5));
+                graf.DrawString("#"+ilnNo, new Font("Century Gothic", 6), SystemBrushes.WindowText, new Point(5, 5));
                 //resmin şeffaflık (alpha) değeri ve renk değerleri belirleniyor.
                 SolidBrush firca = new SolidBrush(Color.FromArgb(45, 0, 0, 0));
                 //resmin köşegen uzunluğu pisagor denklemiyle hesaplanıyor.

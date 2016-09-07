@@ -435,7 +435,7 @@
                                                                             <!-- /.form-group -->
                                                                             <div class="form-group">
                                                                                 <label for="txtFiyat">Fiyat</label>
-                                                                                <asp:TextBox ID="txtFiyat" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtFiyat" CssClass="form-control double" runat="server"></asp:TextBox>
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label for="editor1">Açıklama</label>
@@ -720,8 +720,11 @@
             //Initialize Select2 Elements
             $(".select2").select2();
         });
+        $('.double').keypress(function (event) {
+            if ((event.which != 44 || $(this).val().indexOf(',') != -1) && (event.which < 48 || event.which > 57)) {
+                event.preventDefault();
+            }
+        });
     </script>
-
     <script src="management/dist/js/app.min.js"></script>
-
 </asp:Content>

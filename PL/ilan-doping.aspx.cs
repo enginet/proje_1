@@ -218,18 +218,7 @@ namespace PL
 
                 objDizi.Add(obj);
             }
-            Session["ilanUcretliMi"] = true;
-            if (Convert.ToBoolean(Session["ilanUcretliMi"]) == true)
-            {
-                JObject obj = new JObject();
-                obj.Add("islemId", 14);
-                obj.Add("hizmet", "Ücretli İlan");
-                obj.Add("miktar", "150");
-                obj.Add("odemeTipId", "3");
-                obj.Add("odemeId", "");
 
-                objDizi.Add(obj);
-            }
 
             odemeBll odmb = new odemeBll();
 

@@ -41,7 +41,7 @@ namespace PL
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["unique-site-user"]!=null)
+            if (Session["unique-site-user"] != null)
             {
                 if (!IsPostBack)
                 {
@@ -372,45 +372,29 @@ namespace PL
             }
             else
             {
-                kullanici kll = (kullanici)Session["unique-site-user"];
-                if (ilnBll.ilanSayisi(kll.kullaniciId) < 2) // ilan sayısı 2 veya daha büyük değilse
+                if (ListBox2.SelectedValue == "14" || ListBox2.SelectedValue == "18")
                 {
-                    if (ListBox2.SelectedValue == "14" || ListBox2.SelectedValue == "18")
-                    {
-                        Session["cat"] = ViewState["id"];
-                        Response.Redirect("~/ilan-form.aspx");
-                    }
-                    else if (ListBox2.SelectedValue == "12")
-                    {
-                        Session["cat"] = ViewState["id"];
-                        Session["tur"] = ViewState["ilanTur"];
-                        Response.Redirect("~/ilan-form.aspx");
-                    }
-                    else
-                    {
-                        Session["cat"] = ViewState["id"];
-                        Session["tur"] = ViewState["ilanTur"];
-                        Response.Redirect("~/ilan-form.aspx");
-                    }
+                    Session["cat"] = ViewState["id"];
+                    Response.Redirect("~/ilan-form.aspx");
+                }
+                else if (ListBox2.SelectedValue == "12")
+                {
+                    Session["cat"] = ViewState["id"];
+                    Session["tur"] = ViewState["ilanTur"];
+                    Response.Redirect("~/ilan-form.aspx");
                 }
                 else
                 {
-                    if (ViewState["ilanTur"] != null)
-                    {
-                        Session["tur"] = ViewState["ilanTur"];
-                    }
                     Session["cat"] = ViewState["id"];
-                    mesaj = "En fazla 2 (iki) adet ücretsiz ilan verebilirsiniz";
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "temp", "<script language='javascript'>uyariVer();</script>", false);
+                    Session["tur"] = ViewState["ilanTur"];
+                    Response.Redirect("~/ilan-form.aspx");
                 }
+
             }
-
-
         }
 
         protected void devamEt_Click(object sender, EventArgs e)
         {
-            Session["ilanUcretliMi"] = true;
             Response.Redirect("~/ilan-form.aspx");
         }
     }

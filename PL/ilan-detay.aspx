@@ -279,7 +279,7 @@
                                         <div class="col-md-12 no-padding photobox">
                                             <div class="add-image">
                                                 <a href="ads-details.html">
-                                                    <img
+                                                    <img onerror="this.src='../upload/system_resim/not-found-store.png'"
                                                         class="thumbnail no-margin" src='upload/magaza/<%= sellerProfil %>'
                                                         alt="img" /></a>
                                             </div>

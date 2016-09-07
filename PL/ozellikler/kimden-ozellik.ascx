@@ -10,12 +10,12 @@
 
 <div class="form-group">
     <label for="txtMuammen">Muammen Bedeli</label>
-    <asp:TextBox ID="txtMuammen" CssClass="form-control" runat="server" name="60"></asp:TextBox>
+    <asp:TextBox ID="txtMuammen" CssClass="form-control double" runat="server" name="60"></asp:TextBox>
 </div>
 
 <div class="form-group">
     <label for="txtAidat">Teminat Miktarı</label>
-    <asp:TextBox ID="txtTeminat" CssClass="form-control" name="61" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtTeminat" CssClass="form-control double" name="61" runat="server"></asp:TextBox>
 </div>
 
 <div class="form-group">

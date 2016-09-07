@@ -257,7 +257,7 @@
                         </div>
                         <div class="col-md-6 no-pad">
                             <div class="user-image">
-                                <img src='upload/magaza/<%= storeLogo %>' class="img-responsive thumbnail" alt="img" />
+                                <img onerror="this.src='../upload/system_resim/not-found-store.png'" src='upload/magaza/<%= storeLogo %>' class="img-responsive thumbnail" alt="img" />
                             </div>
                         </div>
                     </div>

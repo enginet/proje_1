@@ -649,7 +649,7 @@ namespace BLL
             }
             else if (_income[0].ToString() == "2")
             {
-                return idc.ilans.Where(i => i.ilanId == Convert.ToInt32(_income[1]) & i.silindiMi == false & i.pasifMi == false & i.onay == 1).ToList().FirstOrDefault();
+                return idc.ilans.Where(i => i.ilanId == Convert.ToInt32(_income[1]) & i.silindiMi == false).ToList().FirstOrDefault();
 
             }
             else
