@@ -5,7 +5,15 @@
 <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/plugins/iCheck/square/blue.css") %>'>
 <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/dist/css/AdminLTE.min.css") %>'>
 <link rel="stylesheet" href="../../plugins/dropzone/dropzone.css" />
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAS1wH5TdTQ8gbD5zB6Ghi2hN4BpkkbJ5M&callback=initMap" async defer></script>
 <style>
+    #map {
+        width: 100%;
+        height: 350px;
+    }
+
     #uploadImage {
         float: none;
     }
@@ -194,20 +202,98 @@
                             <div class="form-group">
                                 <label>Kimden Seçiniz</label>
                                 <div class="clearfix"></div>
-                                <asp:DropDownList ID="drpKimden" runat="server" CssClass="select2" Style="width: 100%;" AutoPostBack="True" OnSelectedIndexChanged="drpKimden_SelectedIndexChanged">
+                                <asp:DropDownList ID="drpKimden" runat="server" CssClass="select2 kimden" Style="width: 100%;" AutoPostBack="True" OnSelectedIndexChanged="drpKimden_SelectedIndexChanged">
                                 </asp:DropDownList>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--/.col (left) -->
-        </div>
-        <!-- /.row -->
-    </section>
-    <!--classified section-->
-    <section class="content">
-        <div class="row">
+            <div class="col-md-9 col-xs-12 pull-right">
+                <!-- general form elements -->
+                <div class="box box-success">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Adres Bilgileri</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <div role="form">
+                        <div class="box-body">
+                            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                            <div class="col-md-4">
+                                <asp:UpdatePanel runat="server">
+                                    <ContentTemplate>
+                                        <div class="form-group">
+                                            <label>İl</label>
+                                            <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpIl" runat="server" AutoPostBack="True" OnSelectedIndexChanged="drpIl_SelectedIndexChanged"></asp:DropDownList>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>İlçe</label>
+                                            <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpIlce" runat="server" AutoPostBack="true" OnSelectedIndexChanged="drpIlce_SelectedIndexChanged"></asp:DropDownList>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Mahalle</label>
+                                            <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpMahalle" runat="server"></asp:DropDownList>
+                                        </div>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box -->
+                </div>
+            </div>
+
+            <div class="col-md-9 col-xs-12 pull-right">
+                <!-- general form elements -->
+                <div class="box box-success">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Harita</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <div role="form">
+                        <div class="box-body">
+                            <div class="col-md-12">
+                                <div id="map"></div>
+                                <!-- Harita -->
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                    </div>
+                    <!-- /.box -->
+                </div>
+            </div>
+
+            <div class="col-md-9 col-xs-12 pull-right">
+                <!-- general form elements -->
+                <div class="box box-success">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Fotoğraf</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <div role="form">
+                        <div class="box-body">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div id='uploadImage'>
+                                        <asp:FileUpload ID="FileUpload1" CssClass="fUp" runat="server" AllowMultiple="true" onChange="preview(this)" maxRequestLength="2048" />
+                                        <a class="dSec" onclick="triggerFileUpload()"><span class="fa fa-camera" style="font-size: 45px;"></span>Resim Seç</a>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div id="previews">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                    </div>
+                    <!-- /.box -->
+                </div>
+            </div>
+
             <!-- left column -->
             <div class="col-md-9 pull-right">
                 <!-- general form elements -->
@@ -274,94 +360,8 @@
                 </div>
                 <!-- /.box -->
             </div>
-            <!--/.col (left) -->
-            <!-- right column -->
-            <!--/.col (right) -->
         </div>
-        <!-- /.row -->
     </section>
-    <!--address section-->
-    <section class="content">
-        <div class="row">
-            <!-- left column -->
-            <div class="col-md-9 col-xs-12 pull-right">
-                <!-- general form elements -->
-                <div class="box box-success">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Adres Bilgileri</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
-                    <div role="form">
-                        <div class="box-body">
-                            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                            <div class="col-md-4">
-                                <asp:UpdatePanel runat="server">
-                                    <ContentTemplate>
-                                        <div class="form-group">
-                                            <label>İl</label>
-                                            <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpIl" runat="server" AutoPostBack="True" OnSelectedIndexChanged="drpIl_SelectedIndexChanged"></asp:DropDownList>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>İlçe</label>
-                                            <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpIlce" runat="server" AutoPostBack="true" OnSelectedIndexChanged="drpIlce_SelectedIndexChanged"></asp:DropDownList>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Mahalle</label>
-                                            <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpMahalle" runat="server"></asp:DropDownList>
-                                        </div>
-                                    </ContentTemplate>
-                                </asp:UpdatePanel>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.box -->
-                </div>
-                <!--/.col (left) -->
-                <!-- right column -->
-                <!--/.col (right) -->
-            </div>
-            <!-- /.row -->
-    </section>
-    <!--fotograf section-->
-    <section class="content">
-        <div class="row">
-            <!-- left column -->
-            <div class="col-md-9 pull-right">
-                <!-- general form elements -->
-                <div class="box box-success">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Fotoğraf</h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
-                    <div role="form">
-                        <div class="box-body">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <div id='uploadImage'>
-                                        <asp:FileUpload ID="FileUpload1" CssClass="fUp" runat="server" AllowMultiple="true" onChange="preview(this)" maxRequestLength="2048" />
-                                        <a class="dSec" onclick="triggerFileUpload()"><span class="fa fa-camera" style="font-size: 45px;"></span>Resim Seç</a>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div id="previews">
-                                    </div>
-                                </div>
-
-                            </div>
-                            <!-- /.box-body -->
-                        </div>
-                    </div>
-                    <!-- /.box -->
-                </div>
-                <!--/.col (left) -->
-                <!-- right column -->
-                <!--/.col (right) -->
-            </div>
-            <!-- /.row -->
-    </section>
-
-    <!-- /.content -->
     <div class="col-md-9 col-md-offset-3" style="float: none; padding-bottom: 30px">
         <asp:Button ID="Kaydet" runat="server" CssClass="btn btn-success" Text="Kaydet" OnClick="Kaydet_Click" />
         <asp:Button ID="Vezgec" runat="server" CssClass="btn btn-danger" Text="Vazgeç" OnClick="Vazgeç_Click" />
@@ -464,5 +464,89 @@
         if ((event.which != 44 || $(this).val().indexOf(',') != -1) && (event.which < 48 || event.which > 57)) {
             event.preventDefault();
         }
+    });
+
+    var map;
+    function initMap(koordinat) {
+        var koordinatlar = [];
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 6,
+            center: { lat: 39, lng: 36 },
+            mapTypeId: google.maps.MapTypeId.ROAD
+        });
+
+        var renk = '';
+        
+        if ($(".kimden").val() == '100000001') { // belediye
+            renk = '#6a12bc';
+        }
+        else if ($(".kimden").val() == '100000002') { // icra
+            renk = '#ffb400';
+        }
+        else if ($(".kimden").val() == '100000003') { // izaleyi luyu
+            renk = '#a0fcff';
+        }
+        else if ($(".kimden").val() == '100000004') { // milli hazine güncel olamayan
+            renk = '#86ed00';
+        }
+        else if ($(".kimden").val() == '100000005' ||
+            $(".kimden").val() == '100000006' ||
+            $(".kimden").val() == '100000007' ||
+            $(".kimden").val() == '100000008' ||
+            $(".kimden").val() == '100000009' ||
+            $(".kimden").val() == '1000000010' ||
+            $(".kimden").val() == '1000000011' ||
+            $(".kimden").val() == '1000000012' ||
+            $(".kimden").val() == '1000000013' ||
+            $(".kimden").val() == '1000000014' ||
+            $(".kimden").val() == '1000000015' ||
+            $(".kimden").val() == '1000000016' ||
+            $(".kimden").val() == '1000000017' ||
+            $(".kimden").val() == '1000000018' ||
+            $(".kimden").val() == '1000000019' ||
+            $(".kimden").val() == '1000000020' ||
+            $(".kimden").val() == '1000000021' ||
+            $(".kimden").val() == '1000000022' ||
+            $(".kimden").val() == '1000000023') {
+            renk = '#fffc00';
+        }
+        else if ($(".kimden").val() == '1000000024') {
+            renk = '#e3fffe';
+        }
+        else if ($(".kimden").val() == '1000000025') {
+            renk = '#8b8b8b';
+        }
+        else if ($(".kimden").val() == '1000000028') {
+            renk = '#9d9d9d';
+        }
+
+        var obj = JSON.parse(koordinat);
+
+        for (var j = 0; j < obj["features"][0]["geometry"]["coordinates"][0].length; j++) {
+            koordinatlar.push({ lat: obj["features"][0]["geometry"]["coordinates"][0][j][1], lng: obj["features"][0]["geometry"]["coordinates"][0][j][0] });
+        }
+        sekil = new google.maps.Polygon({
+            paths: koordinatlar,
+            strokeColor: renk,
+            strokeOpacity: 0.8,
+            strokeWeight: 3,
+            fillColor: renk,
+            fillOpacity: 0.35
+        });
+        sekil.setMap(map);
+
+        var markerPosition = { lat: koordinatlar[0]["lat"], lng: koordinatlar[0]["lng"] }
+        var marker = new google.maps.Marker({
+            position: markerPosition,
+            map: map,
+            title: "ilan"
+        });
+
+        map.setZoom(17);
+        map.setCenter({ lat: koordinatlar[0]["lat"], lng: koordinatlar[0]["lng"] });
+    }
+
+    jQuery('.koordinat').focusout(function () {
+        initMap($(this).val());
     });
 </script>
