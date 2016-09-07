@@ -33,6 +33,10 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -351,6 +355,9 @@
     <Content Include="upload\system_resim\not-found-image.jpg" />
     <Content Include="yeni-sifre.aspx" />
     <Content Include="site.Master" />
+    <None Include="Properties\PublishProfiles\profile1.pubxml" />
+    <None Include="Properties\PublishProfiles\profile3.pubxml" />
+    <None Include="Properties\PublishProfiles\profile4.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
