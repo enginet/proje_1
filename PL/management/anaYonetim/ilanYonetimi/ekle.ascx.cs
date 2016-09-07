@@ -29,6 +29,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             PlaceHolder1.Controls.Add(Page.LoadControl("~/ozellikler/kimden-ozellik.ascx"));
             PlaceHolder1.Visible = false;
 
+            PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+            PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
 
             // Burda her bir kategorinin Id değeri bilinmesi gerekir.
             // Her bir gelen kategoriye göre o kategoriye ait alanlar çekilir
@@ -36,8 +38,6 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 8 daire / 10 müstakil ev / 11 yalı / 16 yazlık / 18 kooperatif
             if (Request.QueryString["cat"] == "8" || Request.QueryString["cat"] == "10" || Request.QueryString["cat"] == "11" || Request.QueryString["cat"] == "16" || Request.QueryString["cat"] == "18")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/bina-yasi.ascx"));
@@ -70,8 +70,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 9 residence
             if (Request.QueryString["cat"] == "9")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/salon-sayisi-text.ascx"));
@@ -107,8 +107,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 12 çiftlik evi
             if (Request.QueryString["cat"] == "12")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/bina-arazi-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/salon-sayisi-text.ascx"));
@@ -143,8 +143,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 13 köşk & konak
             if (Request.QueryString["cat"] == "13")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/bina-arazi-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/salon-sayisi-text.ascx"));
@@ -180,8 +180,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 14 yalı
             if (Request.QueryString["cat"] == "14")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/bina-arazi-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/salon-sayisi-text.ascx"));
@@ -216,8 +216,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 15 yalı dairesi
             if (Request.QueryString["cat"] == "15")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/salon-sayisi-text.ascx"));
@@ -253,8 +253,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 17 prefabrik ev
             if (Request.QueryString["cat"] == "17")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/kat-sayisi-text.ascx"));
@@ -275,12 +275,11 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 4 arsa
             if (Request.QueryString["cat"] == "4")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
-                PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/arsa-ozellik.ascx"));
-                PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/tapu-durum.ascx"));
-                PlaceHolder7.Controls.Add(Page.LoadControl("~/ozellikler/kredi-takas.ascx"));
+                PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
+                PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/arsa-ozellik.ascx"));
+                PlaceHolder7.Controls.Add(Page.LoadControl("~/ozellikler/tapu-durum.ascx"));
+                PlaceHolder8.Controls.Add(Page.LoadControl("~/ozellikler/kredi-takas.ascx"));
 
                 if (Request.QueryString["tur"] == "2" || Request.QueryString["tur"] == "3" || Request.QueryString["tur"] == "5")
                 {
@@ -297,8 +296,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 5 bina
             if (Request.QueryString["cat"] == "5")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/daire-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/kat-sayisi.ascx"));
@@ -332,8 +331,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 35 otel / 42 tatil köyü
             if (Request.QueryString["cat"] == "35" || Request.QueryString["cat"] == "40")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/acik-kapali-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/yildiz-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/oda-yatak-kat-sayisi.ascx"));
@@ -364,8 +363,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 36 apart otel
             if (Request.QueryString["cat"] == "36")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/acik-kapali-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/apart-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/oda-yatak-kat-sayisi.ascx"));
@@ -398,8 +397,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 37 butik otel / 38 pansiyon / 41 motel
             if (Request.QueryString["cat"] == "37" || Request.QueryString["cat"] == "38" || Request.QueryString["cat"] == "41")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/acik-kapali-metre.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/oda-yatak-kat-sayisi.ascx"));
                 PlaceHolder7.Controls.Add(Page.LoadControl("~/ozellikler/bina-yasi.ascx"));
@@ -430,8 +429,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 39 kamp yeri
             if (Request.QueryString["cat"] == "39")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
 
                 if (Request.QueryString["tur"] == "2" || Request.QueryString["tur"] == "3" || Request.QueryString["tur"] == "5")
@@ -456,8 +455,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 42 plaj
             if (Request.QueryString["cat"] == "42")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/kapasite.ascx"));
 
@@ -465,8 +464,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 21 atölye
             if (Request.QueryString["cat"] == "21")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/durum.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/kredi-takas.ascx"));
 
@@ -479,8 +478,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 20 büfe
             if (Request.QueryString["cat"] == "20")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/yapi-tipi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/yapi-durum.ascx"));
@@ -498,8 +497,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 29 büro & ofis
             if (Request.QueryString["cat"] == "29")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/bina-yasi.ascx"));
@@ -520,8 +519,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 22 depo & antrepo
             if (Request.QueryString["cat"] == "22")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/giris-yuksek.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/bina-yasi-text.ascx"));
@@ -546,8 +545,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 23 dükkan & mağaza
             if (Request.QueryString["cat"] == "23")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/aidat.ascx"));
@@ -573,8 +572,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 24 fabrika
             if (Request.QueryString["cat"] == "24")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/acik-kapali-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/bina-adedi.ascx"));
@@ -603,8 +602,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 25 İşhanı Katı
             if (Request.QueryString["cat"] == "25")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
                 PlaceHolder7.Controls.Add(Page.LoadControl("~/ozellikler/kat-sayisi-text.ascx"));
@@ -634,8 +633,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 26 Komple Bina
             if (Request.QueryString["cat"] == "26")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bina-tipi.ascx"));
                 PlaceHolder7.Controls.Add(Page.LoadControl("~/ozellikler/kat-sayisi-text.ascx"));
@@ -664,8 +663,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 27 Plaza Katı
             if (Request.QueryString["cat"] == "27")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
                 PlaceHolder7.Controls.Add(Page.LoadControl("~/ozellikler/kat-sayisi-text.ascx"));
@@ -694,8 +693,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 28 İmalathane
             if (Request.QueryString["cat"] == "28")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/bina-yasi.ascx"));
@@ -713,8 +712,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 30 market
             if (Request.QueryString["cat"] == "30")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder7.Controls.Add(Page.LoadControl("~/ozellikler/isitma.ascx"));
                 PlaceHolder8.Controls.Add(Page.LoadControl("~/ozellikler/kredi-takas.ascx"));
@@ -727,8 +726,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 31 Restoran lokanta
             if (Request.QueryString["cat"] == "31")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bina-yasi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/isitma.ascx"));
@@ -748,8 +747,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 32 Kuaför Güzellik Merkezi
             if (Request.QueryString["cat"] == "32")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/isitma.ascx"));
@@ -769,8 +768,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 33 Tekel Bayi
             if (Request.QueryString["cat"] == "33")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
+                
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/isitma.ascx"));
 
