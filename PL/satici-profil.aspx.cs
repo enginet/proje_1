@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
+using DAL;
 
 namespace PL
 {
@@ -62,6 +63,28 @@ namespace PL
             }
         }
 
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            DAL.kullanici _kullanici = kullanicib.search(saticiId);
+            if (Session["unique-site-user"] != null)
+            {
+                kullanici _authority = (kullanici)Session["unique-site-user"];
+
+                kulllaniciTkpb.insert(_kullanici.kullaniciId, _authority.kullaniciId);
+                LinkButton1.Visible = false;
+            }
+
+        }
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            DAL.kullanici _kullanici = kullanicib.search(saticiId);
+            if (Session["unique-site-user"] != null)
+            {
+                kullanici _authority = (kullanici)Session["unique-site-user"];
+                kulllaniciTkpb.delete(_kullanici.kullaniciId, _authority.kullaniciId);
+                LinkButton2.Visible = false;
+            }
+        }
 
         public string telefonTurDondur(object _income)
         {

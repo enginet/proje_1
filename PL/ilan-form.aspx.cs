@@ -286,7 +286,6 @@ namespace PL
                     if (Session["cat"].ToString() == "4")
                     {
                         PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
-                        PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
                         PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                         PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/arsa-ozellik.ascx"));
                         PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/tapu-durum.ascx"));

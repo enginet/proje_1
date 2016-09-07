@@ -165,41 +165,69 @@
                         </div>
                     </div>
                     <div class="row setup-content" id="step-4">
-                        <div class="col-xs-12">
-                            <div class="form-group">
-                                <div class="col-sm-12 text-right">
-                                    <button type="button" class="btn btn-default preview-add-button">
-                                        <span class="glyphicon glyphicon-plus"></span>Add
-                                    </button>
+<div role="form">
+                            <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" id="step1">
+                                    <style>
+                                        .cat-list {
+                                            width: 100%;
+                                            min-height: 200px;
+                                            background-color: #f2f2f2;
+                                            outline: none;
+                                            border: 1px solid #a9a9a9;
+                                            margin: 14px 0;
+                                            overflow-y: auto;
+                                            cursor: pointer;
+                                        }
+
+                                            .cat-list:focus {
+                                                outline: none;
+                                            }
+
+                                        .kategoriler {
+                                            background: white;
+                                            height: 245px;
+                                            overflow: scroll;
+                                            overflow-y: hidden;
+                                        }
+
+                                        .tamam {
+                                            font-size: 20px;
+                                            line-height: 28px;
+                                            padding-top: 86px;
+                                            height: 200px;
+                                            margin-top: 14px;
+                                            border: 1px solid #a9a9a9;
+                                            color: #a9a9a9;
+                                            text-align: center;
+                                            display: block;
+                                            background-color: #f2f2f2;
+                                            font-weight: bold;
+                                        }
+
+                                        .categories {
+                                            width: 200px;
+                                            height: 200px;
+                                            float: left;
+                                            margin-left: 15px;
+                                            margin-right: 15px;
+                                        }
+
+                                        .input-remove-row span {
+                                            cursor: pointer;
+                                        }
+                                    </style>
+                                    <section class="content" style="background: #fff; padding-bottom: 15px; min-height:500px;">
+                                        <div class="alert alert-success">
+                                            <p style="font-size:20px;"><%= Request.QueryString["sto"].ToString() %> numaralı mağaza başarıyla kaydedilmiştir. Onaylandıktan sonra 2 iş günü içerisinde yayına verilecektir.</p>
+                                        </div>
+                                        <div class="col-xs-4 center-block" style="float:none">
+                                            <label style="text-align:center; font-size:24px;">Mağaza Paket Ücreti <br /><br /> <span style="color:#b51818; background:#e0e0e0; padding:0 10px;"> &#x20BA; <%= magazaFiyat %> </span><br /><br />
+                                            </label>
+                                        </div>
+                                    </section>
                                 </div>
-                            </div>
-                            <h4>Sipariş Özeti</h4>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <div class="table-responsive">
-                                        <table class="table preview-table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Concept</th>
-                                                    <th>Description</th>
-                                                    <th>Amount</th>
-                                                    <th>Status</th>
-                                                    <th>Date</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody></tbody>
-                                            <!-- preview content goes here-->
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row text-right">
-                                <div class="col-xs-12">
-                                    <h4>Total: <strong><span class="preview-total"></span></strong></h4>
-                                </div>
-                            </div>
-                            <div class="col-xs-1 col-xs-offset-11">
-                                <asp:Button ID="devam" runat="server" CssClass="btn btn-success" Text="Devam Et" OnClick="devam_Click" Style="float: right; margin-top: 15px;" />
+                                <div class="clearfix"></div>
                             </div>
                         </div>
                     </div>

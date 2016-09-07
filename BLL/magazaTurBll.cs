@@ -29,10 +29,15 @@ namespace BLL
             return idc.magazaTurs.Where(q => q.magazaTurId == _income).First();
         }
 
-        public IEnumerable<magazaTur> list(int _income)
+        public IQueryable list(int _income)
         {
-            return idc.magazaTurs.Where(q => q.kategoriId == _income).ToList();
-
+            var query = from m in idc.magazaTurs.Where(q => q.kategoriId == _income)
+                        select new
+                        {
+                            turId=DAL.toolkit.magaza_tur(m.turId),
+                            m.magazaTurId
+                        };
+            return query;
         }
     }
 }

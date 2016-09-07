@@ -25,7 +25,7 @@
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 6,
                 center: { lat: 39, lng: 36 },
-                mapTypeId: google.maps.MapTypeId.ROAD
+                mapTypeId: google.maps.MapTypeId.SATELLITE
             });
 
 
@@ -278,7 +278,7 @@
                                     <div class="seller-info">
                                         <div class="col-md-12 no-padding photobox">
                                             <div class="add-image">
-                                                <a href="ads-details.html">
+                                                <a href="#">
                                                     <img onerror="this.src='../upload/system_resim/not-found-store.png'"
                                                         class="thumbnail no-margin" src='upload/magaza/<%= sellerProfil %>'
                                                         alt="img" /></a>

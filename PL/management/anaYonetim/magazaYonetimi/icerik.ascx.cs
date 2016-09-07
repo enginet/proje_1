@@ -66,18 +66,23 @@ namespace PL.management.anaYonetim.magazaYonetimi
 
                 string fileName = file.FileName;
                 string fileExtension = file.ContentType;
+                fileExtension = Path.GetExtension(fileName);
+                str_image = Request.QueryString["sto"] + fileExtension;
+                DAL.fotograf.yukle(file, 480, str_image, Request.QueryString["sto"].ToString(), 2);
 
-                if (!string.IsNullOrEmpty(fileName))
-                {
-                    fileExtension = Path.GetExtension(fileName);
-                    str_image = Request.QueryString["sto"] + fileExtension;
-                    string pathToSave_100 = HttpContext.Current.Server.MapPath("~/upload/magaza/") + str_image;
-                    file.SaveAs(pathToSave_100);
-                }
+
+                //if (!string.IsNullOrEmpty(fileName))
+                //{
+                //    fileExtension = Path.GetExtension(fileName);
+                //    str_image = Request.QueryString["sto"] + fileExtension;
+                //    string pathToSave_100 = HttpContext.Current.Server.MapPath("~/upload/magaza/") + str_image;
+                //    file.SaveAs(pathToSave_100);
+
+                //}
 
             }
 
-            Response.Redirect("~/management/anaYonetim/magazaYonetimi/magaza.aspx?page=odeme&pac=" + Request.QueryString["pac"]);
+            Response.Redirect("~/management/anaYonetim/magazaYonetimi/magaza.aspx?page=odeme&sto="+ Request.QueryString["sto"] + "&pac=" + Request.QueryString["pac"]);
         }
     }
 }

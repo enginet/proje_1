@@ -206,6 +206,50 @@ namespace DAL
             }
         }
 
+        public static string magaza_tur(object _income)
+        {
+            if (_income.ToString() == "1")
+            {
+                return "Belediyeden";
+            }
+            else if (_income.ToString() == "2")
+            {
+                return "İcradan";
+            }
+            else if (_income.ToString() == "3")
+            {
+                return "İzale Şuyudan";
+            }
+            else if (_income.ToString() == "4")
+            {
+                return "Milli Hazineden";
+            }
+            else if (_income.ToString() == "5")
+            {
+                return "Bankadan";
+            }
+            else if (_income.ToString() == "6")
+            {
+                return "Kamu Kurumlarından";
+            }
+            else if (_income.ToString() == "7")
+            {
+                return "Emlak Ofisinden";
+            }
+            else if (_income.ToString() == "8")
+            {
+                return "İnşaat Firmasında";
+            }
+            else if (_income.ToString() == "9")
+            {
+                return "Özelleştirme İdaresinden";
+            }
+            else
+            {
+                return "Milli Hazine (Güncel)";
+            }
+        }
+
 
         // Veritabanındaki birleştirilmiş isimleri parçalayıp geri döndermek için
         public static string[] isimDondur(string _income)

@@ -189,7 +189,7 @@ namespace BLL
         public bool loginOn(string inusername, string inpassword)
         {
             // kullanıcı girişleri kontrolü
-            var _control = idc.kullanicis.Where(q => q.email == inusername && q.sifre == inpassword && (q.rol == 1 | q.rol == 2 | q.rol == 3)).FirstOrDefault();
+            var _control = idc.kullanicis.Where(q => q.email == inusername && q.sifre == inpassword && (q.rol == 1 | q.rol == 2 | q.rol == 3) & q.silindiMi==false).FirstOrDefault();
             if (_control != null)
             {
 
@@ -207,7 +207,7 @@ namespace BLL
 
         public bool userLoginOn(string inusername, string inpassword)
         {
-            var _control = idc.kullanicis.Where(q => (q.email == inusername | q.telefonlars.Where(t=>t.telefonTur==1).FirstOrDefault().telefon.ToString()==inusername) & q.sifre == inpassword & (q.rol == 1 | q.rol == 2 | q.rol == 3 | q.rol==4)).FirstOrDefault();
+            var _control = idc.kullanicis.Where(q => (q.email == inusername | q.telefonlars.Where(t=>t.telefonTur==1).FirstOrDefault().telefon.ToString()==inusername) & q.sifre == inpassword & (q.rol == 1 | q.rol == 2 | q.rol == 3 | q.rol==4) & q.silindiMi==false).FirstOrDefault();
             if (_control != null)
             {
                 HttpContext.Current.Session["unique-site-user"] = _control;

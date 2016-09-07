@@ -179,7 +179,7 @@
                                                 <asp:Repeater ID="takipEdilenRepeater" runat="server">
                                                     <ItemTemplate>
                                                 <li><a>
-                                                    <img alt="img" src='upload/profil/<%# Eval("profilResim") %>'
+                                                    <img alt="img" onerror="this.src='../upload/system_resim/user.jpg'" src='upload/profil/<%# Eval("profilResim") %>'
                                                         class="img-circle   "></a></li>
                                                                                                     </ItemTemplate>
                                                 </asp:Repeater>

@@ -77,7 +77,7 @@ namespace DAL
             }
             else
             {
-                islenmisFotograf.Save(HttpContext.Current.Server.MapPath("/upload/reklam/" + dosyaAdi));
+                islenmisFotograf.Save(HttpContext.Current.Server.MapPath("/upload/magaza/" + dosyaAdi));
             }
         }
     }

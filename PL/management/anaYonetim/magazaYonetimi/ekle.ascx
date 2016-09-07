@@ -78,67 +78,64 @@
                                     <label for="txtMagazaAdi">Mağaza Adı</label>
                                     <input type="text" class="form-control" id="txtMagazaAdi" runat="server">
                                 </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Hesap Tipi</label>
+                                    <div class="col-md-9">
+                                        <asp:RadioButtonList ID="rdKurumsal" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rdKurumsal_SelectedIndexChanged" AutoPostBack="true" Height="29px" Width="267px">
+                                            <asp:ListItem Value="False" Selected> Bireysel</asp:ListItem>
+                                            <asp:ListItem Value="True"> Kurumsal</asp:ListItem>
+                                        </asp:RadioButtonList>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>İş Telefonu</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-phone"></i>
+                                        </div>
+                                        <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask runat="server" id="txtIsTlf">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <div class="form-group">
+                                    <label>İş Telefonu 2</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-phone"></i>
+                                        </div>
+                                        <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask runat="server" id="txtIsTlf2">
+                                    </div>
+                                    <!-- /.input group -->
+                                </div>
+                                <!-- /input-group image-preview [TO HERE]-->
                                 <asp:ScriptManager runat="server"></asp:ScriptManager>
+
                                 <asp:UpdatePanel runat="server">
                                     <ContentTemplate>
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label">Hesap Tipi</label>
-                                            <div class="col-md-9">
-                                                <asp:RadioButtonList ID="rdKurumsal" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rdKurumsal_SelectedIndexChanged" AutoPostBack="true" Height="29px" Width="267px">
-                                                    <asp:ListItem Value="False" Selected> Bireysel</asp:ListItem>
-                                                    <asp:ListItem Value="True"> Kurumsal</asp:ListItem>
-                                                </asp:RadioButtonList>
-                                            </div>
-                                        </div>
-                                        </ContentTemplate>
-                                    </asp:UpdatePanel>
-                                        <div class="form-group">
-                                            <label>İş Telefonu</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-phone"></i>
-                                                </div>
-                                                <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask runat="server" id="txtIsTlf">
-                                            </div>
-                                            <!-- /.input group -->
+                                            <label>İl</label>
+                                            <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpIl" runat="server" AutoPostBack="True" OnSelectedIndexChanged="drpIl_SelectedIndexChanged"></asp:DropDownList>
                                         </div>
                                         <div class="form-group">
-                                            <label>İş Telefonu 2</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-phone"></i>
-                                                </div>
-                                                <input type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask runat="server" id="txtIsTlf2">
-                                            </div>
-                                            <!-- /.input group -->
+                                            <label>İlce</label>
+                                            <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpIlce" runat="server" AutoPostBack="True" OnSelectedIndexChanged="drpIlce_SelectedIndexChanged"></asp:DropDownList>
                                         </div>
-                                        <!-- /input-group image-preview [TO HERE]-->
-                                        <asp:UpdatePanel runat="server">
-                                            <ContentTemplate>
-                                                <div class="form-group">
-                                                    <label>İl</label>
-                                                    <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpIl" runat="server" AutoPostBack="True" OnSelectedIndexChanged="drpIl_SelectedIndexChanged"></asp:DropDownList>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>İlce</label>
-                                                    <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpIlce" runat="server" AutoPostBack="True" OnSelectedIndexChanged="drpIlce_SelectedIndexChanged"></asp:DropDownList>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Mahalle</label>
-                                                    <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpMahalle" runat="server"></asp:DropDownList>
-                                                </div>
+                                        <div class="form-group">
+                                            <label>Mahalle</label>
+                                            <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpMahalle" runat="server"></asp:DropDownList>
+                                        </div>
 
-                                                <!-- /.form-group -->
-                                                <div class="form-group">
-                                                    <label id="lblTc" runat="server">TC Kimlik No</label>
-                                                    <input type="text" class="form-control" id="txtTcNo" runat="server">
-                                                </div>
-                                                <!-- /.form-group -->
-                                                <div class="form-group" id="vergiPnl" runat="server">
-                                                    <label>Vergi Dairesi</label>
-                                                    <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpVergi" runat="server"></asp:DropDownList>
-                                                </div>
-                                            </ContentTemplate>
+                                        <!-- /.form-group -->
+                                        <div class="form-group">
+                                            <label id="lblTc" runat="server">TC Kimlik No</label>
+                                            <input type="text" class="form-control" id="txtTcNo" runat="server">
+                                        </div>
+                                        <!-- /.form-group -->
+                                        <div class="form-group" id="vergiPnl" runat="server">
+                                            <label>Vergi Dairesi</label>
+                                            <asp:DropDownList CssClass="form-control select2" Style="width: 100%;" ID="drpVergi" runat="server"></asp:DropDownList>
+                                        </div>
+                                    </ContentTemplate>
                                 </asp:UpdatePanel>
                             </div>
                         </div>
