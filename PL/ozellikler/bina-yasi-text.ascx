@@ -2,5 +2,5 @@
 
 <div class="form-group">
     <label for="txtAidat">Bina Yaşı</label>
-    <asp:TextBox ID="txtBinaYasiText" CssClass="form-control" runat="server" name="24"></asp:TextBox>
+    <asp:TextBox ID="txtBinaYasiText" CssClass="form-control double " runat="server" name="24"></asp:TextBox>
 </div>

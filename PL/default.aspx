@@ -399,7 +399,7 @@
                                 <div class="iconbox-wrap-content">
                                     <h5><span>2200</span></h5>
 
-                                    <div class="iconbox-wrap-text">Trusted Seller</div>
+                                    <div class="iconbox-wrap-text">ÜYE</div>
                                 </div>
                             </div>
                             <!-- /..iconbox -->
@@ -416,7 +416,7 @@
                                 <div class="iconbox-wrap-content">
                                     <h5><span>100</span></h5>
 
-                                    <div class="iconbox-wrap-text">Categories</div>
+                                    <div class="iconbox-wrap-text">KATEGORİ</div>
                                 </div>
                             </div>
                             <!-- /..iconbox -->
@@ -433,7 +433,7 @@
                                 <div class="iconbox-wrap-content">
                                     <h5><span>700</span></h5>
 
-                                    <div class="iconbox-wrap-text">Location</div>
+                                    <div class="iconbox-wrap-text">BÖLGE</div>
                                 </div>
                             </div>
                             <!-- /..iconbox -->
@@ -466,8 +466,7 @@
     <div class="page-bottom-info">
         <div class="page-bottom-info-inner">
             <div class="page-bottom-info-content text-center">
-                <h1>If you have any questions, comments or concerns, please call the Classified Advertising department
-                    at (000) 555-5555</h1>
+                <h1> 7/24 BİZE GÖRÜŞ VE İSTEKLERİNİZİ BİLDİREBİLİRSİNİZ. </h1>
                 <a class="btn  btn-lg btn-primary-dark" href="tel:+9050732781 00">
                     <i class="icon-phone"></i><span class="hide-xs color50">7/24 Müşteri Hizmetleri:</span>(507) 327-8100 </a>
             </div>

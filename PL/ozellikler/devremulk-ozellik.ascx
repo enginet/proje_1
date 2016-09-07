@@ -14,5 +14,5 @@
 </div>
 <div class="form-group">
     <label>Oda Sayısı</label>
-    <asp:TextBox ID="txtOdaSayisi" CssClass="form-control" runat="server" name="83"></asp:TextBox>
+    <asp:TextBox ID="txtOdaSayisi" CssClass="form-control double" runat="server" name="83"></asp:TextBox>
 </div>

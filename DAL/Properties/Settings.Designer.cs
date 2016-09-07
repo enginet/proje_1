@@ -26,7 +26,8 @@ namespace DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=ilanDB;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WIN-T18F3F1NRQL\\MSSQLSERVER01;Initial Catalog=ilanDB;Integrated Secur" +
+            "ity=True")]
         public string ilanDBConnectionString {
             get {
                 return ((string)(this["ilanDBConnectionString"]));
