@@ -110,7 +110,7 @@
                     }
 
                     for (var j = 0; j < ilan[i]["koordinat"]["coordinates"][0][0].length; j++) {
-                        koordinatlar.push({ lat: ilan[i]["koordinat"]["coordinates"][0][0][j][1], lng: ilan[i]["koordinat"]["coordinates"][0][0][j][0]});
+                        koordinatlar.push({ lat: ilan[i]["koordinat"]["coordinates"][0][0][j][1], lng: ilan[i]["koordinat"]["coordinates"][0][0][j][0] });
                     }
 
                     var sekil = "sekil" + index;
@@ -147,13 +147,13 @@
     <div class="main-container">
         <div class="container">
             <ol class="breadcrumb pull-left">
-<%--                <li><a href="#"><i class="icon-home fa"></i></a></li>
+                <%--                <li><a href="#"><i class="icon-home fa"></i></a></li>
                 <li><a href="category.html">All Ads</a></li>
                 <li><a href="sub-category-sub-location.html">Electronics</a></li>
                 <li class="active">Mobile Phones</li>--%>
             </ol>
             <div class="pull-right backtolist">
-<%--                <a href="sub-category-sub-location.html"><i
+                <%--                <a href="sub-category-sub-location.html"><i
                     class="fa fa-angle-double-left"></i>Arama sonuçlarına geri dön</a>--%>
             </div>
         </div>
@@ -163,16 +163,19 @@
                     <div class="inner inner-box ads-details-wrapper">
                         <h2>
                             <asp:Label ID="lblBaslik" runat="server"></asp:Label>
-                            <small class="label label-default adlistingtype">
+                            <small class="label label-default adlistingtype" style="background-color: #d9534f; color: #fff">
                                 <asp:Label ID="lblkimdenTop" runat="server"></asp:Label></small>
                         </h2>
-                        <span class="info-row"><span class="date"><i class=" icon-clock"></i>
-                            <asp:Label ID="lblTarih" runat="server"></asp:Label></span>- <span
+                        <span class="info-row" style="color: #d9534f;"><span class="date"><i class=" icon-clock"></i>
+                            <asp:Label ID="lblTarih" runat="server"></asp:Label></span> - <span
                                 class="category">
                                 <asp:Label ID="lblCat" runat="server"></asp:Label>
                             </span>- <span class="item-location"><i
                                 class="fa fa-map-marker"></i>
                                 <asp:Label ID="lblIl" runat="server"></asp:Label>
+                            </span>- <span class="item-location"><i
+                                class="fa fa-eye"></i>
+                                <asp:Label ID="lblVisitor" runat="server"></asp:Label>
                             </span></span>
 
                         <div class="ads-image" runat="server" id="notImage" visible="false">
@@ -224,7 +227,7 @@
                                     <div class="ads-action">
                                         <ul class="list-border">
                                             <li><strong>İlan No:</strong>&nbsp;
-                                                <asp:Label ID="lblNo" runat="server"></asp:Label></li>
+                                                <asp:Label ID="lblNo" Style="color: #d9534f;" runat="server"></asp:Label></li>
                                             <li><strong>İlan Tarihi:</strong>&nbsp;
                                                 <asp:Label ID="lblIlanTarih" runat="server"></asp:Label></li>
                                             <li><strong>Emlak Tipi:</strong>&nbsp;
@@ -278,10 +281,16 @@
                                     <div class="seller-info">
                                         <div class="col-md-12 no-padding photobox">
                                             <div class="add-image">
-                                                <a href="#">
+                                                <a href="#" id="store_img" runat="server" visible="false">
                                                     <img onerror="this.src='../upload/system_resim/not-found-store.png'"
                                                         class="thumbnail no-margin" src='upload/magaza/<%= sellerProfil %>'
-                                                        alt="img" /></a>
+                                                        alt="img" />
+                                                </a>
+                                                <a href="#" id="user_img" runat="server" visible="false">
+                                                    <img onerror="this.src='../upload/system_resim/user.jpg'"
+                                                        class="thumbnail no-margin" src='upload//<%= sellerProfil %>'
+                                                        alt="img" />
+                                                </a>
                                             </div>
                                         </div>
 
@@ -464,7 +473,7 @@
                         </div>
                         <div class="form-group">
                             <label for="recipient-email" class="control-label">Your E-mail:</label>
-                            <input type="text" name="email" maxlength="60" class="form-control" id="recipient-email">
+                            <input type="text" name="email" maxlength="60" class="form-control" id="recipient-email" />
                         </div>
                         <div class="form-group">
                             <label for="message-text2" class="control-label">Message <span class="text-count">(300) </span>:</label>
@@ -588,7 +597,6 @@
 
             });
         });
-
         function nextTab(elem) {
             $(elem).next().find('a[data-toggle="tab"]').click();
         }
@@ -596,7 +604,6 @@
             $(elem).prev().find('a[data-toggle="tab"]').click();
         }
     </script>
-
 
     <!-- include carousel slider plugin  -->
     <script src="libraries/assets/js/owl.carousel.min.js"></script>

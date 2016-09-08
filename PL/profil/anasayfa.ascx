@@ -126,7 +126,7 @@
                         <span class="info-row"><span class="add-type business-ads tooltipHere"
                             data-toggle="tooltip"
                             data-placement="right"
-                            title="Business Ads">B </span><span
+                            title="Business Ads">B </span>&nbsp;<span
                                 class="date" runat="server" id="txttarih"><i class=" icon-clock"></i></span>- <span
                                     class="category" runat="server" id="txtkategori"></span>- <span
                                         class="item-location" runat="server" id="txtIl"><i class="fa fa-map-marker"></i></span></span>

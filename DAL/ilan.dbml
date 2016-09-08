@@ -16,8 +16,8 @@
     <Type Name="ziyaretci">
       <Column Name="ziyaretciId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ipAdres" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="tarayici" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="sonGirisTarihi" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ilanId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="sonGirisTarihi" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.doping" Member="dopings">
@@ -414,6 +414,15 @@
       <Association Name="ilan_seciliDoping" Member="ilan" ThisKey="ilanId" OtherKey="ilanId" Type="ilan" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.t_VergiDaireleri" Member="t_VergiDaireleris">
+    <Type Name="t_VergiDaireleri">
+      <Column Name="VDID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PlakaKodu" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="IlAdi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IlceAdi" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="VergiDairesiAdi" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.telefonlar" Member="telefonlars">
     <Type Name="telefonlar">
       <Column Name="telefonId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -423,9 +432,18 @@
       <Association Name="kullanici_telefonlar" Member="kullanici" ThisKey="kullaniciId" OtherKey="kullaniciId" Type="kullanici" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.vergi_daireleri" Member="vergi_daireleris">
+    <Type Name="vergi_daireleri">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="plaka" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="il" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ilce" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="daire" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.vergiDaire" Member="vergiDaires">
     <Type Name="vergiDaire">
-      <Column Name="vergiDaireId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="vergiDaireId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="ilId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="vergiDairesi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="vergiDaire_magaza" Member="magazas" ThisKey="vergiDaireId" OtherKey="vergiDaireId" Type="magaza" />

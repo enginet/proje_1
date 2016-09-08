@@ -86,6 +86,7 @@
                                 </div>
                                 <!-- /.collapse-box  -->
 
+                                <div class="collapse-box" runat="server" id="store_plate" visible="false">
                                     <h5 class="collapse-title">MAĞAZAM <a href="#MyStore" data-toggle="collapse"
                                         class="pull-right collapsed"><i
                                             class="fa fa-angle-down"></i></a></h5>

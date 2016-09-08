@@ -135,6 +135,9 @@ namespace DAL
     partial void Inserttelefonlar(telefonlar instance);
     partial void Updatetelefonlar(telefonlar instance);
     partial void Deletetelefonlar(telefonlar instance);
+    partial void Insertvergi_daireleri(vergi_daireleri instance);
+    partial void Updatevergi_daireleri(vergi_daireleri instance);
+    partial void Deletevergi_daireleri(vergi_daireleri instance);
     partial void InsertvergiDaire(vergiDaire instance);
     partial void UpdatevergiDaire(vergiDaire instance);
     partial void DeletevergiDaire(vergiDaire instance);
@@ -445,11 +448,27 @@ namespace DAL
 			}
 		}
 		
+		public System.Data.Linq.Table<t_VergiDaireleri> t_VergiDaireleris
+		{
+			get
+			{
+				return this.GetTable<t_VergiDaireleri>();
+			}
+		}
+		
 		public System.Data.Linq.Table<telefonlar> telefonlars
 		{
 			get
 			{
 				return this.GetTable<telefonlar>();
+			}
+		}
+		
+		public System.Data.Linq.Table<vergi_daireleri> vergi_daireleris
+		{
+			get
+			{
+				return this.GetTable<vergi_daireleri>();
 			}
 		}
 		
@@ -727,9 +746,9 @@ namespace DAL
 		
 		private string _ipAdres;
 		
-		private string _tarayici;
+		private System.Nullable<int> _ilanId;
 		
-		private System.Nullable<System.DateTime> _sonGirisTarihi;
+		private System.DateTime _sonGirisTarihi;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -739,9 +758,9 @@ namespace DAL
     partial void OnziyaretciIdChanged();
     partial void OnipAdresChanging(string value);
     partial void OnipAdresChanged();
-    partial void OntarayiciChanging(string value);
-    partial void OntarayiciChanged();
-    partial void OnsonGirisTarihiChanging(System.Nullable<System.DateTime> value);
+    partial void OnilanIdChanging(System.Nullable<int> value);
+    partial void OnilanIdChanged();
+    partial void OnsonGirisTarihiChanging(System.DateTime value);
     partial void OnsonGirisTarihiChanged();
     #endregion
 		
@@ -790,28 +809,28 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tarayici", DbType="NVarChar(50)")]
-		public string tarayici
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ilanId", DbType="Int")]
+		public System.Nullable<int> ilanId
 		{
 			get
 			{
-				return this._tarayici;
+				return this._ilanId;
 			}
 			set
 			{
-				if ((this._tarayici != value))
+				if ((this._ilanId != value))
 				{
-					this.OntarayiciChanging(value);
+					this.OnilanIdChanging(value);
 					this.SendPropertyChanging();
-					this._tarayici = value;
-					this.SendPropertyChanged("tarayici");
-					this.OntarayiciChanged();
+					this._ilanId = value;
+					this.SendPropertyChanged("ilanId");
+					this.OnilanIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sonGirisTarihi", DbType="Date")]
-		public System.Nullable<System.DateTime> sonGirisTarihi
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sonGirisTarihi", DbType="Date NOT NULL")]
+		public System.DateTime sonGirisTarihi
 		{
 			get
 			{
@@ -9416,6 +9435,105 @@ namespace DAL
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.t_VergiDaireleri")]
+	public partial class t_VergiDaireleri
+	{
+		
+		private System.Nullable<int> _VDID;
+		
+		private string _PlakaKodu;
+		
+		private string _IlAdi;
+		
+		private string _IlceAdi;
+		
+		private string _VergiDairesiAdi;
+		
+		public t_VergiDaireleri()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VDID", DbType="Int")]
+		public System.Nullable<int> VDID
+		{
+			get
+			{
+				return this._VDID;
+			}
+			set
+			{
+				if ((this._VDID != value))
+				{
+					this._VDID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlakaKodu", DbType="VarChar(3)")]
+		public string PlakaKodu
+		{
+			get
+			{
+				return this._PlakaKodu;
+			}
+			set
+			{
+				if ((this._PlakaKodu != value))
+				{
+					this._PlakaKodu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IlAdi", DbType="NVarChar(50)")]
+		public string IlAdi
+		{
+			get
+			{
+				return this._IlAdi;
+			}
+			set
+			{
+				if ((this._IlAdi != value))
+				{
+					this._IlAdi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IlceAdi", DbType="NVarChar(100)")]
+		public string IlceAdi
+		{
+			get
+			{
+				return this._IlceAdi;
+			}
+			set
+			{
+				if ((this._IlceAdi != value))
+				{
+					this._IlceAdi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VergiDairesiAdi", DbType="NVarChar(255)")]
+		public string VergiDairesiAdi
+		{
+			get
+			{
+				return this._VergiDairesiAdi;
+			}
+			set
+			{
+				if ((this._VergiDairesiAdi != value))
+				{
+					this._VergiDairesiAdi = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.telefonlar")]
 	public partial class telefonlar : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -9591,6 +9709,164 @@ namespace DAL
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vergi_daireleri")]
+	public partial class vergi_daireleri : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _plaka;
+		
+		private string _il;
+		
+		private string _ilce;
+		
+		private string _daire;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnplakaChanging(string value);
+    partial void OnplakaChanged();
+    partial void OnilChanging(string value);
+    partial void OnilChanged();
+    partial void OnilceChanging(string value);
+    partial void OnilceChanged();
+    partial void OndaireChanging(string value);
+    partial void OndaireChanged();
+    #endregion
+		
+		public vergi_daireleri()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_plaka", DbType="NVarChar(50)")]
+		public string plaka
+		{
+			get
+			{
+				return this._plaka;
+			}
+			set
+			{
+				if ((this._plaka != value))
+				{
+					this.OnplakaChanging(value);
+					this.SendPropertyChanging();
+					this._plaka = value;
+					this.SendPropertyChanged("plaka");
+					this.OnplakaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_il", DbType="NVarChar(50)")]
+		public string il
+		{
+			get
+			{
+				return this._il;
+			}
+			set
+			{
+				if ((this._il != value))
+				{
+					this.OnilChanging(value);
+					this.SendPropertyChanging();
+					this._il = value;
+					this.SendPropertyChanged("il");
+					this.OnilChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ilce", DbType="NVarChar(50)")]
+		public string ilce
+		{
+			get
+			{
+				return this._ilce;
+			}
+			set
+			{
+				if ((this._ilce != value))
+				{
+					this.OnilceChanging(value);
+					this.SendPropertyChanging();
+					this._ilce = value;
+					this.SendPropertyChanged("ilce");
+					this.OnilceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_daire", DbType="NVarChar(50)")]
+		public string daire
+		{
+			get
+			{
+				return this._daire;
+			}
+			set
+			{
+				if ((this._daire != value))
+				{
+					this.OndaireChanging(value);
+					this.SendPropertyChanging();
+					this._daire = value;
+					this.SendPropertyChanged("daire");
+					this.OndaireChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vergiDaire")]
 	public partial class vergiDaire : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -9626,7 +9902,7 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vergiDaireId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vergiDaireId", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int vergiDaireId
 		{
 			get

@@ -63,7 +63,6 @@
                         <div class="inner-box">
                             <div class="categories-list  list-filter">
                                 <asp:LinkButton ID="LinkButton1" CssClass="btn btn-danger btn-block" Style="margin-top: 17px;" runat="server" Visible='<%# Request.QueryString["cat"] != null ? true : false %>'><i class="fa fa-map-marker"></i> Akıllı Harita</asp:LinkButton>
-
                                 <h5 class="list-title"><strong>
                                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/default.aspx"><i class="fa fa-angle-left"></i>
                                     TÜM KATEGORİLER</asp:HyperLink></strong></h5>
@@ -86,7 +85,7 @@
                                 </ul>
                             </div>
                             <div class="locations-list  list-filter">
-                                <h5 class="list-title"><strong><a href="#">Fİltre</a></strong></h5>
+                                <h5 class="list-title"><strong><a href="#">FİLTRE</a></strong></h5>
                                 <div id="filtre">
                                     <%--                                    <span id="gizleGoster" class="bg-green fa fa-filter"></span>--%>
                                     <div>
@@ -208,7 +207,7 @@
                     <%--Buraya reklam eklendi--%>
                     <div class="inner-box has-aff relative">
                         <a class="dummy-aff-img" href="#">
-                            <asp:Image ID="dkdrtgnRklm" runat="server" style="width:100%; height:90px;"/>
+                            <asp:Image ID="dkdrtgnRklm" runat="server" Style="width: 100%; height: 90px;" />
                         </a>
                     </div>
 
@@ -262,22 +261,11 @@
                             <ul class="list-unstyled list-inline no-margin no-padding">
                                 <li class="filter-toggle">
                                     <a class="">
-                                        <i class="  icon-th-list"></i>
-                                        Filters
+                                        <i class="fa fa-filter"></i>
+                                        Filtre
                                     </a>
                                 </li>
-                                <li>
-                                    <div class="dropdown">
-                                        <a data-toggle="dropdown" class="dropdown-toggle"><i class="caret "></i>Short
-                                            by </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="" rel="nofollow">Relevance</a></li>
-                                            <li><a href="" rel="nofollow">Date</a></li>
-                                            <li><a href="" rel="nofollow">Company</a></li>
-                                        </ul>
-                                    </div>
 
-                                </li>
                             </ul>
                         </div>
                         <div class="menu-overly-mask"></div>
@@ -289,7 +277,7 @@
                                 <%--                                <div class="tab-pane active" id="allAds">Loading...</div>--%>
                                 <br />
                                 <br />
-                                <table id="example1" class="col-md-9 table table-responsive table-hover text-center">
+                                <table id="example1" class="col-md-12 table table-responsive table-hover text-center">
                                     <thead>
                                         <tr>
                                             <th class="col-md-2"></th>
@@ -375,8 +363,6 @@
                 "info": true,
                 "autoWidth": false
             });
-
-
         });
         function uyariVer() {
             $(".clickMe").click();
@@ -397,15 +383,14 @@
             $(".select2").select2();
         });
 
-        function akilliHarita()
+
+    </script>
+    <script>
+        $(function akilliHarita()
         {
             location.href=<%# Server.MapPath("~/harita/harita.aspx?cat="+Request.QueryString["cat"]+"&tur="+Request.QueryString["tur"]) %>;
-        }
+                });
     </script>
-
     <script src="libraries/assets/js/owl.carousel.min.js"></script>
-
-    <!-- include form-validation plugin || add this script where you need validation   -->
-
     <script src="libraries/assets/js/form-validation.js"></script>
 </asp:Content>

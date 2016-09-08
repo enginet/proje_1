@@ -23,6 +23,7 @@ namespace PL
         kullaniciTakipciBll kullaniciTakipb = new kullaniciTakipciBll();
         kullaniciBll kullanicib = new kullaniciBll();
         mesajBll mesajb = new mesajBll();
+        ziyaretciBll ziyaretcib = new ziyaretciBll();
 
 
         public string magazaId, kullaniciId, postResim, sellerProfil = "";
@@ -304,6 +305,10 @@ namespace PL
             if (!Page.IsPostBack)
             {
 
+                //ziyaretçi işlemleri
+                ziyaretcib.AddVisitorCounter(Request.UserHostAddress.ToString(), _ilan.ilanId.ToString());
+
+
                 txtid.InnerHtml = _ilan.ilanId.ToString();
                 hypBaslik.Text = _ilan.baslik;
                 txtTarih.InnerHtml = _ilan.bitisTarihi.ToString();
@@ -315,13 +320,14 @@ namespace PL
 
                 //ilan _ilan = ilanb.search(2, Convert.ToInt32(Request.QueryString["ilan"]));
                 lblBaslik.Text = _ilan.baslik.ToString();
-                lblTarih.Text = _ilan.baslangicTarihi.ToString();
+                lblTarih.Text = String.Format("{0:dd MMMM yyyy}", _ilan.baslangicTarihi);
                 lblCat.Text = _ilan.kategori.kategoriAdi;
                 lblIl.Text = _ilan.iller.ilAdi + "/" + _ilan.ilceler.ilceAdi + "/" + _ilan.mahalleler.mahalleAdi;
-                lblIlanTarih.Text = _ilan.baslangicTarihi.ToString();
+                lblIlanTarih.Text = String.Format("{0:dd MMMM yyyy}", _ilan.baslangicTarihi);
                 lblNo.Text = _ilan.ilanId.ToString();
                 lblTip.Text = DAL.toolkit.donustur(_ilan.ilanTurId) + " " + _ilan.kategori.kategoriAdi;
                 lblAciklama.InnerHtml = _ilan.aciklama;
+                lblVisitor.Text = ziyaretcib.GetCount(_ilan.ilanId).ToString() + " kişi görüntüledi";
 
                 if (ilanResimb.search(Request.QueryString["ilan"]) != null)
                 {
@@ -332,7 +338,6 @@ namespace PL
                     pagerRepeater.DataBind();
                     foundImage.Visible = true;
                     lblFiyat.Text = fiyat_Tur(_ilan.fiyatTurId) + " " + _ilan.fiyat.ToString();
-
 
                 }
                 else
@@ -356,6 +361,7 @@ namespace PL
 
                     lblSatici.Text = _ilan.kullanici.kullaniciAdSoyad;
                     sellerProfil = _ilan.kullanici.profilResim;
+                    user_img.Visible = true;
                     if (_ilan.numaraYayinlansinMi == true)
                     {
                         telefonRepater.DataSource = telefonb.list(2, _ilan.kullaniciId);
@@ -395,6 +401,7 @@ namespace PL
 
                     magazaId = _ilan.magazaId.ToString();
                     lblSatici.Text = _ilan.magaza.magazaAdi;
+                    store_img.Visible = true;
                     sellerProfil = _ilan.magaza.magazaLogo;
 
                     if (Session["unique-site-user"] != null)
@@ -653,21 +660,5 @@ namespace PL
                 return "Cep";
             }
         }
-
-        //public string degerDondur(object _income)
-        //{
-        //    if(Convert.ToBoolean(_income)==true)
-        //    {
-        //        return "Evet";
-        //    }
-        //    else if (Convert.ToBoolean(_income) == false)
-        //    {
-        //        return "Hayır";
-        //    }
-        //    else
-        //    {
-        //        return _income.ToString();
-        //    }
-        //}
     }
 }

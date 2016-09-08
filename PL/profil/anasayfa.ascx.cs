@@ -25,7 +25,7 @@ namespace PL.profil
                     DAL.ilan _ilan = ilanb.search(1, _authority.kullaniciId);
                     Label1.Text = _ilan.ilanId.ToString();
                     hypBaslik.Text = _ilan.baslik;
-                    txttarih.InnerHtml = _ilan.bitisTarihi.ToString();
+                    txttarih.InnerHtml = String.Format("{0:dd MMMM yyyy}", _ilan.bitisTarihi);
                     txtkategori.InnerHtml = _ilan.kategori.kategoriAdi;
                     txtIl.InnerHtml = _ilan.iller.ilAdi;
                     lblFiyat.Text = _ilan.fiyat.ToString();

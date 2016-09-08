@@ -58,6 +58,15 @@ namespace PL {
         protected global::System.Web.UI.WebControls.Label lblIl;
         
         /// <summary>
+        /// lblVisitor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVisitor;
+        
+        /// <summary>
         /// notImage control.
         /// </summary>
         /// <remarks>
@@ -182,6 +191,24 @@ namespace PL {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton favoriCikar;
+        
+        /// <summary>
+        /// store_img control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor store_img;
+        
+        /// <summary>
+        /// user_img control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor user_img;
         
         /// <summary>
         /// lblSatici control.

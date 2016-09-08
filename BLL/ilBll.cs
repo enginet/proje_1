@@ -25,7 +25,7 @@ namespace BLL
 
         public void insert(params object[] _income)
         {
-            il.ilAdi = (string)_income[0];
+            il.ilAdi = _income[0].ToString();
             idc.illers.InsertOnSubmit(il);
             idc.SubmitChanges();
         }

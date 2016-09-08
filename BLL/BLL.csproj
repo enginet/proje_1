@@ -83,6 +83,7 @@
     <Compile Include="telefonBll.cs" />
     <Compile Include="vergiDaireBll.cs" />
     <Compile Include="verilenReklamBll.cs" />
+    <Compile Include="ziyaretciBll.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
