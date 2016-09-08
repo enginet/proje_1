@@ -10,13 +10,13 @@
                     <div class="category-list">
                         <div class="tab-box ">
 
-                            <div class="tab-filter">
+<%--                            <div class="tab-filter">
                                 <select class="selectpicker" data-style="btn-select" data-width="auto">
                                     <option>Sırala</option>
                                     <option>Fiyat Artam</option>
                                     <option>Fiyat Azalan</option>
                                 </select>
-                            </div>
+                            </div>--%>
                         </div>
                         <!--/.tab-box-->
 
@@ -77,10 +77,10 @@
                         </div>
                         <!--/.adds-wrapper-->
 
-                        <div class="tab-box  save-search-bar text-center">
+<%--                        <div class="tab-box  save-search-bar text-center">
                             <a href=""><i class=" icon-plus"></i>
                                 Onay Bekleyen İlanınız Bulunmamaktadır. </a>
-                        </div>
+                        </div>--%>
                     </div>
 
 

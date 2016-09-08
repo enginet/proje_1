@@ -9,16 +9,15 @@
                     <div class="category-list">
                         <div class="tab-box ">
 
-                            <div class="tab-filter">
+                            <%--                            <div class="tab-filter">
                                 <select class="selectpicker" data-style="btn-select" data-width="auto">
                                     <option>Sırala</option>
                                     <option>Fiyat Artam</option>
                                     <option>Fiyat Azalan</option>
                                 </select>
-                            </div>
+                            </div>--%>
                         </div>
                         <!--/.tab-box-->
-
                         <div class="listing-filter">
                             <div class="pull-left col-xs-6">
                                 <div class="breadcrumb-list">
@@ -38,10 +37,10 @@
                                         <div class="col-sm-2 no-padding photobox">
                                             <div class="add-image">
                                                 <span class="photo-count"><i
-                                                    class="fa fa-camera"></i>2 </span><a href="ads-details.html">
-                                                        <img
-                                                            class="thumbnail no-margin" src="images/item/tp/Image00015.jpg"
-                                                            alt="img"></a>
+                                                    class="fa fa-camera"></i><%# Eval("kullaniciId") %> </span>
+                                                <img onerror="this.src='../upload/system_resim/user.jpg'"
+                                                    class="thumbnail no-margin" src="images/item/"
+                                                    alt="img">
                                             </div>
                                         </div>
                                         <!--/.photobox-->
@@ -70,16 +69,15 @@
                                     <!--/.item-list-->
                                 </ItemTemplate>
                             </asp:Repeater>
-
                         </div>
                         <!--/.adds-wrapper-->
 
-<%--                        <div class="tab-box  save-search-bar text-center">
+                        <%--                        <div class="tab-box  save-search-bar text-center">
                             <a href=""><i class=" icon-plus"></i>
                                 Follow User </a>
                         </div>--%>
                     </div>
-<%--                    <div class="pagination-bar text-center">
+                    <div class="pagination-bar text-center">
                         <ul class="pagination">
                             <li class="active"><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
@@ -89,12 +87,13 @@
                             <li><a href="#">...</a></li>
                             <li><a class="pagination-btn" href="#">Sonraki &raquo;</a></li>
                         </ul>
-                    </div>--%>
-                    <!--/.pagination-bar -->
-
+                    </div>
+         
                     <div class="post-promo text-center">
                         <h2>Bir şeyler satmak mı istiyorsun ? </h2>
-                        <a href="post-ads.html" class="btn btn-lg btn-border btn-post btn-danger">Ücretsiz ilan ver</a>
+                        <li class="postadd">
+                            <asp:HyperLink ID="hypIlanVer" CssClass="btn  btn-border btn-post btn-danger" Style="font-size: 14px;" runat="server" NavigateUrl="~/kategori-secimi.aspx"><span class="ion ion-plus-round" style="font-size: 16px; padding-right: 5px;"></span> Ücretsiz İlan Ver</asp:HyperLink>
+                        </li>
                     </div>
                     <!--/.post-promo-->
 

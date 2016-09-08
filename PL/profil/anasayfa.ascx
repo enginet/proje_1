@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-5 col-xs-4 col-xxs-12">
                 <h3 class="no-padding text-center-480 useradmin"><a href="">
-                    <img class="userImg"
+                    <img class="userImg" onerror="this.src='../upload/system_resim/user.jpg'"
                         src='../upload/profil/<%= sellerProfil %>'
                         alt="user">
                     <asp:Label ID="lblUsername" runat="server"></asp:Label>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <asp:HyperLink ID="HyperLink5" runat="server"><p><strong>Hemen İlan Ver</strong></p>
-                 <p>Siz de sahibinden.com'a ilan verin, ilanınızın milyonlarca kullanıcı tarafından görüntülenmesini sağlayarak kısa sürede sonuca ulaşın. </p></asp:HyperLink>
+                 <p>Siz de ilan verin, ilanınızın milyonlarca kullanıcı tarafından görüntülenmesini sağlayarak kısa sürede sonuca ulaşın. </p></asp:HyperLink>
             </div>
         </div>
 
@@ -135,12 +135,12 @@
                 <!--/.add-desc-box-->
                 <div class="col-sm-5 text-right  price-box">
                     <h2 class="item-price"> <asp:Label ID="lblFiyatTur" runat="server"></asp:Label><asp:Label ID="lblFiyat" runat="server"></asp:Label></h2>
-                    <asp:HyperLink ID="HyperLink1" runat="server" CssClass="btn btn-danger  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/profil/profil.aspx?control=ilan&proc={0}&classified={1}", 2 ,Eval("ilanId"))%>'><i
+<%--                    <asp:HyperLink ID="HyperLink1" runat="server" CssClass="btn btn-danger  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/profil/profil.aspx?control=ilan&proc={0}&classified={1}", 2 ,Eval("ilanId"))%>'><i
                                                 class="fa fa-times"></i><span>Yayından Kaldır</span></asp:HyperLink>
                     <asp:HyperLink ID="HyperLink2" runat="server" CssClass="btn btn-primary  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/profil/profil.aspx?control=ilan&proc={0}&classified={1}", 3 ,Eval("ilanId"))%>'><i
                                                 class="fa fa-certificate"></i><span>Doping</span></asp:HyperLink>
                     <asp:HyperLink ID="HyperLink3" runat="server" CssClass="btn btn-warning  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/ilan-duzenle.aspx?page=duzenle&ilan={0}",Eval("ilanId"))%>'><i
-                                                class="fa fa-pencil"></i><span>Düzenle</span></asp:HyperLink>
+                                                class="fa fa-pencil"></i><span>Düzenle</span></asp:HyperLink>--%>
                 </div>
                 <!--/.add-desc-box-->
             </div>

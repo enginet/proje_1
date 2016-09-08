@@ -9,13 +9,13 @@
                     <div class="category-list">
                         <div class="tab-box ">
 
-                            <div class="tab-filter">
+<%--                            <div class="tab-filter">
                                 <select class="selectpicker" data-style="btn-select" data-width="auto">
                                     <option>Sırala</option>
                                     <option>Fiyat Artam</option>
                                     <option>Fiyat Azalan</option>
                                 </select>
-                            </div>
+                            </div>--%>
                         </div>
                         <!--/.tab-box-->
 
@@ -78,7 +78,7 @@
                                 Follow User </a>
                         </div>--%>
                     </div>
-<%--                    <div class="pagination-bar text-center">
+                    <div class="pagination-bar text-center">
                         <ul class="pagination">
                             <li class="active"><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
@@ -88,13 +88,13 @@
                             <li><a href="#">...</a></li>
                             <li><a class="pagination-btn" href="#">Sonraki &raquo;</a></li>
                         </ul>
-                    </div>--%>
+                    </div>
                     <!--/.pagination-bar -->
-
                     <div class="post-promo text-center">
                         <h2>Bir şeyler satmak mı istiyorsun ? </h2>
-                        <a href="post-ads.html" class="btn btn-lg btn-border btn-post btn-danger">Ücretsiz ilan ver</a>
-                    </div>
+                        <li class="postadd">
+                            <asp:HyperLink ID="hypIlanVer" CssClass="btn  btn-border btn-post btn-danger" Style="font-size: 14px;" runat="server" NavigateUrl="~/kategori-secimi.aspx"><span class="ion ion-plus-round" style="font-size: 16px; padding-right: 5px;"></span> Ücretsiz İlan Ver</asp:HyperLink>
+                        </li>                      </div>
                     <!--/.post-promo-->
 
                 </div>

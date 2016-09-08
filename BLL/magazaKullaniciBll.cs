@@ -49,7 +49,7 @@ namespace BLL
             }
             else
             {
-                return idc.magazaKullanicis.Where(q => q.kullaniciId == Convert.ToInt32(_income[1])).FirstOrDefault();
+                return idc.magazaKullanicis.Where(q => q.kullaniciId == Convert.ToInt32(_income[1]) & q.rol==0).FirstOrDefault();
             }
         }
 

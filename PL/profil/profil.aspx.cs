@@ -11,11 +11,22 @@ namespace PL
 {
     public partial class hesap_anasayfa : System.Web.UI.Page
     {
+        magazaKullaniciBll magazaKllb = new magazaKullaniciBll();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["unique-site-user"] != null)
             {
                 kullanici _authority = (kullanici)Session["unique-site-user"];
+
+                if(magazaKllb.search(2,_authority.kullaniciId)!=null)
+                {
+                    store_plate.Visible = false;
+
+                    if (Request.QueryString["control"] == "magaza-kullanicilar")
+                    {
+                        PlaceHolder1.Controls.Add(Page.LoadControl("~/profil/magaza-kullanicilar.ascx"));
+                    }
+                }
 
                 if (Request.QueryString["control"] == "anasayfa")
                 {
@@ -106,7 +117,6 @@ namespace PL
                 if (Request.QueryString["control"] == "magaza-detay-ekle")
                 {
                     PlaceHolder1.Controls.Add(Page.LoadControl("~/profil/magaza-detay-ekle.ascx"));
-
                 }
 
 
@@ -163,11 +173,7 @@ namespace PL
 
                 }
 
-                if (Request.QueryString["control"] == "magaza-kullanicilar")
-                {
-                    PlaceHolder1.Controls.Add(Page.LoadControl("~/profil/magaza-kullanicilar.ascx"));
 
-                }
             }
             else
             {

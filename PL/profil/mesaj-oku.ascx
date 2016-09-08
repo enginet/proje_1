@@ -409,7 +409,7 @@
                                         <%# Eval("mesaj") %>
                                     </div>
                                     <div class="testimonial-desc">
-                                        <img src='../upload/profil/<%# Eval("profilResim") %>' alt="" />
+                                        <img onerror="this.src='../upload/system_resim/user.jpg'" src='../upload/profil/<%# Eval("profilResim") %>' alt="" />
                                         <div class="testimonial-writer">
                                             <div class="testimonial-writer-name"><%# Eval("kullaniciAdSoyad") %></div>
                                             <div class="testimonial-writer-designation"><%# Eval("tarih","{0:dd MMMM yyyy}") %></div>

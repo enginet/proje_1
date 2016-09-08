@@ -157,6 +157,15 @@ namespace PL {
         protected global::System.Web.UI.WebControls.HyperLink hypGönderilen;
         
         /// <summary>
+        /// store_plate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl store_plate;
+        
+        /// <summary>
         /// hypMagazaBilgi control.
         /// </summary>
         /// <remarks>
@@ -182,15 +191,6 @@ namespace PL {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hypGit;
-        
-        /// <summary>
-        /// hypDoundur control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hypDoundur;
         
         /// <summary>
         /// PlaceHolder1 control.

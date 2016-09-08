@@ -49,64 +49,6 @@ namespace PL.management.anaYonetim.magazaYonetimi
                 onlineRepeater.DataSource = kullanicib.list(4);
                 onlineRepeater.DataBind();
             }
-
-            //if(Request.QueryString["edit"]!=null)
-            //{
-            //    DAL.magaza _magaza=magazab.search(Convert.ToInt32(Request.QueryString["edit"]));
-            //    txtMagazaAdi.Value = _magaza.magazaAdi;
-            //    rdKurumsal.SelectedValue =_magaza.kurumsalMi.ToString();
-            //    drpIl.SelectedValue = _magaza.ilId.ToString();
-
-            //    drpIlce.DataSource = ilceb.list(Convert.ToInt32(drpIl.SelectedValue));
-            //    drpIlce.DataTextField = "ilceAdi";
-            //    drpIlce.DataValueField = "ilceId";
-            //    drpIlce.DataBind();
-
-            //    ListItem lst_4 = new ListItem();
-            //    lst_4.Value = null;
-            //    lst_4.Text = "İlçe Seçiniz";
-            //    lst_4.Selected = true;
-            //    drpIlce.Items.Insert(0, lst_4);
-
-            //    drpIlce.SelectedValue = _magaza.ilceId.ToString();
-
-            //    drpMahalle.DataSource = mahalleb.list(Convert.ToInt32(drpIlce.SelectedValue));
-            //    drpMahalle.DataTextField = "mahalleAdi";
-            //    drpMahalle.DataValueField = "mahalleId";
-            //    drpMahalle.DataBind();
-
-            //    ListItem lst = new ListItem();
-            //    lst.Value = null;
-            //    lst.Text = "Mahalle Seçiniz";
-            //    lst.Selected = true;
-
-            //    drpMahalle.Items.Insert(0, lst);
-
-            //    drpMahalle.SelectedValue = _magaza.mahalleId.ToString();
-            //    txtTcNo.Value = _magaza.vergiNo.ToString();
-
-            //    drpVergi.DataSource = vergiDaireb.list(Convert.ToInt32(drpIl.SelectedValue));
-            //    drpVergi.DataTextField = "vergiDairesi";
-            //    drpVergi.DataValueField = "vergiDaireId";
-            //    drpVergi.DataBind();
-
-            //    ListItem lst_2 = new ListItem();
-            //    lst_2.Value = null;
-            //    lst_2.Text = "Vergi Dairesi Seçiniz";
-            //    lst_2.Selected = true;
-            //    drpVergi.Items.Insert(0, lst_2);
-
-            //    drpVergi.SelectedValue = _magaza.vergiDaireId.ToString();
-
-            //    magazaKullanici _magazaKll = magazaKllb.search(_magaza.magazaId);
-            //    drpKullanici.SelectedValue = _magazaKll.kullaniciId.ToString();
-
-            //    magazaTelefon _magazaTlf = magazaTlfb.search(_magaza.magazaId, 3);
-            //    txtIsTlf.Value = _magazaTlf.telefon;
-
-            //    magazaTelefon _magazaTlf2 = magazaTlfb.search(_magaza.magazaId, 4);
-            //    txtIsTlf2.Value = _magazaTlf2.telefon;
-            //}
         }
 
         protected void drpIl_SelectedIndexChanged(object sender, EventArgs e)
@@ -141,13 +83,6 @@ namespace PL.management.anaYonetim.magazaYonetimi
 
         protected void Kaydet_Click(object sender, EventArgs e)
         {
-            //if(Request.QueryString["edit"]!=null)
-            //{
-            //    magazab.update(4, Request.QueryString["edit"], txtMagazaAdi, rdKurumsal.SelectedValue, drpIl.SelectedValue, drpIlce.SelectedValue, drpMahalle.SelectedValue, txtTcNo.Value, drpVergi.SelectedValue);
-
-
-            //}
-
             try
             {
                 magazab.insert(txtMagazaAdi.Value, rdKurumsal.SelectedValue, drpIl.SelectedValue, drpIlce.SelectedValue, drpMahalle.SelectedValue, txtTcNo.Value, drpVergi.SelectedValue);
@@ -160,7 +95,7 @@ namespace PL.management.anaYonetim.magazaYonetimi
                 {
                     magazaTlfb.insert(_magaza.magazaId, DAL.toolkit.Number_Remover(txtIsTlf2.Value), 4);
                 }
-                magazaKllb.insert(_magaza.magazaId, drpKullanici.SelectedValue, 1);
+                magazaKllb.insert(_magaza.magazaId, drpKullanici.SelectedValue, 0);
 
                 Response.Redirect("~/management/anaYonetim/magazaYonetimi/magaza.aspx?page=kategori-secimi&sto=" + _magaza.magazaId);
 

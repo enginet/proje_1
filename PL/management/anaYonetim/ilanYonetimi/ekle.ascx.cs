@@ -276,7 +276,6 @@ namespace PL.management.anaYonetim.ilanYonetimi
             if (Request.QueryString["cat"] == "4")
             {
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
-                PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/arsa-ozellik.ascx"));
                 PlaceHolder7.Controls.Add(Page.LoadControl("~/ozellikler/tapu-durum.ascx"));
                 PlaceHolder8.Controls.Add(Page.LoadControl("~/ozellikler/kredi-takas.ascx"));
