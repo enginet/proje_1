@@ -491,6 +491,7 @@ namespace PL
         {
             if (!Page.IsPostBack)
             {
+                LinkButton1.Attributes["href"] = "harita/harita.aspx" + "?cat=" + Request.QueryString["cat"] + "&tur=" + Request.QueryString["tur"];
                 verilenReklamBll vrb = new verilenReklamBll();
                 DAL.verilenReklam rklm = vrb.search(2, 10);
                 if (rklm != null)

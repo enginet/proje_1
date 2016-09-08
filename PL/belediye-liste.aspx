@@ -61,6 +61,7 @@
                     <aside>
                         <div class="inner-box">
                             <div class="categories-list  list-filter">
+                                <asp:LinkButton ID="LinkButton1" CssClass="btn btn-danger btn-block" Style="margin-top: 17px;" runat="server" Visible='<%# Request.QueryString["cat"] != null ? true : false %>'><i class="fa fa-map-marker"></i> Akıllı Harita</asp:LinkButton>
                                 <h5 class="list-title"><strong>
                                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/default.aspx"><i class="fa fa-angle-left"></i>
                                     TÜM KATEGORİLER</asp:HyperLink>

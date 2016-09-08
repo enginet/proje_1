@@ -396,6 +396,11 @@
         Sys.WebForms.PageRequestManager.getInstance().add_pageLoaded(function (evt, args) {
             $(".select2").select2();
         });
+
+        function akilliHarita()
+        {
+            location.href=<%# Server.MapPath("~/harita/harita.aspx?cat="+Request.QueryString["cat"]+"&tur="+Request.QueryString["tur"]) %>;
+        }
     </script>
 
     <script src="libraries/assets/js/owl.carousel.min.js"></script>

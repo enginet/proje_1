@@ -493,6 +493,7 @@ namespace PL
         {
             if (!Page.IsPostBack)
             {
+                LinkButton1.Attributes["href"] ="harita/harita.aspx"+"?cat=" + Request.QueryString["cat"] + "&tur=" + Request.QueryString["tur"];
                 verilenReklamBll vrb = new verilenReklamBll();
                 DAL.verilenReklam rklm = vrb.search(2, 10);
                 if (rklm != null)
@@ -869,11 +870,6 @@ namespace PL
             JObject dizi = JObject.Parse(dondur);
 
             return dizi;
-        }
-
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("sahibinden-liste.aspx");
         }
     }
 }
