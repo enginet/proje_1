@@ -13,13 +13,13 @@ namespace PL.ozellikler {
     public partial class arsa_ozellik {
         
         /// <summary>
-        /// pafta control.
+        /// paftano control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pafta;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl paftano;
         
         /// <summary>
         /// txtPaftaNo control.
@@ -31,13 +31,13 @@ namespace PL.ozellikler {
         protected global::System.Web.UI.WebControls.TextBox txtPaftaNo;
         
         /// <summary>
-        /// metrekarefiyat control.
+        /// metrefiyat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl metrekarefiyat;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl metrefiyat;
         
         /// <summary>
         /// txtMetreFiyat control.

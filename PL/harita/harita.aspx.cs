@@ -52,10 +52,10 @@ namespace PL.harita
                 {
                     foreach (Control item2 in item.Controls)
                     {
-                        if (item2.ID == "pafta" || item2.ID == "metrekarefiyat")
-                        {
+                            if (item2.ID == "paftano" || item2.ID == "txtPaftaNo" || item2.ID == "metrefiyat" || item2.ID == "txtMetreFiyat")
+                            {
                             item2.Visible = false;
-                        }
+                            }
                     }
                 }
             }

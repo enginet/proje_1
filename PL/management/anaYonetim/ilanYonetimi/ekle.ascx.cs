@@ -65,13 +65,10 @@ namespace PL.management.anaYonetim.ilanYonetimi
                 PlaceHolder22.Controls.Add(Page.LoadControl("~/ozellikler/ulasim.ascx"));
                 PlaceHolder23.Controls.Add(Page.LoadControl("~/ozellikler/manzara.ascx"));
                 PlaceHolder24.Controls.Add(Page.LoadControl("~/ozellikler/konuttip.ascx"));
-
             }
             // 9 residence
             if (Request.QueryString["cat"] == "9")
             {
-                
-                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/salon-sayisi-text.ascx"));
@@ -102,13 +99,10 @@ namespace PL.management.anaYonetim.ilanYonetimi
                 PlaceHolder24.Controls.Add(Page.LoadControl("~/ozellikler/konut-ozellik.ascx"));
                 PlaceHolder25.Controls.Add(Page.LoadControl("~/ozellikler/cevre-ozellik.ascx"));
                 PlaceHolder26.Controls.Add(Page.LoadControl("~/ozellikler/sosyal.ascx"));
-
             }
             // 12 çiftlik evi
             if (Request.QueryString["cat"] == "12")
             {
-                
-                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/bina-arazi-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/salon-sayisi-text.ascx"));
@@ -143,8 +137,6 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 13 köşk & konak
             if (Request.QueryString["cat"] == "13")
             {
-                
-                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/bina-arazi-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/salon-sayisi-text.ascx"));
@@ -180,8 +172,6 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 14 yalı
             if (Request.QueryString["cat"] == "14")
             {
-                
-                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/bina-arazi-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/salon-sayisi-text.ascx"));
@@ -216,8 +206,6 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 15 yalı dairesi
             if (Request.QueryString["cat"] == "15")
             {
-                
-                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/salon-sayisi-text.ascx"));
@@ -253,8 +241,6 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 17 prefabrik ev
             if (Request.QueryString["cat"] == "17")
             {
-                
-                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/kat-sayisi-text.ascx"));
@@ -290,13 +276,10 @@ namespace PL.management.anaYonetim.ilanYonetimi
                 PlaceHolder10.Controls.Add(Page.LoadControl("~/ozellikler/konum.ascx"));
                 PlaceHolder11.Controls.Add(Page.LoadControl("~/ozellikler/genel-ozellik.ascx"));
                 PlaceHolder12.Controls.Add(Page.LoadControl("~/ozellikler/manzara.ascx"));
-
             }
             // 5 bina
             if (Request.QueryString["cat"] == "5")
             {
-                
-                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/daire-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/kat-sayisi.ascx"));
@@ -330,8 +313,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 35 otel / 42 tatil köyü
             if (Request.QueryString["cat"] == "35" || Request.QueryString["cat"] == "40")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/acik-kapali-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/yildiz-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/oda-yatak-kat-sayisi.ascx"));
@@ -362,8 +345,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 36 apart otel
             if (Request.QueryString["cat"] == "36")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/acik-kapali-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/apart-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/oda-yatak-kat-sayisi.ascx"));
@@ -396,8 +379,6 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 37 butik otel / 38 pansiyon / 41 motel
             if (Request.QueryString["cat"] == "37" || Request.QueryString["cat"] == "38" || Request.QueryString["cat"] == "41")
             {
-                
-                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/acik-kapali-metre.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/oda-yatak-kat-sayisi.ascx"));
                 PlaceHolder7.Controls.Add(Page.LoadControl("~/ozellikler/bina-yasi.ascx"));
@@ -428,8 +409,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 39 kamp yeri
             if (Request.QueryString["cat"] == "39")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
 
                 if (Request.QueryString["tur"] == "2" || Request.QueryString["tur"] == "3" || Request.QueryString["tur"] == "5")
@@ -454,8 +435,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 42 plaj
             if (Request.QueryString["cat"] == "42")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/kapasite.ascx"));
 
@@ -463,8 +444,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 21 atölye
             if (Request.QueryString["cat"] == "21")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/durum.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/kredi-takas.ascx"));
 
@@ -477,8 +458,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 20 büfe
             if (Request.QueryString["cat"] == "20")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/yapi-tipi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/yapi-durum.ascx"));
@@ -496,8 +477,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 29 büro & ofis
             if (Request.QueryString["cat"] == "29")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/bina-yasi.ascx"));
@@ -518,8 +499,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 22 depo & antrepo
             if (Request.QueryString["cat"] == "22")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/giris-yuksek.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/bina-yasi-text.ascx"));
@@ -544,8 +525,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 23 dükkan & mağaza
             if (Request.QueryString["cat"] == "23")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/aidat.ascx"));
@@ -571,8 +552,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 24 fabrika
             if (Request.QueryString["cat"] == "24")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/acik-kapali-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/bina-adedi.ascx"));
@@ -601,8 +582,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 25 İşhanı Katı
             if (Request.QueryString["cat"] == "25")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
                 PlaceHolder7.Controls.Add(Page.LoadControl("~/ozellikler/kat-sayisi-text.ascx"));
@@ -632,8 +613,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 26 Komple Bina
             if (Request.QueryString["cat"] == "26")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bina-tipi.ascx"));
                 PlaceHolder7.Controls.Add(Page.LoadControl("~/ozellikler/kat-sayisi-text.ascx"));
@@ -662,8 +643,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 27 Plaza Katı
             if (Request.QueryString["cat"] == "27")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
                 PlaceHolder7.Controls.Add(Page.LoadControl("~/ozellikler/kat-sayisi-text.ascx"));
@@ -692,8 +673,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 28 İmalathane
             if (Request.QueryString["cat"] == "28")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/bina-yasi.ascx"));
@@ -711,8 +692,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 30 market
             if (Request.QueryString["cat"] == "30")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder7.Controls.Add(Page.LoadControl("~/ozellikler/isitma.ascx"));
                 PlaceHolder8.Controls.Add(Page.LoadControl("~/ozellikler/kredi-takas.ascx"));
@@ -725,8 +706,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 31 Restoran lokanta
             if (Request.QueryString["cat"] == "31")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bina-yasi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/isitma.ascx"));
@@ -746,8 +727,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 32 Kuaför Güzellik Merkezi
             if (Request.QueryString["cat"] == "32")
             {
-                
-                
+
+
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/isitma.ascx"));
@@ -767,8 +748,6 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 33 Tekel Bayi
             if (Request.QueryString["cat"] == "33")
             {
-                
-                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/isitma.ascx"));
 
@@ -849,10 +828,6 @@ namespace PL.management.anaYonetim.ilanYonetimi
 
             if (drpKimden.SelectedValue != "")
             {
-
-                // mağaza id si de gönderilecek
-
-                // ilan bilgileri ekleme işlemi
                 ilnBll.insert(
                         Request.QueryString["tur"], // ilan türü
                         Request.QueryString["cat"], // ilan kategorisi
@@ -866,7 +841,7 @@ namespace PL.management.anaYonetim.ilanYonetimi
                         txtBaslik.Text,
                         txtCKeditorAdi.Text,
                         1 // onay durumu
-                        //numaraYayinlansin.Checked // numara yayınlansın mı
+                          //numaraYayinlansin.Checked // numara yayınlansın mı
                     );
 
                 DAL.ilan iln = ilnBll.list().Last(); // ilan resmi ve detayları için eklenen son ilanın id değerini almamız gerek
@@ -891,21 +866,10 @@ namespace PL.management.anaYonetim.ilanYonetimi
                                 {
                                     if (((TextBox)item3).Text != "")
                                     {
-                                        if(((TextBox)item3).Attributes["name"]=="71")
-                                        {
-                                            JObject obj = JObject.Parse(((TextBox)item3).Text);
-
-                                            string kaydet = "{\"type\":\"MultiPolygon\",\"coordinates\":[" + obj["features"][0]["geometry"]["coordinates"].ToString().Replace("\r", "").Replace("\n", "").Replace(" ","") + "]}";
-                                            
-                                            goBll.insert(iln.ilanId, ((TextBox)item3).Attributes["name"], kaydet);
-                                        }
-                                        else
-                                        {
-                                            goBll.insert(iln.ilanId, ((TextBox)item3).Attributes["name"], ((TextBox)item3).Text);
-                                        }
+                                        goBll.insert(iln.ilanId, ((TextBox)item3).Attributes["name"], ((TextBox)item3).Text);
                                     }
                                 }
-                                else if(item3 is CheckBox) // Eğer checkbox tek ise
+                                else if (item3 is CheckBox) // Eğer checkbox tek ise
                                 {
                                     string[] gonder = ((CheckBox)item3).Attributes["value"].Split('_');
                                     if (((CheckBox)item3).Checked)
@@ -938,6 +902,42 @@ namespace PL.management.anaYonetim.ilanYonetimi
                     }
                 }
 
+
+                foreach (Control item in PlaceHolder3.Controls)
+                {
+                    foreach (Control item2 in item.Controls)
+                    {
+                        if (item2 is TextBox)
+                        {
+                            if (((TextBox)item2).Text != "")
+                            {
+                                if (((TextBox)item2).Attributes["name"] == "71")
+                                {
+                                    JObject obj = JObject.Parse(((TextBox)item2).Text);
+
+                                    string kaydet = "{\"type\":\"MultiPolygon\",\"coordinates\":[" + obj["features"][0]["geometry"]["coordinates"].ToString().Replace("\r", "").Replace("\n", "").Replace(" ", "") + "]}";
+
+                                    goBll.insert(iln.ilanId, ((TextBox)item2).Attributes["name"], kaydet);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                foreach (Control item in PlaceHolder2.Controls)
+                {
+                    foreach (Control item2 in item.Controls)
+                    {
+                        if (item2 is TextBox)
+                        {
+                            if (((TextBox)item2).Text != "")
+                            {
+                                goBll.insert(iln.ilanId, ((TextBox)item2).Attributes["name"], ((TextBox)item2).Text);
+                            }
+                        }
+                    }
+                }
+
                 HttpFileCollection updateFiles = Request.Files;
                 string str_image = "";
                 Bitmap resim;
@@ -957,8 +957,7 @@ namespace PL.management.anaYonetim.ilanYonetimi
                         string fileName = file.FileName;
                         string fileExtension = Path.GetExtension(fileName);
                         str_image = iln.ilanId.ToString() + "_" + (i + 1).ToString() + fileExtension;
-
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "initMap", "alert(" + str_image + ");", true);
+                        
                         ir.insert(iln.ilanId, str_image, secili);
 
                         DAL.fotograf.yukle(file, 480, str_image, iln.ilanId.ToString(), 1);
@@ -971,7 +970,7 @@ namespace PL.management.anaYonetim.ilanYonetimi
 
                     path = Server.MapPath("~/upload/ilan/");
                     str_image = iln.ilanId + "_1.jpg";
-                    img.Save(path+str_image);
+                    img.Save(path + str_image);
                     ir.insert(iln.ilanId, str_image, true);
                 }
 
