@@ -56,37 +56,37 @@
 
                     if (ilan[i]["magazaId"] != "-1") {
                         //emlakçıdan
-                        if (ilan[i]["kimden"] == 2) {
+                        if (ilan[i]["kimden"] == 7) {
                             renk = '#2a0cae';
                         }
 
                         //belediyeden
-                        if (ilan[i]["kimden"] == 3) {
+                        if (ilan[i]["kimden"] == 1) {
                             renk = '#6a12bc';
                         }
 
                         //bankadan
-                        if (ilan[i]["kimden"] == 4) {
+                        if (ilan[i]["kimden"] == 5) {
                             renk = '#fffc00';
                         }
 
                         //izaley-i şuyudan
-                        if (ilan[i]["kimden"] == 5) {
+                        if (ilan[i]["kimden"] == 3) {
                             renk = '#a0fcff';
                         }
 
                         //icradan
-                        if (ilan[i]["kimden"] == 6) {
+                        if (ilan[i]["kimden"] == 2) {
                             renk = '#ffb400';
                         }
 
                         //milli hazineden (sayışı devam eden)
-                        if (ilan[i]["kimden"] == 7) {
+                        if (ilan[i]["kimden"] == 10) {
                             renk = '#9d9d9d';
                         }
 
                         //milli hazineden (satılamayan)
-                        if (ilan[i]["kimden"] == 8) {
+                        if (ilan[i]["kimden"] == 4) {
                             renk = '#86ed00';
                         }
 
@@ -96,12 +96,12 @@
                         }
 
                         //inşaat firmasından
-                        if (ilan[i]["kimden"] == 10) {
+                        if (ilan[i]["kimden"] == 8) {
                             renk = '#fa5fd7';
                         }
 
                         //diğer kamu kurumlarından
-                        if (ilan[i]["kimden"] == 11) {
+                        if (ilan[i]["kimden"] == 6) {
                             renk = '#e3fffe';
                         }
                     }

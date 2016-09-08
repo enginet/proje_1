@@ -447,6 +447,7 @@
 <script src='<%= Page.ResolveUrl("~/management/plugins/iCheck/icheck.min.js") %>'></script>
 <script src='<%= Page.ResolveUrl("~/management/plugins/datepicker/bootstrap-datepicker.js") %>'></script>
 <script>
+    
     $(function () {
         $('input').iCheck({
             checkboxClass: 'icheckbox_square-blue',
@@ -472,11 +473,10 @@
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 6,
             center: { lat: 39, lng: 36 },
-            mapTypeId: google.maps.MapTypeId.ROAD
+            mapTypeId: google.maps.MapTypeId.SATELLITE
         });
 
         var renk = '';
-        
         if ($(".kimden").val() == '100000001') { // belediye
             renk = '#6a12bc';
         }
@@ -494,20 +494,20 @@
             $(".kimden").val() == '100000007' ||
             $(".kimden").val() == '100000008' ||
             $(".kimden").val() == '100000009' ||
-            $(".kimden").val() == '1000000010' ||
-            $(".kimden").val() == '1000000011' ||
-            $(".kimden").val() == '1000000012' ||
-            $(".kimden").val() == '1000000013' ||
-            $(".kimden").val() == '1000000014' ||
-            $(".kimden").val() == '1000000015' ||
-            $(".kimden").val() == '1000000016' ||
-            $(".kimden").val() == '1000000017' ||
-            $(".kimden").val() == '1000000018' ||
-            $(".kimden").val() == '1000000019' ||
-            $(".kimden").val() == '1000000020' ||
-            $(".kimden").val() == '1000000021' ||
-            $(".kimden").val() == '1000000022' ||
-            $(".kimden").val() == '1000000023') {
+            $(".kimden").val() == '100000010' ||
+            $(".kimden").val() == '100000011' ||
+            $(".kimden").val() == '100000012' ||
+            $(".kimden").val() == '100000013' ||
+            $(".kimden").val() == '100000014' ||
+            $(".kimden").val() == '100000015' ||
+            $(".kimden").val() == '100000016' ||
+            $(".kimden").val() == '100000017' ||
+            $(".kimden").val() == '100000018' ||
+            $(".kimden").val() == '100000019' ||
+            $(".kimden").val() == '100000020' ||
+            $(".kimden").val() == '100000021' ||
+            $(".kimden").val() == '100000022' ||
+            $(".kimden").val() == '100000023') {
             renk = '#fffc00';
         }
         else if ($(".kimden").val() == '1000000024') {
