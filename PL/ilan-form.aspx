@@ -725,6 +725,31 @@
                 event.preventDefault();
             }
         });
+
+        jQuery('.metrekare').on('input propertychange paste', function () {
+            if ($(this).val() != "") {
+                if ($("#ContentPlaceHolder1_ctl00_txtFiyat").val() != "") {
+                    $(".metrekareFiyat").val(((parseFloat($("#ContentPlaceHolder1_ctl00_txtFiyat").val().replace(",", ".")) /
+                                                                                parseFloat($(".metrekare").val().replace(",", "."))).toFixed(2)).replace(".", ","));
+                }
+            }
+            else {
+                $(".metrekareFiyat").val("");
+            }
+        });
+
+        jQuery('#ContentPlaceHolder1_ctl00_txtFiyat').on('input propertychange paste', function () {
+            if ($(this).val() != "") {
+                if ($(".metrekare").val() != "") {
+                    $(".metrekareFiyat").val(((parseFloat($("#ContentPlaceHolder1_ctl00_txtFiyat").val().replace(",", ".")) /
+                                                                                parseFloat($(".metrekare").val().replace(",", "."))).toFixed(2)).replace(".", ","));
+                }
+            }
+            else {
+                $(".metrekareFiyat").val("");
+            }
+        });
+
     </script>
     <script src="management/dist/js/app.min.js"></script>
 </asp:Content>

@@ -145,6 +145,7 @@
     <Content Include="management\anaYonetim\ilanYonetimi\duzenle.ascx" />
     <Content Include="management\anaYonetim\ilanYonetimi\ekle.ascx" />
     <Content Include="management\anaYonetim\ilanYonetimi\ilan-kategori.ascx" />
+    <Content Include="management\anaYonetim\ilanYonetimi\ilan-verildi.ascx" />
     <Content Include="management\anaYonetim\ilanYonetimi\ilan.aspx" />
     <Content Include="management\anaYonetim\ilanYonetimi\listele.ascx" />
     <Content Include="management\anaYonetim\kategoriYonetimi\duzenle.ascx" />
@@ -671,6 +672,13 @@
     </Compile>
     <Compile Include="management\anaYonetim\ilanYonetimi\ilan-kategori.ascx.designer.cs">
       <DependentUpon>ilan-kategori.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="management\anaYonetim\ilanYonetimi\ilan-verildi.ascx.cs">
+      <DependentUpon>ilan-verildi.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="management\anaYonetim\ilanYonetimi\ilan-verildi.ascx.designer.cs">
+      <DependentUpon>ilan-verildi.ascx</DependentUpon>
     </Compile>
     <Compile Include="management\anaYonetim\ilanYonetimi\ilan.aspx.cs">
       <DependentUpon>ilan.aspx</DependentUpon>

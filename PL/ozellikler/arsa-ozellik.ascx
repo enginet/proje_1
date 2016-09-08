@@ -5,7 +5,7 @@
 </div>
 <div class="form-group" id="metrekarefiyat" runat="server">
     <label for="txtMetreFiyat">m<sup>2</sup> Fiyatı</label>
-    <asp:TextBox ID="txtMetreFiyat" CssClass="form-control double" runat="server" name="12"></asp:TextBox>
+    <asp:TextBox ID="txtMetreFiyat" CssClass="form-control double metrekareFiyat" runat="server" name="12" Enabled="false"></asp:TextBox>
 </div>
 <div class="form-group">
     <label>Kask</label>

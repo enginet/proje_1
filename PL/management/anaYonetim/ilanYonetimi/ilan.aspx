@@ -25,7 +25,6 @@
         .table td {
             vertical-align: middle !important;
         }
-
             .table td h5 {
                 padding-bottom: 0 !important;
             }

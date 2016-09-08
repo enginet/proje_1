@@ -55,6 +55,10 @@ namespace PL.management.anaYonetim.ilanYonetimi
             {
                 PlaceHolder1.Controls.Add(Page.LoadControl("~/management/anaYonetim/ilanYonetimi/duzenle.ascx"));
             }
+            if (Request.QueryString["page"] == "ilan-verildi")
+            {
+                PlaceHolder1.Controls.Add(Page.LoadControl("~/management/anaYonetim/ilanYonetimi/ilan-verildi.ascx"));
+            }
         }
     }
 }

@@ -976,6 +976,8 @@ namespace PL.management.anaYonetim.ilanYonetimi
                     ir.insert(iln.ilanId, str_image, true);
                 }
 
+                Session["ilanNo"] = iln.ilanId;
+                Response.Redirect("~/management/anaYonetim/ilanYonetimi/ilan.aspx?page=ilan-verildi");
             }
             else
             {
