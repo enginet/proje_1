@@ -142,10 +142,10 @@
                                     <h4 class="list-group-item-heading"><i class="fa fa-credit-card fa-2x"></i></h4>
                                     <p class="list-group-item-text">Ödeme</p>
                                 </a></li>
-                                <li class="disabled"><a href="#step-5">
+<%--                                <li class="disabled"><a href="#step-5">
                                     <h4 class="list-group-item-heading"><i class="fa fa-check fa-2x"></i></h4>
                                     <p class="list-group-item-text">Tamamlandı</p>
-                                </a></li>
+                                </a></li>--%>
                             </ul>
                         </div>
                     </div>
@@ -222,7 +222,7 @@
                                             <p style="font-size:20px;"><%= Request.QueryString["sto"].ToString() %> numaralı mağaza başarıyla kaydedilmiştir. Onaylandıktan sonra 2 iş günü içerisinde yayına verilecektir.</p>
                                         </div>
                                         <div class="col-xs-4 center-block" style="float:none">
-                                            <label style="text-align:center; font-size:24px;">Mağaza Paket Ücreti <br /><br /> <span style="color:#b51818; background:#e0e0e0; padding:0 10px;"> &#x20BA; <%= magazaFiyat %> </span><br /><br />
+                                            <label style="text-align:center; font-size:24px;"><%= magazaPaket %> Mağaza Paket Ücreti <br /><br /> <span style="color:#b51818; background:#e0e0e0; padding:0 10px;"> &#x20BA; <%= magazaFiyat %> </span><br /><br />
                                             </label>
                                         </div>
                                     </section>

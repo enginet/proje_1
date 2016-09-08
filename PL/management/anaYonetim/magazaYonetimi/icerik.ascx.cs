@@ -37,11 +37,11 @@ namespace PL.management.anaYonetim.magazaYonetimi
             string fileExt = segments[segments.Length - 1];
             DateTime magazaSure = default(DateTime);
 
-            if (magazaKtgb.search(2,Request.QueryString["pac"]).paketSureId == 1)
+            if (magazaKtgb.search(2, Request.QueryString["pac"]).paketSureId == 1)
             {
                 magazaSure = DateTime.Now.AddMonths(6);
             }
-            if (magazaKtgb.search(2,Request.QueryString["pac"]).paketSureId == 2)
+            if (magazaKtgb.search(2, Request.QueryString["pac"]).paketSureId == 2)
             {
                 magazaSure = DateTime.Now.AddMonths(12);
             }
@@ -52,37 +52,38 @@ namespace PL.management.anaYonetim.magazaYonetimi
 
             HttpFileCollection updateFiles = Request.Files;
             string str_image = "";
-
-            for (int i = 0; i < updateFiles.Count; i++)
+            if (FileUpload1.HasFile)
             {
-
-                bool secili = false;
-                if (i == 0)
+                for (int i = 0; i < updateFiles.Count; i++)
                 {
-                    secili = true;
+
+                    bool secili = false;
+                    if (i == 0)
+                    {
+                        secili = true;
+                    }
+
+                    HttpPostedFile file = updateFiles[i];
+
+                    string fileName = file.FileName;
+                    string fileExtension = file.ContentType;
+                    fileExtension = Path.GetExtension(fileName);
+                    str_image = Request.QueryString["sto"] + fileExtension;
+                    DAL.fotograf.yukle(file, 480, str_image, Request.QueryString["sto"].ToString(), 2);
+
+
+                    //if (!string.IsNullOrEmpty(fileName))
+                    //{
+                    //    fileExtension = Path.GetExtension(fileName);
+                    //    str_image = Request.QueryString["sto"] + fileExtension;
+                    //    string pathToSave_100 = HttpContext.Current.Server.MapPath("~/upload/magaza/") + str_image;
+                    //    file.SaveAs(pathToSave_100);
+
+                    //}
+
                 }
-
-                HttpPostedFile file = updateFiles[i];
-
-                string fileName = file.FileName;
-                string fileExtension = file.ContentType;
-                fileExtension = Path.GetExtension(fileName);
-                str_image = Request.QueryString["sto"] + fileExtension;
-                DAL.fotograf.yukle(file, 480, str_image, Request.QueryString["sto"].ToString(), 2);
-
-
-                //if (!string.IsNullOrEmpty(fileName))
-                //{
-                //    fileExtension = Path.GetExtension(fileName);
-                //    str_image = Request.QueryString["sto"] + fileExtension;
-                //    string pathToSave_100 = HttpContext.Current.Server.MapPath("~/upload/magaza/") + str_image;
-                //    file.SaveAs(pathToSave_100);
-
-                //}
-
             }
-
-            Response.Redirect("~/management/anaYonetim/magazaYonetimi/magaza.aspx?page=odeme&sto="+ Request.QueryString["sto"] + "&pac=" + Request.QueryString["pac"]);
+            Response.Redirect("~/management/anaYonetim/magazaYonetimi/magaza.aspx?page=odeme&sto=" + Request.QueryString["sto"] + "&pac=" + Request.QueryString["pac"]);
         }
     }
 }

@@ -92,7 +92,7 @@ namespace PL.management.anaYonetim.magazaYonetimi
                 }
             }
             magazab.update(2, Request.QueryString["edit"], Request.QueryString["pac"], drpTur.SelectedValue, txtMagazaAd.Text, Request.QueryString["edit"] + "." + fileExt, magazaSure, txtAciklama.Text);
-            Response.Redirect("~/management/anaYonetim/magazaYonetimi/magaza.aspx?page=tamamlandi");
+            Response.Redirect("~/management/anaYonetim/magazaYonetimi/magaza.aspx?page=listele&proc=3");
 
         }
     }

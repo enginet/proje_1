@@ -291,10 +291,10 @@
                                     <h4 class="list-group-item-heading"><i class="fa fa-credit-card fa-2x"></i></h4>
                                     <p class="list-group-item-text">Ödeme</p>
                                 </a></li>
-                                <li class="disabled"><a href="#step-5">
+<%--                                <li class="disabled"><a href="#step-5">
                                     <h4 class="list-group-item-heading"><i class="fa fa-check fa-2x"></i></h4>
                                     <p class="list-group-item-text">Tamamlandı</p>
-                                </a></li>
+                                </a></li>--%>
                             </ul>
                         </div>
                     </div>

@@ -312,7 +312,7 @@
                     <div class="user-menu-content">
                         <h3>Bizimle Mesajlaşın
                         </h3>
-                        <ul class="user-menu-list">
+<%--                        <ul class="user-menu-list">
                             <li>
                                 <h4>From Roselyn Smith <small class="coral"><strong>NEW</strong> <i class="fa fa-clock-o"></i>7:42 A.M.</small></h4>
                             </li>
@@ -326,7 +326,7 @@
                                 <button type="button" class="btn btn-labeled btn-danger" href="#">
                                     <span class="btn-label"><i class="fa fa-envelope-o"></i></span>View All Messages</button>
                             </li>
-                        </ul>
+                        </ul>--%>
                     </div>
                     <div class="user-menu-content">
                         <h3>Hakkımızda
@@ -367,7 +367,7 @@
                                     <!-- Nav tabs -->
                                     <ul class="nav nav-tabs add-tabs" role="tablist">
                                         <li class="active"><a href="#allAds" role="tab" data-toggle="tab">Mağazanın Tüm İlanları
-                                            <span class="badge">20</span></a></li>
+                                            <span class="badge">0</span></a></li>
 
                                     </ul>
 
@@ -479,7 +479,7 @@
                             <aside>
                                 <div class="panel sidebar-panel panel-contact-seller">
                                     <div class="panel-heading">
-                                        Takipçileri <span class="badge">81</span>
+                                        Takipçileri <span class="badge">0</span>
                                     </div>
                                     <div class="panel-content user-info">
                                         <div class="panel-body text-center">
