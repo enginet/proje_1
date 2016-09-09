@@ -9,7 +9,6 @@
     <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/plugins/iCheck/square/blue.css") %>' />
     <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/dist/css/AdminLTE.min.css") %>' />
 
-
     <style>
         #uploadImage {
             float: none;
@@ -674,8 +673,8 @@
 
         jQuery('.metrekare').on('input propertychange paste', function () {
             if ($(this).val() != "") {
-                if ($("#ContentPlaceHolder1_ctl00_txtFiyat").val() != "") {
-                    $(".metrekareFiyat").val(((parseFloat($("#ContentPlaceHolder1_ctl00_txtFiyat").val().replace(",", ".")) /
+                if ($("#ContentPlaceHolder1_txtFiyat").val() != "") {
+                    $(".metrekareFiyat").val(((parseFloat($("#ContentPlaceHolder1_txtFiyat").val().replace(",", ".")) /
                                                                                 parseFloat($(".metrekare").val().replace(",", "."))).toFixed(2)).replace(".", ","));
                 }
             }
@@ -684,10 +683,10 @@
             }
         });
 
-        jQuery('#ContentPlaceHolder1_ctl00_txtFiyat').on('input propertychange paste', function () {
+        jQuery('#ContentPlaceHolder1_txtFiyat').on('input propertychange paste', function () {
             if ($(this).val() != "") {
                 if ($(".metrekare").val() != "") {
-                    $(".metrekareFiyat").val(((parseFloat($("#ContentPlaceHolder1_ctl00_txtFiyat").val().replace(",", ".")) /
+                    $(".metrekareFiyat").val(((parseFloat($("#ContentPlaceHolder1_txtFiyat").val().replace(",", ".")) /
                                                                                 parseFloat($(".metrekare").val().replace(",", "."))).toFixed(2)).replace(".", ","));
                 }
             }

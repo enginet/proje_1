@@ -18,8 +18,6 @@ namespace PL.ozellikler
         {
             if(!IsPostBack)
             {
-
-
                 ListItem lst = new ListItem();
                 lst.Text = "Seçiniz";
                 lst.Value = "";

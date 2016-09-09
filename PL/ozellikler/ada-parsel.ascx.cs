@@ -14,17 +14,19 @@ namespace PL.ozellikler
         girilebilirIlanOzellikBll gio = new girilebilirIlanOzellikBll();
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (Request.QueryString["page"] == "duzenle" && Request.QueryString["ilan"] != "")
+            if (!IsPostBack)
             {
-                if (gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 3) != null)
+                if (Request.QueryString["page"] == "duzenle" && Request.QueryString["ilan"] != "")
                 {
-                    txtAdaNo.Text = gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 3).deger;
-                }
+                    if (gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 3) != null)
+                    {
+                        txtAdaNo.Text = gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 3).deger;
+                    }
 
-                if (gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 4) != null)
-                {
-                    txtParselNo.Text = gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 4).deger;
+                    if (gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 4) != null)
+                    {
+                        txtParselNo.Text = gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 4).deger;
+                    }
                 }
             }
         }

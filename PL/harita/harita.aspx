@@ -64,6 +64,7 @@
             
             var kontrol = true;
 
+            // eğer ilan boş değilse seçilen şehire odaklan
             if(ilan.length!=0)
             {
                 map.setZoom(8);
