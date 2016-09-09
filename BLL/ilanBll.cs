@@ -652,6 +652,10 @@ namespace BLL
                 return idc.ilans.Where(i => i.ilanId == Convert.ToInt32(_income[1]) & i.silindiMi == false).ToList().FirstOrDefault();
 
             }
+            else if (_income[0].ToString() == "3")
+            {
+                return idc.ilans.Where(i => i.kullaniciId == Convert.ToInt32(_income[1]) && i.ilanId == Convert.ToInt32(_income[2])).FirstOrDefault();
+            }
             else
             {
                 return idc.ilans.Where(i => i.ilanId == Convert.ToInt32(_income[1]) & i.silindiMi == false).ToList().FirstOrDefault();

@@ -51,14 +51,14 @@
         <div class="input-group-addon">
             <i class="fa fa-calendar"></i>
         </div>
-        <asp:TextBox ID="txtSatisFiyat" runat="server" name="113" CssClass="form-control pull-right satisTarih"></asp:TextBox>
+        <asp:TextBox ID="txtSatisFiyat" runat="server" name="113" Visible="false" CssClass="form-control pull-right satisTarih"></asp:TextBox>
     </div>
 </div>
 
 <div class="form-group">
     <label for="editor1">Satış Açıklaması</label>
     <div>
-        <asp:TextBox ID="txtCKeditorAdi" runat="server" name="114" TextMode="MultiLine" ValidateRequestMode="Disabled"></asp:TextBox>
+        <asp:TextBox ID="txtCKeditorAdi" runat="server" name="114" Visible="false" TextMode="MultiLine" ValidateRequestMode="Disabled"></asp:TextBox>
     </div>
 </div>
 

@@ -69,7 +69,7 @@ namespace PL
             // 8 daire / 10 müstakil ev / 11 yalı / 16 yazlık / 18 kooperatif
             if (kategoriId.ToString() == "8" || kategoriId.ToString() == "10" || kategoriId.ToString() == "11" || kategoriId.ToString() == "16" || kategoriId.ToString() == "18")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi.ascx"));
@@ -103,7 +103,7 @@ namespace PL
             // 9 residence
             if (kategoriId.ToString() == "9")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
@@ -140,7 +140,7 @@ namespace PL
             // 12 çiftlik evi
             if (kategoriId.ToString() == "12")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/bina-arazi-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
@@ -176,7 +176,7 @@ namespace PL
             // 13 köşk & konak
             if (kategoriId.ToString() == "13")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/bina-arazi-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
@@ -213,7 +213,7 @@ namespace PL
             // 14 yalı
             if (kategoriId.ToString() == "14")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/bina-arazi-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
@@ -249,7 +249,7 @@ namespace PL
             // 15 yalı dairesi
             if (kategoriId.ToString() == "15")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
@@ -286,7 +286,7 @@ namespace PL
             // 17 prefabrik ev
             if (kategoriId.ToString() == "17")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi-text.ascx"));
@@ -309,7 +309,7 @@ namespace PL
             if (kategoriId.ToString() == "4")
             {
                 PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
-                PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+                
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/arsa-ozellik.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/tapu-durum.ascx"));
@@ -330,7 +330,7 @@ namespace PL
             // 5 bina
             if (kategoriId.ToString() == "5")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/daire-sayisi.ascx"));
@@ -365,7 +365,7 @@ namespace PL
             // 35 otel / 42 tatil köyü
             if (kategoriId.ToString() == "35" || kategoriId.ToString() == "40")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/acik-kapali-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/yildiz-sayisi.ascx"));
@@ -397,7 +397,7 @@ namespace PL
             // 36 apart otel
             if (kategoriId.ToString() == "36")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/acik-kapali-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/apart-sayisi.ascx"));
@@ -431,7 +431,7 @@ namespace PL
             // 37 butik otel / 38 pansiyon / 41 motel
             if (kategoriId.ToString() == "37" || kategoriId.ToString() == "38" || kategoriId.ToString() == "41")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/acik-kapali-metre.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/oda-yatak-kat-sayisi.ascx"));
@@ -463,7 +463,7 @@ namespace PL
             // 39 kamp yeri
             if (kategoriId.ToString() == "39")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
 
@@ -489,7 +489,7 @@ namespace PL
             // 42 plaj
             if (kategoriId.ToString() == "42")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/kapasite.ascx"));
@@ -498,7 +498,7 @@ namespace PL
             // 21 atölye
             if (kategoriId.ToString() == "21")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/durum.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/kredi-takas.ascx"));
@@ -512,7 +512,7 @@ namespace PL
             // 20 büfe
             if (kategoriId.ToString() == "20")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/yapi-tipi.ascx"));
@@ -531,7 +531,7 @@ namespace PL
             // 29 büro & ofis
             if (kategoriId.ToString() == "29")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi.ascx"));
@@ -553,7 +553,7 @@ namespace PL
             // 22 depo & antrepo
             if (kategoriId.ToString() == "22")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/giris-yuksek.ascx"));
@@ -579,7 +579,7 @@ namespace PL
             // 23 dükkan & mağaza
             if (kategoriId.ToString() == "23")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
@@ -606,7 +606,7 @@ namespace PL
             // 24 fabrika
             if (kategoriId.ToString() == "24")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/acik-kapali-metre.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
@@ -636,7 +636,7 @@ namespace PL
             // 25 İşhanı Katı
             if (kategoriId.ToString() == "25")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
@@ -667,7 +667,7 @@ namespace PL
             // 26 Komple Bina
             if (kategoriId.ToString() == "26")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bina-tipi.ascx"));
@@ -697,7 +697,7 @@ namespace PL
             // 27 Plaza Katı
             if (kategoriId.ToString() == "27")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
@@ -727,7 +727,7 @@ namespace PL
             // 28 İmalathane
             if (kategoriId.ToString() == "28")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bolum-oda-sayisi.ascx"));
@@ -746,7 +746,7 @@ namespace PL
             // 30 market
             if (kategoriId.ToString() == "30")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder7.Controls.Add(Page.LoadControl("~/ozellikler/isitma.ascx"));
@@ -760,7 +760,7 @@ namespace PL
             // 31 Restoran lokanta
             if (kategoriId.ToString() == "31")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/bina-yasi.ascx"));
@@ -781,7 +781,7 @@ namespace PL
             // 32 Kuaför Güzellik Merkezi
             if (kategoriId.ToString() == "32")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi.ascx"));
@@ -802,7 +802,7 @@ namespace PL
             // 33 Tekel Bayi
             if (kategoriId.ToString() == "33")
             {
-                PlaceHolder2.Controls.Add(Page.LoadControl("~/ozellikler/koordinat.ascx"));
+
                 PlaceHolder3.Controls.Add(Page.LoadControl("~/ozellikler/ada-parsel.ascx"));
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/isitma.ascx"));
@@ -819,26 +819,41 @@ namespace PL
         {
             if (!Page.IsPostBack)
             {
-                drpIl.DataSource = ilb.list();
-                drpIl.DataTextField = "ilAdi";
-                drpIl.DataValueField = "ilId";
-                drpIl.DataBind();
+                if (Session["unique-site-user"] != null)
+                {
+                    ilanBll ilnB = new ilanBll();
+                    if (ilnB.search(3, ((kullanici)Session["unique-site-user"]).kullaniciId, Request.QueryString["ilan"]) != null)
+                    {
+                        drpIl.DataSource = ilb.list();
+                        drpIl.DataTextField = "ilAdi";
+                        drpIl.DataValueField = "ilId";
+                        drpIl.DataBind();
 
-                drpIl.SelectedValue = ilId.ToString();
+                        drpIl.SelectedValue = ilId.ToString();
 
-                drpIlce.DataSource = ilceb.list(Convert.ToInt32(drpIl.SelectedValue));
-                drpIlce.DataTextField = "ilceAdi";
-                drpIlce.DataValueField = "ilceId";
-                drpIlce.DataBind();
+                        drpIlce.DataSource = ilceb.list(Convert.ToInt32(drpIl.SelectedValue));
+                        drpIlce.DataTextField = "ilceAdi";
+                        drpIlce.DataValueField = "ilceId";
+                        drpIlce.DataBind();
 
-                drpIlce.SelectedValue = ilceId.ToString();
+                        drpIlce.SelectedValue = ilceId.ToString();
 
-                drpMahalle.DataSource = mahalleb.list(Convert.ToInt32(drpIlce.SelectedValue));
-                drpMahalle.DataTextField = "mahalleAdi";
-                drpMahalle.DataValueField = "mahalleId";
-                drpMahalle.DataBind();
+                        drpMahalle.DataSource = mahalleb.list(Convert.ToInt32(drpIlce.SelectedValue));
+                        drpMahalle.DataTextField = "mahalleAdi";
+                        drpMahalle.DataValueField = "mahalleId";
+                        drpMahalle.DataBind();
 
-                drpMahalle.SelectedValue = mahalleId.ToString();
+                        drpMahalle.SelectedValue = mahalleId.ToString();
+                    }
+                    else
+                    {
+                        Response.Redirect("~/");
+                    }
+                }
+                else
+                {
+                    Response.Redirect("~/giris-yap.aspx");
+                }
             }
         }
 
@@ -887,6 +902,7 @@ namespace PL
                     1, // Yonetici panelinden düzenleme yapılıdğı için direk onaylı olarak güncelleme işlemi yapılmaktadır
                     1 // numara yayınlasın
                 );
+
 
 
             foreach (Control item in box_footer.Controls)

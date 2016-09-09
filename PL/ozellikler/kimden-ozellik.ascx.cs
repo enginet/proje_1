@@ -41,6 +41,18 @@ namespace PL.ozellikler
                     ozelAciklama.Text = gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 65).deger;
                 }
             }
+
+            if (Request.QueryString["page"] == "duzenle")
+            {
+                txtCKeditorAdi.Visible = true;
+                txtSatisFiyat.Visible = true;
+
+            }
+            else
+            {
+                txtCKeditorAdi.Visible = false;
+                txtSatisFiyat.Visible = false;
+            }
         }
     }
 }
