@@ -66,7 +66,7 @@
                                                 class="fa fa-times"></i><span>Yayından Kaldır</span></asp:HyperLink>
                                             <asp:HyperLink ID="HyperLink2" runat="server" CssClass="btn btn-primary  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/profil/profil.aspx?control=ilan&proc={0}&classified={1}", 3 ,Eval("ilanId"))%>'><i
                                                 class="fa fa-certificate"></i><span>Doping</span></asp:HyperLink>
-                                            <asp:HyperLink ID="HyperLink3" runat="server" CssClass="btn btn-warning  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/ilan-duzenle.aspx?ilan={0}",Eval("ilanId"))%>'><i
+                                            <asp:HyperLink ID="HyperLink3" runat="server" CssClass="btn btn-warning  btn-sm make-favorite" NavigateUrl='<%# String.Format("~/ilan-duzenle.aspx?page=duzenle&ilan={0}",Eval("ilanId"))%>'><i
                                                 class="fa fa-pencil"></i><span>Düzenle</span></asp:HyperLink>
                                         </div>
                                         <!--/.add-desc-box-->

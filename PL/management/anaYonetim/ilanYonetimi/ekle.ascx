@@ -237,8 +237,8 @@
                                         </div>
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
-                                    <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder3" runat="server"></asp:PlaceHolder>
+                                <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
+                                <asp:PlaceHolder ID="PlaceHolder3" runat="server"></asp:PlaceHolder>
                             </div>
                         </div>
                     </div>
@@ -323,36 +323,40 @@
                                         <asp:TextBox ID="txtCKeditorAdi" runat="server" TextMode="MultiLine" ValidateRequestMode="Disabled"></asp:TextBox>
                                     </div>
                                 </div>
-                                <div class="box-footer" id="box_footer" runat="Server">
-                                    <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder4" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder5" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder6" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder7" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder8" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder9" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder10" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder11" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder12" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder13" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder14" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder15" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder16" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder17" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder18" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder19" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder20" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder21" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder22" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder23" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder24" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder25" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder26" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder27" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder28" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder29" runat="server"></asp:PlaceHolder>
-                                    <asp:PlaceHolder ID="PlaceHolder30" runat="server"></asp:PlaceHolder>
-                                </div>
+                                <asp:UpdatePanel runat="server">
+                                    <ContentTemplate>
+                                        <div class="box-footer" id="box_footer" runat="Server">
+                                            <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder4" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder5" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder6" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder7" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder8" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder9" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder10" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder11" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder12" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder13" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder14" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder15" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder16" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder17" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder18" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder19" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder20" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder21" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder22" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder23" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder24" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder25" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder26" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder27" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder28" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder29" runat="server"></asp:PlaceHolder>
+                                            <asp:PlaceHolder ID="PlaceHolder30" runat="server"></asp:PlaceHolder>
+                                        </div>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
                             </div>
                         </div>
                         <!-- /.box-body -->
@@ -447,132 +451,133 @@
 <script src='<%= Page.ResolveUrl("~/management/plugins/iCheck/icheck.min.js") %>'></script>
 <script src='<%= Page.ResolveUrl("~/management/plugins/datepicker/bootstrap-datepicker.js") %>'></script>
 <script>
-    
-    $(function () {
+
+    Sys.WebForms.PageRequestManager.getInstance().add_pageLoaded(function (evt, args) {
         $('input').iCheck({
             checkboxClass: 'icheckbox_square-blue',
             radioClass: 'iradio_square-blue',
             increaseArea: '20%' // optional
         });
-    });
 
-    //Date picker
-    $('.satisTarih').datepicker({
-        autoclose: true
-    });
 
-    $('.double').keypress(function (event) {
-        if ((event.which != 44 || $(this).val().indexOf(',') != -1) && (event.which < 48 || event.which > 57)) {
-            event.preventDefault();
-        }
-    });
-
-    var map;
-    function initMap(koordinat) {
-        var koordinatlar = [];
-        map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 6,
-            center: { lat: 39, lng: 36 },
-            mapTypeId: google.maps.MapTypeId.SATELLITE
+        //Date picker
+        $('.satisTarih').datepicker({
+            autoclose: true
         });
 
-        var renk = '';
-        if ($(".kimden").val() == '100000001') { // belediye
-            renk = '#6a12bc';
-        }
-        else if ($(".kimden").val() == '100000002') { // icra
-            renk = '#ffb400';
-        }
-        else if ($(".kimden").val() == '100000003') { // izaleyi luyu
-            renk = '#a0fcff';
-        }
-        else if ($(".kimden").val() == '100000004') { // milli hazine güncel olamayan
-            renk = '#86ed00';
-        }
-        else if ($(".kimden").val() == '100000005' ||
-            $(".kimden").val() == '100000006' ||
-            $(".kimden").val() == '100000007' ||
-            $(".kimden").val() == '100000008' ||
-            $(".kimden").val() == '100000009' ||
-            $(".kimden").val() == '100000010' ||
-            $(".kimden").val() == '100000011' ||
-            $(".kimden").val() == '100000012' ||
-            $(".kimden").val() == '100000013' ||
-            $(".kimden").val() == '100000014' ||
-            $(".kimden").val() == '100000015' ||
-            $(".kimden").val() == '100000016' ||
-            $(".kimden").val() == '100000017' ||
-            $(".kimden").val() == '100000018' ||
-            $(".kimden").val() == '100000019' ||
-            $(".kimden").val() == '100000020' ||
-            $(".kimden").val() == '100000021' ||
-            $(".kimden").val() == '100000022' ||
-            $(".kimden").val() == '100000023') {
-            renk = '#fffc00';
-        }
-        else if ($(".kimden").val() == '1000000024') {
-            renk = '#e3fffe';
-        }
-        else if ($(".kimden").val() == '1000000025') {
-            renk = '#8b8b8b';
-        }
-        else if ($(".kimden").val() == '1000000028') {
-            renk = '#9d9d9d';
-        }
-
-        var obj = JSON.parse(koordinat);
-
-        for (var j = 0; j < obj["features"][0]["geometry"]["coordinates"][0].length; j++) {
-            koordinatlar.push({ lat: obj["features"][0]["geometry"]["coordinates"][0][j][1], lng: obj["features"][0]["geometry"]["coordinates"][0][j][0] });
-        }
-        sekil = new google.maps.Polygon({
-            paths: koordinatlar,
-            strokeColor: renk,
-            strokeOpacity: 0.8,
-            strokeWeight: 3,
-            fillColor: renk,
-            fillOpacity: 0.35
-        });
-        sekil.setMap(map);
-
-        var markerPosition = { lat: koordinatlar[0]["lat"], lng: koordinatlar[0]["lng"] }
-        var marker = new google.maps.Marker({
-            position: markerPosition,
-            map: map,
-            title: "ilan"
-        });
-
-        map.setZoom(17);
-        map.setCenter({ lat: koordinatlar[0]["lat"], lng: koordinatlar[0]["lng"] });
-    }
-
-    jQuery('.koordinat').focusout(function () {
-        initMap($(this).val());
-    });
-
-    jQuery('.metrekare').on('input propertychange paste', function () {
-        if ($(this).val() != "") {
-            if ($("#ContentPlaceHolder1_ctl00_txtFiyat").val() != "") {
-                $(".metrekareFiyat").val(((parseFloat($("#ContentPlaceHolder1_ctl00_txtFiyat").val().replace(",", ".")) /
-                                                                            parseFloat($(".metrekare").val().replace(",", "."))).toFixed(2)).replace(".", ","));
+        $('.double').keypress(function (event) {
+            if ((event.which != 44 || $(this).val().indexOf(',') != -1) && (event.which < 48 || event.which > 57)) {
+                event.preventDefault();
             }
-        }
-        else
-        {
-            $(".metrekareFiyat").val("");
-        }
-    });
+        });
 
-    jQuery('#ContentPlaceHolder1_ctl00_txtFiyat').on('input propertychange paste', function () {
-        if ($(this).val() != "") {
-            if ($(".metrekare").val() != "") {
-                $(".metrekareFiyat").val(((parseFloat($("#ContentPlaceHolder1_ctl00_txtFiyat").val().replace(",", ".")) /
-                                                                            parseFloat($(".metrekare").val().replace(",", "."))).toFixed(2)).replace(".", ","));
+        var map;
+        function initMap(koordinat) {
+            var koordinatlar = [];
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 6,
+                center: { lat: 39, lng: 36 },
+                mapTypeId: google.maps.MapTypeId.SATELLITE
+            });
+
+            var renk = '';
+            if ($(".kimden").val() == '100000001') { // belediye
+                renk = '#6a12bc';
             }
+            else if ($(".kimden").val() == '100000002') { // icra
+                renk = '#ffb400';
+            }
+            else if ($(".kimden").val() == '100000003') { // izaleyi luyu
+                renk = '#a0fcff';
+            }
+            else if ($(".kimden").val() == '100000004') { // milli hazine güncel olamayan
+                renk = '#86ed00';
+            }
+            else if ($(".kimden").val() == '100000005' ||
+                $(".kimden").val() == '100000006' ||
+                $(".kimden").val() == '100000007' ||
+                $(".kimden").val() == '100000008' ||
+                $(".kimden").val() == '100000009' ||
+                $(".kimden").val() == '100000010' ||
+                $(".kimden").val() == '100000011' ||
+                $(".kimden").val() == '100000012' ||
+                $(".kimden").val() == '100000013' ||
+                $(".kimden").val() == '100000014' ||
+                $(".kimden").val() == '100000015' ||
+                $(".kimden").val() == '100000016' ||
+                $(".kimden").val() == '100000017' ||
+                $(".kimden").val() == '100000018' ||
+                $(".kimden").val() == '100000019' ||
+                $(".kimden").val() == '100000020' ||
+                $(".kimden").val() == '100000021' ||
+                $(".kimden").val() == '100000022' ||
+                $(".kimden").val() == '100000023') {
+                renk = '#fffc00';
+            }
+            else if ($(".kimden").val() == '1000000024') {
+                renk = '#e3fffe';
+            }
+            else if ($(".kimden").val() == '1000000025') {
+                renk = '#8b8b8b';
+            }
+            else if ($(".kimden").val() == '1000000028') {
+                renk = '#9d9d9d';
+            }
+
+            var obj = JSON.parse(koordinat);
+
+            for (var j = 0; j < obj["features"][0]["geometry"]["coordinates"][0].length; j++) {
+                koordinatlar.push({ lat: obj["features"][0]["geometry"]["coordinates"][0][j][1], lng: obj["features"][0]["geometry"]["coordinates"][0][j][0] });
+            }
+            sekil = new google.maps.Polygon({
+                paths: koordinatlar,
+                strokeColor: renk,
+                strokeOpacity: 0.8,
+                strokeWeight: 3,
+                fillColor: renk,
+                fillOpacity: 0.35
+            });
+            sekil.setMap(map);
+
+            var markerPosition = { lat: koordinatlar[0]["lat"], lng: koordinatlar[0]["lng"] }
+            var marker = new google.maps.Marker({
+                position: markerPosition,
+                map: map,
+                title: "ilan"
+            });
+
+            map.setZoom(17);
+            map.setCenter({ lat: koordinatlar[0]["lat"], lng: koordinatlar[0]["lng"] });
         }
-        else
-        {
-            $(".metrekareFiyat").val("");
-        }
+
+        jQuery('.koordinat').focusout(function () {
+            initMap($(this).val());
+        });
+
+        jQuery('.metrekare').on('input propertychange paste', function () {
+            if ($(this).val() != "") {
+                if ($("#ContentPlaceHolder1_ctl00_txtFiyat").val() != "") {
+                    $(".metrekareFiyat").val(((parseFloat($("#ContentPlaceHolder1_ctl00_txtFiyat").val().replace(",", ".")) /
+                                                                                parseFloat($(".metrekare").val().replace(",", "."))).toFixed(2)).replace(".", ","));
+                }
+            }
+            else {
+                $(".metrekareFiyat").val("");
+            }
+        });
+
+        jQuery('#ContentPlaceHolder1_ctl00_txtFiyat').on('input propertychange paste', function () {
+            if ($(this).val() != "") {
+                if ($(".metrekare").val() != "") {
+                    $(".metrekareFiyat").val(((parseFloat($("#ContentPlaceHolder1_ctl00_txtFiyat").val().replace(",", ".")) /
+                                                                                parseFloat($(".metrekare").val().replace(",", "."))).toFixed(2)).replace(".", ","));
+                }
+            }
+            else {
+                $(".metrekareFiyat").val("");
+            }
+        });
     });
 </script>
+
+

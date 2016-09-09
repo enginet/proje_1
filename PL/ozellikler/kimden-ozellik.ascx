@@ -4,7 +4,7 @@
 <div class="form-group">
     <label for="editor1">Özel Açıklama</label>
     <div>
-        <asp:TextBox ID="ozelAciklama" runat="server" CssClass="form-control" name="65" TextMode="MultiLine" ></asp:TextBox>
+        <asp:TextBox ID="ozelAciklama" runat="server" CssClass="form-control" name="65" TextMode="MultiLine"></asp:TextBox>
     </div>
 </div>
 
@@ -24,7 +24,7 @@
 </div>
 
 <div class="form-group">
-    <label>1. Satış Tarihi :</label>
+    <label>1. Satış Tarihi</label>
 
     <div class="input-group date">
         <div class="input-group-addon">
@@ -35,7 +35,7 @@
 </div>
 
 <div class="form-group">
-    <label>2. Satış Tarihi :</label>
+    <label>2. Satış Tarihi</label>
 
     <div class="input-group date">
         <div class="input-group-addon">
@@ -45,3 +45,25 @@
     </div>
 </div>
 
+<div class="form-group">
+    <label>Satış Fiyatı</label>
+    <div class="input-group date">
+        <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+        </div>
+        <asp:TextBox ID="txtSatisFiyat" runat="server" name="113" CssClass="form-control pull-right satisTarih"></asp:TextBox>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="editor1">Satış Açıklaması</label>
+    <div>
+        <asp:TextBox ID="txtCKeditorAdi" runat="server" name="114" TextMode="MultiLine" ValidateRequestMode="Disabled"></asp:TextBox>
+    </div>
+</div>
+
+<script>
+    window.onload = function () {
+        var editor = CKEDITOR.replace('<% = txtCKeditorAdi.ClientID %>');
+    };
+</script>

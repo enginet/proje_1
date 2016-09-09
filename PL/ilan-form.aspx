@@ -9,10 +9,10 @@
     <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/plugins/iCheck/square/blue.css") %>' />
     <link rel="stylesheet" href='<%= Page.ResolveUrl("~/management/dist/css/AdminLTE.min.css") %>' />
     <style>
-        
         #uploadImage {
             float: none;
         }
+
         body {
             padding-top: 20px;
         }
@@ -444,39 +444,44 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-                                                                        <div class="box-footer" id="box_footer" runat="server">
-                                                                            <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder3" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder4" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder5" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder6" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder7" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder8" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder9" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder10" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder11" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder12" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder13" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder14" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder15" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder16" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder17" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder18" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder19" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder20" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder21" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder22" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder23" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder24" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder25" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder26" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder27" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder28" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder29" runat="server"></asp:PlaceHolder>
-                                                                            <asp:PlaceHolder ID="PlaceHolder30" runat="server"></asp:PlaceHolder>
-                                                                        </div>
+                                                                        <asp:UpdatePanel runat="server">
+                                                                            <ContentTemplate>
+                                                                                <div class="box-footer" id="box_footer" runat="server">
+                                                                                    <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder3" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder4" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder5" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder6" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder7" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder8" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder9" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder10" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder11" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder12" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder13" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder14" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder15" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder16" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder17" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder18" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder19" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder20" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder21" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder22" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder23" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder24" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder25" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder26" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder27" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder28" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder29" runat="server"></asp:PlaceHolder>
+                                                                                    <asp:PlaceHolder ID="PlaceHolder30" runat="server"></asp:PlaceHolder>
+                                                                                </div>
+                                                                            </ContentTemplate>
+                                                                        </asp:UpdatePanel>
                                                                 </div>
                                                                 <div>
                                                                 </div>
@@ -523,7 +528,6 @@
                                                                 <div class="form-horizontal">
                                                                     <fieldset>
                                                                         <div class="col-md-4">
-                                                                            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                                                                             <asp:UpdatePanel runat="server">
                                                                                 <ContentTemplate>
                                                                                     <div class="form-group">
@@ -576,7 +580,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-xs-1 col-xs-offset-11" style="padding:0;">
+                                                    <div class="col-xs-1 col-xs-offset-11" style="padding: 0;">
                                                         <asp:Button ID="devam" runat="server" CssClass="btn btn-success" Text="Devam Et" OnClick="devam_Click1" Style="float: right; margin-top: 15px;" />
                                                     </div>
                                                 </div>
