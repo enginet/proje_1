@@ -16,17 +16,12 @@ namespace PL.ozellikler
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
                 ListItem lst = new ListItem();
                 lst.Text = "Seçiniz";
                 lst.Value = "";
-
-                drpKatKar.DataSource = ozellikb.selectFieldList(11);
-                drpKatKar.DataTextField = "deger";
-                drpKatKar.DataValueField = "secilebilirOzellikDegerId";
-                drpKatKar.DataBind();
-                drpKatKar.Items.Insert(0, lst);
 
                 drpMalikDrm.DataSource = ozellikb.selectFieldList(106);
                 drpMalikDrm.DataTextField = "deger";
@@ -39,24 +34,10 @@ namespace PL.ozellikler
                 drpImarDrm.DataValueField = "secilebilirOzellikDegerId";
                 drpImarDrm.DataBind();
                 drpImarDrm.Items.Insert(0, lst);
-
+                
 
                 if (Request.QueryString["page"] == "duzenle" && Request.QueryString["ilan"] != "")
                 {
-                    if (sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 11) != null)
-                    {
-                        drpKatKar.SelectedValue = sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 11).ozellikDegerId.ToString();
-                    }
-
-                    if (sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 9) != null)
-                    {
-                        drpKask.SelectedValue = sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 9).ozellikDegerId.ToString();
-                    }
-
-                    if (sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 10) != null)
-                    {
-                        drpGabari.SelectedValue = sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 10).ozellikDegerId.ToString();
-                    }
 
                     if (gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 12) != null)
                     {
@@ -67,35 +48,58 @@ namespace PL.ozellikler
                     {
                         txtPaftaNo.Text = gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 8).deger;
                     }
-                    if (gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 106) != null)
-                    {
-                        drpMalikDrm.SelectedValue = gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 106).deger;
-                    }
+                    //if (sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 106) != null)
+                    //{
 
-                    if (gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 107) != null)
-                    {
-                        txtHisseAlani.Text = gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 107).deger;
-                    }
-                    if (gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 108) != null)
-                    {
-                        drpImarDrm.SelectedValue = gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 108).deger;
-                    }
-                    if (gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 109) != null)
-                    {
-                        drpImarNitelik.SelectedValue = gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 109).deger;
-                    }
-                    if (gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 110) != null)
-                    {
-                        drpYapiNizam.SelectedValue = gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 110).deger;
-                    }
-                    if (gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 111) != null)
-                    {
-                        drpTask.SelectedValue = gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 111).deger;
-                    }
-                    if (gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 112) != null)
-                    {
-                        drpEmsal.SelectedValue = gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 112).deger;
-                    }
+                    //    drpMalikDrm.SelectedValue = sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 106).ozellikDegerId.ToString();
+                    //}
+
+                    //if (gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 107) != null)
+                    //{
+                    //    //txtHisseAlani.Visible = true;
+                    //    //if (drpMalikDrm.SelectedValue != "")
+                    //    //{
+                    //        txtHisseAlani.Visible = true;
+                    //        txtHisseAlani.Text = gio.search(Convert.ToInt32(Request.QueryString["ilan"]), 107).deger;
+                    //    //}
+                    //}
+
+
+                    //if (sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 108) != null)
+                    //{
+                    //    drpImarDrm.SelectedValue = sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 108).ozellikDegerId.ToString();
+                    //}
+
+                    //if (sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 11) != null)
+                    //{
+                    //    drpKatKar.SelectedValue = sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 11).ozellikDegerId.ToString();
+                    //}
+
+                    //if (sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 9) != null)
+                    //{
+                    //    drpKask.SelectedValue = sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 9).ozellikDegerId.ToString();
+                    //}
+
+                    //if (sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 10) != null)
+                    //{
+                    //    drpGabari.SelectedValue = sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 10).ozellikDegerId.ToString();
+                    //}
+                    //if (sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 109) != null)
+                    //{
+                    //    drpImarNitelik.SelectedValue = sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 109).ozellikDegerId.ToString();
+                    //}
+                    //if (sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 110) != null)
+                    //{
+                    //    drpYapiNizam.SelectedValue = sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 110).ozellikDegerId.ToString();
+                    //}
+                    //if (sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 111) != null)
+                    //{
+                    //    drpTask.SelectedValue = sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 111).ozellikDegerId.ToString();
+                    //}
+                    //if (sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 112) != null)
+                    //{
+                    //    drpEmsal.SelectedValue = sioBll.search(Convert.ToInt32(Request.QueryString["ilan"]), 112).ozellikDegerId.ToString();
+                    //}
                 }
             }
         }
@@ -180,6 +184,12 @@ namespace PL.ozellikler
                 drpKask.DataValueField = "secilebilirOzellikDegerId";
                 drpKask.DataBind();
                 drpKask.Items.Insert(0, lst);
+
+                drpKatKar.DataSource = ozellikb.selectFieldList(11);
+                drpKatKar.DataTextField = "deger";
+                drpKatKar.DataValueField = "secilebilirOzellikDegerId";
+                drpKatKar.DataBind();
+                drpKatKar.Items.Insert(0, lst);
             }
             else
             {

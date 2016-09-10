@@ -20,7 +20,18 @@
     <link href="libraries/assets/css/style.css" rel="stylesheet" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
+        ga('create', 'UA-83917838-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
 
     <script src='<%= Page.ResolveUrl("~/libraries/assets/bootstrap/js/bootstrap.min.js") %>'></script>
     <!-- Just for debugging purposes. -->
@@ -140,7 +151,7 @@
                                     class="icon-bar"></span><span class="icon-bar"></span>
                             </button>
 
-                            <asp:HyperLink ID="hypAna" CssClass="navbar-brand logo logo-title" style="text-transform:lowercase;" runat="server" NavigateUrl="~/default.aspx"><span class="logo-icon"><i class="icon icon-docs ln-shadow-logo shape-0"></i></span>
+                            <asp:HyperLink ID="hypAna" CssClass="navbar-brand logo logo-title" Style="text-transform: lowercase;" runat="server" NavigateUrl="~/default.aspx"><span class="logo-icon"><i class="icon icon-docs ln-shadow-logo shape-0"></i></span>
                                     kral<span>ilan.com </span></asp:HyperLink>
                         </div>
                         <div class="navbar-collapse collapse">
@@ -206,7 +217,7 @@
                                     <asp:HyperLink ID="hypIlanVer" CssClass="btn btn-block  btn-border btn-post btn-danger" Style="font-size: 14px;" runat="server" NavigateUrl="~/kategori-secimi.aspx"><span class="ion ion-plus-round" style="font-size: 16px; padding-right: 5px;"></span> Ücretsiz İlan Ver</asp:HyperLink>
                                 </li>
                                 <li>
-                                    <asp:HyperLink ID="btn_liste" CssClass="btn btn-liste btn-success" Style="font-size: 14px; color:#fff; margin-left:15px;" runat="server" Visible="false"><span class="fa fa-list-ul" style="font-size: 16px; padding-right: 5px;"></span>Liste</asp:HyperLink>
+                                    <asp:HyperLink ID="btn_liste" CssClass="btn btn-liste btn-success" Style="font-size: 14px; color: #fff; margin-left: 15px;" runat="server" Visible="false"><span class="fa fa-list-ul" style="font-size: 16px; padding-right: 5px;"></span>Liste</asp:HyperLink>
                                 </li>
                             </ul>
                         </div>
@@ -224,7 +235,7 @@
                 <div class="container">
                     <ul class=" pull-left navbar-link footer-nav">
                         <li><a href="#">Anasayfa </a><a href="about-us.html">Hakkımızda </a><a href="#">Şartlar ve Koşullar </a><a href="#">GİZLİLİK POLİTİKASI </a><a href="contact.html">İLETİŞİM </a><a
-                        href="faq.html">SSS </a>
+                            href="faq.html">SSS </a>
                     </ul>
                     <ul class=" pull-right navbar-link footer-nav">
                         <li>&copy; 2015 kralilan.com</li>

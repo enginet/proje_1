@@ -773,8 +773,6 @@ namespace PL.management.anaYonetim.ilanYonetimi
             // 32 Kuaför Güzellik Merkezi
             if (kategoriId.ToString() == "32")
             {
-
-
                 PlaceHolder4.Controls.Add(Page.LoadControl("~/ozellikler/metre-kare.ascx"));
                 PlaceHolder5.Controls.Add(Page.LoadControl("~/ozellikler/oda-sayisi.ascx"));
                 PlaceHolder6.Controls.Add(Page.LoadControl("~/ozellikler/isitma.ascx"));
@@ -982,8 +980,13 @@ namespace PL.management.anaYonetim.ilanYonetimi
                             if (((TextBox)item2).Text != "")
                             {
                                 JObject obj = JObject.Parse(((TextBox)item2).Text);
+                                string kaydet = ((TextBox)item2).Text;
 
-                                string kaydet = "{\"type\":\"MultiPolygon\",\"coordinates\":[" + obj["features"][0]["geometry"]["coordinates"].ToString().Replace("\r", "").Replace("\n", "").Replace(" ", "") + "]}";
+                                if(obj["features"]!=null)
+                                {
+                                    kaydet = "{\"type\":\"MultiPolygon\",\"coordinates\":[" + obj["features"][0]["geometry"]["coordinates"].ToString().Replace("\r", "").Replace("\n", "").Replace(" ", "") + "]}";
+                                }
+
 
                                 goBll.update(ilanId, ((TextBox)item2).Attributes["name"], kaydet);
                             }
